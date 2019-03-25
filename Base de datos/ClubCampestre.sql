@@ -11,8 +11,8 @@ create table TB_Persona (
 		IdPersona varchar (20) not null,--PK
 		Nombre varchar (50) not null, 
 		Direccion varchar (150) not null,
-		IdCorreo smallint not null,-- FK
-		Telefono varchar (10) not null,-- FK
+		/*IdCorreo smallint not null,FK
+		Telefono varchar (10) not null,FK*/
 		IdRol tinyint not null,--FK
 		constraint [PK_IdPersona] primary key clustered(
 					IdPersona asc
@@ -20,6 +20,16 @@ create table TB_Persona (
 )
 go
 
+
+create table TB_Usuarios (
+		IdUsuario varchar (6) not null,--PK
+		IdPersona varchar (20) not null, 
+		Contraseña varchar (10) not null,
+		constraint [PK_IdUsuario] primary key clustered(
+					IdUsuario asc
+		)
+)
+go
 
 create table TB_Rol (
 		IdRol tinyint  identity (1,1) not null,--PK
@@ -32,7 +42,7 @@ go
 
 create table TB_Correos (
 		IdCorreo smallint identity (1,1) not null,--PK
-		IdPersona varchar (20) not null, --FK, pendiente
+		IdPersona varchar (20) not null, --FK
 		Correo varchar (60) not null,
 		constraint [PK_IdCorreo] primary key clustered(
 					IdCorreo asc
@@ -43,7 +53,7 @@ go
 
 create table TB_Telefonos (
 		Telefono varchar (10) not null,--PK
-		IdPersona varchar (20) not null, --FK. pendiente----------------
+		IdPersona varchar (20) not null, --FK
 		constraint [PK_Telefono] primary key clustered(
 					Telefono asc
 		)
@@ -184,18 +194,6 @@ go
 
 -----Foreign Keys-------------
 --------TB_Persona----------------------------
-alter table [dbo].[TB_Persona] with nocheck 
-	add constraint [FK_TB_Persona_TB_Correos_IdCorreo] foreign key([IdCorreo])
-		references [dbo].[TB_Correos] ([IdCorreo])
-		on update cascade
-go
-
-alter table [dbo].[TB_Persona] with nocheck 
-	add constraint [FK_TB_Persona_TB_Telefonos_Telefono] foreign key([Telefono])
-		references [dbo].[TB_Telefonos] ([Telefono])
-		on update cascade
-go
-
 
 alter table [dbo].[TB_Persona] with nocheck 
 	add constraint [FK_TB_Persona_TB_Rol_IdRol] foreign key([IdRol])
@@ -203,18 +201,35 @@ alter table [dbo].[TB_Persona] with nocheck
 		on update cascade
 go
 
+----------------TB_Telefonos------------------------------
 
+alter table [dbo].[TB_Telefonos] with nocheck 
+	add constraint [FK_TB_Telefonos_TB_Persona_IdPersona] foreign key([IdPersona])
+		references [dbo].[TB_Persona] ([IdPersona])
+		on update cascade
+go
+
+
+
+
+------------------TB_Correos------------------------------------
+
+alter table [dbo].[TB_Correos] with nocheck 
+	add constraint [FK_TB_Correos_TB_Persona_IdPersona] foreign key([IdPersona])
+		references [dbo].[TB_Persona] ([IdPersona])
+		on update cascade
+go
 
 -------Tb_clientes----------------
 
 alter table [dbo].[TB_Clientes] with nocheck 
-	add constraint [FK_TB_Clientes_TB_TipoCliente] foreign key([IdTipoCliente])
+	add constraint [FK_TB_Clientes_TB_TipoCliente_IdTipoCliente] foreign key([IdTipoCliente])
 		references [dbo].[TB_TipoCliente] ([IdTipoCliente])
 		on update cascade
 go
 
 alter table [dbo].[TB_Clientes] with nocheck 
-	add constraint [FK_TB_Clientes_TB_Persona] foreign key([IdPersona])
+	add constraint [FK_TB_Clientes_TB_Persona_IdPersona] foreign key([IdPersona])
 		references [dbo].[TB_Persona] ([IdPersona])
 		on update cascade
 go
@@ -223,19 +238,19 @@ go
 
 ----------TB_Beneficiarios--------------------------
 alter table [dbo].[TB_Beneficiarios] with nocheck 
-	add constraint [FK_TB_Beneficiarios_TB_Persona] foreign key([IdPersona])
+	add constraint [FK_TB_Beneficiarios_TB_Persona_IdPersona] foreign key([IdPersona])
 		references [dbo].[TB_Persona] ([IdPersona])
 		on update cascade
 go
 
 alter table [dbo].[TB_Beneficiarios] with nocheck 
-	add constraint [FK_TB_Beneficiarios_TB_Clientes] foreign key([IdCliente])
+	add constraint [FK_TB_Beneficiarios_TB_Clientes_IdCliente] foreign key([IdCliente])
 		references [dbo].[TB_Clientes] ([IdCliente])
 		
 go
 
 alter table [dbo].[TB_Beneficiarios] with nocheck 
-	add constraint [FK_TB_Beneficiarios_TB_Estado] foreign key([IdEstado])
+	add constraint [FK_TB_Beneficiarios_TB_Estado_IdEstado] foreign key([IdEstado])
 		references [dbo].[TB_Estado] ([IdEstado])
 		on update cascade
 go
@@ -245,19 +260,19 @@ go
 ------------------TB_Servicio----------------------------
 
 alter table [dbo].[TB_Servicio] with nocheck 
-	add constraint [FK_TB_Servicio_TB_Clientes] foreign key([IdCliente])
+	add constraint [FK_TB_Servicio_TB_Clientes_IdCliente] foreign key([IdCliente])
 		references [dbo].[TB_Clientes] ([IdCliente])
 		on update cascade
 go
 
 alter table [dbo].[TB_Servicio] with nocheck 
-	add constraint [FK_TB_Servicio_TB_Estado] foreign key([IdEstado])
+	add constraint [FK_TB_Servicio_TB_Estado_IdEstado] foreign key([IdEstado])
 		references [dbo].[TB_Estado] ([IdEstado])
 		on update cascade
 go
 
 alter table [dbo].[TB_Servicio] with nocheck 
-	add constraint [FK_TB_Servicio_TB_TipoServicio] foreign key([IdTipoServicio])
+	add constraint [FK_TB_Servicio_TB_TipoServicio_IdTipoServicio] foreign key([IdTipoServicio])
 		references [dbo].[TB_TipoServicio] ([IdTipoServicio])
 		on update cascade
 go
@@ -268,19 +283,19 @@ go
 ------------------TB_Membresia----------------------------
 
 alter table [dbo].[TB_Membresias] with nocheck 
-	add constraint [FK_TB_Membresia_TB_Clientes] foreign key([IdCliente])
+	add constraint [FK_TB_Membresia_TB_Clientes_IdCliente] foreign key([IdCliente])
 		references [dbo].[TB_Clientes] ([IdCliente])
 		
 go
 
 alter table [dbo].[TB_Membresias] with nocheck 
-	add constraint [FK_TB_Membresia_TB_Estado] foreign key([IdEstado])
+	add constraint [FK_TB_Membresia_TB_Estado_IdEstado] foreign key([IdEstado])
 		references [dbo].[TB_Estado] ([IdEstado])
 		on update cascade
 go
 
 alter table [dbo].[TB_Membresias] with nocheck 
-	add constraint [FK_TB_Membresia_TB_TipoMembresia] foreign key([IdTipoMembresia])
+	add constraint [FK_TB_Membresia_TB_TipoMembresia_IdTipoMembresia] foreign key([IdTipoMembresia])
 		references [dbo].[TB_TipoMembresia] ([IdTipoMembresia])
 		on update cascade
 go
@@ -291,14 +306,14 @@ go
 
 
 alter table [dbo].[TB_Ingresos] with nocheck 
-	add constraint [FK_TB_Ingresos_TB_Clientes] foreign key([IdCliente])
+	add constraint [FK_TB_Ingresos_TB_Clientes_IdCliente] foreign key([IdCliente])
 		references [dbo].[TB_Clientes] ([IdCliente])
 		on update cascade
 go
 
 
 alter table [dbo].[TB_Ingresos] with nocheck 
-	add constraint [FK_TB_Ingresos_TB_Membresias] foreign key([IdMembresia])
+	add constraint [FK_TB_Ingresos_TB_Membresias_IdMembresia] foreign key([IdMembresia])
 		references [dbo].[TB_Membresias] ([IdMembresia])
 		on update cascade
 go
@@ -309,7 +324,7 @@ go
 
 
 alter table [dbo].[TB_Facturacion] with nocheck 
-	add constraint [FK_TB_Facturacion_TB_Clientes] foreign key([IdCliente])
+	add constraint [FK_TB_Facturacion_TB_Clientes_IdCliente] foreign key([IdCliente])
 		references [dbo].[TB_Clientes] ([IdCliente])
 		on update cascade
 go
@@ -319,22 +334,29 @@ go
 -------------TB_FacturaDetalle----------------
 
 alter table [dbo].[TB_FacturaDetalle] with nocheck 
-	add constraint [FK_TB_FacturaDetalle_TB_Facturacion] foreign key([IdFactura])
+	add constraint [FK_TB_FacturaDetalle_TB_Facturacion_IdFactura] foreign key([IdFactura])
 		references [dbo].[TB_Facturacion] ([IdFactura])
 		on update cascade
 go
 
 
 alter table [dbo].[TB_FacturaDetalle] with nocheck 
-	add constraint [FK_TB_FacturaDetalle_TB_Membresias] foreign key([IdMembresia])
+	add constraint [FK_TB_FacturaDetalle_TB_Membresias_IdMembresia] foreign key([IdMembresia])
 		references [dbo].[TB_Membresias] ([IdMembresia])
 		on update cascade
 go
 
 
 alter table [dbo].[TB_FacturaDetalle] with nocheck 
-	add constraint [FK_TB_FacturaDetalle_TB_TipoServicio] foreign key([IdTipoServicio])
+	add constraint [FK_TB_FacturaDetalle_TB_TipoServicio_IdTipoServicio] foreign key([IdTipoServicio])
 		references [dbo].[TB_TipoServicio] ([IdTipoServicio])
 		on update cascade
 go
 
+------------------TB_Usuarios---------------------
+
+alter table [dbo].[TB_Usuarios] with nocheck 
+	add constraint [FK_TB_Usuarios_TB_Persona_IdPersona] foreign key([IdPersona])
+		references [dbo].[TB_Persona] ([IdPersona])
+		on update cascade
+go
