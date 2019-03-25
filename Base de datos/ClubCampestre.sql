@@ -24,7 +24,7 @@ go
 create table TB_Usuarios (
 		IdUsuario varchar (6) not null,--PK
 		IdPersona varchar (20) not null, 
-		Contraseña varchar (10) not null,
+		Contrasena varchar (10) not null,
 		constraint [PK_IdUsuario] primary key clustered(
 					IdUsuario asc
 		)
