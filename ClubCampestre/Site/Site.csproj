@@ -130,10 +130,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClubCampestre_DAL\ClubCampestre_DAL.csproj">
-      <Project>{b457eb65-1a38-4a11-acaa-cdeaa0bb5b8a}</Project>
-      <Name>ClubCampestre_DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WCF\WCF.csproj">
       <Project>{793a90c1-e6e5-4033-86e7-c486f4d670f5}</Project>
       <Name>WCF</Name>
@@ -154,7 +150,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1876</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1876/</IISUrl>
+          <IISUrl>http://localhost:20191/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

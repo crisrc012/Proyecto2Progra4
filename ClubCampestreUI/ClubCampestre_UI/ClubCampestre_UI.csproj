@@ -211,6 +211,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClubCampestre_BLL\ClubCampestre_BLL.csproj">
+      <Project>{3d24fad9-47a5-44c6-98cb-a276fa0eae43}</Project>
+      <Name>ClubCampestre_BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClubCampestre_DAL\ClubCampestre_DAL.csproj">
       <Project>{b457eb65-1a38-4a11-acaa-cdeaa0bb5b8a}</Project>
       <Name>ClubCampestre_DAL</Name>
@@ -242,7 +246,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1870</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1870/</IISUrl>
+          <IISUrl>http://localhost:20192/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
