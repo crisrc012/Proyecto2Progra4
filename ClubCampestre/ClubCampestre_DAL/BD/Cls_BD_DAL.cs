@@ -12,7 +12,7 @@ namespace ClubCampestre_DAL.BD
         #region Variables
         private string _smsj_error, _scadena_conexion;
 
-        public string Smsj_error
+        public string sMsj_error
         {
             get
             {
@@ -25,7 +25,7 @@ namespace ClubCampestre_DAL.BD
             }
         }
 
-        public string Scadena_conexion
+        public string sCadena_conexion
         {
             get
             {
