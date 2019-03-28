@@ -11,8 +11,6 @@ create table TB_Persona (
 		IdPersona varchar (20) not null,--PK
 		Nombre varchar (50) not null, 
 		Direccion varchar (150) not null,
-		/*IdCorreo smallint not null,FK
-		Telefono varchar (10) not null,FK*/
 		IdRol tinyint not null,--FK
 		constraint [PK_IdPersona] primary key clustered(
 					IdPersona asc

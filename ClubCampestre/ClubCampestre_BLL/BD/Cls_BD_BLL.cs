@@ -43,6 +43,7 @@ namespace ClubCampestre_BLL.BD
                 // Se establece en vacío el mensaje de error
                 Obj_BD_DAL.sMsj_error = string.Empty;
                 sMsjError = string.Empty;
+                // Se retorna el DataTable de índice 0 que está en el DataSet
                 return DS.Tables[0];
             }
             catch (SqlException e)

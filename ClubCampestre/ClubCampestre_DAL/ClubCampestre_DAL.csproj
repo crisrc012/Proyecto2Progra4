@@ -41,8 +41,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\Cls_BD_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Beneficiarios_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Clientes_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Correos_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Estado_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Facturacion_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Ingresos_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Membresias_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Persona_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Rol_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Servicio_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_FacturaDetalle_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Telefonos_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoMembresia_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Usuarios_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
