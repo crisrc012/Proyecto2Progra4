@@ -14,6 +14,11 @@ namespace Club_Campestre
 {
     public partial class Estados : System.Web.UI.Page
     {
+        #region Variables Globales
+        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+        Cls_Estado_DAL Obj_Estado_DAL;
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,81 +29,46 @@ namespace Club_Campestre
 
         private void BindGrid()
         {
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            //Se instancia objeto
+            Obj_Estado_DAL = new Cls_Estado_DAL();
+            //llamado metodo listar estados
             Obj_Estado_BLL.listarEstado(ref Obj_Estado_DAL);
-
-            /*
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Estado");
-            dt.Columns.Add("Descripcion");
-            dt.Columns.Add("chkRow");
-
-            DataRow dr = dt.NewRow();
-            dr["Estado"] = "A";
-            dr["Descripcion"] = "Activo";
-            dr["chkRow"] = false;
-            dt.Rows.Add(dr);
-
-            DataRow dr1 = dt.NewRow();
-            dr1["Estado"] = "I";
-            dr1["Descripcion"] = "Inactivo";
-            dr1["chkRow"] = false;
-            dt.Rows.Add(dr1);
-            */
-
+            //Carga de Grid con DataSet instanciado en DAL
             this.EstadoGridView.DataSource = Obj_Estado_DAL.DS.Tables[0];
-            this.EstadoGridView.DataBind();
-
-            // string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            // using (SqlConnection con = new SqlConnection(constr))
-            // {
-            //     using (SqlCommand cmd = new SqlCommand("SELECT [HobbyId], [Hobby], [IsSelected] FROM Hobbies"))
-            //     {
-            //         using (SqlDataAdapter sda = new SqlDataAdapter())
-            //         {
-            //             cmd.Connection = con;
-            //             sda.SelectCommand = cmd;
-            //             using (DataTable dt = new DataTable())
-            //             {
-            //                 sda.Fill(dt);
-            //                 GridView1.DataSource = dt;
-            //                 GridView1.DataBind();
-            //             }
-            //         }
-            //     }
-            // }
+            this.EstadoGridView.DataBind();            
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            //Sesion tipo nuevo
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Estados.aspx", false);
+            Server.Transfer("Mant_Estados.aspx", false);//llama pantalla
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
+            //Se instancia objeto
+            Obj_Estado_DAL = new Cls_Estado_DAL();
+            //Secion tipo Editar
             Session["tipo"] = "E";
-            string Estado = "", Descripcion = "";
+            //Recorre Grid buscando chk 
             foreach (GridViewRow row in EstadoGridView.Rows)
             {
+                //busca el la fila
                 if (row.RowType == DataControlRowType.DataRow)
                 {
+                    //si esta checkeado instancia las propiedades del objeto
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Estado = row.Cells[0].Text;
-                        Descripcion = row.Cells[1].Text;
+                        Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
+                        Obj_Estado_DAL.SPKEstado = row.Cells[1].Text;
 
+                        //Sesion estado lleva el objeto
+                        Session["Estado"] = Obj_Estado_DAL;
+                        Server.Transfer("Mant_Estados.aspx");//llama la pantalla 
                     }
-
-                    Cls_Estado_DAL estado = new Cls_Estado_DAL();
-                    //Usuario Usu1 = new Usuario(nombre, cedula);
-                    estado.CIdEstado = Convert.ToChar(Estado);
-                    estado.SPKEstado = Descripcion;
-                    Session["Estado"] = estado;
-                    Server.Transfer("Mant_Estados.aspx");
+                    
                 }
             }
         }

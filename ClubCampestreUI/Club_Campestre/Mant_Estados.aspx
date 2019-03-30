@@ -9,7 +9,7 @@
     
         <tr>
             <td class="style1">
-                <strong>Cédula:</strong></td>
+                <strong style =" color : black">Cédula:</strong></td>
             <td>
                 <asp:TextBox ID="TextBox_Cedula" runat="server" ForeColor="Blue"></asp:TextBox>
             </td>
@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td class="style1">
-                <strong>Nombre:</strong></td>
+                <strong style =" color : black">Nombre:</strong></td>
             <td>
                 <asp:TextBox ID="TextBox_Nombre" runat="server" ForeColor="Blue"></asp:TextBox>
             </td>

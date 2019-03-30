@@ -14,7 +14,7 @@ namespace Club_Campestre.Mantenimiento
         {
             if (!IsPostBack)
             {
-                 Cls_Estado_DAL estado = (Cls_Estado_DAL)Session["Estado"];
+                Cls_Estado_DAL estado = (Cls_Estado_DAL)Session["Estado"];
                 string tipo = Session["tipo"].ToString();
                 if (estado != null & tipo == "E")
                 {
@@ -38,7 +38,18 @@ namespace Club_Campestre.Mantenimiento
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
+            Obj_Estado_DAL.CIdEstado = Convert.ToChar(TextBox_Cedula);
+            Obj_Estado_DAL.SPKEstado = TextBox_Nombre.ToString();
+            string tipo = Session["tipo"].ToString();
+            if ( tipo == "E")
+            {
+                //metodo update
+            }
+            else
+            {
+                //metodo insert
+            }
         }
     }
 }
