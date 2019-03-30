@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
+using ClubCampestre_BLL.CatalogosMantenimientos;
 
 namespace Club_Campestre
 {
@@ -23,6 +24,11 @@ namespace Club_Campestre
 
         private void BindGrid()
         {
+            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Obj_Estado_BLL.listarEstado(ref Obj_Estado_DAL);
+
+            /*
             DataTable dt = new DataTable();
 
             dt.Columns.Add("Estado");
@@ -40,8 +46,9 @@ namespace Club_Campestre
             dr1["Descripcion"] = "Inactivo";
             dr1["chkRow"] = false;
             dt.Rows.Add(dr1);
+            */
 
-            this.EstadoGridView.DataSource = dt;
+            this.EstadoGridView.DataSource = Obj_Estado_DAL.DS.Tables[0];
             this.EstadoGridView.DataBind();
 
             // string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;

@@ -36,7 +36,7 @@
             <div class=" wrapper row1">
                 <header id="header" class="hoc clear">
                     <div id="logo" class="fl_left">
-                        <h1><a id="Titulo" href="index.html">CLUB CAMPESTRE</a></h1>
+                        <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
                         <p>Descanso y Relajacion a su Alcance</p>
                     </div>
                     <nav id="mainav" class="fl_right">
