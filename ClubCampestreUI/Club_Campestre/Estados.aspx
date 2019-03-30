@@ -20,8 +20,8 @@
             AutoGenerateColumns="false" ForeColor="Blue">
             <Columns>
                
-                <asp:BoundField DataField="Estado" HeaderText="Estado"   />
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                <asp:BoundField DataField="IdEstado" HeaderText="Estado"   />
+                <asp:BoundField DataField="Estado" HeaderText="Descripcion" />
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
