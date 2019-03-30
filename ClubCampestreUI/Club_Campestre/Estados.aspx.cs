@@ -21,12 +21,20 @@ namespace Club_Campestre
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+
+
+            //Metodo que agregar 
         private void BindGrid()
         {
             //Se instancia objeto
@@ -35,16 +43,39 @@ namespace Club_Campestre
             Obj_Estado_BLL.listarEstado(ref Obj_Estado_DAL);
             //Carga de Grid con DataSet instanciado en DAL
             this.EstadoGridView.DataSource = Obj_Estado_DAL.DS.Tables[0];
-            this.EstadoGridView.DataBind();            
+            this.EstadoGridView.DataBind();
+
+            // string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            // using (SqlConnection con = new SqlConnection(constr))
+            // {
+            //     using (SqlCommand cmd = new SqlCommand("SELECT [HobbyId], [Hobby], [IsSelected] FROM Hobbies"))
+            //     {
+            //         using (SqlDataAdapter sda = new SqlDataAdapter())
+            //         {
+            //             cmd.Connection = con;
+            //             sda.SelectCommand = cmd;
+            //             using (DataTable dt = new DataTable())
+            //             {
+            //                 sda.Fill(dt);
+            //                 GridView1.DataSource = dt;
+            //                 GridView1.DataBind();
+            //             }
+            //         }
+            //     }
+            // }
         }
 
+
+        //Boton nuevo 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            //Sesion tipo nuevo
             Session["tipo"] = "N";
             Server.Transfer("Mant_Estados.aspx", false);//llama pantalla
         }
 
+
+
+        //boton 2 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             //Se instancia objeto

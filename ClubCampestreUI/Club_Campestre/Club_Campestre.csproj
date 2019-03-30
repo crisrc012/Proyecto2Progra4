@@ -48,8 +48,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,23 +66,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
     <Content Include="Mant_Estados.aspx" />
+    <Content Include="Mant_Tipo_Cliente.aspx" />
+    <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="packages.config" />
-    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
-    <None Include="Service References\SVC_CatalogosMantenimientos\configuration91.svcinfo" />
-    <None Include="Service References\SVC_CatalogosMantenimientos\configuration.svcinfo" />
-    <None Include="Service References\SVC_CatalogosMantenimientos\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Shared\fonts\fontawesome-webfont.eot" />
     <Content Include="Shared\fonts\fontawesome-webfont.ttf" />
     <Content Include="Shared\fonts\fontawesome-webfont.woff" />
     <Content Include="Shared\fonts\fontawesome-webfont.woff2" />
     <Content Include="Shared\fonts\FontAwesome.otf" />
     <Content Include="Master.Master" />
-    <None Include="Service References\SVC_CatalogosMantenimientos\CatalogosMantenimientos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -103,11 +96,18 @@
     <Content Include="Shared\layout.css" />
     <Content Include="Shared\micss.css" />
     <Content Include="Shared\pure.css" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="TipoMembresia.aspx" />
+    <Content Include="Tipo_Clientes.aspx" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Estados.aspx.cs">
       <DependentUpon>Estados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,6 +132,20 @@
     <Compile Include="Mant_Estados.aspx.designer.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mant_Tipo_Cliente.aspx.cs">
+      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Tipo_Cliente.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Tipo_Membre.aspx.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Tipo_Membre.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,10 +154,19 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\SVC_CatalogosMantenimientos\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <Compile Include="TipoMembresia.aspx.cs">
+      <DependentUpon>TipoMembresia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipoMembresia.aspx.designer.cs">
+      <DependentUpon>TipoMembresia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Clientes.aspx.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Clientes.aspx.designer.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -161,12 +184,6 @@
       <Name>ClubCampestre_DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\SVC_CatalogosMantenimientos\" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -182,7 +199,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49689</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:20192/</IISUrl>
+          <IISUrl>http://localhost:49689/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

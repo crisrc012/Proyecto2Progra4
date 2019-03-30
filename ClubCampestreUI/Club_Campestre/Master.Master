@@ -43,7 +43,7 @@
                         <ul class="clear">
                             <li><a class="drop" href="#">Catalogo</a>
                                 <ul>
-                                    <li><a href="Tipo_Membresia.aspx">Tipo Membresia</a></li>
+                                    <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
                                     <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
                                     <li><a href="Estados.aspx">Estados</a></li>
                                     <li><a href="Clientes.aspx">Clientes</a></li>
