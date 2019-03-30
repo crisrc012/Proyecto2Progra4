@@ -66,8 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
     <Content Include="Mant_Estados.aspx" />
+    <Content Include="Mant_Tipo_Cliente.aspx" />
+    <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="packages.config" />
     <Content Include="Shared\fonts\fontawesome-webfont.eot" />
     <Content Include="Shared\fonts\fontawesome-webfont.ttf" />
@@ -93,9 +96,18 @@
     <Content Include="Shared\layout.css" />
     <Content Include="Shared\micss.css" />
     <Content Include="Shared\pure.css" />
+    <Content Include="TipoMembresia.aspx" />
+    <Content Include="Tipo_Clientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Estados.aspx.cs">
       <DependentUpon>Estados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,6 +132,20 @@
     <Compile Include="Mant_Estados.aspx.designer.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mant_Tipo_Cliente.aspx.cs">
+      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Tipo_Cliente.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Tipo_Membre.aspx.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Tipo_Membre.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,6 +154,20 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoMembresia.aspx.cs">
+      <DependentUpon>TipoMembresia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipoMembresia.aspx.designer.cs">
+      <DependentUpon>TipoMembresia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tipo_Clientes.aspx.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tipo_Clientes.aspx.designer.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\" />

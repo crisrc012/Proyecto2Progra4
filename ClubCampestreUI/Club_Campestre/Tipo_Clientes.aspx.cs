@@ -11,7 +11,7 @@ using ClubCampestre_DAL.CatalogosMantenimientos;
 
 namespace Club_Campestre
 {
-    public partial class Estados : System.Web.UI.Page
+    public partial class Tipo_Clientes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,37 +20,34 @@ namespace Club_Campestre
             {
                 this.BindGrid();
             }
+
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
-
-            //Metodo que agregar 
         private void BindGrid()
         {
             DataTable dt = new DataTable();
 
-            dt.Columns.Add("Estado");
+            dt.Columns.Add("Tipo_CLiente");
             dt.Columns.Add("Descripcion");
             dt.Columns.Add("chkRow");
 
             DataRow dr = dt.NewRow();
-            dr["Estado"] = "A";
-            dr["Descripcion"] = "Activo";
+            dr["Tipo_CLiente"] = 1;
+            dr["Descripcion"] = "Prueba";
             dr["chkRow"] = false;
             dt.Rows.Add(dr);
 
             DataRow dr1 = dt.NewRow();
-            dr1["Estado"] = "I";
+            dr1["Tipo_CLiente"] = 2;
             dr1["Descripcion"] = "Inactivo";
             dr1["chkRow"] = false;
             dt.Rows.Add(dr1);
 
-            this.EstadoGridView.DataSource = dt;
-            this.EstadoGridView.DataBind();
+            this.Tipo_ClienteGridView.DataSource = dt;
+            this.Tipo_ClienteGridView.DataBind();
+
+            //this.EstadoGridView.DataSource = dt;
+            //this.EstadoGridView.DataBind();
 
 
             //Metr esto ya que es plan B
@@ -76,41 +73,46 @@ namespace Club_Campestre
         }
 
 
-        //Boton nuevo 
+
+        //Falta por modificar
+
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             //Identificcion en lo que estamos trabjanado es un estado N
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Estados.aspx", false);
+            Server.Transfer("Mant_Tipo_Cliente.aspx", false);
         }
 
 
-
-        //boton 2 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "E";
-            string Estado = "", Descripcion = "";
-            foreach (GridViewRow row in EstadoGridView.Rows)
+            string Tipo_Cliente = "", Descripcion = "";
+            foreach (GridViewRow row in Tipo_ClienteGridView.Rows)
+                
             {
                 if (row.RowType == DataControlRowType.DataRow)
                 {
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Estado = row.Cells[0].Text;
+                        Tipo_Cliente = row.Cells[0].Text;
                         Descripcion = row.Cells[1].Text;
 
                     }
 
-                    Cls_Estado_DAL estado = new Cls_Estado_DAL();
+                    //Cls_Estado_DAL estado = new Cls_Estado_DAL();
+                    Cls_TipoCliente_DAL tipocliente = new Cls_TipoCliente_DAL();
                     //Usuario Usu1 = new Usuario(nombre, cedula);
-                    estado.CIdEstado = Convert.ToChar(Estado);
-                    estado.SPKEstado = Descripcion;
-                    Session["Estado"] = estado;
-                    Server.Transfer("Mant_Estados.aspx");
+                    //estado.CIdEstado = Convert.ToChar(Estado);
+                    //estado.SPKEstado = Descripcion;
+                    tipocliente.BIdTipoCliente = Convert.ToByte(Tipo_Cliente);
+                    tipocliente.SPKDescripcion = Descripcion;
+                    Session["Tipo_Cliente"] = tipocliente;
+                    Server.Transfer("Mant_Tipo_Cliente.aspx");
                 }
             }
         }
+
     }
 }
