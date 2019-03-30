@@ -26,26 +26,27 @@ namespace Club_Campestre
         {
             DataTable dt = new DataTable();
 
-            //dt.Columns.Add("Tipo de Membresia");
-            //dt.Columns.Add("Descripcion");
-            //dt.Columns.Add("Costo");
+            dt.Columns.Add("Tipo_de_Membresia");
+            dt.Columns.Add("Descripcion");
+            dt.Columns.Add("Costo");
+            dt.Columns.Add("chkRow");
 
-            //DataRow dr = dt.NewRow();
-            ////dr["Tipo de Membresia"] = "A";
-            ////dr["Descripcion"] = "Activo";
-            ////dr["Costo"] = 1000;
-            ////dr["chkRow"] = false;
-            //dt.Rows.Add(dr);
+            DataRow dr = dt.NewRow();
+            dr["Tipo_de_Membresia"] = 1;
+            dr["Descripcion"] = "prueba";
+            dr["Costo"] = 1000;
+            dr["chkRow"] = false;
+            dt.Rows.Add(dr);
 
-            //DataRow dr1 = dt.NewRow();
-            //dr1["Tipo de Membresia"] = "I";
-            //dr1["Descripcion"] = "Inactivo";
-            //dr1["Costo"] = "300";
-            //dr1["chkRow"] = false;
-            //dt.Rows.Add(dr1);
+            DataRow dr1 = dt.NewRow();
+            dr1["Tipo_de_Membresia"] = 1;
+            dr1["Descripcion"] = "prueba2";
+            dr1["Costo"] = 300;
+            dr1["chkRow"] = false;
+            dt.Rows.Add(dr1);
 
-            //this.TipoMebresiaGridView.DataSource = dt;
-            //this.TipoMebresiaGridView.DataBind();
+            this.TipoMebresiaGridView.DataSource = dt;
+            this.TipoMebresiaGridView.DataBind();
 
 
             //Meter esto ya que es plan B

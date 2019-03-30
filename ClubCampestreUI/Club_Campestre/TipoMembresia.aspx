@@ -20,7 +20,7 @@
             AutoGenerateColumns="false" ForeColor="Blue">
             <Columns>
                
-                <asp:BoundField DataField="TipoMembresia" HeaderText="Tipo de Membresia"   />
+                <asp:BoundField DataField="Tipo_de_Membresia" HeaderText="Tipo de Membresia"   />
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                 <asp:BoundField DataField="Costo" HeaderText="Costo" />
                 <asp:TemplateField>
