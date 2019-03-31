@@ -1,4 +1,10 @@
-﻿function SoloNumeros(e) {
+﻿function textChange(e) {
+    document.getElementById('txtFiltrar').click();
+}
+
+
+
+function SoloNumeros(e) {
     var key = e.keyCode || e.which;
     var teclado = String.fromCharCode(key);
     var numero = "0123456789.";

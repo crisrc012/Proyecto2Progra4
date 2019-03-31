@@ -10,10 +10,12 @@
             <h1>Estados</h1>
         </header>
     </div>
-    <div class="pure-controls" >
+    <div class="pure-controls" >       
         <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click"  />
         <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click"  />
         <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+        <asp:TextBox  ID="txtFiltrar" runat="server" AutoPostBack="True" orecolor ="Blue" OnTextChanged="txtFiltrar_TextChanged" ></asp:TextBox> 
+        <span id="errorMensaje" runat="server"></span>       
     </div>
      <br/>
     <div class="pure-controls">
