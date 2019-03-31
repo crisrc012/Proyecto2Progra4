@@ -10,12 +10,47 @@ using System.Data.SqlClient;
 
 namespace ClubCampestre_BLL.BD
 {
+    
     public class Cls_BD_BLL
     {
-        public DataTable ExecuteDataAdapter(string sNombre_SP, string sNombreParametro,
-            SqlDbType DbType, string sValorParametro, ref string sMsjError)
+        #region Miembros privados
+        private SqlDbType volverDatoSQL(Type Obj)
         {
-            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+            if (Obj.GetType() == typeof(string))
+            {
+                return SqlDbType.VarChar;
+            }
+            if (Obj.GetType() == typeof(int))
+            {
+                return SqlDbType.Int;
+            }
+            if (Obj.GetType() == typeof(short))
+            {
+                return SqlDbType.SmallInt;
+            }
+            if (Obj.GetType() == typeof(float))
+            {
+                return SqlDbType.Float;
+            }
+            if (Obj.GetType() == typeof(byte))
+            {
+                return SqlDbType.TinyInt;
+            }
+            if (Obj.GetType() == typeof(DateTime))
+            {
+                return SqlDbType.DateTime;
+            }
+            if (Obj.GetType() == typeof(char))
+            {
+                return SqlDbType.Char;
+            }
+            return SqlDbType.VarChar;
+        }
+        #endregion
+        #region Miembros públicos
+        public DataTable ExecuteDataAdapter(ref Cls_BD_DAL Obj_BD_DAL)
+        {
+            //Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
                 // Se obtiene la cadena de conexión
@@ -29,11 +64,16 @@ namespace ClubCampestre_BLL.BD
                     Obj_BD_DAL.Obj_sql_cnx.Open();
                 }
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
-                Obj_BD_DAL.Obj_sql_adap = new SqlDataAdapter(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
-                if (sValorParametro != string.Empty)
+                Obj_BD_DAL.Obj_sql_adap = new SqlDataAdapter(Obj_BD_DAL.sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
+                if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
                 {
-                    Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(sNombreParametro, DbType).Value = sValorParametro;
+                    foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
+                    {
+                            Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(Celda[0].ToString()
+                                , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
+                    }
                 }
+                
                 // Se especifica el tipo de comando de SP
                 Obj_BD_DAL.Obj_sql_adap.SelectCommand.CommandType = CommandType.StoredProcedure;
                 // Se inicializa el DataSet
@@ -42,13 +82,11 @@ namespace ClubCampestre_BLL.BD
                 Obj_BD_DAL.Obj_sql_adap.Fill(DS);
                 // Se establece en vacío el mensaje de error
                 Obj_BD_DAL.sMsj_error = string.Empty;
-                sMsjError = string.Empty;
                 // Se retorna el DataTable de índice 0 que está en el DataSet
                 return DS.Tables[0];
             }
             catch (SqlException e)
             {
-                sMsjError = e.ToString().Trim();
                 Obj_BD_DAL.sMsj_error = e.ToString().Trim();
                 return null;
             }
@@ -64,5 +102,109 @@ namespace ClubCampestre_BLL.BD
                 }
             }
         }
+        public bool ExecuteNonQuery(string sNombre_SP, string sNombreParametro,
+            SqlDbType DbType, string sValorParametro, ref string sMsjError)
+        {
+            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+            try
+            {
+                // Se obtiene la cadena de conexión
+                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
+                // Se crea el objeto de conexión
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
+                // Si la conexión está cerrada
+                if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
+                {
+                    // Se abre la cadena de conexión
+                    Obj_BD_DAL.Obj_sql_cnx.Open();
+                }
+                // Se inicializa el SQL Command con el SP y la conexión abierta
+                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
+                if (sValorParametro != string.Empty)
+                {
+                    Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(sNombreParametro, DbType).Value = sValorParametro;
+                }
+                // Se especifica el tipo de comando de SP
+                Obj_BD_DAL.Obj_sql_cmd.CommandType = CommandType.StoredProcedure;
+                // Se ejecuta la consulta
+                Obj_BD_DAL.Obj_sql_cmd.ExecuteNonQuery();
+                // Se establece en vacío el mensaje de error
+                Obj_BD_DAL.sMsj_error = string.Empty;
+                sMsjError = string.Empty;
+                // Se retorna valor exitoso
+                return true;
+            }
+            catch (SqlException e)
+            {
+                sMsjError = e.ToString().Trim();
+                Obj_BD_DAL.sMsj_error = e.ToString().Trim();
+                // Se retorna valor fallido
+                return false;
+            }
+            finally
+            {
+                if (Obj_BD_DAL.Obj_sql_cnx != null)
+                {
+                    if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Open)
+                    {
+                        Obj_BD_DAL.Obj_sql_cnx.Close();
+                    }
+                    Obj_BD_DAL.Obj_sql_cnx.Dispose();
+                }
+            }
+        }
+        public string ExecuteScalar(string sNombre_SP, string sNombreParametro,
+            SqlDbType DbType, string sValorParametro, ref string sMsjError)
+        {
+            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
+            string valorScalar = string.Empty;
+            try
+            {
+                // Se obtiene la cadena de conexión
+                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
+                // Se crea el objeto de conexión
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
+                // Si la conexión está cerrada
+                if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
+                {
+                    // Se abre la cadena de conexión
+                    Obj_BD_DAL.Obj_sql_cnx.Open();
+                }
+                // Se inicializa el SQL Command con el SP y la conexión abierta
+                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
+                if (sValorParametro != string.Empty)
+                {
+                    Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(sNombreParametro, DbType).Value = sValorParametro;
+                }
+                // Se especifica el tipo de comando de SP
+                Obj_BD_DAL.Obj_sql_cmd.CommandType = CommandType.StoredProcedure;
+                // Se ejecuta la consulta y se carga el valor retornado al scalar
+                valorScalar = Obj_BD_DAL.Obj_sql_cmd.ExecuteScalar().ToString();
+                // Se establece en vacío el mensaje de error
+                Obj_BD_DAL.sMsj_error = string.Empty;
+                sMsjError = string.Empty;
+                // Se retorna valor escalar
+                return valorScalar;
+            }
+            catch (SqlException e)
+            {
+                sMsjError = e.ToString().Trim();
+                Obj_BD_DAL.sMsj_error = e.ToString().Trim();
+                // Se retorna valor escalar, posiblemente vacío
+                return valorScalar;
+            }
+            finally
+            {
+                if (Obj_BD_DAL.Obj_sql_cnx != null)
+                {
+                    if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Open)
+                    {
+                        Obj_BD_DAL.Obj_sql_cnx.Close();
+                    }
+                    Obj_BD_DAL.Obj_sql_cnx.Dispose();
+                }
+            }
+        }
+        #endregion
     }
 }
