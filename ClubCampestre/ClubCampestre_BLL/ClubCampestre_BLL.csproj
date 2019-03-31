@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="BD\Cls_BD_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Estado_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_telefonos_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoMembresia_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Usuarios_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
