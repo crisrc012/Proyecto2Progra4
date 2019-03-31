@@ -25,49 +25,47 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="top" class="pure-form pure-form-aligned" runat="server">
-        <div>
+<body>  
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+        <form id="top" class="pure-form pure-form-aligned" runat="server">
+            <div>
+                <div class=" wrapper row1">
+                    <header id="header" class="hoc clear">
+                        <div id="logo" class="fl_left">
+                            <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
+                            <p>Descanso y Relajacion a su Alcance</p>
+                        </div>
+                        <nav id="mainav" class="fl_right">
+                            <ul class="clear">
+                                <li><a class="drop" href="#">Catalogo</a>
+                                    <ul>
+                                        <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
+                                        <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
+                                        <li><a href="Estados.aspx">Estados</a></li>
+                                        <li><a href="Clientes.aspx">Clientes</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="drop" href="#">Seguridad</a>
+                                    <ul>
+                                        <li><a href="Encriptacion.aspx">Usuarios</a></li>
+                                        <li><a href="Des_Encriptacion.aspx">Roles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active"><a href="Index.aspx">Salir</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
 
+                <div class="main">
+                    <asp:ContentPlaceHolder ID="mainContent" runat="server">
+                    </asp:ContentPlaceHolder>
 
-            <div class=" wrapper row1">
-                <header id="header" class="hoc clear">
-                    <div id="logo" class="fl_left">
-                        <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
-                        <p>Descanso y Relajacion a su Alcance</p>
-                    </div>
-                    <nav id="mainav" class="fl_right">
-                        <ul class="clear">
-                            <li><a class="drop" href="#">Catalogo</a>
-                                <ul>
-                                    <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
-                                    <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
-                                    <li><a href="Estados.aspx">Estados</a></li>
-                                    <li><a href="Clientes.aspx">Clientes</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="drop" href="#">Seguridad</a>
-                                <ul>
-                                    <li><a href="Encriptacion.aspx">Usuarios</a></li>
-                                    <li><a href="Des_Encriptacion.aspx">Roles</a></li>
-                                </ul>
-                            </li>
-                            <li class="active"><a href="Index.aspx">Salir</a></li>
-                        </ul>
-                    </nav>
-                </header>
+                </div>
+
             </div>
-
-            <div class="main">
-                <asp:ContentPlaceHolder ID="mainContent" runat="server">
-                </asp:ContentPlaceHolder>
-
-            </div>
-
-        </div>
     </form>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

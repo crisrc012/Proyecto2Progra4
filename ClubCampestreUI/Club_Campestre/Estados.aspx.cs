@@ -103,5 +103,10 @@ namespace Club_Campestre
                 }
             }
         }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
