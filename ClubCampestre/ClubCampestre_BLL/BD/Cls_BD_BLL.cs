@@ -57,12 +57,6 @@ namespace ClubCampestre_BLL.BD
                 Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
                 // Se crea el objeto de conexión
                 Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
-                // Si la conexión está cerrada
-                if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
-                {
-                    // Se abre la cadena de conexión
-                    Obj_BD_DAL.Obj_sql_cnx.Open();
-                }
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
                 Obj_BD_DAL.Obj_sql_adap = new SqlDataAdapter(Obj_BD_DAL.sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
                 if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
@@ -73,11 +67,16 @@ namespace ClubCampestre_BLL.BD
                                 , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
                     }
                 }
-                
                 // Se especifica el tipo de comando de SP
                 Obj_BD_DAL.Obj_sql_adap.SelectCommand.CommandType = CommandType.StoredProcedure;
                 // Se inicializa el DataSet
                 DataSet DS = new DataSet();
+                // Si la conexión está cerrada
+                if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
+                {
+                    // Se abre la cadena de conexión
+                    Obj_BD_DAL.Obj_sql_cnx.Open();
+                }
                 // Se carga el DataSet
                 Obj_BD_DAL.Obj_sql_adap.Fill(DS);
                 // Se establece en vacío el mensaje de error
@@ -120,9 +119,13 @@ namespace ClubCampestre_BLL.BD
                 }
                 // Se inicializa el SQL Command con el SP y la conexión abierta
                 Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
-                if (sValorParametro != string.Empty)
+                if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
                 {
-                    Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(sNombreParametro, DbType).Value = sValorParametro;
+                    foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
+                    {
+                        Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(Celda[0].ToString()
+                            , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
+                    }
                 }
                 // Se especifica el tipo de comando de SP
                 Obj_BD_DAL.Obj_sql_cmd.CommandType = CommandType.StoredProcedure;
