@@ -1,7 +1,6 @@
 ﻿using ClubCampestre_BLL.BD;
 using ClubCampestre_DAL.BD;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using System.Data;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
