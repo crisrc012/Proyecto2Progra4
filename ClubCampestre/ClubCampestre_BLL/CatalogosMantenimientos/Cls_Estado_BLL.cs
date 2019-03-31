@@ -32,9 +32,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_search_TB_Estado]";
-            string _sMsjError = string.Empty;
             Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
-            Obj_BD_DAL.sMsj_error = _sMsjError;
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
                 Obj_Estado_DAL.SMsjError = string.Empty;
