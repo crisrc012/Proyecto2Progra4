@@ -15,7 +15,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         private Cls_BD_DAL Obj_BD_DAL;
         #endregion
-        public void listarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public void Listar(ref Cls_Estado_DAL Obj_Estado_DAL)
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             string _sMsjError = string.Empty;
@@ -30,6 +30,26 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
                 Obj_Estado_DAL.DS = null;
             }
+        }
+
+        public void Filtrar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
+        }
+
+        public void Insertar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
+        }
+
+        public void Actualizar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
+        }
+
+        public void Eliminar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
         }
     }
 }
