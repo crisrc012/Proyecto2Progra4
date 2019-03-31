@@ -13,31 +13,31 @@ namespace Club_Campestre.Mantenimiento {
     public partial class Mant_Estados {
         
         /// <summary>
-        /// TextBox_Cedula control.
+        /// mantenimiento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Cedula;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// TextBox_Nombre control.
+        /// txtestado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Nombre;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtestado;
         
         /// <summary>
-        /// btnAtras control.
+        /// txtdescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
         
         /// <summary>
         /// btnGuardar control.
