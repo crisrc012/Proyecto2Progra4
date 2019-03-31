@@ -12,10 +12,20 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
     {
         public void listarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
         {
-            // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-            CatalogosMantenimientosClient Obj_Estado_Client = new CatalogosMantenimientosClient();
-            // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-            Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.listarEstado().Copy());
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_Estado_Client = new CatalogosMantenimientosClient();
+                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.listarEstado().Copy());
+                Obj_Estado_DAL.sMsjError = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                Obj_Estado_DAL.sMsjError = ex.Message.ToString();
+            }
+            
         }
     }
 }
