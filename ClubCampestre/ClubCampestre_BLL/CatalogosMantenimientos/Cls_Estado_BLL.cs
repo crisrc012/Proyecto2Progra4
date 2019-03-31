@@ -15,11 +15,29 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         private Cls_BD_DAL Obj_BD_DAL;
         #endregion
-        public void listarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+
+        public void Listar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+            Obj_BD_DAL = new Cls_BD_DAL();
+            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_Estado]";
+            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
+            if (Obj_BD_DAL.sMsj_error == string.Empty)
+            {
+                Obj_Estado_DAL.SMsjError = string.Empty;
+            }
+            else
+            {
+                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
+                Obj_Estado_DAL.DS = null;
+            }
+        }
+
+        public void Filtrar(ref Cls_Estado_DAL Obj_Estado_DAL, string sNombreParametro,
+            SqlDbType DbType, string sValorParametro)
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             string _sMsjError = string.Empty;
-            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter("[dbo].[sp_select_TB_Estado]", string.Empty, SqlDbType.VarChar, string.Empty, ref _sMsjError).Copy());
+            // Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter("[dbo].[sp_search_TB_Estado]", sNombreParametro, DbType, sValorParametro, ref _sMsjError).Copy());
             Obj_BD_DAL.sMsj_error = _sMsjError;
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
@@ -30,6 +48,21 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
                 Obj_Estado_DAL.DS = null;
             }
+        }
+
+        public void Insertar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
+        }
+
+        public void Actualizar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
+        }
+
+        public void Eliminar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+
         }
     }
 }

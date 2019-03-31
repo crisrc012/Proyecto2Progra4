@@ -18,13 +18,15 @@ namespace Club_Campestre.Mantenimiento
                 string tipo = Session["tipo"].ToString();
                 if (estado != null & tipo == "E")
                 {
-                    TextBox_Cedula.Text = estado.CIdEstado.ToString();
-                    TextBox_Nombre.Text = estado.SPKEstado;
+                    this.mantenimiento.InnerHtml = "Modificacion de Estados";
+                    this.txtestado.Value = estado.cIdEstado.ToString();
+                    this.txtdescripcion.Value = estado.sPKEstado;
                 }
                 else
                 {
-                    TextBox_Cedula.Text = "";
-                    TextBox_Nombre.Text = "";
+                    this.mantenimiento.InnerHtml = "Nuevos de Estados";
+                    this.txtestado.Value = string.Empty;
+                    this.txtdescripcion.Value = string.Empty;
                 }
             }
 
@@ -39,8 +41,8 @@ namespace Club_Campestre.Mantenimiento
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Obj_Estado_DAL.CIdEstado = Convert.ToChar(TextBox_Cedula);
-            Obj_Estado_DAL.SPKEstado = TextBox_Nombre.ToString();
+            Obj_Estado_DAL.cIdEstado = Convert.ToChar(this.txtestado.Value);
+            Obj_Estado_DAL.sPKEstado = this.txtdescripcion.Value.ToString();
             string tipo = Session["tipo"].ToString();
             if ( tipo == "E")
             {
