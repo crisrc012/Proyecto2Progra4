@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 using ClubCampestre_DAL.BD;
@@ -10,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace ClubCampestre_BLL.BD
 {
-    
+
     public class Cls_BD_BLL
     {
         #region Miembros privados
@@ -50,7 +46,6 @@ namespace ClubCampestre_BLL.BD
         #region Miembros públicos
         public DataTable ExecuteDataAdapter(ref Cls_BD_DAL Obj_BD_DAL)
         {
-            //Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
                 // Se obtiene la cadena de conexión
@@ -101,10 +96,8 @@ namespace ClubCampestre_BLL.BD
                 }
             }
         }
-        public bool ExecuteNonQuery(string sNombre_SP, string sNombreParametro,
-            SqlDbType DbType, string sValorParametro, ref string sMsjError)
+        public bool ExecuteNonQuery(ref Cls_BD_DAL Obj_BD_DAL)
         {
-            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
                 // Se obtiene la cadena de conexión
@@ -118,7 +111,7 @@ namespace ClubCampestre_BLL.BD
                     Obj_BD_DAL.Obj_sql_cnx.Open();
                 }
                 // Se inicializa el SQL Command con el SP y la conexión abierta
-                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
+                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(Obj_BD_DAL.sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
                 if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
                 {
                     foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
@@ -133,13 +126,11 @@ namespace ClubCampestre_BLL.BD
                 Obj_BD_DAL.Obj_sql_cmd.ExecuteNonQuery();
                 // Se establece en vacío el mensaje de error
                 Obj_BD_DAL.sMsj_error = string.Empty;
-                sMsjError = string.Empty;
                 // Se retorna valor exitoso
                 return true;
             }
             catch (SqlException e)
             {
-                sMsjError = e.ToString().Trim();
                 Obj_BD_DAL.sMsj_error = e.ToString().Trim();
                 // Se retorna valor fallido
                 return false;
@@ -156,10 +147,8 @@ namespace ClubCampestre_BLL.BD
                 }
             }
         }
-        public string ExecuteScalar(string sNombre_SP, string sNombreParametro,
-            SqlDbType DbType, string sValorParametro, ref string sMsjError)
+        public string ExecuteScalar(ref Cls_BD_DAL Obj_BD_DAL)
         {
-            Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             string valorScalar = string.Empty;
             try
             {
@@ -174,10 +163,14 @@ namespace ClubCampestre_BLL.BD
                     Obj_BD_DAL.Obj_sql_cnx.Open();
                 }
                 // Se inicializa el SQL Command con el SP y la conexión abierta
-                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
-                if (sValorParametro != string.Empty)
+                Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(Obj_BD_DAL.sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
+                if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
                 {
-                    Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(sNombreParametro, DbType).Value = sValorParametro;
+                    foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
+                    {
+                        Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(Celda[0].ToString()
+                            , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
+                    }
                 }
                 // Se especifica el tipo de comando de SP
                 Obj_BD_DAL.Obj_sql_cmd.CommandType = CommandType.StoredProcedure;
@@ -185,13 +178,11 @@ namespace ClubCampestre_BLL.BD
                 valorScalar = Obj_BD_DAL.Obj_sql_cmd.ExecuteScalar().ToString();
                 // Se establece en vacío el mensaje de error
                 Obj_BD_DAL.sMsj_error = string.Empty;
-                sMsjError = string.Empty;
                 // Se retorna valor escalar
                 return valorScalar;
             }
             catch (SqlException e)
             {
-                sMsjError = e.ToString().Trim();
                 Obj_BD_DAL.sMsj_error = e.ToString().Trim();
                 // Se retorna valor escalar, posiblemente vacío
                 return valorScalar;
