@@ -2,10 +2,6 @@
 using ClubCampestre_DAL.BD;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
@@ -32,12 +28,12 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             }
         }
 
-        public void Filtrar(ref Cls_Estado_DAL Obj_Estado_DAL, string sNombreParametro,
-            SqlDbType DbType, string sValorParametro)
+        public void Filtrar(ref Cls_Estado_DAL Obj_Estado_DAL)
         {
             Obj_BD_DAL = new Cls_BD_DAL();
+            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_search_TB_Estado]";
             string _sMsjError = string.Empty;
-            // Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter("[dbo].[sp_search_TB_Estado]", sNombreParametro, DbType, sValorParametro, ref _sMsjError).Copy());
+            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
             Obj_BD_DAL.sMsj_error = _sMsjError;
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
