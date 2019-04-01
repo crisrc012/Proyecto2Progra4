@@ -34,17 +34,17 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         
 
-        public void Insertar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public void Insertar(ref Cls_Telefonos_DAL Obj_Telefonos_DAL)
         {
 
         }
 
-        public void Actualizar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public void Actualizar(ref Cls_Telefonos_DAL Obj_Telefonos_DAL)
         {
 
         }
 
-        public void Eliminar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public void Eliminar(ref Cls_Telefonos_DAL Obj_Telefonos_DAL)
         {
 
         }
