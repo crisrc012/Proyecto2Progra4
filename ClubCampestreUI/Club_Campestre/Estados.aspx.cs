@@ -143,8 +143,10 @@ namespace Club_Campestre
         // evento para filtrar
         protected void txtFiltrar_TextChanged(object sender, EventArgs e)
         {
+            this.errorMensaje.InnerHtml = Server.HtmlEncode(txtFiltrar.Text);
             this.BindGrid();
         }
+
 
     }
 }

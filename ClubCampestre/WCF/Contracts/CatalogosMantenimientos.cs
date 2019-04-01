@@ -123,6 +123,26 @@ namespace WCF.Contracts
         }
         #endregion
 
+        #region TipoCliente
+        public DataTable listarTipoCliente()
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            Obj_TipoCliente_BLL.Listar(ref Obj_TipoCliente_DAL);
+            return Obj_TipoCliente_DAL.DS.Tables[0];
+        }
+        #endregion
+
+        #region Usuario
+        public DataTable listarUsuarios()
+        {
+            Cls_Usuarios_BLL Obj_Usuarios_BLL = new Cls_Usuarios_BLL();
+            Cls_Usuarios_DAL Obj_Usuarios_DAL = new Cls_Usuarios_DAL();
+            Obj_Usuarios_BLL.Listar(ref Obj_Usuarios_DAL);
+            return Obj_Usuarios_DAL.DS.Tables[0];
+        }
+        #endregion
+
         #region Telefonos
         public DataTable listarTelefonos()
         {

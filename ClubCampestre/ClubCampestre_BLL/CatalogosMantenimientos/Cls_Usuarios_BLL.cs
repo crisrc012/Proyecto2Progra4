@@ -17,19 +17,19 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private Cls_BD_DAL Obj_BD_DAL;
         #endregion
 
-        public void Listar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public void Listar(ref Cls_Usuarios_DAL Obj_Usuarios_DAL)
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_Usuarios]";
-            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
+            Obj_Usuarios_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
-                Obj_Estado_DAL.SMsjError = string.Empty;
+                Obj_Usuarios_DAL.SMsjError = string.Empty;
             }
             else
             {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
+                Obj_Usuarios_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
+                Obj_Usuarios_DAL.DS = null;
             }
         }
 
