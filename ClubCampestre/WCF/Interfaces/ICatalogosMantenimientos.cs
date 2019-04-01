@@ -18,7 +18,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarClientes();
         [OperationContract]
-        DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona);
+        DataTable filtrarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL);
         #endregion
         #region Correos
         [OperationContract]
