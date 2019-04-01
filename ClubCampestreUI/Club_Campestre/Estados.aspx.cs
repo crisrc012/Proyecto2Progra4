@@ -17,6 +17,7 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
         Cls_Estado_DAL Obj_Estado_DAL;
+        bool vFiltra = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Estado_DAL = new Cls_Estado_DAL();
 
-            if (this.txtFiltrar.Text == string.Empty)//listar
+            if (this.Filtrar.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
                 Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
@@ -48,6 +49,7 @@ namespace Club_Campestre
             }
             else
             {
+                Obj_Estado_DAL.SEstado = this.Filtrar.Text;
                 //llamado metodo listar estados
                 Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
             }
@@ -60,7 +62,8 @@ namespace Club_Campestre
             }
             else
             {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados: [" + Obj_Estado_DAL.sMsjError + "].";
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
+                this.BindGrid();
             }
             
             
@@ -105,48 +108,59 @@ namespace Club_Campestre
         //boton eliminar
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            //Se instancia objeto
-            Obj_Estado_DAL = new Cls_Estado_DAL();
-
-            //Recorre Grid buscando chk 
-            foreach (GridViewRow row in EstadoGridView.Rows)
+            if (vFiltra)
             {
-                //busca el la fila
-                if (row.RowType == DataControlRowType.DataRow)
+                Obj_Estado_DAL = new Cls_Estado_DAL();
+
+                //Recorre Grid buscando chk 
+                foreach (GridViewRow row in EstadoGridView.Rows)
                 {
-                    //si esta checkeado instancia las propiedades del objeto
-                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
-                    if (chkRow.Checked)
+                    //busca el la fila
+                    if (row.RowType == DataControlRowType.DataRow)
                     {
-                        Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
-                        Obj_Estado_DAL.SEstado = row.Cells[1].Text;
+                        //si esta checkeado instancia las propiedades del objeto
+                        CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                        if (chkRow.Checked)
+                        {
+                            Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
+                            Obj_Estado_DAL.SEstado = row.Cells[1].Text;
 
-                        //llamado metodo eliminar estados
-                        Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
+                            //llamado metodo eliminar estados
+                            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
+                        }
+
                     }
-
                 }
-            }
-            if (Obj_Estado_DAL.sMsjError == string.Empty)
+                if (Obj_Estado_DAL.sMsjError == string.Empty)
+                {
+                    this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
+                    this.BindGrid();
+                }
+                else
+                {
+                    this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
+                    this.BindGrid();
+                }
+
+            }         
+
+        }
+
+        // evento para Buscar
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+             this.BindGrid();
+        }
+
+        protected void Filtrar_TextChanged(object sender, EventArgs e)
+        {
+            vFiltra = false;
+            if (vFiltra == false)
             {
-                this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
+                this.Filtrar.Focus();
                 this.BindGrid();
             }
-            else
-            {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados: [" + Obj_Estado_DAL.sMsjError + "].";
-            }
-           
-
+            vFiltra = true;
         }
-
-        // evento para filtrar
-        protected void txtFiltrar_TextChanged(object sender, EventArgs e)
-        {
-            this.errorMensaje.InnerHtml = Server.HtmlEncode(txtFiltrar.Text);
-            this.BindGrid();
-        }
-
-
     }
 }
