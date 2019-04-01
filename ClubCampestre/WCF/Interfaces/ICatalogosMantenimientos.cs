@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.ServiceModel;
+using ClubCampestre_DAL.CatalogosMantenimientos;
 
 namespace WCF.Interfaces
 {
@@ -29,11 +30,11 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarEstado();
         [OperationContract]
-        DataTable filtrarEstado(char cIdEstado, string sEstado);
+        DataTable filtrarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
         [OperationContract]
-        char insertarEstado(char cIdEstado, string sEstado);
+        char insertarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
         [OperationContract]
-        bool actualizarEstado(char cIdEstado, string sEstado);
+        bool actualizarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
         [OperationContract]
         bool eliminarEstado(char cIdEstado);
         #endregion

@@ -58,22 +58,25 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         System.Threading.Tasks.Task<System.Data.DataTable> listarEstadoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarEstadoResponse")]
-        System.Data.DataTable filtrarEstado(char cIdEstado, string sEstado);
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse filtrarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarEstadoResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> filtrarEstadoAsync(char cIdEstado, string sEstado);
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse> filtrarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarEstadoResponse")]
-        char insertarEstado(char cIdEstado, string sEstado);
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse insertarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarEstadoResponse")]
-        System.Threading.Tasks.Task<char> insertarEstadoAsync(char cIdEstado, string sEstado);
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse> insertarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarEstadoResponse")]
-        bool actualizarEstado(char cIdEstado, string sEstado);
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse actualizarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarEstadoResponse")]
-        System.Threading.Tasks.Task<bool> actualizarEstadoAsync(char cIdEstado, string sEstado);
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse> actualizarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse")]
         bool eliminarEstado(char cIdEstado);
@@ -98,6 +101,114 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> filtrarFacturaDetalleAsync(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarEstado", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class filtrarEstadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public filtrarEstadoRequest() {
+        }
+        
+        public filtrarEstadoRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarEstadoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class filtrarEstadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable filtrarEstadoResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public filtrarEstadoResponse() {
+        }
+        
+        public filtrarEstadoResponse(System.Data.DataTable filtrarEstadoResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.filtrarEstadoResult = filtrarEstadoResult;
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEstado", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertarEstadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public insertarEstadoRequest() {
+        }
+        
+        public insertarEstadoRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarEstadoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertarEstadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public char insertarEstadoResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public insertarEstadoResponse() {
+        }
+        
+        public insertarEstadoResponse(char insertarEstadoResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.insertarEstadoResult = insertarEstadoResult;
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstado", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class actualizarEstadoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public actualizarEstadoRequest() {
+        }
+        
+        public actualizarEstadoRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarEstadoResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class actualizarEstadoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool actualizarEstadoResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL;
+        
+        public actualizarEstadoResponse() {
+        }
+        
+        public actualizarEstadoResponse(bool actualizarEstadoResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            this.actualizarEstadoResult = actualizarEstadoResult;
+            this.Obj_Estado_DAL = Obj_Estado_DAL;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -183,28 +294,55 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.listarEstadoAsync();
         }
         
-        public System.Data.DataTable filtrarEstado(char cIdEstado, string sEstado) {
-            return base.Channel.filtrarEstado(cIdEstado, sEstado);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest request) {
+            return base.Channel.filtrarEstado(request);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarEstadoAsync(char cIdEstado, string sEstado) {
-            return base.Channel.filtrarEstadoAsync(cIdEstado, sEstado);
+        public System.Data.DataTable filtrarEstado(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest();
+            inValue.Obj_Estado_DAL = Obj_Estado_DAL;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarEstado(inValue);
+            Obj_Estado_DAL = retVal.Obj_Estado_DAL;
+            return retVal.filtrarEstadoResult;
         }
         
-        public char insertarEstado(char cIdEstado, string sEstado) {
-            return base.Channel.insertarEstado(cIdEstado, sEstado);
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse> filtrarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoRequest request) {
+            return base.Channel.filtrarEstadoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<char> insertarEstadoAsync(char cIdEstado, string sEstado) {
-            return base.Channel.insertarEstadoAsync(cIdEstado, sEstado);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest request) {
+            return base.Channel.insertarEstado(request);
         }
         
-        public bool actualizarEstado(char cIdEstado, string sEstado) {
-            return base.Channel.actualizarEstado(cIdEstado, sEstado);
+        public char insertarEstado(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest();
+            inValue.Obj_Estado_DAL = Obj_Estado_DAL;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarEstado(inValue);
+            Obj_Estado_DAL = retVal.Obj_Estado_DAL;
+            return retVal.insertarEstadoResult;
         }
         
-        public System.Threading.Tasks.Task<bool> actualizarEstadoAsync(char cIdEstado, string sEstado) {
-            return base.Channel.actualizarEstadoAsync(cIdEstado, sEstado);
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse> insertarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest request) {
+            return base.Channel.insertarEstadoAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest request) {
+            return base.Channel.actualizarEstado(request);
+        }
+        
+        public bool actualizarEstado(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL Obj_Estado_DAL) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest();
+            inValue.Obj_Estado_DAL = Obj_Estado_DAL;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarEstado(inValue);
+            Obj_Estado_DAL = retVal.Obj_Estado_DAL;
+            return retVal.actualizarEstadoResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse> actualizarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoRequest request) {
+            return base.Channel.actualizarEstadoAsync(request);
         }
         
         public bool eliminarEstado(char cIdEstado) {

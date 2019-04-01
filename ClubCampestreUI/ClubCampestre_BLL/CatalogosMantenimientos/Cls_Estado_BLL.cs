@@ -29,7 +29,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
                 CatalogosMantenimientosClient Obj_Estado_Client = new CatalogosMantenimientosClient();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.filtrarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado).Copy());
+                Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.filtrarEstado(ref Obj_Estado_DAL).Copy());
                 Obj_Estado_DAL.sMsjError = string.Empty;
             }
             catch (Exception ex)
@@ -45,7 +45,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
                 CatalogosMantenimientosClient Obj_Estado_Client = new CatalogosMantenimientosClient();
                 // Se mandan a insertar los datos
-                Obj_Estado_Client.insertarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado);
+                Obj_Estado_Client.insertarEstado(ref Obj_Estado_DAL);
                 Obj_Estado_DAL.sMsjError = string.Empty;
             }
             catch (Exception ex)
@@ -61,7 +61,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
                 CatalogosMantenimientosClient Obj_Estado_Client = new CatalogosMantenimientosClient();
                 // Se mandan a actualizar los datos
-                Obj_Estado_Client.actualizarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado);
+                Obj_Estado_Client.actualizarEstado(ref Obj_Estado_DAL);
                 Obj_Estado_DAL.sMsjError = string.Empty;
             }
             catch (Exception ex)

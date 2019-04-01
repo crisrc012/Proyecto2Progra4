@@ -76,9 +76,34 @@ namespace WCF.Contracts
             Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
             return Obj_Estado_DAL.DS.Tables[0];
         }
+        public DataTable filtrarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
+            return Obj_Estado_DAL.DS.Tables[0];
+        }
+        public char insertarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
+            return Obj_Estado_DAL.CIdEstado;
+        }
+        public bool actualizarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        {
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
+            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+        }
+        public bool eliminarEstado(char cIdEstado)
+        {
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
+            // Se asignan datos a actualizar
+            Obj_Estado_DAL.CIdEstado = cIdEstado;
+            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);
+            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+        }
         #endregion
-
-
         #region TipoServicio
         public DataTable listarTipoServicio()
         {
@@ -88,8 +113,6 @@ namespace WCF.Contracts
             return Obj_TipoServicio_DAL.DS.Tables[0];
         }
         #endregion
-
-
         #region TipoMembresia
         public DataTable listarTipoMembresia()
         {
@@ -107,45 +130,6 @@ namespace WCF.Contracts
             Cls_Telefonos_DAL Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
             Obj_Telefonos_BLL.Listar(ref Obj_Telefonos_DAL);
             return Obj_Telefonos_DAL.DS.Tables[0];
-        }
-        public DataTable filtrarEstado(char cIdEstado, string sEstado)
-        {
-            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a buscar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_DAL.SEstado = sEstado;
-            Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.DS.Tables[0];
-        }
-        public char insertarEstado(char cIdEstado, string sEstado)
-        {
-            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a insertar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_DAL.SEstado = sEstado;
-            Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.CIdEstado;
-        }
-        public bool actualizarEstado(char cIdEstado, string sEstado)
-        {
-            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a actualizar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_DAL.SEstado = sEstado;
-            Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
-        }
-        public bool eliminarEstado(char cIdEstado)
-        {
-            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a actualizar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
         }
         #endregion
         #region Facturacion
