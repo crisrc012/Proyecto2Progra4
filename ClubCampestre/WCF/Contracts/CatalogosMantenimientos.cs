@@ -36,14 +36,9 @@ namespace WCF.Contracts
             Obj_Clientes_BLL.Listar(ref Obj_Clientes_DAL);
             return Obj_Clientes_DAL.DS.Tables[0];
         }
-        public DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona)
+        public DataTable filtrarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            // Se asignan datos a buscar
-            Obj_Clientes_DAL.SIdCliente = sIdCliente;
-            Obj_Clientes_DAL.BIdTipoCliente = bIdTipoCliente;
-            Obj_Clientes_DAL.SIdPersona = sIdPersona;
             Obj_Clientes_BLL.Filtrar(ref Obj_Clientes_DAL);
             return Obj_Clientes_DAL.DS.Tables[0];
         }
