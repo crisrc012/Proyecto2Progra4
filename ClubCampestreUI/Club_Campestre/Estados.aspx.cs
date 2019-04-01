@@ -47,9 +47,9 @@ namespace Club_Campestre
                
             }
             else
-            {                
+            {
                 //llamado metodo listar estados
-                //Obj_Estado_BLL.filtrarEstados(ref Obj_Estado_DAL);
+                Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
             }
 
             if(Obj_Estado_DAL.sMsjError == string.Empty)
@@ -122,7 +122,7 @@ namespace Club_Campestre
                         Obj_Estado_DAL.SEstado = row.Cells[1].Text;
 
                         //llamado metodo eliminar estados
-                        //Obj_Estado_BLL.eliminarEstados(ref Obj_Estado_DAL);// eliminar estados
+                        Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
                     }
 
                 }

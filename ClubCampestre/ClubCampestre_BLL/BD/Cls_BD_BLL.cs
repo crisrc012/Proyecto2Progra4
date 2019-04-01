@@ -166,10 +166,11 @@ namespace ClubCampestre_BLL.BD
                 Obj_BD_DAL.Obj_sql_cmd = new SqlCommand(Obj_BD_DAL.sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
                 if (Obj_BD_DAL.Obj_dtparam.Rows.Count >= 1)
                 {
+                    
                     foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
                     {
-                        Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(Celda[0].ToString()
-                            , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
+                        Obj_BD_DAL.Obj_sql_cmd.Parameters.Add(Celda[0].ToString()
+                            , volverDatoSQL(Celda[0].GetType())).Value = Celda[1].ToString();
                     }
                 }
                 // Se especifica el tipo de comando de SP

@@ -54,6 +54,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             // Se cargan valores a insertar
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
+            //Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL);
             Obj_Estado_DAL.CIdEstado = Convert.ToChar(Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL));
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
