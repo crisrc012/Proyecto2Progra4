@@ -3,6 +3,7 @@
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" />
       <xs:element name="listarBeneficiarios">
         <xs:complexType>
           <xs:sequence />
@@ -187,8 +188,7 @@
       <xs:element name="filtrarEstado">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q2:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q2:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -208,29 +208,29 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q3:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="insertarEstado">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q3:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q4:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="insertarEstadoResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q4:char" />
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q5:char" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q6:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="actualizarEstado">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q5:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q7:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -238,13 +238,14 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="actualizarEstadoResult" type="xs:boolean" />
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" minOccurs="0" name="Obj_Estado_DAL" nillable="true" type="q8:Cls_Estado_DAL" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="eliminarEstado">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q6:char" />
+            <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q9:char" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -394,6 +395,45 @@
           <xs:sequence>
             <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
             <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ClubCampestre_DAL.CatalogosMantenimientos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="Cls_Estado_DAL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CIdEstado" type="ser:char" />
+          <xs:element minOccurs="0" name="DS" nillable="true">
+            <xs:complexType>
+              <xs:annotation>
+                <xs:appinfo>
+                  <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                </xs:appinfo>
+              </xs:annotation>
+              <xs:sequence>
+                <xs:element ref="xs:schema" />
+                <xs:any />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="SEstado" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SMsjError" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Cls_Estado_DAL" nillable="true" type="tns:Cls_Estado_DAL" />
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DataSet" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
           </xs:sequence>
         </xs:complexType>
       </xs:element>

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\ClubCampestre_DAL.CatalogosMantenimientos.Cls_Estado_DAL.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Service References\SVC_CatalogosMantenimientos\CatalogosMantenimientos.wsdl" />
   </ItemGroup>
@@ -68,6 +69,15 @@
     <WCFMetadataStorage Include="Service References\SVC_CatalogosMantenimientos\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarEstadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
