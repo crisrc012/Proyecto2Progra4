@@ -19,8 +19,8 @@ namespace Club_Campestre.Mantenimiento
                 if (estado != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Estados";
-                    this.txtestado.Value = estado.cIdEstado.ToString();
-                    this.txtdescripcion.Value = estado.sPKEstado;
+                    this.txtestado.Value = estado.CIdEstado.ToString();
+                    this.txtdescripcion.Value = estado.SEstado;
                 }
                 else
                 {
@@ -41,8 +41,8 @@ namespace Club_Campestre.Mantenimiento
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Obj_Estado_DAL.cIdEstado = Convert.ToChar(this.txtestado.Value);
-            Obj_Estado_DAL.sPKEstado = this.txtdescripcion.Value.ToString();
+            Obj_Estado_DAL.CIdEstado = Convert.ToChar(this.txtestado.Value);
+            Obj_Estado_DAL.SEstado = this.txtdescripcion.Value.ToString();
             string tipo = Session["tipo"].ToString();
             if ( tipo == "E")
             {
