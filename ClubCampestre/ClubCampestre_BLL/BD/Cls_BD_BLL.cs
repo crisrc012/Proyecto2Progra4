@@ -116,7 +116,7 @@ namespace ClubCampestre_BLL.BD
                 {
                     foreach (DataRow Celda in Obj_BD_DAL.Obj_dtparam.Rows)
                     {
-                        Obj_BD_DAL.Obj_sql_adap.SelectCommand.Parameters.Add(Celda[0].ToString()
+                        Obj_BD_DAL.Obj_sql_cmd.Parameters.Add(Celda[0].ToString()
                             , volverDatoSQL(Celda[0].GetType())).Value = Celda[1];
                     }
                 }

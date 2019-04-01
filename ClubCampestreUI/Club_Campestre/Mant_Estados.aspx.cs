@@ -54,6 +54,7 @@ namespace Club_Campestre.Mantenimiento
             if (tipo == "E")
             {
                 Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
+                Server.Transfer("Estados.aspx");
             }
             else
             {
