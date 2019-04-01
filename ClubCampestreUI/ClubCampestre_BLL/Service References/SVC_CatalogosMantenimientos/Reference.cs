@@ -15,11 +15,89 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SVC_CatalogosMantenimientos.ICatalogosMantenimientos")]
     public interface ICatalogosMantenimientos {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
+        System.Data.DataTable listarBeneficiarios();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> listarBeneficiariosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiariosResponse")]
+        System.Data.DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiariosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarBeneficiariosAsync(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarClientesResponse")]
+        System.Data.DataTable listarClientes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarClientesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> listarClientesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarClientesResponse")]
+        System.Data.DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarClientesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarClientesAsync(short sIdCliente, byte bIdTipoCliente, string sIdPersona);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarCorreosResponse")]
+        System.Data.DataTable listarCorreos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarCorreosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> listarCorreosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreosResponse")]
+        System.Data.DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarCorreosAsync(short sIdCorreo, string sIdPersona, string sCorreo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarEstadoResponse")]
         System.Data.DataTable listarEstado();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarEstadoResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> listarEstadoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarEstadoResponse")]
+        System.Data.DataTable filtrarEstado(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarEstadoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarEstadoAsync(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarEstadoResponse")]
+        char insertarEstado(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarEstadoResponse")]
+        System.Threading.Tasks.Task<char> insertarEstadoAsync(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarEstadoResponse")]
+        bool actualizarEstado(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarEstadoResponse")]
+        System.Threading.Tasks.Task<bool> actualizarEstadoAsync(char cIdEstado, string sEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse")]
+        bool eliminarEstado(char cIdEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse")]
+        System.Threading.Tasks.Task<bool> eliminarEstadoAsync(char cIdEstado);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacionResponse")]
+        System.Data.DataTable filtrarFacturacion(short sIdCliente, string sDescripcion, System.DateTime DFecha, float fMontototal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacionResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarFacturacionAsync(short sIdCliente, string sDescripcion, System.DateTime DFecha, float fMontototal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalleResponse")]
+        System.Data.DataTable listarFacturaDetalle();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalleResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> listarFacturaDetalleAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse")]
+        System.Data.DataTable filtrarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> filtrarFacturaDetalleAsync(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +127,116 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
                 base(binding, remoteAddress) {
         }
         
+        public System.Data.DataTable listarBeneficiarios() {
+            return base.Channel.listarBeneficiarios();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> listarBeneficiariosAsync() {
+            return base.Channel.listarBeneficiariosAsync();
+        }
+        
+        public System.Data.DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado) {
+            return base.Channel.filtrarBeneficiarios(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarBeneficiariosAsync(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado) {
+            return base.Channel.filtrarBeneficiariosAsync(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado);
+        }
+        
+        public System.Data.DataTable listarClientes() {
+            return base.Channel.listarClientes();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> listarClientesAsync() {
+            return base.Channel.listarClientesAsync();
+        }
+        
+        public System.Data.DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona) {
+            return base.Channel.filtrarClientes(sIdCliente, bIdTipoCliente, sIdPersona);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarClientesAsync(short sIdCliente, byte bIdTipoCliente, string sIdPersona) {
+            return base.Channel.filtrarClientesAsync(sIdCliente, bIdTipoCliente, sIdPersona);
+        }
+        
+        public System.Data.DataTable listarCorreos() {
+            return base.Channel.listarCorreos();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> listarCorreosAsync() {
+            return base.Channel.listarCorreosAsync();
+        }
+        
+        public System.Data.DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo) {
+            return base.Channel.filtrarCorreos(sIdCorreo, sIdPersona, sCorreo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarCorreosAsync(short sIdCorreo, string sIdPersona, string sCorreo) {
+            return base.Channel.filtrarCorreosAsync(sIdCorreo, sIdPersona, sCorreo);
+        }
+        
         public System.Data.DataTable listarEstado() {
             return base.Channel.listarEstado();
         }
         
         public System.Threading.Tasks.Task<System.Data.DataTable> listarEstadoAsync() {
             return base.Channel.listarEstadoAsync();
+        }
+        
+        public System.Data.DataTable filtrarEstado(char cIdEstado, string sEstado) {
+            return base.Channel.filtrarEstado(cIdEstado, sEstado);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarEstadoAsync(char cIdEstado, string sEstado) {
+            return base.Channel.filtrarEstadoAsync(cIdEstado, sEstado);
+        }
+        
+        public char insertarEstado(char cIdEstado, string sEstado) {
+            return base.Channel.insertarEstado(cIdEstado, sEstado);
+        }
+        
+        public System.Threading.Tasks.Task<char> insertarEstadoAsync(char cIdEstado, string sEstado) {
+            return base.Channel.insertarEstadoAsync(cIdEstado, sEstado);
+        }
+        
+        public bool actualizarEstado(char cIdEstado, string sEstado) {
+            return base.Channel.actualizarEstado(cIdEstado, sEstado);
+        }
+        
+        public System.Threading.Tasks.Task<bool> actualizarEstadoAsync(char cIdEstado, string sEstado) {
+            return base.Channel.actualizarEstadoAsync(cIdEstado, sEstado);
+        }
+        
+        public bool eliminarEstado(char cIdEstado) {
+            return base.Channel.eliminarEstado(cIdEstado);
+        }
+        
+        public System.Threading.Tasks.Task<bool> eliminarEstadoAsync(char cIdEstado) {
+            return base.Channel.eliminarEstadoAsync(cIdEstado);
+        }
+        
+        public System.Data.DataTable filtrarFacturacion(short sIdCliente, string sDescripcion, System.DateTime DFecha, float fMontototal) {
+            return base.Channel.filtrarFacturacion(sIdCliente, sDescripcion, DFecha, fMontototal);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarFacturacionAsync(short sIdCliente, string sDescripcion, System.DateTime DFecha, float fMontototal) {
+            return base.Channel.filtrarFacturacionAsync(sIdCliente, sDescripcion, DFecha, fMontototal);
+        }
+        
+        public System.Data.DataTable listarFacturaDetalle() {
+            return base.Channel.listarFacturaDetalle();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> listarFacturaDetalleAsync() {
+            return base.Channel.listarFacturaDetalleAsync();
+        }
+        
+        public System.Data.DataTable filtrarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal) {
+            return base.Channel.filtrarFacturaDetalle(iIdFacturaDetalle, iIdFactura, sDetalle, fcosto, bIdTipoServicio, iIdMembresia, icantidad, ftotal);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> filtrarFacturaDetalleAsync(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal) {
+            return base.Channel.filtrarFacturaDetalleAsync(iIdFacturaDetalle, iIdFactura, sDetalle, fcosto, bIdTipoServicio, iIdMembresia, icantidad, ftotal);
         }
     }
 }
