@@ -1,8 +1,7 @@
-﻿function textChange(e) {
-    document.getElementById('txtFiltrar').click();
+﻿function myFunction() {
+    var x = document.getElementById("txtFiltrar").value;
+    document.getElementById("errorMensaje").innerHTML = "You wrote: " + x;
 }
-
-
 
 function SoloNumeros(e) {
     var key = e.keyCode || e.which;
