@@ -12,35 +12,14 @@ namespace ClubCampestre_BLL.BD
         #region Miembros privados
         private SqlDbType volverDatoSQL(Type Obj)
         {
-            if (Obj.GetType() == typeof(string))
-            {
-                return SqlDbType.VarChar;
-            }
-            if (Obj.GetType() == typeof(int))
-            {
-                return SqlDbType.Int;
-            }
-            if (Obj.GetType() == typeof(short))
-            {
-                return SqlDbType.SmallInt;
-            }
-            if (Obj.GetType() == typeof(float))
-            {
-                return SqlDbType.Float;
-            }
-            if (Obj.GetType() == typeof(byte))
-            {
-                return SqlDbType.TinyInt;
-            }
-            if (Obj.GetType() == typeof(DateTime))
-            {
-                return SqlDbType.DateTime;
-            }
-            if (Obj.GetType() == typeof(char))
-            {
-                return SqlDbType.Char;
-            }
-            return SqlDbType.VarChar;
+            return (Obj.GetType() == typeof(string)) ? SqlDbType.VarChar :
+                (Obj.GetType() == typeof(int)) ? SqlDbType.Int :
+                (Obj.GetType() == typeof(short)) ? SqlDbType.SmallInt :
+                (Obj.GetType() == typeof(float)) ? SqlDbType.Float :
+                (Obj.GetType() == typeof(byte)) ? SqlDbType.TinyInt :
+                (Obj.GetType() == typeof(DateTime)) ? SqlDbType.DateTime :
+                (Obj.GetType() == typeof(char)) ? SqlDbType.Char :
+                SqlDbType.VarChar;
         }
         #endregion
         #region Miembros públicos

@@ -54,6 +54,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_insert_TB_Beneficiarios]";
             // Se cargan valores a insertar
+            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdBeneficiario", Obj_Beneficiarios_DAL.SIdBeneficiario);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdCliente", Obj_Beneficiarios_DAL.SIdCliente);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdPersona", Obj_Beneficiarios_DAL.SIdPersona);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Beneficiarios_DAL.CIdEstado);
