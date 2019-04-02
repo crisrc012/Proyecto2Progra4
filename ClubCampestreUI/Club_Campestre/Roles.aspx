@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Estados.aspx.cs" Inherits="Club_Campestre.Estados" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="Club_Campestre.Roles" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,23 +8,23 @@
     <div class="pure-control-group">
         <div>
             <header>
-                <h1>Estados</h1>
+                <h1>Roles</h1>
             </header>
         </div>
         <div class="pure-controls">
             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
             <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
             <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
-            <asp:TextBox ID="txtFiltraEstados" runat="server" OnTextChanged="txtFiltraEstados_TextChanged" ForeColor="Blue"></asp:TextBox>
+            <asp:TextBox ID="FiltrarRol" runat="server" ForeColor="Blue" OnTextChanged="Filtrar_TextChanged"></asp:TextBox>
             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="EstadoGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+            <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
-                    <asp:BoundField DataField="IdEstado" HeaderText="Estado" />
-                    <asp:BoundField DataField="Estado" HeaderText="Descripcion" />
+                    <asp:BoundField DataField="IdRoles" HeaderText="Rol" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
@@ -37,5 +37,4 @@
     </div> 
 
     </div>
-       
 </asp:Content>

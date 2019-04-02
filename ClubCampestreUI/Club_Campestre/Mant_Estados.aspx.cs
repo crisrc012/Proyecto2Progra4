@@ -13,8 +13,7 @@ namespace Club_Campestre.Mantenimiento
     public partial class Mant_Estados : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-        Cls_Estado_DAL Obj_Estado_DAL;
+        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();       
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)

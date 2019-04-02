@@ -4,87 +4,74 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
 
 namespace Club_Campestre
 {
-    public partial class Estados : System.Web.UI.Page
+    public partial class Roles : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-        Cls_Estado_DAL Obj_Estado_DAL;
+        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        Cls_Rol_DAL Obj_Rol_DAL;
         bool vFiltra = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
-
-            //Metodo que listat 
         private void BindGrid()
         {
             //Se instancia objeto
-            Obj_Estado_DAL = new Cls_Estado_DAL();
+            Obj_Rol_DAL = new Cls_Rol_DAL();
 
-            if (this.txtFiltraEstados.Text == string.Empty)//listar
+            if (this.FiltrarRol.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
-               
+                Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
+
             }
             else
             {
-                Obj_Estado_DAL.SEstado = this.txtFiltraEstados.Text;
+                Obj_Rol_DAL.sDescripcion = this.FiltrarRol.Text;
                 //llamado metodo listar estados
-                Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
+                Obj_Rol_BLL.Filtrar(ref Obj_Rol_DAL);
             }
 
-            if(Obj_Estado_DAL.sMsjError == string.Empty)
+            if (Obj_Rol_DAL.sMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
-                this.EstadoGridView.DataSource = Obj_Estado_DAL.DS.Tables[0];
-                this.EstadoGridView.DataBind();
+                this.RolesGridView.DataSource = Obj_Rol_DAL.DS.Tables[0];
+                this.RolesGridView.DataBind();
             }
             else
             {
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
                 this.BindGrid();
             }
-            
-            
+
+
         }
 
-        //Boton nuevo 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
             Server.Transfer("Mant_Estados.aspx", false);//llama pantalla
         }
 
-        //boton modificar
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             //Se instancia objeto
-            Obj_Estado_DAL = new Cls_Estado_DAL();
+            Obj_Rol_DAL = new Cls_Rol_DAL();
             //Secion tipo Editar
             Session["tipo"] = "E";
             //Recorre Grid buscando chk 
-            foreach (GridViewRow row in EstadoGridView.Rows)
+            foreach (GridViewRow row in RolesGridView.Rows)
             {
                 //busca el la fila
                 if (row.RowType == DataControlRowType.DataRow)
@@ -93,27 +80,26 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
-                        Obj_Estado_DAL.SEstado = row.Cells[1].Text;
+                        Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text);
+                        Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
 
                         //Sesion estado lleva el objeto
-                        Session["Estado"] = Obj_Estado_DAL;
+                        Session["Estado"] = Obj_Rol_DAL;
                         Server.Transfer("Mant_Estados.aspx");//llama la pantalla 
                     }
-                    
+
                 }
             }
         }
 
-        //boton eliminar
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (vFiltra)
             {
-                Obj_Estado_DAL = new Cls_Estado_DAL();
+                Obj_Rol_DAL = new Cls_Rol_DAL();
 
                 //Recorre Grid buscando chk 
-                foreach (GridViewRow row in EstadoGridView.Rows)
+                foreach (GridViewRow row in RolesGridView.Rows)
                 {
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
@@ -122,16 +108,16 @@ namespace Club_Campestre
                         CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                         if (chkRow.Checked)
                         {
-                            Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
-                            Obj_Estado_DAL.SEstado = row.Cells[1].Text;
+                            Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text);
+                            Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
 
                             //llamado metodo eliminar estados
-                            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
+                            Obj_Rol_BLL.Eliminar(ref Obj_Rol_DAL);// eliminar estados
                         }
 
                     }
                 }
-                if (Obj_Estado_DAL.sMsjError == string.Empty)
+                if (Obj_Rol_DAL.sMsjError == string.Empty)
                 {
                     this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
                     this.BindGrid();
@@ -142,17 +128,15 @@ namespace Club_Campestre
                     this.BindGrid();
                 }
 
-            }         
-
+            }
         }
 
-        // evento para Buscar
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-             this.BindGrid();
+            this.BindGrid();
         }
 
-        protected void txtFiltraEstados_TextChanged(object sender, EventArgs e)
+        protected void Filtrar_TextChanged(object sender, EventArgs e)
         {
             vFiltra = false;
             if (vFiltra == false)

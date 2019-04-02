@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Estados {
+    public partial class Roles {
         
         /// <summary>
         /// btnEliminar control.
@@ -40,13 +40,13 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// txtFiltraEstados control.
+        /// FiltrarRol control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltraEstados;
+        protected global::System.Web.UI.WebControls.TextBox FiltrarRol;
         
         /// <summary>
         /// btnBuscar control.
@@ -67,12 +67,12 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMensaje;
         
         /// <summary>
-        /// EstadoGridView control.
+        /// RolesGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EstadoGridView;
+        protected global::System.Web.UI.WebControls.GridView RolesGridView;
     }
 }
