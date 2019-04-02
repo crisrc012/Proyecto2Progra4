@@ -54,7 +54,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             // Se cargan valores a insertar
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
-            //Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL);
             Obj_Estado_DAL.CIdEstado = Convert.ToChar(Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL));
             if (Obj_BD_DAL.sMsj_error == string.Empty)
             {
@@ -71,7 +70,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_update_TB_Estado]";
-            // Se cargan valores a insertar
+            // Se cargan valores a actualizar
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
             Obj_BD_BLL.ExecuteNonQuery(ref Obj_BD_DAL);
@@ -90,7 +89,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_delete_TB_Estado]";
-            // Se cargan valores a insertar
+            // Se cargan valores a eliminar
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
             Obj_BD_BLL.ExecuteNonQuery(ref Obj_BD_DAL);
             if (Obj_BD_DAL.sMsj_error == string.Empty)

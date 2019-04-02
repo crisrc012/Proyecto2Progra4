@@ -53,6 +53,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             Obj_BD_DAL = new Cls_BD_DAL();
             Obj_BD_DAL.sNombre_SP = "[dbo].[sp_insert_TB_Clientes]";
             // Se cargan valores a insertar
+            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdCliente", Obj_Clientes_DAL.SIdCliente);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdTipoCliente", Obj_Clientes_DAL.BIdTipoCliente);
             Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdPersona", Obj_Clientes_DAL.SIdPersona);
             Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL));
