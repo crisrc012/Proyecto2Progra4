@@ -66,7 +66,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Boostrap\css\bootstrap-grid.css" />
+    <Content Include="Boostrap\css\bootstrap-grid.min.css" />
+    <Content Include="Boostrap\css\bootstrap-reboot.css" />
+    <Content Include="Boostrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Boostrap\css\bootstrap.css" />
+    <Content Include="Boostrap\css\bootstrap.min.css" />
+    <Content Include="Boostrap\css\style.css" />
+    <Content Include="Boostrap\js\bootstrap.bundle.js" />
+    <Content Include="Boostrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Boostrap\js\bootstrap.js" />
+    <Content Include="Boostrap\js\bootstrap.min.js" />
     <Content Include="Estados.aspx" />
+    <Content Include="Images\panel.jpg" />
+    <Content Include="Login.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Tipo_Cliente.aspx" />
@@ -79,6 +92,16 @@
     <Content Include="Shared\fonts\fontawesome-webfont.woff2" />
     <Content Include="Shared\fonts\FontAwesome.otf" />
     <Content Include="Master.Master" />
+    <Content Include="Boostrap\css\bootstrap-grid.css.map" />
+    <Content Include="Boostrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Boostrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Boostrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Boostrap\css\bootstrap.css.map" />
+    <Content Include="Boostrap\css\bootstrap.min.css.map" />
+    <Content Include="Boostrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Boostrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Boostrap\js\bootstrap.js.map" />
+    <Content Include="Boostrap\js\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,6 +141,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Estados.aspx.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
