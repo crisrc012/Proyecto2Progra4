@@ -7,6 +7,11 @@
     <title>Club Campestre</title>
     <link href="Shared/layout.css" rel="stylesheet" type="text/css" media="all">
     <link href="Shared/pure.css" rel="stylesheet" type="text/css" media="all">
+    <link href="Boostrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Boostrap/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style type="text/css">
         .background {
             box-sizing: border-box;
@@ -23,6 +28,7 @@
             width: 50%;
             
         }
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
