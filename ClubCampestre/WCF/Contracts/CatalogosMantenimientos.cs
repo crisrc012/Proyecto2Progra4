@@ -115,39 +115,30 @@ namespace WCF.Contracts
         }
         #endregion
         #region Estado
-        public DataTable listarEstado()
+        public DataTable listarEstado(ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.DS.Tables[0];
+            return Obj_Estado_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public DataTable filtrarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.DS.Tables[0];
+            return Obj_Estado_BLL.Filtrar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public char insertarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.CIdEstado;
+            return Obj_Estado_BLL.Insertar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public bool actualizarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public bool actualizarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Estado_BLL.Actualizar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public bool eliminarEstado(char cIdEstado)
+        public bool eliminarEstado(char cIdEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a eliminar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Estado_BLL.Eliminar(cIdEstado, ref sMsj_error);
         }
         #endregion
         #region Facturacion

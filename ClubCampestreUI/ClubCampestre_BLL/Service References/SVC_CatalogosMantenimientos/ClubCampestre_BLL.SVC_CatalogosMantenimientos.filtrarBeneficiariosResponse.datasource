@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="actualizarEstadoResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarEstadoResponse, Service References.SVC_CatalogosMantenimientos.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="filtrarBeneficiariosResponse" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosResponse, Service References.SVC_CatalogosMantenimientos.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

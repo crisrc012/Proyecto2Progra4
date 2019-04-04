@@ -1,7 +1,6 @@
 ﻿using ClubCampestre_BLL.BD;
-using ClubCampestre_DAL.BD;
-using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
+using System.Data;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
@@ -9,98 +8,41 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
     {
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
-        private Cls_BD_DAL Obj_BD_DAL;
         #endregion
-
-        public void Listar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        private DataTable inicializarDT(DataTable dt, char cIdEstado, string sEstado)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_Estado]";
-            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
+            dt.Columns.Add("IdEstado");
+            dt.Columns.Add("Estado");
+            dt.Rows.Add("@IdEstado", cIdEstado);
+            if (sEstado != string.Empty)
             {
-                Obj_Estado_DAL.SMsjError = string.Empty;
+                dt.Rows.Add("@Estado", sEstado);
             }
-            else
-            {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
-            }
+            return dt;
+        }
+        public DataTable Listar(ref string sMsj_error)
+        {
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Estado]", ref sMsj_error);
         }
 
-        public void Filtrar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public DataTable Filtrar(char cIdEstado, string sEstado, ref string sMsj_error)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_search_TB_Estado]";
-            // Se cargan valores a buscar
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
-            Obj_Estado_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
-            {
-                Obj_Estado_DAL.SMsjError = string.Empty;
-            }
-            else
-            {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
-            }
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(new DataTable(), cIdEstado, sEstado), "[dbo].[sp_search_TB_Estado]", ref sMsj_error).Copy();
         }
 
-        public void Insertar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public char Insertar(char cIdEstado, string sEstado, ref string sMsj_error)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_insert_TB_Estado]";
-            // Se cargan valores a insertar
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
-            Obj_Estado_DAL.CIdEstado = Convert.ToChar(Obj_BD_BLL.ExecuteScalar(ref Obj_BD_DAL));
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
-            {
-                Obj_Estado_DAL.SMsjError = string.Empty;
-            }
-            else
-            {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
-            }
+            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(new DataTable(), cIdEstado, sEstado), "[dbo].[sp_insert_TB_Estado]", ref sMsj_error));
         }
 
-        public void Actualizar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public bool Actualizar(char cIdEstado, string sEstado, ref string sMsj_error)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_update_TB_Estado]";
-            // Se cargan valores a actualizar
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@Estado", Obj_Estado_DAL.SEstado);
-            Obj_BD_BLL.ExecuteNonQuery(ref Obj_BD_DAL);
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
-            {
-                Obj_Estado_DAL.SMsjError = string.Empty;
-            }
-            else
-            {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
-            }
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(new DataTable(), cIdEstado, sEstado), "[dbo].[sp_update_TB_Estado]", ref sMsj_error);
         }
 
-        public void Eliminar(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public bool Eliminar(char cIdEstado, ref string sMsj_error)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_delete_TB_Estado]";
-            // Se cargan valores a eliminar
-            Obj_BD_DAL.Obj_dtparam.Rows.Add("@IdEstado", Obj_Estado_DAL.CIdEstado);
-            Obj_BD_BLL.ExecuteNonQuery(ref Obj_BD_DAL);
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
-            {
-                Obj_Estado_DAL.SMsjError = string.Empty;
-            }
-            else
-            {
-                Obj_Estado_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_Estado_DAL.DS = null;
-            }
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(new DataTable(), cIdEstado, string.Empty), "[dbo].[sp_update_TB_Estado]", ref sMsj_error);
         }
     }
 }

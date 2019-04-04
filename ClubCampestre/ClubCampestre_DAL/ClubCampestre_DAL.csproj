@@ -38,7 +38,6 @@
     <Compile Include="CatalogosMantenimientos\Cls_Beneficiarios_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Clientes_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Correos_DAL.cs" />
-    <Compile Include="CatalogosMantenimientos\Cls_Estado_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Facturacion_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Ingresos_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Membresias_DAL.cs" />

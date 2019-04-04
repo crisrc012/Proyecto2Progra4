@@ -45,15 +45,15 @@ namespace WCF.Interfaces
         #endregion
         #region Estado
         [OperationContract]
-        DataTable listarEstado();
+        DataTable listarEstado(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
+        DataTable filtrarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
-        char insertarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
+        char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
-        bool actualizarEstado(ref Cls_Estado_DAL Obj_Estado_DAL);
+        bool actualizarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
-        bool eliminarEstado(char cIdEstado);
+        bool eliminarEstado(char cIdEstado, ref string sMsj_error);
         #endregion
         #region Facturacion
         DataTable listarFacturacion();
