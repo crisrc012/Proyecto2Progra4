@@ -1,5 +1,4 @@
 ﻿using ClubCampestre_BLL.BD;
-using ClubCampestre_DAL.CatalogosMantenimientos;
 
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
@@ -10,7 +9,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
 
-        public void Listar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        public void Listar()
         {
             //Obj_BD_DAL = new Cls_BD_DAL();
             //Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_TipoMembresia]";
@@ -19,17 +18,17 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
       
 
-        public void Insertar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        public void Insertar()
         {
 
         }
 
-        public void Actualizar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        public void Actualizar()
         {
 
         }
 
-        public void Eliminar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        public void Eliminar()
         {
 
         }
