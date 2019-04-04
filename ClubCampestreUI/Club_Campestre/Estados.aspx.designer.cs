@@ -40,13 +40,22 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// txtFiltrar control.
+        /// txtFiltraEstados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltrar;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltraEstados;
+        
+        /// <summary>
+        /// btnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
         
         /// <summary>
         /// errorMensaje control.

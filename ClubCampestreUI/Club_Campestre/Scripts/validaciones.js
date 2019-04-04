@@ -3,6 +3,19 @@
     document.getElementById("errorMensaje").innerHTML = "You wrote: " + x;
 }
 
+function Alert() {
+    var mjs = document.getElementById("errorMensaje").value;
+    if (caja_texto.trim() === "") {       
+        return false;
+    }
+    else {
+        alert(mjs);
+        return true;
+    }
+
+
+}
+
 function SoloNumeros(e) {
     var key = e.keyCode || e.which;
     var teclado = String.fromCharCode(key);

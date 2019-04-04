@@ -7,6 +7,11 @@
     <title>Club Campestre</title>
     <link href="Shared/layout.css" rel="stylesheet" type="text/css" media="all">
     <link href="Shared/pure.css" rel="stylesheet" type="text/css" media="all">
+    <link href="Boostrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Boostrap/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style type="text/css">
         .background {
             box-sizing: border-box;
@@ -16,21 +21,23 @@
             background-image: url(Images/fondo.jpg);
             border: 1px solid black;
             background-size: 100% 100%;
+            margin: auto;
         }
         .main {
             margin: auto;
-            width: 60%;
+            width: 50%;
+            
         }
+        
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>  
-
+<body >  
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         <form id="top" class="pure-form pure-form-aligned" runat="server">
-            <div>
+            <div >
                 <div class=" wrapper row1">
                     <header id="header" class="hoc clear">
                         <div id="logo" class="fl_left">
@@ -39,18 +46,29 @@
                         </div>
                         <nav id="mainav" class="fl_right">
                             <ul class="clear">
+                                <li><a class="drop" href="#">Membresías</a>
+                                    <ul>
+                                        <li><a href="Membresías.aspx">Membresías</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="drop" href="#">Ingresos</a>
+                                    <ul>
+                                        <li><a href="Ingreso.aspx">Ingreso</a></li>
+                                    </ul>
+                                </li>
                                 <li><a class="drop" href="#">Catalogo</a>
                                     <ul>
                                         <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
                                         <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
                                         <li><a href="Estados.aspx">Estados</a></li>
-                                        <li><a href="Clientes.aspx">Clientes</a></li>
+                                        <li><a href="Personas.aspx">Personas</a></li>
+                                        <li><a href="Servicios.aspx">Servicios</a></li>
                                     </ul>
                                 </li>
                                 <li><a class="drop" href="#">Seguridad</a>
                                     <ul>
-                                        <li><a href="Encriptacion.aspx">Usuarios</a></li>
-                                        <li><a href="Des_Encriptacion.aspx">Roles</a></li>
+                                        <li><a href="Usuarios.aspx">Usuarios</a></li>
+                                        <li><a href="Roles.aspx">Roles</a></li>
                                     </ul>
                                 </li>
                                 <li class="active"><a href="Index.aspx">Salir</a></li>
@@ -59,7 +77,7 @@
                     </header>
                 </div>
 
-                <div class="main">
+                <div class ="background">
                     <asp:ContentPlaceHolder ID="mainContent" runat="server">
                     </asp:ContentPlaceHolder>
 

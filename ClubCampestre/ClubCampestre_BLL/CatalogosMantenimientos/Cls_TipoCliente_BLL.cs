@@ -18,18 +18,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public void Listar(ref Cls_TipoCliente_DAL Obj_TipoCliente_DAL)
         {
-            Obj_BD_DAL = new Cls_BD_DAL();
-            Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_TipoCliente]";
-            Obj_TipoCliente_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
-            if (Obj_BD_DAL.sMsj_error == string.Empty)
-            {
-                Obj_TipoCliente_DAL.SMsjError = string.Empty;
-            }
-            else
-            {
-                Obj_TipoCliente_DAL.SMsjError = Obj_BD_DAL.sMsj_error;
-                Obj_TipoCliente_DAL.DS = null;
-            }
+            //Obj_BD_DAL = new Cls_BD_DAL();
+            //Obj_BD_DAL.sNombre_SP = "[dbo].[sp_select_TB_TipoCliente]";
+            //Obj_TipoCliente_DAL.DS.Tables.Add(Obj_BD_BLL.ExecuteDataAdapter(ref Obj_BD_DAL).Copy());
         }
 
        
