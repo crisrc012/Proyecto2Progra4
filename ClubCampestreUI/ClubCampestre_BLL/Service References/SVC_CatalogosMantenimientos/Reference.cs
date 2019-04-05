@@ -16,10 +16,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public interface ICatalogosMantenimientos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
-        System.Data.DataTable listarBeneficiarios();
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse listarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> listarBeneficiariosAsync();
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse> listarBeneficiariosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiariosResponse")]
         ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosResponse filtrarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosRequest request);
@@ -43,76 +44,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarBeneficiariosResponse> actualizarBeneficiariosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarBeneficiariosRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiariosResponse")]
-        bool eliminarBeneficiarios(short SIdBeneficiario);
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse eliminarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest request);
         
+        // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiariosResponse")]
-        System.Threading.Tasks.Task<bool> eliminarBeneficiariosAsync(short SIdBeneficiario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarClientesResponse")]
-        System.Data.DataTable listarClientes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarClientesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> listarClientesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarClientesResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse filtrarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarClientesResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse> filtrarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarClientesResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesResponse insertarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarClientesResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesResponse> insertarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarClientesResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesResponse actualizarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarClientesResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesResponse> actualizarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarClientesResponse")]
-        bool eliminarClientes(short SIdCliente);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarClientes", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarClientesResponse")]
-        System.Threading.Tasks.Task<bool> eliminarClientesAsync(short SIdCliente);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarCorreosResponse")]
-        System.Data.DataTable listarCorreos();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarCorreosResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> listarCorreosAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreosResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse filtrarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreosResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse> filtrarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarCorreosResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosResponse insertarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarCorreosResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosResponse> insertarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreosResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosResponse actualizarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreosResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosResponse> actualizarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreosResponse")]
-        bool eliminarCorreos(string sCorreo);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreos", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreosResponse")]
-        System.Threading.Tasks.Task<bool> eliminarCorreosAsync(string sCorreo);
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse> eliminarBeneficiariosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarEstadoResponse")]
         ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarEstadoResponse listarEstado(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarEstadoRequest request);
@@ -148,66 +84,42 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse")]
         System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarEstadoResponse> eliminarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarEstadoRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBeneficiarios", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class listarBeneficiariosRequest {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacionResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionResponse filtrarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string sMsj_error;
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacionResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionResponse> filtrarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest request);
+        public listarBeneficiariosRequest() {
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacionResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionResponse insertarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest request);
+        public listarBeneficiariosRequest(string sMsj_error) {
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarBeneficiariosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class listarBeneficiariosResponse {
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacionResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionResponse> insertarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable listarBeneficiariosResult;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacionResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionResponse actualizarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest request);
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
         
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacionResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionResponse> actualizarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest request);
+        public listarBeneficiariosResponse() {
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacionResponse")]
-        bool eliminarFacturacion(int iIdFactura);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacion", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacionResponse")]
-        System.Threading.Tasks.Task<bool> eliminarFacturacionAsync(int iIdFactura);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalleResponse")]
-        System.Data.DataTable listarFacturaDetalle();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalleResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> listarFacturaDetalleAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleResponse filtrarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleResponse> filtrarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalleResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleResponse insertarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalleResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleResponse> insertarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalleResponse")]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleResponse actualizarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest request);
-        
-        // CODEGEN: Generating message contract since the operation has multiple return values.
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalleResponse")]
-        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleResponse> actualizarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalleResponse")]
-        bool eliminarFacturaDetalle(int iIdFacturaDetalle);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalle", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalleResponse")]
-        System.Threading.Tasks.Task<bool> eliminarFacturaDetalleAsync(int iIdFacturaDetalle);
+        public listarBeneficiariosResponse(System.Data.DataTable listarBeneficiariosResult, string sMsj_error) {
+            this.listarBeneficiariosResult = listarBeneficiariosResult;
+            this.sMsj_error = sMsj_error;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -216,13 +128,29 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class filtrarBeneficiariosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public short sIdBeneficiario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string sIdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string sMsj_error;
         
         public filtrarBeneficiariosRequest() {
         }
         
-        public filtrarBeneficiariosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+        public filtrarBeneficiariosRequest(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, string sMsj_error) {
+            this.sIdBeneficiario = sIdBeneficiario;
+            this.sIdCliente = sIdCliente;
+            this.sIdPersona = sIdPersona;
+            this.cIdEstado = cIdEstado;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -235,14 +163,14 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public System.Data.DataTable filtrarBeneficiariosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public string sMsj_error;
         
         public filtrarBeneficiariosResponse() {
         }
         
-        public filtrarBeneficiariosResponse(System.Data.DataTable filtrarBeneficiariosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public filtrarBeneficiariosResponse(System.Data.DataTable filtrarBeneficiariosResult, string sMsj_error) {
             this.filtrarBeneficiariosResult = filtrarBeneficiariosResult;
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -252,13 +180,29 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarBeneficiariosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public short sIdBeneficiario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string sIdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string sMsj_error;
         
         public insertarBeneficiariosRequest() {
         }
         
-        public insertarBeneficiariosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+        public insertarBeneficiariosRequest(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, string sMsj_error) {
+            this.sIdBeneficiario = sIdBeneficiario;
+            this.sIdCliente = sIdCliente;
+            this.sIdPersona = sIdPersona;
+            this.cIdEstado = cIdEstado;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -271,14 +215,14 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public short insertarBeneficiariosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public string sMsj_error;
         
         public insertarBeneficiariosResponse() {
         }
         
-        public insertarBeneficiariosResponse(short insertarBeneficiariosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public insertarBeneficiariosResponse(short insertarBeneficiariosResult, string sMsj_error) {
             this.insertarBeneficiariosResult = insertarBeneficiariosResult;
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -288,13 +232,29 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class actualizarBeneficiariosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public short sIdBeneficiario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string sIdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string sMsj_error;
         
         public actualizarBeneficiariosRequest() {
         }
         
-        public actualizarBeneficiariosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+        public actualizarBeneficiariosRequest(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, string sMsj_error) {
+            this.sIdBeneficiario = sIdBeneficiario;
+            this.sIdCliente = sIdCliente;
+            this.sIdPersona = sIdPersona;
+            this.cIdEstado = cIdEstado;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -307,230 +267,54 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public bool actualizarBeneficiariosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL;
+        public string sMsj_error;
         
         public actualizarBeneficiariosResponse() {
         }
         
-        public actualizarBeneficiariosResponse(bool actualizarBeneficiariosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public actualizarBeneficiariosResponse(bool actualizarBeneficiariosResult, string sMsj_error) {
             this.actualizarBeneficiariosResult = actualizarBeneficiariosResult;
-            this.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            this.sMsj_error = sMsj_error;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarClientes", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarClientesRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBeneficiarios", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class eliminarBeneficiariosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
-        
-        public filtrarClientesRequest() {
-        }
-        
-        public filtrarClientesRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarClientesResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarClientesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Data.DataTable filtrarClientesResult;
+        public short SIdBeneficiario;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
+        public string sMsj_error;
         
-        public filtrarClientesResponse() {
+        public eliminarBeneficiariosRequest() {
         }
         
-        public filtrarClientesResponse(System.Data.DataTable filtrarClientesResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.filtrarClientesResult = filtrarClientesResult;
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClientes", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarClientesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
-        
-        public insertarClientesRequest() {
-        }
-        
-        public insertarClientesRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
+        public eliminarBeneficiariosRequest(short SIdBeneficiario, string sMsj_error) {
+            this.SIdBeneficiario = SIdBeneficiario;
+            this.sMsj_error = sMsj_error;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarClientesResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarClientesResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarBeneficiariosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class eliminarBeneficiariosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short insertarClientesResult;
+        public bool eliminarBeneficiariosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
+        public string sMsj_error;
         
-        public insertarClientesResponse() {
+        public eliminarBeneficiariosResponse() {
         }
         
-        public insertarClientesResponse(short insertarClientesResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.insertarClientesResult = insertarClientesResult;
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClientes", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarClientesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
-        
-        public actualizarClientesRequest() {
-        }
-        
-        public actualizarClientesRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarClientesResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarClientesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool actualizarClientesResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL;
-        
-        public actualizarClientesResponse() {
-        }
-        
-        public actualizarClientesResponse(bool actualizarClientesResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            this.actualizarClientesResult = actualizarClientesResult;
-            this.Obj_Clientes_DAL = Obj_Clientes_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarCorreos", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarCorreosRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public filtrarCorreosRequest() {
-        }
-        
-        public filtrarCorreosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarCorreosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarCorreosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Data.DataTable filtrarCorreosResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public filtrarCorreosResponse() {
-        }
-        
-        public filtrarCorreosResponse(System.Data.DataTable filtrarCorreosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.filtrarCorreosResult = filtrarCorreosResult;
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCorreos", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarCorreosRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public insertarCorreosRequest() {
-        }
-        
-        public insertarCorreosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarCorreosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarCorreosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string insertarCorreosResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public insertarCorreosResponse() {
-        }
-        
-        public insertarCorreosResponse(string insertarCorreosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.insertarCorreosResult = insertarCorreosResult;
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCorreos", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarCorreosRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public actualizarCorreosRequest() {
-        }
-        
-        public actualizarCorreosRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarCorreosResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarCorreosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool actualizarCorreosResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL;
-        
-        public actualizarCorreosResponse() {
-        }
-        
-        public actualizarCorreosResponse(bool actualizarCorreosResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            this.actualizarCorreosResult = actualizarCorreosResult;
-            this.Obj_Correos_DAL = Obj_Correos_DAL;
+        public eliminarBeneficiariosResponse(bool eliminarBeneficiariosResult, string sMsj_error) {
+            this.eliminarBeneficiariosResult = eliminarBeneficiariosResult;
+            this.sMsj_error = sMsj_error;
         }
     }
     
@@ -742,222 +526,6 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarFacturacion", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarFacturacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public filtrarFacturacionRequest() {
-        }
-        
-        public filtrarFacturacionRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarFacturacionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarFacturacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Data.DataTable filtrarFacturacionResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public filtrarFacturacionResponse() {
-        }
-        
-        public filtrarFacturacionResponse(System.Data.DataTable filtrarFacturacionResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.filtrarFacturacionResult = filtrarFacturacionResult;
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarFacturacion", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarFacturacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public insertarFacturacionRequest() {
-        }
-        
-        public insertarFacturacionRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarFacturacionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarFacturacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int insertarFacturacionResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public insertarFacturacionResponse() {
-        }
-        
-        public insertarFacturacionResponse(int insertarFacturacionResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.insertarFacturacionResult = insertarFacturacionResult;
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarFacturacion", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarFacturacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public actualizarFacturacionRequest() {
-        }
-        
-        public actualizarFacturacionRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarFacturacionResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarFacturacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool actualizarFacturacionResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL;
-        
-        public actualizarFacturacionResponse() {
-        }
-        
-        public actualizarFacturacionResponse(bool actualizarFacturacionResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            this.actualizarFacturacionResult = actualizarFacturacionResult;
-            this.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarFacturaDetalle", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarFacturaDetalleRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public filtrarFacturaDetalleRequest() {
-        }
-        
-        public filtrarFacturaDetalleRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarFacturaDetalleResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class filtrarFacturaDetalleResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.Data.DataTable filtrarFacturaDetalleResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public filtrarFacturaDetalleResponse() {
-        }
-        
-        public filtrarFacturaDetalleResponse(System.Data.DataTable filtrarFacturaDetalleResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.filtrarFacturaDetalleResult = filtrarFacturaDetalleResult;
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarFacturaDetalle", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarFacturaDetalleRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public insertarFacturaDetalleRequest() {
-        }
-        
-        public insertarFacturaDetalleRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarFacturaDetalleResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class insertarFacturaDetalleResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int insertarFacturaDetalleResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public insertarFacturaDetalleResponse() {
-        }
-        
-        public insertarFacturaDetalleResponse(int insertarFacturaDetalleResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.insertarFacturaDetalleResult = insertarFacturaDetalleResult;
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarFacturaDetalle", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarFacturaDetalleRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public actualizarFacturaDetalleRequest() {
-        }
-        
-        public actualizarFacturaDetalleRequest(ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarFacturaDetalleResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class actualizarFacturaDetalleResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public bool actualizarFacturaDetalleResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL;
-        
-        public actualizarFacturaDetalleResponse() {
-        }
-        
-        public actualizarFacturaDetalleResponse(bool actualizarFacturaDetalleResult, ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            this.actualizarFacturaDetalleResult = actualizarFacturaDetalleResult;
-            this.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICatalogosMantenimientosChannel : ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos, System.ServiceModel.IClientChannel {
     }
@@ -985,12 +553,21 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
                 base(binding, remoteAddress) {
         }
         
-        public System.Data.DataTable listarBeneficiarios() {
-            return base.Channel.listarBeneficiarios();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.listarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request) {
+            return base.Channel.listarBeneficiarios(request);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> listarBeneficiariosAsync() {
-            return base.Channel.listarBeneficiariosAsync();
+        public System.Data.DataTable listarBeneficiarios(ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest();
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).listarBeneficiarios(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.listarBeneficiariosResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse> listarBeneficiariosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request) {
+            return base.Channel.listarBeneficiariosAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -998,11 +575,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.filtrarBeneficiarios(request);
         }
         
-        public System.Data.DataTable filtrarBeneficiarios(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public System.Data.DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosRequest();
-            inValue.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            inValue.sIdBeneficiario = sIdBeneficiario;
+            inValue.sIdCliente = sIdCliente;
+            inValue.sIdPersona = sIdPersona;
+            inValue.cIdEstado = cIdEstado;
+            inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarBeneficiarios(inValue);
-            Obj_Beneficiarios_DAL = retVal.Obj_Beneficiarios_DAL;
+            sMsj_error = retVal.sMsj_error;
             return retVal.filtrarBeneficiariosResult;
         }
         
@@ -1015,11 +596,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarBeneficiarios(request);
         }
         
-        public short insertarBeneficiarios(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public short insertarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarBeneficiariosRequest();
-            inValue.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            inValue.sIdBeneficiario = sIdBeneficiario;
+            inValue.sIdCliente = sIdCliente;
+            inValue.sIdPersona = sIdPersona;
+            inValue.cIdEstado = cIdEstado;
+            inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarBeneficiarios(inValue);
-            Obj_Beneficiarios_DAL = retVal.Obj_Beneficiarios_DAL;
+            sMsj_error = retVal.sMsj_error;
             return retVal.insertarBeneficiariosResult;
         }
         
@@ -1032,11 +617,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.actualizarBeneficiarios(request);
         }
         
-        public bool actualizarBeneficiarios(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL) {
+        public bool actualizarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarBeneficiariosRequest();
-            inValue.Obj_Beneficiarios_DAL = Obj_Beneficiarios_DAL;
+            inValue.sIdBeneficiario = sIdBeneficiario;
+            inValue.sIdCliente = sIdCliente;
+            inValue.sIdPersona = sIdPersona;
+            inValue.cIdEstado = cIdEstado;
+            inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarBeneficiarios(inValue);
-            Obj_Beneficiarios_DAL = retVal.Obj_Beneficiarios_DAL;
+            sMsj_error = retVal.sMsj_error;
             return retVal.actualizarBeneficiariosResult;
         }
         
@@ -1044,146 +633,22 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.actualizarBeneficiariosAsync(request);
         }
         
-        public bool eliminarBeneficiarios(short SIdBeneficiario) {
-            return base.Channel.eliminarBeneficiarios(SIdBeneficiario);
-        }
-        
-        public System.Threading.Tasks.Task<bool> eliminarBeneficiariosAsync(short SIdBeneficiario) {
-            return base.Channel.eliminarBeneficiariosAsync(SIdBeneficiario);
-        }
-        
-        public System.Data.DataTable listarClientes() {
-            return base.Channel.listarClientes();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> listarClientesAsync() {
-            return base.Channel.listarClientesAsync();
-        }
-        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest request) {
-            return base.Channel.filtrarClientes(request);
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.eliminarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest request) {
+            return base.Channel.eliminarBeneficiarios(request);
         }
         
-        public System.Data.DataTable filtrarClientes(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest();
-            inValue.Obj_Clientes_DAL = Obj_Clientes_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarClientes(inValue);
-            Obj_Clientes_DAL = retVal.Obj_Clientes_DAL;
-            return retVal.filtrarClientesResult;
+        public bool eliminarBeneficiarios(short SIdBeneficiario, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest();
+            inValue.SIdBeneficiario = SIdBeneficiario;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).eliminarBeneficiarios(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.eliminarBeneficiariosResult;
         }
         
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse> filtrarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesRequest request) {
-            return base.Channel.filtrarClientesAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest request) {
-            return base.Channel.insertarClientes(request);
-        }
-        
-        public short insertarClientes(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest();
-            inValue.Obj_Clientes_DAL = Obj_Clientes_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarClientes(inValue);
-            Obj_Clientes_DAL = retVal.Obj_Clientes_DAL;
-            return retVal.insertarClientesResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesResponse> insertarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest request) {
-            return base.Channel.insertarClientesAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarClientes(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest request) {
-            return base.Channel.actualizarClientes(request);
-        }
-        
-        public bool actualizarClientes(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Clientes_DAL Obj_Clientes_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest();
-            inValue.Obj_Clientes_DAL = Obj_Clientes_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarClientes(inValue);
-            Obj_Clientes_DAL = retVal.Obj_Clientes_DAL;
-            return retVal.actualizarClientesResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesResponse> actualizarClientesAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarClientesRequest request) {
-            return base.Channel.actualizarClientesAsync(request);
-        }
-        
-        public bool eliminarClientes(short SIdCliente) {
-            return base.Channel.eliminarClientes(SIdCliente);
-        }
-        
-        public System.Threading.Tasks.Task<bool> eliminarClientesAsync(short SIdCliente) {
-            return base.Channel.eliminarClientesAsync(SIdCliente);
-        }
-        
-        public System.Data.DataTable listarCorreos() {
-            return base.Channel.listarCorreos();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> listarCorreosAsync() {
-            return base.Channel.listarCorreosAsync();
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest request) {
-            return base.Channel.filtrarCorreos(request);
-        }
-        
-        public System.Data.DataTable filtrarCorreos(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest();
-            inValue.Obj_Correos_DAL = Obj_Correos_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarCorreos(inValue);
-            Obj_Correos_DAL = retVal.Obj_Correos_DAL;
-            return retVal.filtrarCorreosResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse> filtrarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosRequest request) {
-            return base.Channel.filtrarCorreosAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest request) {
-            return base.Channel.insertarCorreos(request);
-        }
-        
-        public string insertarCorreos(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest();
-            inValue.Obj_Correos_DAL = Obj_Correos_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarCorreos(inValue);
-            Obj_Correos_DAL = retVal.Obj_Correos_DAL;
-            return retVal.insertarCorreosResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosResponse> insertarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest request) {
-            return base.Channel.insertarCorreosAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarCorreos(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest request) {
-            return base.Channel.actualizarCorreos(request);
-        }
-        
-        public bool actualizarCorreos(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Correos_DAL Obj_Correos_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest();
-            inValue.Obj_Correos_DAL = Obj_Correos_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarCorreos(inValue);
-            Obj_Correos_DAL = retVal.Obj_Correos_DAL;
-            return retVal.actualizarCorreosResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosResponse> actualizarCorreosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarCorreosRequest request) {
-            return base.Channel.actualizarCorreosAsync(request);
-        }
-        
-        public bool eliminarCorreos(string sCorreo) {
-            return base.Channel.eliminarCorreos(sCorreo);
-        }
-        
-        public System.Threading.Tasks.Task<bool> eliminarCorreosAsync(string sCorreo) {
-            return base.Channel.eliminarCorreosAsync(sCorreo);
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse> eliminarBeneficiariosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest request) {
+            return base.Channel.eliminarBeneficiariosAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1276,132 +741,6 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarEstadoResponse> eliminarEstadoAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarEstadoRequest request) {
             return base.Channel.eliminarEstadoAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest request) {
-            return base.Channel.filtrarFacturacion(request);
-        }
-        
-        public System.Data.DataTable filtrarFacturacion(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest();
-            inValue.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarFacturacion(inValue);
-            Obj_Facturacion_DAL = retVal.Obj_Facturacion_DAL;
-            return retVal.filtrarFacturacionResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionResponse> filtrarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturacionRequest request) {
-            return base.Channel.filtrarFacturacionAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest request) {
-            return base.Channel.insertarFacturacion(request);
-        }
-        
-        public int insertarFacturacion(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest();
-            inValue.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarFacturacion(inValue);
-            Obj_Facturacion_DAL = retVal.Obj_Facturacion_DAL;
-            return retVal.insertarFacturacionResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionResponse> insertarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturacionRequest request) {
-            return base.Channel.insertarFacturacionAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarFacturacion(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest request) {
-            return base.Channel.actualizarFacturacion(request);
-        }
-        
-        public bool actualizarFacturacion(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_Facturacion_DAL Obj_Facturacion_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest();
-            inValue.Obj_Facturacion_DAL = Obj_Facturacion_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarFacturacion(inValue);
-            Obj_Facturacion_DAL = retVal.Obj_Facturacion_DAL;
-            return retVal.actualizarFacturacionResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionResponse> actualizarFacturacionAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturacionRequest request) {
-            return base.Channel.actualizarFacturacionAsync(request);
-        }
-        
-        public bool eliminarFacturacion(int iIdFactura) {
-            return base.Channel.eliminarFacturacion(iIdFactura);
-        }
-        
-        public System.Threading.Tasks.Task<bool> eliminarFacturacionAsync(int iIdFactura) {
-            return base.Channel.eliminarFacturacionAsync(iIdFactura);
-        }
-        
-        public System.Data.DataTable listarFacturaDetalle() {
-            return base.Channel.listarFacturaDetalle();
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> listarFacturaDetalleAsync() {
-            return base.Channel.listarFacturaDetalleAsync();
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest request) {
-            return base.Channel.filtrarFacturaDetalle(request);
-        }
-        
-        public System.Data.DataTable filtrarFacturaDetalle(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest();
-            inValue.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarFacturaDetalle(inValue);
-            Obj_FacturaDetalle_DAL = retVal.Obj_FacturaDetalle_DAL;
-            return retVal.filtrarFacturaDetalleResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleResponse> filtrarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarFacturaDetalleRequest request) {
-            return base.Channel.filtrarFacturaDetalleAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest request) {
-            return base.Channel.insertarFacturaDetalle(request);
-        }
-        
-        public int insertarFacturaDetalle(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest();
-            inValue.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarFacturaDetalle(inValue);
-            Obj_FacturaDetalle_DAL = retVal.Obj_FacturaDetalle_DAL;
-            return retVal.insertarFacturaDetalleResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleResponse> insertarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarFacturaDetalleRequest request) {
-            return base.Channel.insertarFacturaDetalleAsync(request);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarFacturaDetalle(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest request) {
-            return base.Channel.actualizarFacturaDetalle(request);
-        }
-        
-        public bool actualizarFacturaDetalle(ref ClubCampestre_DAL.CatalogosMantenimientos.Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL) {
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest();
-            inValue.Obj_FacturaDetalle_DAL = Obj_FacturaDetalle_DAL;
-            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarFacturaDetalle(inValue);
-            Obj_FacturaDetalle_DAL = retVal.Obj_FacturaDetalle_DAL;
-            return retVal.actualizarFacturaDetalleResult;
-        }
-        
-        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleResponse> actualizarFacturaDetalleAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarFacturaDetalleRequest request) {
-            return base.Channel.actualizarFacturaDetalleAsync(request);
-        }
-        
-        public bool eliminarFacturaDetalle(int iIdFacturaDetalle) {
-            return base.Channel.eliminarFacturaDetalle(iIdFacturaDetalle);
-        }
-        
-        public System.Threading.Tasks.Task<bool> eliminarFacturaDetalleAsync(int iIdFacturaDetalle) {
-            return base.Channel.eliminarFacturaDetalleAsync(iIdFacturaDetalle);
         }
     }
 }

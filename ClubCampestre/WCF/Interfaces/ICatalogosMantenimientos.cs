@@ -19,28 +19,28 @@ namespace WCF.Interfaces
         bool eliminarBeneficiarios(short SIdBeneficiario, ref string sMsj_error);
         #endregion
         #region Clientes
-        //[OperationContract]
-        //DataTable listarClientes();
-        //[OperationContract]
-        //DataTable filtrarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL);
-        //[OperationContract]
-        //short insertarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL);
-        //[OperationContract]
-        //bool actualizarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL);
-        //[OperationContract]
-        //bool eliminarClientes(short SIdCliente);
+        [OperationContract]
+        DataTable listarClientes(ref string sMsjError);
+        [OperationContract]
+        DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
+        [OperationContract]
+        short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
+        [OperationContract]
+        bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
+        [OperationContract]
+        bool eliminarClientes(short sIdCliente, ref string sMsjError);
         #endregion
         #region Correos
-        //[OperationContract]
-        //DataTable listarCorreos();
-        //[OperationContract]
-        //DataTable filtrarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL);
-        //[OperationContract]
-        //string insertarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL);
-        //[OperationContract]
-        //bool actualizarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL);
-        //[OperationContract]
-        //bool eliminarCorreos(string sCorreo);
+        [OperationContract]
+        DataTable listarCorreos(ref string sMsjError);
+        [OperationContract]
+        DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
+        [OperationContract]
+        short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
+        [OperationContract]
+        bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
+        [OperationContract]
+        bool eliminarCorreos(short sIdCorreo, ref string sMsjError);
         #endregion
         #region Estado
         [OperationContract]
