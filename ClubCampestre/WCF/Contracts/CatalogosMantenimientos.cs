@@ -1,5 +1,4 @@
 ﻿using ClubCampestre_BLL.CatalogosMantenimientos;
-using ClubCampestre_DAL.CatalogosMantenimientos;
 using System.Data;
 
 namespace WCF.Contracts
@@ -7,264 +6,185 @@ namespace WCF.Contracts
     public class CatalogosMantenimientos : Interfaces.ICatalogosMantenimientos
     {
         #region Beneficiarios
-        public DataTable listarBeneficiarios()
+        public DataTable listarBeneficiarios(ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL = new Cls_Beneficiarios_DAL();
-            Obj_Beneficiarios_BLL.Listar(ref Obj_Beneficiarios_DAL);
-            return Obj_Beneficiarios_DAL.DS.Tables[0];
+            return Obj_Beneficiarios_BLL.Listar(ref sMsjError);
         }
-        public DataTable filtrarBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
+        public DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            Obj_Beneficiarios_BLL.Filtrar(ref Obj_Beneficiarios_DAL);
-            return Obj_Beneficiarios_DAL.DS.Tables[0];
+            return Obj_Beneficiarios_BLL.Filtrar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public short insertarBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
+        public short insertarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            Obj_Beneficiarios_BLL.Insertar(ref Obj_Beneficiarios_DAL);
-            return Obj_Beneficiarios_DAL.SIdBeneficiario;
+            return Obj_Beneficiarios_BLL.Insertar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public bool actualizarBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
+        public bool actualizarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            Obj_Beneficiarios_BLL.Actualizar(ref Obj_Beneficiarios_DAL);
-            return Obj_Beneficiarios_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Beneficiarios_BLL.Actualizar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public bool eliminarBeneficiarios(short SIdBeneficiario)
+        public bool eliminarBeneficiarios(short sIdBeneficiario, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL = new Cls_Beneficiarios_DAL();
-            // Se asignan datos a eliminar
-            Obj_Beneficiarios_DAL.SIdBeneficiario = SIdBeneficiario;
-            Obj_Beneficiarios_BLL.Eliminar(ref Obj_Beneficiarios_DAL);
-            return Obj_Beneficiarios_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Beneficiarios_BLL.Eliminar(sIdBeneficiario, ref sMsjError);
         }
         #endregion
         #region Clientes
-        public DataTable listarClientes()
+        public DataTable listarClientes(ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            Obj_Clientes_BLL.Listar(ref Obj_Clientes_DAL);
-            return Obj_Clientes_DAL.DS.Tables[0];
+            return Obj_Clientes_BLL.Listar(ref sMsjError);
         }
-        public DataTable filtrarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL)
+        public DataTable filtrarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Obj_Clientes_BLL.Filtrar(ref Obj_Clientes_DAL);
-            return Obj_Clientes_DAL.DS.Tables[0];
+            return Obj_Clientes_BLL.Filtrar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
         }
-        public short insertarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL)
+        public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
-            return Obj_Clientes_DAL.SIdCliente;
+            return Obj_Clientes_BLL.Insertar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
         }
-        public bool actualizarClientes(ref Cls_Clientes_DAL Obj_Clientes_DAL)
+        public bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
-            return Obj_Clientes_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Clientes_BLL.Actualizar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
         }
-        public bool eliminarClientes(short SIdCliente)
+        public bool eliminarClientes(short sIdCliente, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            // Se asignan datos a eliminar
-            Obj_Clientes_DAL.SIdCliente = SIdCliente;
-            Obj_Clientes_BLL.Filtrar(ref Obj_Clientes_DAL);
-            return Obj_Clientes_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Clientes_BLL.Eliminar(sIdCliente, ref sMsjError);
         }
         #endregion
         #region Correos
-        public DataTable listarCorreos()
+        public DataTable listarCorreos(ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            Cls_Correos_DAL Obj_Correos_DAL = new Cls_Correos_DAL();
-            Obj_Correos_BLL.Listar(ref Obj_Correos_DAL);
-            return Obj_Correos_DAL.DS.Tables[0];
+            return Obj_Correos_BLL.Listar(ref sMsjError);
         }
-        public DataTable filtrarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL)
+        public DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            Obj_Correos_BLL.Filtrar(ref Obj_Correos_DAL);
-            return Obj_Correos_DAL.DS.Tables[0];
+            return Obj_Correos_BLL.Filtrar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public string insertarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL)
+        public short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            Obj_Correos_BLL.Insertar(ref Obj_Correos_DAL);
-            return Obj_Correos_DAL.SCorreo;
+            return Obj_Correos_BLL.Insertar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public bool actualizarCorreos(ref Cls_Correos_DAL Obj_Correos_DAL)
+        public bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            Obj_Correos_BLL.Actualizar(ref Obj_Correos_DAL);
-            return Obj_Correos_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Correos_BLL.Actualizar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public bool eliminarCorreos(string sCorreo)
+        public bool eliminarCorreos(short sIdCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            Cls_Correos_DAL Obj_Correos_DAL = new Cls_Correos_DAL();
-            // Se asignan datos a eliminar
-            Obj_Correos_DAL.SCorreo = sCorreo;
-            Obj_Correos_BLL.Eliminar(ref Obj_Correos_DAL);
-            return Obj_Correos_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Correos_BLL.Eliminar(sIdCorreo, ref sMsjError);
         }
         #endregion
         #region Estado
-        public DataTable listarEstado()
+        public DataTable listarEstado(ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.DS.Tables[0];
+            return Obj_Estado_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public DataTable filtrarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.DS.Tables[0];
+            return Obj_Estado_BLL.Filtrar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public char insertarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.CIdEstado;
+            return Obj_Estado_BLL.Insertar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public bool actualizarEstado(ref Cls_Estado_DAL Obj_Estado_DAL)
+        public bool actualizarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Estado_BLL.Actualizar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public bool eliminarEstado(char cIdEstado)
+        public bool eliminarEstado(char cIdEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            // Se asignan datos a eliminar
-            Obj_Estado_DAL.CIdEstado = cIdEstado;
-            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);
-            return Obj_Estado_DAL.SMsjError == string.Empty ? true : false;
+            return Obj_Estado_BLL.Eliminar(cIdEstado, ref sMsj_error);
         }
         #endregion
         #region Facturacion
-        public DataTable listarFacturacion()
+        public void listarFacturacion()
         {
-            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
-            Cls_Facturacion_DAL Obj_Facturacion_DAL = new Cls_Facturacion_DAL();
-            Obj_Facturacion_BLL.Listar(ref Obj_Facturacion_DAL);
-            return Obj_Facturacion_DAL.DS.Tables[0];
+
         }
-        public DataTable filtrarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL)
+        public void filtrarFacturacion()
         {
-            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
-            Obj_Facturacion_BLL.Filtrar(ref Obj_Facturacion_DAL);
-            return Obj_Facturacion_DAL.DS.Tables[0];
+
         }
-        public int insertarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL)
+        public void insertarFacturacion()
         {
-            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
-            Obj_Facturacion_BLL.Insertar(ref Obj_Facturacion_DAL);
-            return Obj_Facturacion_DAL.IIdFactura;
+
         }
-        public bool actualizarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL)
+        public void actualizarFacturacion()
         {
-            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
-            Obj_Facturacion_BLL.Actualizar(ref Obj_Facturacion_DAL);
-            return Obj_Facturacion_DAL.SMsjError == string.Empty ? true : false;
+
         }
-        public bool eliminarFacturacion(int iIdFactura)
+        public void eliminarFacturacion()
         {
-            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
-            Cls_Facturacion_DAL Obj_Facturacion_DAL = new Cls_Facturacion_DAL();
-            // Se asignan datos a buscar
-            Obj_Facturacion_DAL.IIdFactura = iIdFactura;
-            Obj_Facturacion_BLL.Eliminar(ref Obj_Facturacion_DAL);
-            return Obj_Facturacion_DAL.SMsjError == string.Empty ? true : false;
+
         }
         #endregion
         #region FacturaDetalle
-        public DataTable listarFacturaDetalle()
+        public void listarFacturaDetalle()
         {
-            Cls_FacturaDetalle_BLL Obj_FacturaDetalle_BLL = new Cls_FacturaDetalle_BLL();
-            Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL = new Cls_FacturaDetalle_DAL();
-            Obj_FacturaDetalle_BLL.Listar(ref Obj_FacturaDetalle_DAL);
-            return Obj_FacturaDetalle_DAL.DS.Tables[0];
+
         }
-        public DataTable filtrarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL)
+        public void filtrarFacturaDetalle()
         {
-            Cls_FacturaDetalle_BLL Obj_FacturaDetalle_BLL = new Cls_FacturaDetalle_BLL();
-            Obj_FacturaDetalle_BLL.Filtrar(ref Obj_FacturaDetalle_DAL);
-            return Obj_FacturaDetalle_DAL.DS.Tables[0];
+
         }
-        public int insertarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL)
+        public void insertarFacturaDetalle()
         {
-            Cls_FacturaDetalle_BLL Obj_FacturaDetalle_BLL = new Cls_FacturaDetalle_BLL();
-            Obj_FacturaDetalle_BLL.Insertar(ref Obj_FacturaDetalle_DAL);
-            return Obj_FacturaDetalle_DAL.IIdFacturaDetalle;
+
         }
-        public bool actualizarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL)
+        public void actualizarFacturaDetalle()
         {
-            Cls_FacturaDetalle_BLL Obj_FacturaDetalle_BLL = new Cls_FacturaDetalle_BLL();
-            Obj_FacturaDetalle_BLL.Actualizar(ref Obj_FacturaDetalle_DAL);
-            return Obj_FacturaDetalle_DAL.SMsjError == string.Empty ? true : false;
+
         }
-        public bool eliminarFacturaDetalle(int iIdFacturaDetalle)
+        public void eliminarFacturaDetalle()
         {
-            Cls_FacturaDetalle_BLL Obj_FacturaDetalle_BLL = new Cls_FacturaDetalle_BLL();
-            Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL = new Cls_FacturaDetalle_DAL();
-            // Se asignan datos a buscar
-            Obj_FacturaDetalle_DAL.IIdFacturaDetalle = iIdFacturaDetalle;
-            Obj_FacturaDetalle_BLL.Eliminar(ref Obj_FacturaDetalle_DAL);
-            return Obj_FacturaDetalle_DAL.SMsjError == string.Empty ? true : false;
+
         }
         #endregion
         #region TipoServicio
-        public DataTable listarTipoServicio()
+        public void listarTipoServicio()
         {
-            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-            Cls_TipoServicio_DAL Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
-            Obj_TipoServicio_BLL.Listar(ref Obj_TipoServicio_DAL);
-            return Obj_TipoServicio_DAL.DS.Tables[0];
+
         }
         #endregion
         #region TipoMembresia
-        public DataTable listarTipoMembresia()
+        public void listarTipoMembresia()
         {
-            Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
-            Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            Obj_TipoMembresia_BLL.Listar(ref Obj_TipoMembresia_DAL);
-            return Obj_TipoMembresia_DAL.DS.Tables[0];
+
         }
         #endregion
         #region TipoCliente
-        public DataTable listarTipoCliente()
+        public void listarTipoCliente()
         {
-            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
-            Obj_TipoCliente_BLL.Listar(ref Obj_TipoCliente_DAL);
-            return Obj_TipoCliente_DAL.DS.Tables[0];
+
         }
         #endregion
         #region Usuario
-        public DataTable listarUsuarios()
+        public void listarUsuarios()
         {
-            Cls_Usuarios_BLL Obj_Usuarios_BLL = new Cls_Usuarios_BLL();
-            Cls_Usuarios_DAL Obj_Usuarios_DAL = new Cls_Usuarios_DAL();
-            Obj_Usuarios_BLL.Listar(ref Obj_Usuarios_DAL);
-            return Obj_Usuarios_DAL.DS.Tables[0];
+
         }
         #endregion
         #region Telefonos
-        public DataTable listarTelefonos()
+        public void listarTelefonos()
         {
-            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
-            Cls_Telefonos_DAL Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
-            Obj_Telefonos_BLL.Listar(ref Obj_Telefonos_DAL);
-            return Obj_Telefonos_DAL.DS.Tables[0];
+
         }
         #endregion
         
