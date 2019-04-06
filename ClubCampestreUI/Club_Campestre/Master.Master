@@ -43,6 +43,7 @@
                                 <li><a class="drop" href="#">Membresías</a>
                                     <ul>
                                         <li><a href="Membresías.aspx">Membresías</a></li>
+                                        <li><a href="Servicios.aspx">Servicios</a></li>
                                     </ul>
                                 </li>
                                 <li><a class="drop" href="#">Ingresos</a>
@@ -55,8 +56,7 @@
                                         <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
                                         <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
                                         <li><a href="Estados.aspx">Estados</a></li>
-                                        <li><a href="Personas.aspx">Personas</a></li>
-                                        <li><a href="Servicios.aspx">Servicios</a></li>
+                                        <li><a href="Personas.aspx">Personas</a></li>                                      
                                     </ul>
                                 </li>
                                 <li><a class="drop" href="#">Seguridad</a>
