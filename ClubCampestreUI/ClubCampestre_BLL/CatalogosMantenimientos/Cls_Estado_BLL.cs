@@ -15,6 +15,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
                 Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.listarEstado(ref sMsjError));
+                Obj_Estado_Client.Close();
                 Obj_Estado_DAL.sMsjError = sMsjError;
 
             }
@@ -32,6 +33,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
                 Obj_Estado_DAL.DS.Tables.Add(Obj_Estado_Client.filtrarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError));
+                Obj_Estado_Client.Close();
                 Obj_Estado_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
@@ -49,6 +51,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
                 Obj_Estado_Client.insertarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);
+                Obj_Estado_Client.Close();
                 Obj_Estado_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
@@ -66,6 +69,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se mandan a actualizar los datos
                 string sMsjError = string.Empty;
                 Obj_Estado_Client.actualizarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);
+                Obj_Estado_Client.Close();
                 Obj_Estado_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
@@ -83,6 +87,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se manda a eliminar el dato
                 string sMsjError = string.Empty;
                 Obj_Estado_Client.eliminarEstado(Obj_Estado_DAL.CIdEstado, ref sMsjError);
+                Obj_Estado_Client.Close();
                 Obj_Estado_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
