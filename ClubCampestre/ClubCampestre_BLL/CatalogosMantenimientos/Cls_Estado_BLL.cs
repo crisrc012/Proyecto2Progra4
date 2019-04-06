@@ -13,10 +13,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Estado");
             dt.Columns.Add("IdEstado");
+            dt.Columns.Add("Estado");
             dt.Rows.Add("@IdEstado", cIdEstado);
             if (sEstado != string.Empty)
             {
-                dt.Columns.Add("Estado");
                 dt.Rows.Add("@Estado", sEstado);
             }
             return dt;
