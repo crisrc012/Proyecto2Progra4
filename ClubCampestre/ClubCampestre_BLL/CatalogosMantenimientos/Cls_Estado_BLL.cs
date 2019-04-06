@@ -43,7 +43,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public bool Eliminar(char cIdEstado, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(cIdEstado, string.Empty), "[dbo].[sp_update_TB_Estado]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(cIdEstado, string.Empty), "[dbo].[sp_delete_TB_Estado]", ref sMsj_error);
         }
     }
 }
