@@ -12,26 +12,7 @@ namespace Club_Campestre
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                //Cls_Estado_DAL estado = (Cls_Estado_DAL)Session["Estado"];
-                Cls_TipoCliente_DAL tipo_cliente = (Cls_TipoCliente_DAL)Session["Tipo_Cliente"];
-                
-                string tipo = Session["tipo"].ToString();
-                if (tipo_cliente != null & tipo == "E")
-                {
-                    
-                    TextBox_Tipo_Cliente.Text = tipo_cliente.BIdTipoCliente.ToString();
-                    TextBox_Descripcion.Text = tipo_cliente.SPKDescripcion;
-
-                    
-                }
-                else
-                {
-                    TextBox_Tipo_Cliente.Text = "";
-                    TextBox_Descripcion.Text = "";
-                }
-            }
+            
 
         }
         protected void btnAtras_Click(object sender, EventArgs e)

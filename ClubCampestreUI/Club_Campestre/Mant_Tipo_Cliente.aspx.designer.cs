@@ -13,31 +13,31 @@ namespace Club_Campestre {
     public partial class Mant_Tipo_Cliente {
         
         /// <summary>
-        /// Control TextBox_Tipo_Cliente.
+        /// Control mantenimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Tipo_Cliente;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// Control TextBox_Descripcion.
+        /// Control txttipocliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Descripcion;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txttipocliente;
         
         /// <summary>
-        /// Control btnAtras.
+        /// Control txtdescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
         
         /// <summary>
         /// Control btnGuardar.

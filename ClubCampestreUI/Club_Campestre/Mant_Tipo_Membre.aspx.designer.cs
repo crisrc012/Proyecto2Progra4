@@ -13,31 +13,40 @@ namespace Club_Campestre {
     public partial class Mant_Tipo_Membre {
         
         /// <summary>
-        /// Control TextBox_Descripcion.
+        /// Control mantenimiento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Descripcion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// Control TextBox_Costo.
+        /// Control txtTipoMembre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Costo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTipoMembre;
         
         /// <summary>
-        /// Control btnAtras.
+        /// Control txtdescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAtras;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
+        
+        /// <summary>
+        /// Control txtcosto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtcosto;
         
         /// <summary>
         /// Control btnGuardar.
