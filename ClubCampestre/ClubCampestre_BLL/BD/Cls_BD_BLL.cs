@@ -28,8 +28,6 @@ namespace ClubCampestre_BLL.BD
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
-                // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
                 // Se crea el objeto de conexión
                 Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
@@ -83,10 +81,8 @@ namespace ClubCampestre_BLL.BD
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
-                // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
-                // Se crea el objeto de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
+                // Se crea el objeto de conexión y Se obtiene la cadena de conexión
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
                 // Si la conexión está cerrada
                 if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
                 {
@@ -139,10 +135,8 @@ namespace ClubCampestre_BLL.BD
             Cls_BD_DAL Obj_BD_DAL = new Cls_BD_DAL();
             try
             {
-                // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
-                // Se crea el objeto de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
+                // Se obtiene la cadena de conexión y Se crea el objeto de conexión
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
                 // Si la conexión está cerrada
                 if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
                 {

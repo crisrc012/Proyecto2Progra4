@@ -32,13 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD\Cls_BD_BLL.cs" />
@@ -48,7 +43,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_Estado_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Facturacion_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_FacturaDetalle_BLL.cs" />
-    <Compile Include="CatalogosMantenimientos\Cls_telefonos_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Telefonos_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoMembresia_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_BLL.cs" />
