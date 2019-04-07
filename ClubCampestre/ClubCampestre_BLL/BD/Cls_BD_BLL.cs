@@ -28,7 +28,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
+                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Sql_aut"].ToString().Trim();
                 // Se crea el objeto de conexión
                 Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
@@ -80,7 +80,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
+                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Sql_aut"].ToString().Trim();
                 // Se crea el objeto de conexión
                 Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
                 // Si la conexión está cerrada
@@ -132,7 +132,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se obtiene la cadena de conexión
-                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim();
+                Obj_BD_DAL.sCadena_conexion = ConfigurationManager.ConnectionStrings["Sql_aut"].ToString().Trim();
                 // Se crea el objeto de conexión
                 Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(Obj_BD_DAL.sCadena_conexion);
                 // Si la conexión está cerrada
