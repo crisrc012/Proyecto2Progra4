@@ -158,35 +158,147 @@ namespace WCF.Contracts
         }
         #endregion
         #region TipoServicio
-        public void listarTipoServicio()
+        
+        public DataTable listarTipoServicio(ref string sMsj_error)
         {
-
+            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+            return Obj_TipoServicio_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+            return Obj_TipoServicio_BLL.Filtrar(IdTipoServicio, Descripcion,Costo, ref sMsj_error);
+        }
+        public char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+            return Obj_TipoServicio_BLL.Insertar(IdTipoServicio, Descripcion, Costo, ref sMsj_error);
+        }
+        public bool actualizarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+            return Obj_TipoServicio_BLL.Actualizar(IdTipoServicio, Descripcion, Costo, ref sMsj_error);
+        }
+        public bool eliminarTipoServicio(byte IdTipoServicio, ref string sMsj_error)
+        {
+            Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+            return Obj_TipoServicio_BLL.Eliminar(IdTipoServicio, ref sMsj_error);
         }
         #endregion
+
         #region TipoMembresia
-        public void listarTipoMembresia()
+        
+        public DataTable listarTipoMembresia(ref string sMsj_error)
         {
-
+            Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
+            return Obj_TipoMebresia_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
+            return Obj_TipoMebresia_BLL.Filtrar(IdTipoMembresia, Descripcion, Costo, ref sMsj_error);
+        }
+        public char insertarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
+            return Obj_TipoMebresia_BLL.Insertar(IdTipoMembresia, Descripcion, Costo, ref sMsj_error);
+        }
+        public bool actualizarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)
+        {
+            Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
+            return Obj_TipoMebresia_BLL.Actualizar(IdTipoMembresia, Descripcion, Costo, ref sMsj_error);
+        }
+        public bool eliminarTipoMembresia(byte IdTipoMembresia, ref string sMsj_error)
+        {
+            Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
+            return Obj_TipoMebresia_BLL.Eliminar(IdTipoMembresia, ref sMsj_error);
         }
         #endregion
-        #region TipoCliente
-        public void listarTipoCliente()
-        {
 
+        #region TipoCliente
+
+        public DataTable listarTipoCliente(ref string sMsj_error)
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            return Obj_TipoCliente_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            return Obj_TipoCliente_BLL.Filtrar(IdTipoCliente, Descripcion, ref sMsj_error);
+        }
+        public char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            return Obj_TipoCliente_BLL.Insertar(IdTipoCliente, Descripcion, ref sMsj_error);
+        }
+        public bool actualizarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            return Obj_TipoCliente_BLL.Actualizar(IdTipoCliente, Descripcion, ref sMsj_error);
+        }
+        public bool eliminarTipoCliente(byte IdTipoCliente, ref string sMsj_error)
+        {
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            return Obj_TipoCliente_BLL.Eliminar(IdTipoCliente, ref sMsj_error);
         }
         #endregion
         #region Usuario
-        public void listarUsuarios()
-        {
 
+        public DataTable listarUsuario(ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Filtrar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
+        }
+        public char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Insertar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
+        }
+        public bool actualizarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Actualizar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
+        }
+        public bool eliminarUsuario(string IdUsuario, ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Eliminar(IdUsuario, ref sMsj_error);
         }
         #endregion
         #region Telefonos
-        public void listarTelefonos()
-        {
 
+        public DataTable listarTelefonos(ref string sMsj_error)
+        {
+            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
+            return Obj_Telefonos_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        {
+            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
+            return Obj_Telefonos_BLL.Filtrar(Telefono, IdPersona, ref sMsj_error);
+        }
+        public char insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        {
+            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
+            return Obj_Telefonos_BLL.Insertar(Telefono, IdPersona, ref sMsj_error);
+        }
+        public bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        {
+            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
+            return Obj_Telefonos_BLL.Actualizar(Telefono, IdPersona, ref sMsj_error);
+        }
+        public bool eliminarTelefonos(string Telefono, ref string sMsj_error)
+        {
+            Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
+            return Obj_Telefonos_BLL.Eliminar(Telefono, ref sMsj_error);
         }
         #endregion
-        
+
     }
 }

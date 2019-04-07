@@ -77,5 +77,66 @@ namespace WCF.Interfaces
         //[OperationContract]
         //bool eliminarFacturaDetalle(int iIdFacturaDetalle);
         #endregion
+
+        #region TipoServicio
+        [OperationContract]
+        DataTable listarTipoServicio(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarTipoServicio(byte IdTipoServicio, ref string sMsj_error);
+        #endregion
+        #region TipoMembresia
+        [OperationContract]
+        DataTable listarTipoMembresia(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        char insertarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarTipoMembresia(byte IdTipoMembresia, ref string sMsj_error);
+        #endregion
+        #region TipoCliente
+        [OperationContract]
+        DataTable listarTipoCliente(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
+        [OperationContract]
+        char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarTipoCliente(byte IdTipoCliente, ref string sMsj_error);
+        #endregion
+        #region Usuario
+        [OperationContract]
+        DataTable listarUsuario(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
+        [OperationContract]
+        char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarUsuario(string IdUsuario, ref string sMsj_error);
+        #endregion
+        #region Telefonos
+        [OperationContract]
+        DataTable listarTelefonos(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        [OperationContract]
+        char insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarTelefonos(string Telefono, ref string sMsj_error);
+        #endregion
     }
 }
