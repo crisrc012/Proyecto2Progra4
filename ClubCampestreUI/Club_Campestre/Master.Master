@@ -22,59 +22,75 @@
 
         .main {
             margin: auto;
-            width: 50%;
+            width: 70%;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>  
+<body id="top">
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">  
+            <div class="fl_left">
+                <ul class="nospace">
+                    <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
+                    <li><a id="idUsuario">Usuario</a></li>
+                </ul>
+            </div>   
+        </div>
+    </div>  
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
-    <form id="top" class="pure-form pure-form-aligned" runat="server">
-        <div class=" wrapper row1">
-            <header id="header" class="hoc clear">
-                <div id="logo" class="fl_left">
-                    <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
-                    <p>Descanso y Relajacion a su Alcance</p>
-                </div>
-                <nav id="mainav" class="fl_right">
-                    <ul class="clear">
-                        <li><a class="drop" href="#">Ingresos</a>
-                            <ul>
-                                <li><a href="Ingreso.aspx">Ingreso</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="drop" href="#">Catálogos</a>
-                            <ul>
-                                <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
-                                <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
-                                <li><a href="Estados.aspx">Estados</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="drop" href="#">Mantenimientos</a>
-                            <ul>
-                                <li><a href="Productos.aspx">Clientes</a></li>
-                                <li><a href="Personas.aspx">Personas</a></li>
-                                <li><a href="Membresías.aspx">Membresías</a></li>
-                            </ul>
-                        </li>
-                        <li><a class="drop" href="#">Seguridad</a>
-                            <ul>
-                                <li><a href="Usuarios.aspx">Usuarios</a></li>
-                                <li><a href="Roles.aspx">Roles</a></li>
-                            </ul>
-                        </li>
-                        <li class="active"><a href="Index.aspx">Salir</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+    <div class=" wrapper row1">
+        <header id="header" class="hoc clear">
+            <div id="logo" class="fl_left">
+                <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
+                <p>Descanso y Relajacion a su Alcance</p>
+            </div>
+            <nav id="mainav" class="fl_right">
+                <ul class="clear">
+                    <li><a class="drop" href="#">Ingresos</a>
+                        <ul>
+                            <li><a href="Ingreso.aspx">Ingreso</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="drop" href="#">Catálogos</a>
+                        <ul>
+                            <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
+                            <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
+                            <li><a href="Estados.aspx">Estados</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="drop" href="#">Mantenimientos</a>
+                        <ul>
+                            <li><a href="Productos.aspx">Clientes</a></li>
+                            <li><a href="Personas.aspx">Personas</a></li>
+                            <li><a href="Membresías.aspx">Membresías</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="drop" href="#">Seguridad</a>
+                        <ul>
+                            <li><a href="Usuarios.aspx">Usuarios</a></li>
+                            <li><a href="Roles.aspx">Roles</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="Index.aspx">Salir</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <form class="pure-form pure-form-aligned" method="post" runat="server">
         <div class="background">
             <asp:ContentPlaceHolder ID="mainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
     </form>
+
+     <div >
+         <footer style="width: 100vw">
+         </footer>        
+    </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src ="Scripts/validaciones.js"></script>    
