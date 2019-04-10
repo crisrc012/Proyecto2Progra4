@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\CatalogosMantenimientos.cs" />
+    <Compile Include="Contracts\MantenimientosGenericos.cs" />
+    <Compile Include="Interfaces\IMantenimientosGenericos.cs" />
     <Compile Include="Interfaces\ICatalogosMantenimientos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
