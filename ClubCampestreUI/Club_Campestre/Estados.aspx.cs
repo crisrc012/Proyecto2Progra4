@@ -35,7 +35,7 @@ namespace Club_Campestre
         /// 
 
 
-            //Metodo que listat 
+            //Metodo que listar 
         private void BindGrid()
         {
             //Se instancia objeto
