@@ -1288,7 +1288,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class filtrarPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdPersona;
+        public string sIdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sNombre;
@@ -1305,7 +1305,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public filtrarPersonaRequest() {
         }
         
-        public filtrarPersonaRequest(short sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
+        public filtrarPersonaRequest(string sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
             this.sIdPersona = sIdPersona;
             this.sNombre = sNombre;
             this.sDireccion = sDireccion;
@@ -1340,7 +1340,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdPersona;
+        public string sIdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sNombre;
@@ -1357,7 +1357,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarPersonaRequest() {
         }
         
-        public insertarPersonaRequest(short sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
+        public insertarPersonaRequest(string sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
             this.sIdPersona = sIdPersona;
             this.sNombre = sNombre;
             this.sDireccion = sDireccion;
@@ -1392,7 +1392,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class actualizarPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdPersona;
+        public string sIdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sNombre;
@@ -1409,7 +1409,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public actualizarPersonaRequest() {
         }
         
-        public actualizarPersonaRequest(short sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
+        public actualizarPersonaRequest(string sIdPersona, string sNombre, string sDireccion, short sIdRol, string sMsjError) {
             this.sIdPersona = sIdPersona;
             this.sNombre = sNombre;
             this.sDireccion = sDireccion;
@@ -1444,7 +1444,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class eliminarPersonaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdPersona;
+        public string sIdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsjError;
@@ -1452,7 +1452,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public eliminarPersonaRequest() {
         }
         
-        public eliminarPersonaRequest(short sIdPersona, string sMsjError) {
+        public eliminarPersonaRequest(string sIdPersona, string sMsjError) {
             this.sIdPersona = sIdPersona;
             this.sMsjError = sMsjError;
         }
@@ -2983,7 +2983,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.filtrarPersona(request);
         }
         
-        public System.Data.DataTable filtrarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
+        public System.Data.DataTable filtrarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarPersonaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarPersonaRequest();
             inValue.sIdPersona = sIdPersona;
             inValue.sNombre = sNombre;
@@ -3004,7 +3004,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarPersona(request);
         }
         
-        public short insertarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
+        public short insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarPersonaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarPersonaRequest();
             inValue.sIdPersona = sIdPersona;
             inValue.sNombre = sNombre;
@@ -3025,7 +3025,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.actualizarPersona(request);
         }
         
-        public bool actualizarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
+        public bool actualizarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarPersonaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarPersonaRequest();
             inValue.sIdPersona = sIdPersona;
             inValue.sNombre = sNombre;
@@ -3046,7 +3046,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.eliminarPersona(request);
         }
         
-        public bool eliminarPersona(short sIdPersona, ref string sMsjError) {
+        public bool eliminarPersona(string sIdPersona, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarPersonaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarPersonaRequest();
             inValue.sIdPersona = sIdPersona;
             inValue.sMsjError = sMsjError;

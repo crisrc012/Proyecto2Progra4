@@ -469,7 +469,7 @@
       <xs:element name="filtrarPersona">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
@@ -500,7 +500,7 @@
       <xs:element name="insertarPersona">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
@@ -519,7 +519,7 @@
       <xs:element name="actualizarPersona">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
@@ -538,7 +538,7 @@
       <xs:element name="eliminarPersona">
         <xs:complexType>
           <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
           </xs:sequence>
         </xs:complexType>

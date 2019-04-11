@@ -81,13 +81,13 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarPersona(ref string sMsjError);
         [OperationContract]
-        DataTable filtrarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        DataTable filtrarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
-        short insertarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        short insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
-        bool actualizarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        bool actualizarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
-        bool eliminarPersona(short sIdPersona, ref string sMsjError);
+        bool eliminarPersona(string sIdPersona, ref string sMsjError);
         #endregion
         #region TipoServicio
         [OperationContract]
