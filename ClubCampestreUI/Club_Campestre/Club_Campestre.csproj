@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,6 +82,7 @@
     <Content Include="Images\panel.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="Mant_Estados.aspx" />
+    <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Tipo_Cliente.aspx" />
     <Content Include="Mant_Tipo_Membre.aspx" />
@@ -155,6 +157,13 @@
     </Compile>
     <Compile Include="Mant_Estados.aspx.designer.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Persona.aspx.cs">
+      <DependentUpon>Mant_Persona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Persona.aspx.designer.cs">
+      <DependentUpon>Mant_Persona.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Rol.aspx.cs">
       <DependentUpon>Mant_Rol.aspx</DependentUpon>

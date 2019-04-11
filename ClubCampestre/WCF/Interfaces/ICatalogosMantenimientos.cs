@@ -77,7 +77,18 @@ namespace WCF.Interfaces
         //[OperationContract]
         //bool eliminarFacturaDetalle(int iIdFacturaDetalle);
         #endregion
-
+        #region Persona
+        [OperationContract]
+        DataTable listarPersona(ref string sMsjError);
+        [OperationContract]
+        DataTable filtrarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        [OperationContract]
+        short insertarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        [OperationContract]
+        bool actualizarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        [OperationContract]
+        bool eliminarPersona(short sIdPersona, ref string sMsjError);
+        #endregion
         #region TipoServicio
         [OperationContract]
         DataTable listarTipoServicio(ref string sMsj_error);
