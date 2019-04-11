@@ -43,6 +43,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_Estado_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Facturacion_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_FacturaDetalle_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Persona_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Telefonos_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoMembresia_BLL.cs" />
