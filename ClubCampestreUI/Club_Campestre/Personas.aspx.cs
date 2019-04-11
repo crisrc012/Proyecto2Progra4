@@ -28,5 +28,20 @@ namespace Club_Campestre
         {
 
         }
+
+        protected void btnGuardar2_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRemover2_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TelefonoGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

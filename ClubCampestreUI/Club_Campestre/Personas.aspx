@@ -29,15 +29,35 @@
               <textarea id="TextAreadireccion" cols="40" rows="5"  style="color: #0090ff"></textarea>
                   </div>
               <div></div>
-                          <label for="correo"> Correo: </label>
+                          <label for="telefono"> Telefono: </label>
               
-              <input runat="server" type="email" id="emailcorreo" style="color: #0090ff; width: 284px;" />
-              <asp:Button class="pure-button pure-button-primary" ID="btnagregar" runat="server" Text="+" onserverclick="btnAgregar_Click" OnClick="btnGuardar_Click1" />
+              <input runat="server" type="text" id="txtTelefono" style="color: #0090ff; width: 284px;" />
+              <asp:Button class="pure-button pure-button-primary" ID="btnagregar2" runat="server" Text="+" onserverclick="btnAgregar2_Click" OnClick="btnGuardar2_Click1" />
               &nbsp;
-              <asp:Button class="pure-button pure-button-primary" ID="btnremover" runat="server" Text="-" onserverclick="btnRemover_Click" OnClick="btnRemover_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-" onserverclick="btnRemover2_Click" OnClick="btnRemover2_Click1" />
           
                     <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="CorreoGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="TelefonoGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="TelefonoGridView_SelectedIndexChanged">
+                <Columns>
+                    <asp:BoundField DataField="correo" HeaderText="Telefonos" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <br />
+        </div>
+          <label for="correo"> Correo: </label>
+              
+              <input runat="server" type="email" id="email1" style="color: #0090ff; width: 284px;" />
+              <asp:Button class="pure-button pure-button-primary" ID="Button1" runat="server" Text="+" onserverclick="btnAgregar_Click" OnClick="btnGuardar_Click1" />
+              &nbsp;
+              <asp:Button class="pure-button pure-button-primary" ID="Button2" runat="server" Text="-" onserverclick="btnRemover_Click" OnClick="btnRemover_Click1" />
+          
+                    <div class="pure-controls">
+                    <asp:GridView class="pure-table" ID="GridView1" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoGridView_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="correo" HeaderText="Direcciones de Correo" />
                     <asp:TemplateField>
@@ -55,7 +75,7 @@
 
           </fieldset>
         </form>
-        <a href="Estados.aspx">Regresar</a>
+        <%--<a href="Estados.aspx">Regresar</a>--%>
       </div>
     </div>
            </div>
