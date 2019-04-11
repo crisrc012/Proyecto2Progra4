@@ -18,5 +18,15 @@ namespace Club_Campestre
         {
 
         }
+
+        protected void btnRemover_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void CorreoGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
