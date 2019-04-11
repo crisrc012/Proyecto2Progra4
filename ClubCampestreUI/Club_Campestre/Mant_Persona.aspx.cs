@@ -50,7 +50,7 @@ namespace Club_Campestre
             }
             else
             {
-                Obj_Persona_DAL.SIdPersona = Convert.ToInt16(this.txtFiltraPersona.Text);
+                Obj_Persona_DAL.SIdPersona = this.txtFiltraPersona.Text;
                 //llamado metodo listar estados
                 Obj_Persona_BLL.Filtrar(ref Obj_Persona_DAL);
             }
@@ -92,7 +92,7 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Persona_DAL.SIdPersona = Convert.ToInt16(row.Cells[0].Text);
+                        Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Persona_DAL.SNombre = row.Cells[1].Text;
                         Obj_Persona_DAL.SDireccion = row.Cells[2].Text;
                         Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text);
@@ -123,7 +123,7 @@ namespace Club_Campestre
                         CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                         if (chkRow.Checked)
                         {
-                            Obj_Persona_DAL.SIdPersona = Convert.ToInt16(row.Cells[0].Text);
+                            Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
 
                             //llamado metodo eliminar estados
                             Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);// eliminar estados

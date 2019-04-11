@@ -164,25 +164,25 @@ namespace WCF.Contracts
             return Obj_Persona_BLL.Listar(ref sMsjError);
         }
 
-        public DataTable filtrarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
+        public DataTable filtrarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Filtrar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
 
-        public short insertarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
+        public short insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Insertar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
 
-        public bool actualizarPersona(short sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
+        public bool actualizarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Actualizar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
 
-        public bool eliminarPersona(short sIdPersona, ref string sMsjError)
+        public bool eliminarPersona(string sIdPersona, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Eliminar(sIdPersona, ref sMsjError);
