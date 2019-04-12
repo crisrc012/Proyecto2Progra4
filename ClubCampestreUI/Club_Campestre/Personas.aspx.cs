@@ -43,5 +43,10 @@ namespace Club_Campestre
         {
 
         }
+
+        protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

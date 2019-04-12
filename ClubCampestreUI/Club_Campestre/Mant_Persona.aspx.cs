@@ -72,7 +72,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)//Preguntar *******************************************
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Persona.aspx", false);//llama pantalla
+            Server.Transfer("Personas.aspx", false);//llama pantalla
         }
 
         //boton modificar
