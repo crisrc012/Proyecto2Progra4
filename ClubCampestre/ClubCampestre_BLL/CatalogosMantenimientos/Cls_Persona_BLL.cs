@@ -14,32 +14,32 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Persona");
             dt.Columns.Add("IdPersona");
             dt.Columns.Add("Persona");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Direccion");
+            dt.Columns.Add("IdRol");
             dt.Rows.Add("@IdPersona", sIdPersona);
             if (sNombre != string.Empty)
             {
-                dt.Columns.Add("Nombre");
                 dt.Rows.Add("@Nombre", sNombre);
             }
             if (sDireccion != string.Empty)
             {
-                dt.Columns.Add("Direccion");
                 dt.Rows.Add("@Direccion", sDireccion);
             }
             if (sIdRol != byte.MinValue)
             {
-                dt.Columns.Add("IdRol");
                 dt.Rows.Add("@IdRol", sIdRol);
             }
             return dt;
         }
         public DataTable Listar(ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Persona]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_V_Persona]", ref sMsjError);
         }
 
         public DataTable Filtrar(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdPersona, sNombre, sDireccion, sIdRol), "[dbo].[sp_search_TB_Persona]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdPersona, sNombre, sDireccion, sIdRol), "[dbo].[sp_search_TB_Persona]", ref sMsjError);
         }
 
         public short Insertar(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
