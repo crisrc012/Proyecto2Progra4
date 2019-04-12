@@ -8,5 +8,9 @@ CREATE USER [servicio] FOR LOGIN [servicio]
 GO
 USE [ClubCampestre]
 GO
+ALTER USER [servicio] WITH DEFAULT_SCHEMA=[dbo]
+GO
+USE [ClubCampestre]
+GO
 ALTER ROLE [db_owner] ADD MEMBER [servicio]
 GO
