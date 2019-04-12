@@ -15,7 +15,7 @@
             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
             <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
             <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
-            <asp:TextBox ID="txtFiltraEstados" runat="server" OnTextChanged="txtFiltraEstados_TextChanged" ForeColor="Blue"></asp:TextBox>
+            <asp:TextBox ID="txtFiltraEstados" runat="server" OnTextChanged="txtFiltraEstados_TextChanged" ForeColor="Blue" onkeypress="return NoEnterBuscar(event)"></asp:TextBox>
             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
         </div>
