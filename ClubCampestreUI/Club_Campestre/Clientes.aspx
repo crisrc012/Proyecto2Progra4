@@ -23,8 +23,9 @@
              <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" onserverclick="btnBuscar_Click" OnClick="btnBuscar_Click1" />
              <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" onserverclick="btnEliminar_Click" OnClick="btnEliminar_Click1" />
              <asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" onserverclick="btnModificar_Click" OnClick="btnModificar_Click1" />
-              <asp:TextBox ID="txtFiltraEstados" runat="server" OnTextChanged="txtFiltraEstados_TextChanged" ForeColor="Blue"></asp:TextBox>  
-        </div>
+             <asp:TextBox ID="txtFiltraClientes" runat="server" OnTextChanged="txtFiltraClientes_TextChanged" ForeColor="Blue"></asp:TextBox>  
+             <label id="errorMensaje" runat="server"></label>
+             </div>
       <br />
         </div>
          <div class="pure-controls">
