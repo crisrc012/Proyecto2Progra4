@@ -13,7 +13,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Persona");
             dt.Columns.Add("IdPersona");
-            dt.Columns.Add("Persona");
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Direccion");
             dt.Columns.Add("IdRol");
