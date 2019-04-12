@@ -77,6 +77,7 @@
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
     <Content Include="Roles.aspx" />
+    <Content Include="Servicios.aspx" />
     <Content Include="Shared\fonts\fontawesome-webfont.eot" />
     <Content Include="Shared\fonts\fontawesome-webfont.ttf" />
     <Content Include="Shared\fonts\fontawesome-webfont.woff" />
@@ -102,6 +103,7 @@
     <Content Include="Shared\micss.css" />
     <Content Include="Shared\pure.css" />
     <Content Include="TipoMembresia.aspx" />
+    <Content Include="TipoServicio.aspx" />
     <Content Include="Tipo_Clientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -187,12 +189,26 @@
     <Compile Include="Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Servicios.aspx.cs">
+      <DependentUpon>Servicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicios.aspx.designer.cs">
+      <DependentUpon>Servicios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TipoMembresia.aspx.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TipoMembresia.aspx.designer.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TipoServicio.aspx.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipoServicio.aspx.designer.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tipo_Clientes.aspx.cs">
       <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
