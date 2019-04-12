@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+
 namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     
     
@@ -3526,6 +3528,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosResponse> eliminarTelefonosAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosRequest request) {
             return base.Channel.eliminarTelefonosAsync(request);
+        }
+
+        internal void insertarClientes(object sIdCliente, string sIdPersona, ref string sMsjError)
+        {
+            throw new NotImplementedException();
         }
     }
 }

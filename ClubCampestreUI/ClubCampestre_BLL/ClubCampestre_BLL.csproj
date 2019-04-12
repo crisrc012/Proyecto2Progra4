@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogosMantenimientos\Cls_Cliente_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Estado_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Persona_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Rol_BLL.cs" />
