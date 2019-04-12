@@ -64,13 +64,14 @@
                     <li><a class="drop" href="#">Mantenimientos</a>
                         <ul>
                             <li><a href="Productos.aspx">Clientes</a></li>
-                            <li><a href="Personas.aspx">Personas</a></li>
+                            <li><a href="Mant_Persona.aspx">Personas</a></li>
                             <li><a href="Membresías.aspx">Membresías</a></li>
                         </ul>
                     </li>
                     <li><a class="drop" href="#">Seguridad</a>
                         <ul>
                             <li><a href="Usuarios.aspx">Usuarios</a></li>
+                            <li><a href="Personas.aspx">Personas</a></li>
                             <li><a href="Roles.aspx">Roles</a></li>
                         </ul>
                     </li>

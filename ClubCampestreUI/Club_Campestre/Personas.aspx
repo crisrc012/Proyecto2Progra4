@@ -26,7 +26,7 @@
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
-              <textarea id="TextAreadireccion" cols="40" rows="5"  style="color: #0090ff"></textarea>
+              <textarea id="TextAreadireccion" cols="50" rows="3"  style="color: #0090ff"></textarea>
                   </div>
               <div></div>
                           <label for="telefono"> Telefono: </label>
