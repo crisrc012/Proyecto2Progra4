@@ -29,7 +29,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se crea el objeto de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql_aut_clubcampestre"].ToString().Trim());
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
                 Obj_BD_DAL.Obj_sql_adap = new SqlDataAdapter(sNombre_SP, Obj_BD_DAL.Obj_sql_cnx);
                 // Asignar parámetros
@@ -82,7 +82,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se crea el objeto de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql_aut_clubcampestre"].ToString().Trim());
                 // Se inicializa el DataAdapter con el SP y la conexión abierta
                 Obj_BD_DAL.Obj_sql_adap = new SqlDataAdapter(sNombreSP, Obj_BD_DAL.Obj_sql_cnx);
                 // Asignar parámetros
@@ -126,7 +126,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se crea el objeto de conexión y Se obtiene la cadena de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql_aut_clubcampestre"].ToString().Trim());
                 // Si la conexión está cerrada
                 if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
                 {
@@ -180,7 +180,7 @@ namespace ClubCampestre_BLL.BD
             try
             {
                 // Se obtiene la cadena de conexión y Se crea el objeto de conexión
-                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Win_aut"].ToString().Trim());
+                Obj_BD_DAL.Obj_sql_cnx = new SqlConnection(ConfigurationManager.ConnectionStrings["Sql_aut_clubcampestre"].ToString().Trim());
                 // Si la conexión está cerrada
                 if (Obj_BD_DAL.Obj_sql_cnx.State == ConnectionState.Closed)
                 {

@@ -32,6 +32,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Persona_Client = new CatalogosMantenimientosClient();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
+                Obj_Persona_DAL.BIdRol = byte.MinValue;
+                Obj_Persona_DAL.SDireccion = string.Empty;
+                Obj_Persona_DAL.SNombre = string.Empty;
                 Obj_Persona_DAL.DS.Tables.Add(Obj_Persona_Client.filtrarPersona(Obj_Persona_DAL.SIdPersona, Obj_Persona_DAL.SNombre, Obj_Persona_DAL.SDireccion, Obj_Persona_DAL.BIdRol, ref sMsjError));
                 Obj_Persona_Client.Close();
                 Obj_Persona_DAL.SMsjError = sMsjError;

@@ -25,8 +25,8 @@
                 <Columns>
                     <asp:BoundField DataField="IdPersona" HeaderText="Id Persona" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                      <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
-                    <asp:BoundField DataField="IdRol" HeaderText="Id Rol" />
+                      <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                    <asp:BoundField DataField="Descripcion" HeaderText="Rol" />
 
                     <asp:TemplateField>
                         <ItemTemplate>

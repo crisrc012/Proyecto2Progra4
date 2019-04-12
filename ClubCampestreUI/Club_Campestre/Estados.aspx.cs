@@ -17,23 +17,15 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
         Cls_Estado_DAL Obj_Estado_DAL;
-        bool vFiltra = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
             }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
 
             //Metodo que listar 
         private void BindGrid()
@@ -108,58 +100,50 @@ namespace Club_Campestre
         //boton eliminar
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (vFiltra)
+            Obj_Estado_DAL = new Cls_Estado_DAL();
+
+            //Recorre Grid buscando chk 
+            foreach (GridViewRow row in EstadoGridView.Rows)
             {
-                Obj_Estado_DAL = new Cls_Estado_DAL();
-
-                //Recorre Grid buscando chk 
-                foreach (GridViewRow row in EstadoGridView.Rows)
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
                 {
-                    //busca el la fila
-                    if (row.RowType == DataControlRowType.DataRow)
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
                     {
-                        //si esta checkeado instancia las propiedades del objeto
-                        CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
-                        if (chkRow.Checked)
-                        {
-                            Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
-                            Obj_Estado_DAL.SEstado = row.Cells[1].Text;
+                        Obj_Estado_DAL.CIdEstado = Convert.ToChar(row.Cells[0].Text);
+                        Obj_Estado_DAL.SEstado = row.Cells[1].Text;
 
-                            //llamado metodo eliminar estados
-                            Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
-                        }
-
+                        //llamado metodo eliminar estados
+                        Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
                     }
-                }
-                if (Obj_Estado_DAL.sMsjError == string.Empty)
-                {
-                    this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
-                    this.BindGrid();
-                }
-                else
-                {
-                    this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
-                    this.BindGrid();
-                }
 
-            }         
+                }
+            }
+            if (Obj_Estado_DAL.sMsjError == string.Empty)
+            {
+                this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
+                this.BindGrid();
+            }
+            else
+            {
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
+                this.BindGrid();
+            }      
 
         }
 
         // evento para Buscar
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-             this.BindGrid();
+            this.BindGrid();
         }
 
         protected void txtFiltraEstados_TextChanged(object sender, EventArgs e)
         {
-            vFiltra = false;
-            if (vFiltra == false)
-            {
-                this.BindGrid();
-            }
-            vFiltra = true;
+            this.BindGrid();
         }
+  
     }
 }

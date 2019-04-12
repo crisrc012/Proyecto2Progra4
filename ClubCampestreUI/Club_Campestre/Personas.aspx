@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" runat="server">
-      <div class ="main" style="width: 86%">
+      <div class ="main" style="width: 86%; margin-left: 0px; margin-right: 150px;">
         <div class="pure-control-group">
         <div >
         <header>
@@ -18,6 +18,8 @@
           <div class="pure-control-group">
             <label for="cedula"> Cedula: </label>
             <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
+              <label for="Rol"> Rol: </label>
+              <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownListRol_SelectedIndexChanged" Width="128px"></asp:DropDownList>
           </div>
 
           <div class="pure-control-group">
@@ -26,7 +28,7 @@
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
-              <textarea id="TextAreadireccion" cols="40" rows="5"  style="color: #0090ff"></textarea>
+              <textarea id="TextAreadireccion" cols="50" rows="3"  style="color: #0090ff"></textarea>
                   </div>
               <div></div>
                           <label for="telefono"> Telefono: </label>
