@@ -18,7 +18,6 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
         Cls_Persona_DAL Obj_Persona_DAL;
-        bool vFiltra = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -109,9 +108,7 @@ namespace Club_Campestre
         //boton eliminar
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (vFiltra)
-            {
-                Obj_Persona_DAL = new Cls_Persona_DAL();
+                            Obj_Persona_DAL = new Cls_Persona_DAL();
 
                 //Recorre Grid buscando chk 
                 foreach (GridViewRow row in PersonaGridView.Rows)
@@ -142,7 +139,7 @@ namespace Club_Campestre
                     this.BindGrid();
                 }
 
-            }
+            
 
         }
 
@@ -154,12 +151,8 @@ namespace Club_Campestre
 
         protected void txtFiltraPersona_TextChanged(object sender, EventArgs e)
         {
-            vFiltra = false;
-            if (vFiltra == false)
-            {
                 this.BindGrid();
-            }
-            vFiltra = true;
+        
         }
         
     }
