@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CatalogosMantenimientos" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:element name="listarBeneficiarios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarBeneficiariosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarBeneficiariosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarBeneficiarios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q1:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarBeneficiariosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarBeneficiariosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarBeneficiarios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q2:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarBeneficiariosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertarBeneficiariosResult" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarBeneficiarios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q3:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarBeneficiariosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarBeneficiariosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarBeneficiarios">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SIdBeneficiario" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarBeneficiariosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarBeneficiariosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarClientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarClientesResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarClientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarClientesResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarClientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertarClientesResult" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarClientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarClientesResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarClientes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarClientesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarClientesResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarCorreos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarCorreosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarCorreosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarCorreos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarCorreosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarCorreosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarCorreos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarCorreosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="insertarCorreosResult" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarCorreos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
+            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarCorreosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarCorreosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarCorreos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarCorreosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarCorreosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarEstadoResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q4:char" />
+            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarEstadoResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q5:char" />
+            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q6:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
+            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarEstadoResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarEstado">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarEstadoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarEstadoResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoServicio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarTipoServicioResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoServicio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarTipoServicioResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoServicio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoServicioResult" type="q9:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoServicio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarTipoServicioResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoServicio">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoServicioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarTipoServicioResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoMembresia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoMembresiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarTipoMembresiaResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoMembresia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoMembresiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarTipoMembresiaResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoMembresia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoMembresiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q10:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoMembresia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Costo" type="xs:float" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoMembresiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarTipoMembresiaResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoMembresia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoMembresiaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarTipoMembresiaResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTipoClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarTipoClienteResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTipoClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarTipoClienteResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTipoClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q11:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTipoClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarTipoClienteResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoCliente">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTipoClienteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarTipoClienteResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarUsuarioResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarUsuarioResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q12:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarUsuarioResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarUsuario">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarUsuarioResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarUsuarioResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTelefonos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="listarTelefonosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="listarTelefonosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTelefonos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="filtrarTelefonosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="filtrarTelefonosResult" nillable="true">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:appinfo>
+                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </xs:appinfo>
+                </xs:annotation>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTelefonos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertarTelefonosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q13:char" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTelefonos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actualizarTelefonosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="actualizarTelefonosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTelefonos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eliminarTelefonosResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="eliminarTelefonosResult" type="xs:boolean" />
+            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DataTable" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ICatalogosMantenimientos_listarBeneficiarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarBeneficiarios" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarBeneficiarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarBeneficiariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarBeneficiarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarBeneficiarios" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarBeneficiarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarBeneficiariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarBeneficiarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarBeneficiarios" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarBeneficiarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarBeneficiariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarBeneficiarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarBeneficiarios" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarBeneficiarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarBeneficiariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarBeneficiarios_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarBeneficiarios" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarBeneficiarios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarBeneficiariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarClientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarClientes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarClientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarClientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarCorreos_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarCorreos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarCorreos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarCorreosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarCorreos_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarCorreos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarCorreos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarCorreosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarCorreos_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarCorreos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarCorreos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarCorreosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarCorreos_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCorreos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarCorreos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCorreosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarCorreos_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarCorreos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarCorreos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarCorreosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarEstado" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoServicio" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoServicio" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoServicio" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoServicio" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoServicio" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoMembresia_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoMembresia" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoMembresia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoMembresiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoMembresia_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoMembresia" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoMembresia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoMembresiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoMembresia_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoMembresia" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoMembresia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoMembresiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoMembresia_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoMembresia" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoMembresia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoMembresiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoMembresia_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoMembresia" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoMembresia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoMembresiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTipoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTipoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTipoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTipoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTipoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTipoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTipoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTipoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoCliente" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTipoCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTipoClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTelefonos_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarTelefonos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarTelefonos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarTelefonosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTelefonos_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTelefonos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarTelefonos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarTelefonosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTelefonos_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTelefonos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarTelefonos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarTelefonosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTelefonos_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTelefonos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarTelefonos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTelefonosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTelefonos_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTelefonos" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarTelefonos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTelefonosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICatalogosMantenimientos">
+    <wsdl:operation name="listarBeneficiarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" message="tns:ICatalogosMantenimientos_listarBeneficiarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_listarBeneficiarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarBeneficiarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiarios" message="tns:ICatalogosMantenimientos_filtrarBeneficiarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_filtrarBeneficiarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarBeneficiarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarBeneficiarios" message="tns:ICatalogosMantenimientos_insertarBeneficiarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_insertarBeneficiarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarBeneficiarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarBeneficiarios" message="tns:ICatalogosMantenimientos_actualizarBeneficiarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_actualizarBeneficiarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarBeneficiarios">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiarios" message="tns:ICatalogosMantenimientos_eliminarBeneficiarios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_eliminarBeneficiarios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarClientes" message="tns:ICatalogosMantenimientos_listarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarClientesResponse" message="tns:ICatalogosMantenimientos_listarClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes" message="tns:ICatalogosMantenimientos_filtrarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarClientesResponse" message="tns:ICatalogosMantenimientos_filtrarClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarClientes" message="tns:ICatalogosMantenimientos_insertarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarClientesResponse" message="tns:ICatalogosMantenimientos_insertarClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarClientes" message="tns:ICatalogosMantenimientos_actualizarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarClientesResponse" message="tns:ICatalogosMantenimientos_actualizarClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarClientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarClientes" message="tns:ICatalogosMantenimientos_eliminarClientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarClientesResponse" message="tns:ICatalogosMantenimientos_eliminarClientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarCorreos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreos" message="tns:ICatalogosMantenimientos_listarCorreos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarCorreosResponse" message="tns:ICatalogosMantenimientos_listarCorreos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarCorreos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos" message="tns:ICatalogosMantenimientos_filtrarCorreos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreosResponse" message="tns:ICatalogosMantenimientos_filtrarCorreos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarCorreos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarCorreos" message="tns:ICatalogosMantenimientos_insertarCorreos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarCorreosResponse" message="tns:ICatalogosMantenimientos_insertarCorreos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCorreos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreos" message="tns:ICatalogosMantenimientos_actualizarCorreos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreosResponse" message="tns:ICatalogosMantenimientos_actualizarCorreos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCorreos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreos" message="tns:ICatalogosMantenimientos_eliminarCorreos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreosResponse" message="tns:ICatalogosMantenimientos_eliminarCorreos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarEstado" message="tns:ICatalogosMantenimientos_listarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarEstadoResponse" message="tns:ICatalogosMantenimientos_listarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado" message="tns:ICatalogosMantenimientos_filtrarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarEstadoResponse" message="tns:ICatalogosMantenimientos_filtrarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstado" message="tns:ICatalogosMantenimientos_insertarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarEstadoResponse" message="tns:ICatalogosMantenimientos_insertarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado" message="tns:ICatalogosMantenimientos_actualizarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarEstadoResponse" message="tns:ICatalogosMantenimientos_actualizarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado" message="tns:ICatalogosMantenimientos_eliminarEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse" message="tns:ICatalogosMantenimientos_eliminarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoServicio" message="tns:ICatalogosMantenimientos_listarTipoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoServicioResponse" message="tns:ICatalogosMantenimientos_listarTipoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoServicio" message="tns:ICatalogosMantenimientos_filtrarTipoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoServicioResponse" message="tns:ICatalogosMantenimientos_filtrarTipoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoServicio" message="tns:ICatalogosMantenimientos_insertarTipoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoServicioResponse" message="tns:ICatalogosMantenimientos_insertarTipoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoServicio" message="tns:ICatalogosMantenimientos_actualizarTipoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoServicioResponse" message="tns:ICatalogosMantenimientos_actualizarTipoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoServicio" message="tns:ICatalogosMantenimientos_eliminarTipoServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoServicioResponse" message="tns:ICatalogosMantenimientos_eliminarTipoServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoMembresia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoMembresia" message="tns:ICatalogosMantenimientos_listarTipoMembresia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoMembresiaResponse" message="tns:ICatalogosMantenimientos_listarTipoMembresia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoMembresia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoMembresia" message="tns:ICatalogosMantenimientos_filtrarTipoMembresia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoMembresiaResponse" message="tns:ICatalogosMantenimientos_filtrarTipoMembresia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoMembresia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoMembresia" message="tns:ICatalogosMantenimientos_insertarTipoMembresia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoMembresiaResponse" message="tns:ICatalogosMantenimientos_insertarTipoMembresia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoMembresia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoMembresia" message="tns:ICatalogosMantenimientos_actualizarTipoMembresia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoMembresiaResponse" message="tns:ICatalogosMantenimientos_actualizarTipoMembresia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoMembresia">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoMembresia" message="tns:ICatalogosMantenimientos_eliminarTipoMembresia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoMembresiaResponse" message="tns:ICatalogosMantenimientos_eliminarTipoMembresia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoCliente" message="tns:ICatalogosMantenimientos_listarTipoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTipoClienteResponse" message="tns:ICatalogosMantenimientos_listarTipoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoCliente" message="tns:ICatalogosMantenimientos_filtrarTipoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoClienteResponse" message="tns:ICatalogosMantenimientos_filtrarTipoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoCliente" message="tns:ICatalogosMantenimientos_insertarTipoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTipoClienteResponse" message="tns:ICatalogosMantenimientos_insertarTipoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoCliente" message="tns:ICatalogosMantenimientos_actualizarTipoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoClienteResponse" message="tns:ICatalogosMantenimientos_actualizarTipoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoCliente" message="tns:ICatalogosMantenimientos_eliminarTipoCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoClienteResponse" message="tns:ICatalogosMantenimientos_eliminarTipoCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarUsuario" message="tns:ICatalogosMantenimientos_listarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarUsuarioResponse" message="tns:ICatalogosMantenimientos_listarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarUsuario" message="tns:ICatalogosMantenimientos_filtrarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarUsuarioResponse" message="tns:ICatalogosMantenimientos_filtrarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarUsuario" message="tns:ICatalogosMantenimientos_insertarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarUsuarioResponse" message="tns:ICatalogosMantenimientos_insertarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarUsuario" message="tns:ICatalogosMantenimientos_actualizarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarUsuarioResponse" message="tns:ICatalogosMantenimientos_actualizarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarUsuario" message="tns:ICatalogosMantenimientos_eliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarUsuarioResponse" message="tns:ICatalogosMantenimientos_eliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarTelefonos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTelefonos" message="tns:ICatalogosMantenimientos_listarTelefonos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTelefonosResponse" message="tns:ICatalogosMantenimientos_listarTelefonos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTelefonos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTelefonos" message="tns:ICatalogosMantenimientos_filtrarTelefonos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarTelefonosResponse" message="tns:ICatalogosMantenimientos_filtrarTelefonos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarTelefonos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTelefonos" message="tns:ICatalogosMantenimientos_insertarTelefonos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarTelefonosResponse" message="tns:ICatalogosMantenimientos_insertarTelefonos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTelefonos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTelefonos" message="tns:ICatalogosMantenimientos_actualizarTelefonos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarTelefonosResponse" message="tns:ICatalogosMantenimientos_actualizarTelefonos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTelefonos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonos" message="tns:ICatalogosMantenimientos_eliminarTelefonos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonosResponse" message="tns:ICatalogosMantenimientos_eliminarTelefonos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICatalogosMantenimientos" type="tns:ICatalogosMantenimientos">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="listarBeneficiarios">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarBeneficiarios">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarBeneficiarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarBeneficiarios">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarBeneficiarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarBeneficiarios">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarBeneficiarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarBeneficiarios">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarBeneficiarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarClientes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarClientes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarClientes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarClientes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarClientes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarClientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarCorreos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarCorreos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarCorreos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarCorreos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarCorreos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarCorreos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCorreos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarCorreos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCorreos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarCorreos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarEstado">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarEstado">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarEstado">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEstado">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarEstado">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoServicio">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoServicio">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoServicio">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoServicio">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoServicio">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoMembresia">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarTipoMembresia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoMembresia">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoMembresia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoMembresia">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarTipoMembresia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoMembresia">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoMembresia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoMembresia">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoMembresia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarTipoCliente">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarTipoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTipoCliente">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarTipoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarTipoCliente">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarTipoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTipoCliente">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarTipoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTipoCliente">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarTipoCliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarTelefonos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarTelefonos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarTelefonos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTelefonos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTelefonos">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CatalogosMantenimientos">
+    <wsdl:port name="BasicHttpBinding_ICatalogosMantenimientos" binding="tns:BasicHttpBinding_ICatalogosMantenimientos">
+      <soap:address location="http://localhost:20191/CatalogosMantenimientos.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
