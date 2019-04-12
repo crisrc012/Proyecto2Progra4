@@ -21,6 +21,8 @@ namespace Club_Campestre {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
+        
+        
         /// <summary>
         /// btnBuscar control.
         /// </summary>
@@ -29,6 +31,8 @@ namespace Club_Campestre {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
+        
         
         /// <summary>
         /// btnEliminar control.
@@ -39,6 +43,7 @@ namespace Club_Campestre {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEliminar;
         
+       
         /// <summary>
         /// btnModificar control.
         /// </summary>
@@ -47,6 +52,8 @@ namespace Club_Campestre {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificar;
+        
+        
         
         /// <summary>
         /// txtFiltraClientes control.

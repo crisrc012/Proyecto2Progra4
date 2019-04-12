@@ -19,12 +19,21 @@
                     
           
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />
-             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" onserverclick="btnBuscar_Click" OnClick="btnBuscar_Click1" />
-             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" onserverclick="btnEliminar_Click" OnClick="btnEliminar_Click1" />
-             <asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" onserverclick="btnModificar_Click" OnClick="btnModificar_Click1" />
+            <!-- <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />!-->
+             <asp:Button class ="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+             
+             <!--<asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" onserverclick="btnBuscar_Click" OnClick="btnBuscar_Click1" />!-->
+             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
+             
+             <!--<asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" onserverclick="btnEliminar_Click" OnClick="btnEliminar_Click1" />!-->
+             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+            
+             <!--<asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" onserverclick="btnModificar_Click" OnClick="btnModificar_Click1" />!-->
+             <asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
+            
              <asp:TextBox ID="txtFiltraClientes" runat="server" OnTextChanged="txtFiltraClientes_TextChanged" ForeColor="Blue"></asp:TextBox>  
-             <label id="errorMensaje" runat="server"></label>
+              
+            <label id="errorMensaje" runat="server"></label>
              </div>
       <br />
         </div>
