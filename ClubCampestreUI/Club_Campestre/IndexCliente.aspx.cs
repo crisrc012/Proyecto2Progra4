@@ -7,11 +7,18 @@ using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
-    public partial class Home1 : System.Web.UI.Page
+    public partial class IndexCliente : System.Web.UI.Page
     {
+   
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void IniciarSesion(object sender, EventArgs e)
+        {
+              Server.Transfer("Index.aspx", false);//llama pantalla
         }
     }
 }
