@@ -14,37 +14,37 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Facturacion");
             dt.Columns.Add("IdFactura");
+            dt.Columns.Add("IdCliente");
+            dt.Columns.Add("Descripcion");
+            dt.Columns.Add("Fecha");
+            dt.Columns.Add("Montototal");
             dt.Rows.Add("@IdFactura", iIdFactura);
             if (sIdCliente != short.MinValue)
             {
-                dt.Columns.Add("IdCliente");
                 dt.Rows.Add("@IdCliente", sIdCliente);
             }
             if (sDescripcion != string.Empty)
             {
-                dt.Columns.Add("Descripcion");
                 dt.Rows.Add("@Descripcion", sDescripcion);
             }
             if (DFecha != DateTime.MinValue)
             {
-                dt.Columns.Add("Fecha");
                 dt.Rows.Add("@Fecha", DFecha);
             }
             if (!float.IsNaN(fMontototal))
             {
-                dt.Columns.Add("Montototal");
                 dt.Rows.Add("@Montototal", fMontototal);
             }
             return dt;
         }
         public DataTable Listar(ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Facturacion]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Facturacion]", ref sMsjError);
         }
 
         public DataTable Filtrar(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(iIdFactura, sIdCliente, sDescripcion, DFecha, fMontototal), "[dbo].[sp_search_TB_Facturacion]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(iIdFactura, sIdCliente, sDescripcion, DFecha, fMontototal), "[dbo].[sp_search_TB_Facturacion]", ref sMsjError);
         }
 
         public short Insertar(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError)

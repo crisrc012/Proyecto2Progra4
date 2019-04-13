@@ -146,6 +146,7 @@
     <Content Include="Shared\micss.css" />
     <Content Include="Shared\pure.css" />
     <Content Include="TipoMembresia.aspx" />
+    <Content Include="TipoServicio.aspx" />
     <Content Include="Tipo_Clientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -251,6 +252,13 @@
     </Compile>
     <Compile Include="TipoMembresia.aspx.designer.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TipoServicio.aspx.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipoServicio.aspx.designer.cs">
+      <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tipo_Clientes.aspx.cs">
       <DependentUpon>Tipo_Clientes.aspx</DependentUpon>

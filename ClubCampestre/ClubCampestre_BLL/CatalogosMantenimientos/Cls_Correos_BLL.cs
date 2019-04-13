@@ -13,27 +13,27 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Correos");
             dt.Columns.Add("IdCorreo");
+            dt.Columns.Add("IdPersona");
+            dt.Columns.Add("Correo");
             dt.Rows.Add("@IdCorreo", sCorreo);
             if (sIdPersona != string.Empty)
             {
-                dt.Columns.Add("IdPersona");
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
             if (sCorreo != string.Empty)
             {
-                dt.Columns.Add("Correo");
                 dt.Rows.Add("@Correo", sCorreo);
             }
             return dt;
         }
         public DataTable Listar(ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Correos]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Correos]", ref sMsjError);
         }
 
         public DataTable Filtrar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCorreo, sIdPersona, sCorreo), "[dbo].[sp_search_TB_Correos]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCorreo, sIdPersona, sCorreo), "[dbo].[sp_search_TB_Correos]", ref sMsjError);
         }
 
         public short Insertar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)

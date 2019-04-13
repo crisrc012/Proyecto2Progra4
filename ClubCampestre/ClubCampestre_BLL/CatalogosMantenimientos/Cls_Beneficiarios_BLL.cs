@@ -13,32 +13,32 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Beneficiarios");
             dt.Columns.Add("IdBeneficiario");
+            dt.Columns.Add("IdCliente");
+            dt.Columns.Add("IdPersona");
+            dt.Columns.Add("IdEstado");
             dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
             if (sIdCliente != short.MinValue)
             {
-                dt.Columns.Add("IdCliente");
                 dt.Rows.Add("@IdCliente", sIdCliente);
             }
             if (sIdPersona != string.Empty)
             {
-                dt.Columns.Add("IdPersona");
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
             if (char.IsWhiteSpace(cIdEstado))
             {
-                dt.Columns.Add("IdEstado");
                 dt.Rows.Add("@IdEstado", cIdEstado);
             }
             return dt;
         }
         public DataTable Listar(ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Beneficiarios]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Beneficiarios]", ref sMsj_error);
         }
 
         public DataTable Filtrar(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado), "[dbo].[sp_search_TB_Beneficiarios]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado), "[dbo].[sp_search_TB_Beneficiarios]", ref sMsj_error);
         }
 
         public short Insertar(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error)

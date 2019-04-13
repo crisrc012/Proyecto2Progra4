@@ -28,7 +28,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(char cIdEstado, string sEstado, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(cIdEstado, sEstado), "[dbo].[sp_search_TB_Estado]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(cIdEstado, sEstado), "[dbo].[sp_search_TB_Estado]", ref sMsj_error);
         }
 
         public char Insertar(char cIdEstado, string sEstado, ref string sMsj_error)

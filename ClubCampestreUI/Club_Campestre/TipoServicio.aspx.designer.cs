@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Roles {
+    public partial class TipoServicio {
         
         /// <summary>
         /// Control btnEliminar.
@@ -40,13 +40,13 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// Control FiltrarRol.
+        /// Control txtFiltraTipoServicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FiltrarRol;
+        protected global::System.Web.UI.WebControls.TextBox txtFiltraTipoServicio;
         
         /// <summary>
         /// Control btnBuscar.
@@ -67,12 +67,12 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMensaje;
         
         /// <summary>
-        /// Control RolesGridView.
+        /// Control TipoServicioGridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView RolesGridView;
+        protected global::System.Web.UI.WebControls.GridView TipoServicioGridView;
     }
 }

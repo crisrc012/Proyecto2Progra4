@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.ServiceModel;
 
 namespace WCF.Interfaces
@@ -55,27 +56,27 @@ namespace WCF.Interfaces
         bool eliminarEstado(char cIdEstado, ref string sMsj_error);
         #endregion
         #region Facturacion
-        //DataTable listarFacturacion();
-        //[OperationContract]
-        //DataTable filtrarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL);
-        //[OperationContract]
-        //int insertarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL);
-        //[OperationContract]
-        //bool actualizarFacturacion(ref Cls_Facturacion_DAL Obj_Facturacion_DAL);
-        //[OperationContract]
-        //bool eliminarFacturacion(int iIdFactura);
+        DataTable listarFacturacion(ref string sMsjError);
+        [OperationContract]
+        DataTable filtrarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError);
+        [OperationContract]
+        int insertarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError);
+        [OperationContract]
+        bool actualizarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError);
+        [OperationContract]
+        bool eliminarFacturacion(int iIdFactura, ref string sMsjError);
         #endregion
         #region FacturaDetalle
-        //[OperationContract]
-        //DataTable listarFacturaDetalle();
-        //[OperationContract]
-        //DataTable filtrarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL);
-        //[OperationContract]
-        //int insertarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL);
-        //[OperationContract]
-        //bool actualizarFacturaDetalle(ref Cls_FacturaDetalle_DAL Obj_FacturaDetalle_DAL);
-        //[OperationContract]
-        //bool eliminarFacturaDetalle(int iIdFacturaDetalle);
+        [OperationContract]
+        DataTable listarFacturaDetalle(ref string sMsjError);
+        [OperationContract]
+        DataTable filtrarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError);
+        [OperationContract]
+        int insertarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError);
+        [OperationContract]
+        bool actualizarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError);
+        [OperationContract]
+        bool eliminarFacturaDetalle(int iIdFacturaDetalle, ref string sMsjError);
         #endregion
         #region Persona
         [OperationContract]

@@ -1,4 +1,5 @@
 ﻿using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
 using System.Data;
 
 namespace WCF.Contracts
@@ -114,47 +115,57 @@ namespace WCF.Contracts
         }
         #endregion
         #region Facturacion
-        public void listarFacturacion()
+        public DataTable listarFacturacion(ref string sMsjError)
         {
-
+            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
+            return Obj_Facturacion_BLL.Listar(ref sMsjError);
         }
-        public void filtrarFacturacion()
+        public DataTable filtrarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError)
         {
-
+            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
+            return Obj_Facturacion_BLL.Filtrar(iIdFactura, sIdCliente, sDescripcion, DFecha, fMontototal, ref sMsjError);
         }
-        public void insertarFacturacion()
+        public int insertarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError)
         {
-
+            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
+            return Obj_Facturacion_BLL.Insertar(iIdFactura, sIdCliente, sDescripcion, DFecha, fMontototal, ref sMsjError);
         }
-        public void actualizarFacturacion()
+        public bool actualizarFacturacion(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal, ref string sMsjError)
         {
-
+            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
+            return Obj_Facturacion_BLL.Actualizar(iIdFactura, sIdCliente, sDescripcion, DFecha, fMontototal, ref sMsjError);
         }
-        public void eliminarFacturacion()
+        public bool eliminarFacturacion(int iIdFactura, ref string sMsjError)
         {
-
+            Cls_Facturacion_BLL Obj_Facturacion_BLL = new Cls_Facturacion_BLL();
+            return Obj_Facturacion_BLL.Eliminar(iIdFactura, ref sMsjError);
         }
         #endregion
         #region FacturaDetalle
-        public void listarFacturaDetalle()
+        public DataTable listarFacturaDetalle(ref string sMsjError)
         {
-
+            Cls_FacturaDetalle_BLL Obj_Factura_Detalle = new Cls_FacturaDetalle_BLL();
+            return Obj_Factura_Detalle.Listar(ref sMsjError);
         }
-        public void filtrarFacturaDetalle()
+        public DataTable filtrarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError)
         {
-
+            Cls_FacturaDetalle_BLL Obj_Factura_Detalle = new Cls_FacturaDetalle_BLL();
+            return Obj_Factura_Detalle.Filtrar(iIdFacturaDetalle, iIdFactura, sDetalle, fcosto, bIdTipoServicio, iIdMembresia, icantidad, ftotal, ref sMsjError);
         }
-        public void insertarFacturaDetalle()
+        public int insertarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError)
         {
-
+            Cls_FacturaDetalle_BLL Obj_Factura_Detalle = new Cls_FacturaDetalle_BLL();
+            return Obj_Factura_Detalle.Insertar(iIdFacturaDetalle, iIdFactura, sDetalle, fcosto, bIdTipoServicio, iIdMembresia, icantidad, ftotal, ref sMsjError);
         }
-        public void actualizarFacturaDetalle()
+        public bool actualizarFacturaDetalle(int iIdFacturaDetalle, int iIdFactura, string sDetalle, float fcosto, byte bIdTipoServicio, int iIdMembresia, int icantidad, float ftotal, ref string sMsjError)
         {
-
+            Cls_FacturaDetalle_BLL Obj_Factura_Detalle = new Cls_FacturaDetalle_BLL();
+            return Obj_Factura_Detalle.Actualizar(iIdFacturaDetalle, iIdFactura, sDetalle, fcosto, bIdTipoServicio, iIdMembresia, icantidad, ftotal, ref sMsjError);
         }
-        public void eliminarFacturaDetalle()
+        public bool eliminarFacturaDetalle(int iIdFacturaDetalle, ref string sMsjError)
         {
-
+            Cls_FacturaDetalle_BLL Obj_Factura_Detalle = new Cls_FacturaDetalle_BLL();
+            return Obj_Factura_Detalle.Eliminar(iIdFacturaDetalle, ref sMsjError);
         }
         #endregion
         #region Persona
