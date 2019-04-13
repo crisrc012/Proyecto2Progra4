@@ -21,8 +21,6 @@ namespace Club_Campestre {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
         
-        
-        
         /// <summary>
         /// btnBuscar control.
         /// </summary>
@@ -32,7 +30,7 @@ namespace Club_Campestre {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         
-        
+       
         
         /// <summary>
         /// btnEliminar control.
@@ -44,6 +42,7 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnEliminar;
         
        
+        
         /// <summary>
         /// btnModificar control.
         /// </summary>
@@ -53,8 +52,7 @@ namespace Club_Campestre {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModificar;
         
-        
-        
+       
         /// <summary>
         /// txtFiltraClientes control.
         /// </summary>
