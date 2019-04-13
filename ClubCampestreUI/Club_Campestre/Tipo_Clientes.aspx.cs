@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
+using ClubCampestre_BLL.CatalogosMantenimientos;
 
 namespace Club_Campestre
 {
