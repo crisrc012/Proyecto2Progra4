@@ -34,7 +34,8 @@
             <div class="fl_left">
                 <ul class="nospace">
                     <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
-                    <li><a id="idUsuario">Usuario</a></li>
+                    <li class="active"><a id="idUsuario">Usuario</a></li>
+                    <li class="active"><a href="Index.aspx" id="CerrarSesion">Salir</a></li>
                 </ul>
             </div>   
         </div>
@@ -57,24 +58,25 @@
                     <li><a class="drop" href="#">Catálogos</a>
                         <ul>
                             <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
+                            <li><a href="TipoServicio.aspx">Tipo Servicio</a></li>
                             <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
+                            <li><a href="Roles.aspx">Roles</a></li>
                             <li><a href="Estados.aspx">Estados</a></li>
                         </ul>
                     </li>
                     <li><a class="drop" href="#">Mantenimientos</a>
                         <ul>
-                            <li><a href="Productos.aspx">Clientes</a></li>
-                            <li><a href="Personas.aspx">Personas</a></li>
+                            <li><a href="Clientes.aspx">Clientes</a></li>
+                            <li><a href="Mant_Persona.aspx">Personas</a></li>
                             <li><a href="Membresías.aspx">Membresías</a></li>
+                            <li><a href="Servicios.aspx">Servicios</a></li>
                         </ul>
                     </li>
                     <li><a class="drop" href="#">Seguridad</a>
                         <ul>
-                            <li><a href="Usuarios.aspx">Usuarios</a></li>
-                            <li><a href="Roles.aspx">Roles</a></li>
+                            <li><a href="Usuarios.aspx">Usuarios</a></li>                            
                         </ul>
-                    </li>
-                    <li class="active"><a href="Index.aspx">Salir</a></li>
+                    </li>                   
                 </ul>
             </nav>
         </header>

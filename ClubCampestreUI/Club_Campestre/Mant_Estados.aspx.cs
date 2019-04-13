@@ -12,9 +12,6 @@ namespace Club_Campestre.Mantenimiento
 {
     public partial class Mant_Estados : System.Web.UI.Page
     {
-        #region Variables Globales
-        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();       
-        #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,8 +41,9 @@ namespace Club_Campestre.Mantenimiento
             Server.Transfer("Estados.aspx");
         }
 
-        protected void btnGuardar_Click1(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
             Obj_Estado_DAL.CIdEstado = Convert.ToChar(this.txtestado.Value);
             Obj_Estado_DAL.SEstado = this.txtdescripcion.Value.ToString();
@@ -63,3 +61,4 @@ namespace Club_Campestre.Mantenimiento
         }
     }
 }
+ 
