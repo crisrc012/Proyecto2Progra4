@@ -14,27 +14,27 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             DataTable dt = new DataTable("Clientes");
             dt.Columns.Add("IdCliente");
+            dt.Columns.Add("IdTipoCliente");
+            dt.Columns.Add("IdPersona");
             dt.Rows.Add("@IdCliente", sIdCliente);
             if (bIdTipoCliente != byte.MinValue)
             {
-                dt.Columns.Add("IdTipoCliente");
                 dt.Rows.Add("@IdTipoCliente", bIdTipoCliente);
             }
             if (sIdPersona != string.Empty)
             {
-                dt.Columns.Add("IdPersona");
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
             return dt;
         }
         public DataTable Listar(ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Clientes]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Clientes]", ref sMsjError);
         }
 
         public DataTable Filtrar(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCliente, bIdTipoCliente, sIdPersona), "[dbo].[sp_search_TB_Clientes]", ref sMsjError).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCliente, bIdTipoCliente, sIdPersona), "[dbo].[sp_search_TB_Clientes]", ref sMsjError);
         }
 
         public short Insertar(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
