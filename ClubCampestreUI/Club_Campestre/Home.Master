@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="Club_Campestre.Home" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Club Campestre Libertad</title>
+    <link href="Shared/layout.css" rel="stylesheet" type="text/css" media="all">
+    <link href="Shared/pure.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="Shared/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="Shared/css/noscript.css" />
+    </noscript>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="is-preload">
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">  
+            <div class="fl_left">
+                <ul class="nospace">
+                    <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
+                    <li><a id="idUsuario">Usuario</a></li>
+                </ul>
+            </div>   
+        </div>
+    </div>  
+    <form id="form1" method="post" runat="server">
+        <div id="wrapper" class="divided">
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="Shared/js/jquery.min.js"></script>
+    <script src="Shared/js/jquery.scrollex.min.js"></script>
+    <script src="Shared/js/jquery.scrolly.min.js"></script>
+    <script src="Shared/js/browser.min.js"></script>
+    <script src="Shared/js/breakpoints.min.js"></script>
+    <script src="Shared/js/util.js"></script>
+    <script src="Shared/js/main.js"></script>
+</body>
+</html>

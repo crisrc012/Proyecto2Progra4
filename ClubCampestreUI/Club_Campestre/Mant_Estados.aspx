@@ -16,12 +16,12 @@
           <fieldset>
 
           <div class="pure-control-group">
-            <label for="estado"> Estado: </label>
+            <label for="txtestado"> Estado: </label>
             <input runat="server" type="text" id ="txtestado" value="" style="color: #0090ff"/>
           </div>
 
           <div class="pure-control-group">
-            <label for="descripcion"> Descripcion: </label>
+            <label for="txtdescripcion"> Descripcion: </label>
               <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" />
           </div>
 

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
@@ -77,13 +78,45 @@
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
     <Content Include="Roles.aspx" />
-    <Content Include="Servicios.aspx" />
+    <Content Include="Shared\css\font-awesome.min.css" />
+    <Content Include="Shared\css\main.css" />
+    <Content Include="Shared\css\noscript.css" />
     <Content Include="Shared\fonts\fontawesome-webfont.eot" />
     <Content Include="Shared\fonts\fontawesome-webfont.ttf" />
     <Content Include="Shared\fonts\fontawesome-webfont.woff" />
     <Content Include="Shared\fonts\fontawesome-webfont.woff2" />
     <Content Include="Shared\fonts\FontAwesome.otf" />
     <Content Include="Master.Master" />
+    <Content Include="Shared\sass\base\_page.scss" />
+    <Content Include="Shared\sass\base\_reset.scss" />
+    <Content Include="Shared\sass\base\_typography.scss" />
+    <Content Include="Shared\sass\components\_actions.scss" />
+    <Content Include="Shared\sass\components\_banner.scss" />
+    <Content Include="Shared\sass\components\_box.scss" />
+    <Content Include="Shared\sass\components\_button.scss" />
+    <Content Include="Shared\sass\components\_form.scss" />
+    <Content Include="Shared\sass\components\_gallery.scss" />
+    <Content Include="Shared\sass\components\_icon.scss" />
+    <Content Include="Shared\sass\components\_icons.scss" />
+    <Content Include="Shared\sass\components\_image.scss" />
+    <Content Include="Shared\sass\components\_index.scss" />
+    <Content Include="Shared\sass\components\_items.scss" />
+    <Content Include="Shared\sass\components\_list.scss" />
+    <Content Include="Shared\sass\components\_row.scss" />
+    <Content Include="Shared\sass\components\_section.scss" />
+    <Content Include="Shared\sass\components\_spotlight.scss" />
+    <Content Include="Shared\sass\components\_table.scss" />
+    <Content Include="Shared\sass\components\_wrapper.scss" />
+    <Content Include="Shared\sass\layout\_wrapper.scss" />
+    <Content Include="Shared\sass\libs\_breakpoints.scss" />
+    <Content Include="Shared\sass\libs\_functions.scss" />
+    <Content Include="Shared\sass\libs\_html-grid.scss" />
+    <Content Include="Shared\sass\libs\_mixins.scss" />
+    <Content Include="Shared\sass\libs\_vars.scss" />
+    <Content Include="Shared\sass\libs\_vendor.scss" />
+    <Content Include="Shared\sass\main.scss" />
+    <Content Include="Shared\sass\noscript.scss" />
+    <Content Include="Home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -99,11 +132,18 @@
     <Content Include="Shared\fontawesome-4.5.0.min.css" />
     <Content Include="Shared\fonts\fontawesome-webfont.svg" />
     <Content Include="Shared\framework.css" />
+    <Content Include="Shared\js\breakpoints.min.js" />
+    <Content Include="Shared\js\browser.min.js" />
+    <Content Include="Shared\js\demo.js" />
+    <Content Include="Shared\js\jquery.min.js" />
+    <Content Include="Shared\js\jquery.scrollex.min.js" />
+    <Content Include="Shared\js\jquery.scrolly.min.js" />
+    <Content Include="Shared\js\main.js" />
+    <Content Include="Shared\js\util.js" />
     <Content Include="Shared\layout.css" />
     <Content Include="Shared\micss.css" />
     <Content Include="Shared\pure.css" />
     <Content Include="TipoMembresia.aspx" />
-    <Content Include="TipoServicio.aspx" />
     <Content Include="Tipo_Clientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -124,6 +164,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -189,26 +243,12 @@
     <Compile Include="Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Servicios.aspx.cs">
-      <DependentUpon>Servicios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Servicios.aspx.designer.cs">
-      <DependentUpon>Servicios.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TipoMembresia.aspx.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TipoMembresia.aspx.designer.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TipoServicio.aspx.cs">
-      <DependentUpon>TipoServicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TipoServicio.aspx.designer.cs">
-      <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Tipo_Clientes.aspx.cs">
       <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
