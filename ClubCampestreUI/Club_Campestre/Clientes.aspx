@@ -20,7 +20,7 @@
           
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
             <!-- <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />!-->
-             <asp:Button class ="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+             <!--<asp:Button class ="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />!-->
              
              <!--<asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" onserverclick="btnBuscar_Click" OnClick="btnBuscar_Click1" />!-->
              <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
