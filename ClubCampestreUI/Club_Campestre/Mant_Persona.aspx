@@ -23,10 +23,12 @@
         <div class="pure-controls">
             <asp:GridView class="pure-table" ID="PersonaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
-                    <asp:BoundField DataField="IdPersona" HeaderText="Id Persona" />
+                    <asp:BoundField DataField="Identificacion" HeaderText="Id Persona" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                     <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Rol" />
+                    <asp:BoundField DataField="Rol" HeaderText="Rol" />
+                    <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                    <asp:BoundField DataField="Correo" HeaderText="Correo" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
