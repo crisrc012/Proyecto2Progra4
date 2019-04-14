@@ -111,10 +111,11 @@ create table TB_TipoServicio (
 go
 
 create table TB_Servicio (
-		IdServicio smallint identity (1,1) not null,--PK
-		IdCliente smallint not null,--FK
-		IdEstado char (1) not null,--FK
-		IdTipoServicio tinyint not null,--FK
+		IdServicio smallint identity (1,1) not null,
+		IdCliente smallint not null,
+		IdEstado char (1) not null,
+		IdTipoServicio tinyint not null,
+		FechaRegistro datetime not null,
 		constraint [PK_IdServicio] primary key clustered(
 					IdServicio asc
 		)
