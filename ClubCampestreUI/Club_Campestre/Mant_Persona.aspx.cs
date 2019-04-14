@@ -17,7 +17,11 @@ namespace Club_Campestre
     {
         #region Variables Globales
         Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
+        Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
+        Cls_Telefono_BLL Obj_Telefonos_BLL = new Cls_Telefono_BLL();
         Cls_Persona_DAL Obj_Persona_DAL;
+        Cls_Correos_DAL Obj_Correos_DAL;
+        Cls_Telefonos_DAL Obj_Telefonos_DAL;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -45,7 +49,6 @@ namespace Club_Campestre
             {
                 //llamado metodo listar estados
                 Obj_Persona_BLL.Listar(ref Obj_Persona_DAL);
-
             }
             else
             {
@@ -68,7 +71,7 @@ namespace Club_Campestre
         }
 
         //Boton nuevo 
-        protected void btnNuevo_Click(object sender, EventArgs e)//Preguntar *******************************************
+        protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
             Server.Transfer("Personas.aspx", false);//llama pantalla
@@ -78,7 +81,10 @@ namespace Club_Campestre
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             //Se instancia objeto
+
             Obj_Persona_DAL = new Cls_Persona_DAL();
+            Obj_Correos_DAL = new Cls_Correos_DAL();
+            Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
             //Secion tipo Editar
             Session["tipo"] = "E";
             //Recorre Grid buscando chk 
@@ -94,11 +100,18 @@ namespace Club_Campestre
                         Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Persona_DAL.SNombre = row.Cells[1].Text;
                         Obj_Persona_DAL.SDireccion = row.Cells[2].Text;
-                        Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text); // Hacer filtar del idRol, por la vista se carga la descripción unicamente
-
+                        Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text); // Hacer filtar del idRol, por la vista se carga la descripción unicamente //Corregir
+                        Obj_Persona_BLL.Actualizar(ref Obj_Persona_DAL);
+                        Obj_Correos_DAL.SIdPersona = row.Cells[0].Text;
+                        Obj_Correos_DAL.SIdCorreo = 1;//Valor estatico debido a falta de informacion en el view de listar Personas
+                        Obj_Correos_DAL.SCorreo = row.Cells[5].Text;
+                        Obj_Correos_BLL.Actualizar(ref Obj_Correos_DAL);
+                        Obj_Telefonos_DAL.STelefono = row.Cells[4].Text;
+                        Obj_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
+                        Obj_Telefonos_BLL.Actualizar(ref Obj_Telefonos_DAL);
                         //Sesion estado lleva el objeto
                         Session["Persona"] = Obj_Persona_DAL;
-                        Server.Transfer("Mant_Persona.aspx");//llama la pantalla 
+                        Server.Transfer("Mant_Persona.aspx");//llama la pantalla
                     }
                 }
             }
