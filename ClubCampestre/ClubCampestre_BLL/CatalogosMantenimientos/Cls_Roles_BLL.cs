@@ -35,7 +35,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         }
 
 
-        public byte Insertar(byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public byte Insertar(string sDescripcion, ref string sMsj_error)
         {
             return Convert.ToByte(Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(byte.MinValue, sDescripcion), "[dbo].[sp_insert_TB_Rol]", ref sMsj_error));
         }
