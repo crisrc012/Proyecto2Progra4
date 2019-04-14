@@ -21,16 +21,17 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="TipoClienteGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" >
+          
+            <asp:GridView ID="TipoClienteGridView" class="pure-table" runat="server" AutoGenerateColumns="false" ForeColor="blue">
                 <Columns>
-                    <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo cliente" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                    <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo Cliente"/>
+                    <asp:BoundField DataField="Descripcion" HeaderText="Tipo Cliente"/>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
+                            <asp:CheckBox ID="chkRow" runat="server" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
             </asp:GridView>
             <br />
         </div>
