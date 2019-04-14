@@ -50,7 +50,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Correos_Client = new CatalogosMantenimientosClient();
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
-                Obj_Correos_Client.insertarCorreos(Obj_Correos_DAL.SIdCorreo, Obj_Correos_DAL.SIdPersona, Obj_Correos_DAL.SCorreo, ref sMsjError);
+                //Obj_Correos_Client.insertarCorreos(Obj_Correos_DAL.SIdCorreo, Obj_Correos_DAL.SIdPersona, Obj_Correos_DAL.SCorreo, ref sMsjError);
                 Obj_Correos_Client.Close();
                 Obj_Correos_DAL.SMsjError = sMsjError;
             }
