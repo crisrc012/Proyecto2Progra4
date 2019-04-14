@@ -26,7 +26,9 @@
           </div>
 
           <div class="pure-controls">
-              <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />
+              <input type="button" class="pure-button pure-button-primary" Value="Guardar" runat="server" onserverclick="Guardar_ServerClick" />
+              
+              
           </div>
           </fieldset>
         </form>

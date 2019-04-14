@@ -12,18 +12,18 @@
             </header>
         </div>
         <div class="pure-controls">
-            <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-            <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
-            <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+            <input type="button" class="pure-button pure-button-primary" ID="btnEliminar" runat="server" value="Eliminar" onserverclick="btnEliminar_Click" />
+            <input type="button" class="pure-button pure-button-primary" ID="btnEditar" runat="server" value="Editar" onserverclick ="btnEditar_Click" />
+            <input type="button" href="Mant_Tipo_Cliente.aspx" class="pure-button pure-button-primary" ID="btnNuevo" runat="server" value="Nuevo" onserverclick="btnNuevo_Click" />
             <asp:TextBox ID="txtFiltraTipocliente" runat="server" OnTextChanged="txtTipoCliente_TextChanged" ForeColor="Blue"></asp:TextBox>
-            <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
+            <input type="button" class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Value="Buscar" onserverclick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="TipoClienteGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+            <asp:GridView class="pure-table" ID="TipoClienteGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" >
                 <Columns>
-                    <asp:BoundField DataField="TipoCliente" HeaderText="Tipo cliente" />
+                    <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo cliente" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                     <asp:TemplateField>
                         <ItemTemplate>

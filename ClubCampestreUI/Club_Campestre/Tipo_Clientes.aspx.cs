@@ -16,20 +16,29 @@ namespace Club_Campestre
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindGrid();
             ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
+                
             }
 
         }
 
         private void BindGrid()
         {
-           
+            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+            TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+            TipoClienteGridView.DataBind();
         }
 
-
+        private void Filtrar()
+        {
+            
+        }
 
         //Falta por modificar
 
@@ -53,11 +62,20 @@ namespace Club_Campestre
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
+            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            Obj_TipoCliente_DAL.SPKDescripcion = txtFiltraTipocliente.Text;
+            Obj_TipoCliente_BLL.Filtrar(ref Obj_TipoCliente_DAL);
+            TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+            TipoClienteGridView.DataBind();
         }
 
         protected void txtTipoCliente_TextChanged(object sender, EventArgs e)
         {
 
+           
         }
+
+        
     }
 }

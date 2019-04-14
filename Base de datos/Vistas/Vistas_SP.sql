@@ -2,10 +2,13 @@
 --Select
 create procedure [dbo].[sp_select_V_Persona]
 as
-select [IdPersona]
+SELECT [IdPersona] AS Identificacion
       ,[Nombre]
       ,[Direccion]
-      ,[Descripcion] from [ClubCampestre].[dbo].[V_Persona]
+      ,[Descripcion] AS Rol
+      ,[Telefono]
+      ,[Correo]
+  FROM [ClubCampestre].[dbo].[V_Persona]
 go
 
 -- Filtrar
@@ -29,4 +32,16 @@ go
 
 
 --V_Membresias
-
+--SELECT
+create procedure [dbo].[sp_select_V_Membresia]
+as
+SELECT [IdMembresia]
+      ,[Identificación]
+      ,[Nombre]
+      ,[Membresía]
+      ,[Costo]
+      ,[FechaInicio]
+      ,[FechaVencimiento]
+	  ,[Estado]
+  FROM [ClubCampestre].[dbo].[V_Membresias]
+go

@@ -12,9 +12,8 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private DataTable inicializarDT(byte IdTipoMembresia, string Descripcion, float Costo)
         {
             DataTable dt = new DataTable("TipoMembresia");
-            dt.Columns.Add("IdTipoMembresia");
-            dt.Columns.Add("Descripcion");
-            dt.Columns.Add("Costo");
+            dt.Columns.Add("Parametros");
+            dt.Columns.Add("Valor");
             dt.Rows.Add("@IdTipoMembresia", IdTipoMembresia);
             if (Descripcion != string.Empty)
             {

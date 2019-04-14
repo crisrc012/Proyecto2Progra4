@@ -12,10 +12,8 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private DataTable inicializarDT(string sIdPersona, string sNombre, string sDireccion, short sIdRol)
         {
             DataTable dt = new DataTable("Persona");
-            dt.Columns.Add("IdPersona");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Direccion");
-            dt.Columns.Add("IdRol");
+            dt.Columns.Add("Parametros");
+            dt.Columns.Add("Valor");
             dt.Rows.Add("@IdPersona", sIdPersona);
             if (sNombre != string.Empty)
             {
