@@ -50,7 +50,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Clientes_Client = new CatalogosMantenimientosClient();
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
-                Obj_Clientes_Client.insertarClientes( Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError);
+                Obj_Clientes_Client.insertarClientes(Obj_Clientes_DAL.SIdCliente,Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError);
                 Obj_Clientes_Client.Close();
                 Obj_Clientes_DAL.SMsjError = sMsjError;
             }

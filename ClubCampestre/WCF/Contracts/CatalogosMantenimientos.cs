@@ -343,5 +343,33 @@ namespace WCF.Contracts
         }
         #endregion
 
+
+        #region Rol
+        public DataTable listarRol(ref string sMsj_error)
+        {
+            Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
+            return Obj_Rol_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarRol(Byte bIdRol,string sDescripcion, ref string sMsj_error)
+        {
+            Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
+            return Obj_Rol_BLL.Filtrar(bIdRol, sDescripcion, ref sMsj_error);
+        }
+        public char insertarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        {
+            Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
+            return Obj_Rol_BLL.Insertar(bIdRol, sDescripcion, ref sMsj_error);
+        }
+        public bool actualizarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        {
+            Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
+            return Obj_Rol_BLL.Actualizar(bIdRol, sDescripcion, ref sMsj_error);
+        }
+        public bool eliminarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        {
+            Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
+            return Obj_Rol_BLL.Eliminar(bIdRol, sDescripcion, ref sMsj_error);
+        }
+        #endregion
     }
 }

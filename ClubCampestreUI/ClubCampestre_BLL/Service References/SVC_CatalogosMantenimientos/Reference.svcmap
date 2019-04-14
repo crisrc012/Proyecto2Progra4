@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="26631c72-273e-4e77-bf7c-052f5c53b68f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="10e2f3fa-3141-4d60-82c8-a031296065db" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:20191/CatalogosMantenimientos.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:20191/CatalogosMantenimientos.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CatalogosMantenimientos.wsdl" MetadataType="Wsdl" ID="d7b5e6cc-fbf0-43e9-aa7e-e73a47f6a523" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?singleWsdl" />
+    <MetadataFile FileName="CatalogosMantenimientos.xsd" MetadataType="Schema" ID="3c366a70-3d96-4ec9-95f5-5fb36fc4c465" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd1" />
+    <MetadataFile FileName="CatalogosMantenimientos1.xsd" MetadataType="Schema" ID="41775322-cdd8-4ba7-9744-afda12e5dd4d" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd2" />
+    <MetadataFile FileName="CatalogosMantenimientos2.xsd" MetadataType="Schema" ID="4f9516a9-7c7d-48f9-a1ed-5ad0d8677e2d" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd0" />
+    <MetadataFile FileName="CatalogosMantenimientos.disco" MetadataType="Disco" ID="c52064d0-882f-4c8b-9ada-0f5efd657d70" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?disco" />
+    <MetadataFile FileName="CatalogosMantenimientos.wsdl" MetadataType="Wsdl" ID="f73e8371-d45e-4747-aa84-85b4f32a57df" SourceId="1" SourceUrl="http://localhost:20191/CatalogosMantenimientos.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

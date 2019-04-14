@@ -150,5 +150,17 @@ namespace WCF.Interfaces
         [OperationContract]
         bool eliminarTelefonos(string Telefono, ref string sMsj_error);
         #endregion
+        #region Roles
+        [OperationContract]
+        DataTable listarRol(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        [OperationContract]
+        char insertarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        #endregion
     }
 }
