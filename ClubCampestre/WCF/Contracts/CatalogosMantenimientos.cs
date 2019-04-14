@@ -212,10 +212,10 @@ namespace WCF.Contracts
             Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
             return Obj_TipoServicio_BLL.Filtrar(IdTipoServicio, Descripcion,Costo, ref sMsj_error);
         }
-        public char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
+        public byte insertarTipoServicio(string Descripcion, float Costo, ref string sMsj_error)
         {
             Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-            return Obj_TipoServicio_BLL.Insertar(IdTipoServicio, Descripcion, Costo, ref sMsj_error);
+            return Obj_TipoServicio_BLL.Insertar(Descripcion, Costo, ref sMsj_error);
         }
         public bool actualizarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
         {
