@@ -8,7 +8,7 @@
         <div class="pure-control-group">
         <div >
         <header>
-            <h1 runat="server" id ="mantenimiento">Estados</h1>
+            <h1 runat="server" id ="mantenimiento">Tipo de Cliente</h1>
         </header>
     </div>
     <div>
