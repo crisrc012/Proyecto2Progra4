@@ -76,6 +76,7 @@
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Tipo_Cliente.aspx" />
     <Content Include="Mant_Tipo_Membre.aspx" />
+    <Content Include="Mant_Tipo_Servicio.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
     <Content Include="Roles.aspx" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="Mant_Tipo_Membre.aspx.designer.cs">
       <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Tipo_Servicio.aspx.cs">
+      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
