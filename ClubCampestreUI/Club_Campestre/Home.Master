@@ -8,9 +8,7 @@
     <link href="Shared/layout.css" rel="stylesheet" type="text/css" media="all">
     <link href="Shared/pure.css" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="Shared/css/main.css" />
-    <noscript>
-        <link rel="stylesheet" href="Shared/css/noscript.css" />
-    </noscript>
+    <link href="Shared/css/Login.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -19,18 +17,33 @@
         <div id="topbar" class="hoc clear">  
             <div class="fl_left">
                 <ul class="nospace">
-                    <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
-                    <li><a id="idUsuario">Usuario</a></li>
+                    <li class="active"><a onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-lg fa-users"></i></a></li>
+                    <li class="active"><a id="idUsuario">Usuario</a></li>
+                    <li class="active"><a href="IndexCliente.aspx" id="Sesion">Salir</a></li>
                 </ul>
             </div>   
         </div>
     </div>  
+    <!-- Login --->
+
+    <!-- Login --->
     <form id="form1" method="post" runat="server">
         <div id="wrapper" class="divided">
             <asp:ContentPlaceHolder ID="mainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
     <script src="Shared/js/jquery.min.js"></script>
     <script src="Shared/js/jquery.scrollex.min.js"></script>
     <script src="Shared/js/jquery.scrolly.min.js"></script>

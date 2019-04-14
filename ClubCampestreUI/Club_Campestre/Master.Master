@@ -35,7 +35,7 @@
                 <ul class="nospace">
                     <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
                     <li class="active"><a id="idUsuario">Usuario</a></li>
-                    <li class="active"><a href="Index.aspx" id="CerrarSesion">Salir</a></li>
+                    <li class="active"><a href="IndexCliente.aspx" id="CerrarSesion">Salir</a></li>
                 </ul>
             </div>   
         </div>

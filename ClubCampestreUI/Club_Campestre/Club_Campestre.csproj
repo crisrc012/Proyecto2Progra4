@@ -69,7 +69,8 @@
   <ItemGroup>
     <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="Images\Users-icon.png" />
+    <Content Include="IndexCliente.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
@@ -80,6 +81,7 @@
     <Content Include="Personas.aspx" />
     <Content Include="Roles.aspx" />
     <Content Include="Shared\css\font-awesome.min.css" />
+    <Content Include="Shared\css\Login.css" />
     <Content Include="Shared\css\main.css" />
     <Content Include="Shared\css\noscript.css" />
     <Content Include="Shared\fonts\fontawesome-webfont.eot" />
@@ -167,13 +169,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Home.Master.cs">
       <DependentUpon>Home.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +182,13 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IndexCliente.aspx.cs">
+      <DependentUpon>IndexCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexCliente.aspx.designer.cs">
+      <DependentUpon>IndexCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Estados.aspx.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
