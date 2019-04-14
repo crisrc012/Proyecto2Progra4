@@ -13,11 +13,8 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private DataTable inicializarDT(int iIdFactura, short sIdCliente, string sDescripcion, DateTime DFecha, float fMontototal)
         {
             DataTable dt = new DataTable("Facturacion");
-            dt.Columns.Add("IdFactura");
-            dt.Columns.Add("IdCliente");
-            dt.Columns.Add("Descripcion");
-            dt.Columns.Add("Fecha");
-            dt.Columns.Add("Montototal");
+            dt.Columns.Add("Parametros");
+            dt.Columns.Add("Valor");
             dt.Rows.Add("@IdFactura", iIdFactura);
             if (sIdCliente != short.MinValue)
             {
