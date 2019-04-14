@@ -1,1153 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CatalogosMantenimientos" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xs:element name="listarBeneficiarios">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarBeneficiariosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarBeneficiariosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarBeneficiarios">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q1:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarBeneficiariosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarBeneficiariosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarBeneficiarios">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q2:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarBeneficiariosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="insertarBeneficiariosResult" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarBeneficiarios">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q3:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarBeneficiariosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarBeneficiariosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarBeneficiarios">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="SIdBeneficiario" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarBeneficiariosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarBeneficiariosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarClientes">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarClientesResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarClientesResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarClientes">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarClientesResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarClientesResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarClientes">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarClientesResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="insertarClientesResult" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarClientes">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="bIdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarClientesResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarClientesResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarClientes">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarClientesResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarClientesResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarCorreos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarCorreosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarCorreosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarCorreos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarCorreosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarCorreosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarCorreos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarCorreosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="insertarCorreosResult" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarCorreos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarCorreosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarCorreosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarCorreos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarCorreosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarCorreosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarEstado">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarEstadoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarEstadoResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarEstado">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q4:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarEstadoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarEstadoResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarEstado">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q5:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarEstadoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q6:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarEstado">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
-            <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarEstadoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarEstadoResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarEstado">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarEstadoResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarEstadoResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarPersona">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarPersonaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarPersonaResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarPersona">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarPersonaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarPersonaResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarPersona">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarPersonaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="insertarPersonaResult" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarPersona">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sIdRol" type="xs:short" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarPersonaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarPersonaResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarPersona">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarPersonaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarPersonaResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoServicio">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoServicioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarTipoServicioResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoServicio">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoServicioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarTipoServicioResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoServicio">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoServicioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoServicioResult" type="q9:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoServicio">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoServicioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarTipoServicioResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoServicio">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoServicioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarTipoServicioResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoMembresia">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoMembresiaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarTipoMembresiaResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoMembresia">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoMembresiaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarTipoMembresiaResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoMembresia">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoMembresiaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q10:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoMembresia">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Costo" type="xs:float" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoMembresiaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarTipoMembresiaResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoMembresia">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoMembresia" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoMembresiaResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarTipoMembresiaResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoCliente">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTipoClienteResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarTipoClienteResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoCliente">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTipoClienteResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarTipoClienteResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoCliente">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTipoClienteResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q11:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoCliente">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTipoClienteResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarTipoClienteResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoCliente">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdTipoCliente" type="xs:unsignedByte" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTipoClienteResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarTipoClienteResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarUsuario">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarUsuarioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarUsuarioResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarUsuario">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarUsuarioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarUsuarioResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarUsuario">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarUsuarioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q12:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarUsuario">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarUsuarioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarUsuarioResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarUsuario">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarUsuarioResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarUsuarioResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTelefonos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="listarTelefonosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="listarTelefonosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTelefonos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="filtrarTelefonosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="filtrarTelefonosResult" nillable="true">
-              <xs:complexType>
-                <xs:annotation>
-                  <xs:appinfo>
-                    <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-                  </xs:appinfo>
-                </xs:annotation>
-                <xs:sequence>
-                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-                  <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTelefonos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="insertarTelefonosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q13:char" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTelefonos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="actualizarTelefonosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="actualizarTelefonosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTelefonos">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="eliminarTelefonosResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="eliminarTelefonosResult" type="xs:boolean" />
-            <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:schema>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="anyType" nillable="true" type="xs:anyType" />
-      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
-      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
-      <xs:element name="boolean" nillable="true" type="xs:boolean" />
-      <xs:element name="byte" nillable="true" type="xs:byte" />
-      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
-      <xs:element name="decimal" nillable="true" type="xs:decimal" />
-      <xs:element name="double" nillable="true" type="xs:double" />
-      <xs:element name="float" nillable="true" type="xs:float" />
-      <xs:element name="int" nillable="true" type="xs:int" />
-      <xs:element name="long" nillable="true" type="xs:long" />
-      <xs:element name="QName" nillable="true" type="xs:QName" />
-      <xs:element name="short" nillable="true" type="xs:short" />
-      <xs:element name="string" nillable="true" type="xs:string" />
-      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
-      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
-      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
-      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
-      <xs:element name="char" nillable="true" type="tns:char" />
-      <xs:simpleType name="char">
-        <xs:restriction base="xs:int" />
-      </xs:simpleType>
-      <xs:element name="duration" nillable="true" type="tns:duration" />
-      <xs:simpleType name="duration">
-        <xs:restriction base="xs:duration">
-          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
-          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
-          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:element name="guid" nillable="true" type="tns:guid" />
-      <xs:simpleType name="guid">
-        <xs:restriction base="xs:string">
-          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
-        </xs:restriction>
-      </xs:simpleType>
-      <xs:attribute name="FactoryType" type="xs:QName" />
-      <xs:attribute name="Id" type="xs:ID" />
-      <xs:attribute name="Ref" type="xs:IDREF" />
-    </xs:schema>
-    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="DataTable" nillable="true">
-        <xs:complexType>
-          <xs:annotation>
-            <xs:appinfo>
-              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-            </xs:appinfo>
-          </xs:annotation>
-          <xs:sequence>
-            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
-            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:schema>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarRolResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_listarBeneficiarios_InputMessage">
     <wsdl:part name="parameters" element="tns:listarBeneficiarios" />
   </wsdl:message>
@@ -1267,6 +132,60 @@
   </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_eliminarEstado_OutputMessage">
     <wsdl:part name="parameters" element="tns:eliminarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarFacturacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarFacturacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarFacturacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarFacturacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarFacturacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarFacturacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarFacturacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarFacturacion" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarFacturacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarFacturacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarFacturaDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarFacturaDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarFacturaDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarFacturaDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarFacturaDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarFacturaDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarFacturaDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarFacturaDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarFacturaDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarFacturaDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarFacturaDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarFacturaDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarFacturaDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFacturaDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarFacturaDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFacturaDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarFacturaDetalle_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarFacturaDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarFacturaDetalle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarFacturaDetalleResponse" />
   </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_listarPersona_InputMessage">
     <wsdl:part name="parameters" element="tns:listarPersona" />
@@ -1448,7 +367,35 @@
   <wsdl:message name="ICatalogosMantenimientos_eliminarTelefonos_OutputMessage">
     <wsdl:part name="parameters" element="tns:eliminarTelefonosResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarRolResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRolResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICatalogosMantenimientos">
+    <wsdl:operation name="eliminarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarRol" message="tns:ICatalogosMantenimientos_eliminarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarRolResponse" message="tns:ICatalogosMantenimientos_eliminarRol_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="listarBeneficiarios">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" message="tns:ICatalogosMantenimientos_listarBeneficiarios_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_listarBeneficiarios_OutputMessage" />
@@ -1528,6 +475,42 @@
     <wsdl:operation name="eliminarEstado">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado" message="tns:ICatalogosMantenimientos_eliminarEstado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarEstadoResponse" message="tns:ICatalogosMantenimientos_eliminarEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarFacturacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion" message="tns:ICatalogosMantenimientos_filtrarFacturacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacionResponse" message="tns:ICatalogosMantenimientos_filtrarFacturacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarFacturacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacion" message="tns:ICatalogosMantenimientos_insertarFacturacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacionResponse" message="tns:ICatalogosMantenimientos_insertarFacturacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFacturacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacion" message="tns:ICatalogosMantenimientos_actualizarFacturacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacionResponse" message="tns:ICatalogosMantenimientos_actualizarFacturacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarFacturacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacion" message="tns:ICatalogosMantenimientos_eliminarFacturacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacionResponse" message="tns:ICatalogosMantenimientos_eliminarFacturacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarFacturaDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle" message="tns:ICatalogosMantenimientos_listarFacturaDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalleResponse" message="tns:ICatalogosMantenimientos_listarFacturaDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarFacturaDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle" message="tns:ICatalogosMantenimientos_filtrarFacturaDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalleResponse" message="tns:ICatalogosMantenimientos_filtrarFacturaDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarFacturaDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalle" message="tns:ICatalogosMantenimientos_insertarFacturaDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalleResponse" message="tns:ICatalogosMantenimientos_insertarFacturaDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFacturaDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalle" message="tns:ICatalogosMantenimientos_actualizarFacturaDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalleResponse" message="tns:ICatalogosMantenimientos_actualizarFacturaDetalle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarFacturaDetalle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalle" message="tns:ICatalogosMantenimientos_eliminarFacturaDetalle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalleResponse" message="tns:ICatalogosMantenimientos_eliminarFacturaDetalle_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="listarPersona">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarPersona" message="tns:ICatalogosMantenimientos_listarPersona_InputMessage" />
@@ -1649,9 +632,34 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonos" message="tns:ICatalogosMantenimientos_eliminarTelefonos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonosResponse" message="tns:ICatalogosMantenimientos_eliminarTelefonos_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="listarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarRol" message="tns:ICatalogosMantenimientos_listarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarRolResponse" message="tns:ICatalogosMantenimientos_listarRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" message="tns:ICatalogosMantenimientos_filtrarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRolResponse" message="tns:ICatalogosMantenimientos_filtrarRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarRol" message="tns:ICatalogosMantenimientos_insertarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarRolResponse" message="tns:ICatalogosMantenimientos_insertarRol_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarRol" message="tns:ICatalogosMantenimientos_actualizarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarRolResponse" message="tns:ICatalogosMantenimientos_actualizarRol_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICatalogosMantenimientos" type="tns:ICatalogosMantenimientos">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="eliminarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="listarBeneficiarios">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" style="document" />
       <wsdl:input>
@@ -1825,6 +833,87 @@
     </wsdl:operation>
     <wsdl:operation name="eliminarEstado">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarFacturacion">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarFacturacion">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFacturacion">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarFacturacion">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarFacturaDetalle">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarFacturaDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarFacturaDetalle">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarFacturaDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarFacturaDetalle">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarFacturaDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFacturaDetalle">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarFacturaDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarFacturaDetalle">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarFacturaDetalle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2095,6 +1184,42 @@
     </wsdl:operation>
     <wsdl:operation name="eliminarTelefonos">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarTelefonos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarRol" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

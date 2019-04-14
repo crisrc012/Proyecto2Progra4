@@ -14,13 +14,13 @@ namespace Club_Campestre
 {
     public partial class TipoMembresia : System.Web.UI.Page
     {
-        //Wil
-        #region Variables Globales
-        Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-        Cls_Estado_DAL Obj_Estado_DAL;
-        bool vFiltra = true;
-        #endregion
-        //Will
+        ////Wil
+        //#region Variables Globales
+        //Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+        //Cls_Estado_DAL Obj_Estado_DAL;
+        //bool vFiltra = true;
+        //#endregion
+        ////Will
 
 
         protected void Page_Load(object sender, EventArgs e)
