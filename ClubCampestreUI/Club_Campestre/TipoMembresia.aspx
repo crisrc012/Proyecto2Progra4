@@ -14,7 +14,7 @@
         <div class="pure-controls">
             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
             <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
-            <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+            <asp:Button class="pure-button pure-button-primary" href="Mant_Tipo_Membre.aspx"  ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
             <asp:TextBox ID="txtFiltraTipoMembre" runat="server" OnTextChanged="txtFiltraTipoMembre_TextChanged" ForeColor="Blue"></asp:TextBox>
             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
@@ -23,9 +23,9 @@
         <div class="pure-controls">
             <asp:GridView class="pure-table" ID="TipoMembresiaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
-                    <asp:BoundField DataField="Tipo_de_Membresia" HeaderText="Tipo de Mebresia" />
+                    <asp:BoundField DataField="IdTipoMembresia" HeaderText="Tipo de Mebresia" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                    <asp:BoundField DataField="Costo" HeaderText="Costo" />
+                    <asp:BoundField DataField="costo" HeaderText="Costo" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
