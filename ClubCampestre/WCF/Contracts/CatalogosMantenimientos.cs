@@ -315,7 +315,6 @@ namespace WCF.Contracts
         }
         #endregion
         #region Telefonos
-
         public DataTable listarTelefonos(ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
@@ -342,8 +341,33 @@ namespace WCF.Contracts
             return Obj_Telefonos_BLL.Eliminar(Telefono, ref sMsj_error);
         }
         #endregion
-
-
+        #region Membresias
+        public DataTable listarMemebresias(ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Filtrar(, ref sMsj_error);
+        }
+        public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Insertar(sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+        }
+        public bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Actualizar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+        }
+        public bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Eliminar(iIdMembresia, ref sMsj_error);
+        }
+        #endregion
         #region Rol
         public DataTable listarRol(ref string sMsj_error)
         {

@@ -162,5 +162,17 @@ namespace WCF.Interfaces
         [OperationContract]
         bool eliminarRol(byte bIdRol, ref string sMsj_error);
         #endregion
+        #region Membresias
+        [OperationContract]
+        DataTable listarMemebresias(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error);
+        #endregion
     }
 }
