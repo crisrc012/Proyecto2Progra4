@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /Base de datos/SP_Unificado.sql
+/Base de datos/DB_Vistas_SP_Inserts.sql
