@@ -84,7 +84,7 @@ namespace Club_Campestre
 
                         //Sesion estado lleva el objeto
                         Session["TipoServicio"] = Obj_TipoServicio_DAL;
-                        Server.Transfer("Mant_TipoServicio.aspx");//llama la pantalla 
+                        Server.Transfer("Mant_Tipo_Servicio.aspx");//llama la pantalla 
                     }
 
                 }
@@ -95,7 +95,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_TipoServicio.aspx", false);//llama pantalla
+            Server.Transfer("Mant_Tipo_Servicio.aspx", false);//llama pantalla
 
         }
 

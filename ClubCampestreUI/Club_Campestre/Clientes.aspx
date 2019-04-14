@@ -4,57 +4,39 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="mainContent" runat="server">
-    <div class ="main" style="width: 86%">
+    <div class="main">
         <div class="pure-control-group">
-        <div >
-        <header>
-            <h1 >Clientes</h1>
-        </header>
+            <div>
+                <header>
+                    <h1>Clientes</h1>
+                </header>
+            </div>
+            <div>
+                <div class="pure-controls">
+                    <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click"/>
+                    <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
+                    <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click"/>
+                    <asp:TextBox ID="txtFiltraClientes" runat="server" ForeColor="Blue"></asp:TextBox>
+                    <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click"/>          
+                    <label id="errorMensaje" runat="server"></label>
+                </div>
+                <br />
+            </div>
+            <div class="pure-controls">
+                <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+                    <Columns>
+                        <asp:BoundField DataField="IdCliente" HeaderText="Id_Cliente" />
+                        <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo_Cliente" />
+                        <asp:BoundField DataField="IdPersona" HeaderText="Id_Persona" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <br />
+            </div>
+            </div>
     </div>
-    <div>
-         <form class = "pure-form pure-form-aligned" method="post">
-          <fieldset>
-
-           <div class="pure-controls" style="height: 80px">
-                    
-          
-        <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />
-            
-             <!--<asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" onserverclick="btnBuscar_Click" OnClick="btnBuscar_Click1" />!-->
-             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
-             
-             <!--<asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" onserverclick="btnEliminar_Click" OnClick="btnEliminar_Click1" />!-->
-             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
-            
-             <!--<asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" onserverclick="btnModificar_Click" OnClick="btnModificar_Click1" />!-->
-             <asp:Button class="pure-button pure-button-primary" ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-            
-             <asp:TextBox ID="txtFiltraClientes" runat="server" OnTextChanged="txtFiltraClientes_TextChanged" ForeColor="Blue"></asp:TextBox>  
-              
-            <label id="errorMensaje" runat="server"></label>
-             </div>
-      <br />
-        </div>
-         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
-                <Columns>
-                    <asp:BoundField DataField="IdCliente" HeaderText="Id_Cliente" />
-                    <asp:BoundField DataField="TipoCliente" HeaderText="Tipo_Cliente" />
-                    <asp:BoundField DataField="IdPersona" HeaderText="Id_Persona" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
-            <br />
-        </div>
-          </fieldset>
-        </form>
-      
-      </div>
-    </div>
-           </div>
 </asp:Content>

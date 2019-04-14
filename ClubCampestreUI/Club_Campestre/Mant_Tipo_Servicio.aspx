@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Estados.aspx.cs" Inherits="Club_Campestre.Mantenimiento.Mant_Estados" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Tipo_Servicio.aspx.cs" Inherits="Club_Campestre.Mant_Tipo_Servicio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,32 +8,28 @@
         <div class="pure-control-group">
             <div>
                 <header>
-                    <h1 runat="server" id="mantenimiento">Estados</h1>
+                    <h1 runat="server" id="mantenimiento">Tipo de Servicio</h1>
                 </header>
             </div>
             <div>
-                <form class="pure-form pure-form-aligned" method="post">
+                <div class="pure-form pure-form-aligned">
                     <fieldset>
-
                         <div class="pure-control-group">
-                            <label for="txtestado">Estado: </label>
-                            <input runat="server" type="text" id="txtestado" value="" style="color: #0090ff" />
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Descripcion: </label>
+                            <label for="txtdescripcion">Nombre del Servicio: </label>
                             <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" />
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="txtcosto">Costo: </label>
+                            <input runat="server" type="text" id="txtcosto" style="color: #0090ff" />
                         </div>
 
                         <div class="pure-controls">
                             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         </div>
                     </fieldset>
-                </form>
-                <a href="Estados.aspx">Regresar</a>
+                </div>
+                <a href="TipoServicio.aspx">Regresar</a>
             </div>
         </div>
-    </div>
-
-    
+    </div>  
 </asp:Content>
