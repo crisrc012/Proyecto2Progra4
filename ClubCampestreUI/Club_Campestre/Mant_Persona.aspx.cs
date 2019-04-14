@@ -94,13 +94,12 @@ namespace Club_Campestre
                         Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Persona_DAL.SNombre = row.Cells[1].Text;
                         Obj_Persona_DAL.SDireccion = row.Cells[2].Text;
-                        Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text);
+                        Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text); // Hacer filtar del idRol, por la vista se carga la descripción unicamente
 
                         //Sesion estado lleva el objeto
                         Session["Persona"] = Obj_Persona_DAL;
                         Server.Transfer("Mant_Persona.aspx");//llama la pantalla 
                     }
-
                 }
             }
         }

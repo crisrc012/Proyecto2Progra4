@@ -12,13 +12,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         private DataTable inicializarDT(short iIdServicio, short iIdCliente, char cIdEstado, Byte bIdTipoServicio)
         {
             DataTable dt = new DataTable("Servicios");
-            dt.Columns.Add("IdServicio");
-            dt.Columns.Add("IdCliente");
-            dt.Columns.Add("IdEstado");
-            dt.Columns.Add("IdTipoServicio");
-
+            dt.Columns.Add("Parametros");
+            dt.Columns.Add("Valor");
             dt.Rows.Add("@IdServicio", iIdServicio);
-
             if (iIdCliente != short.MinValue)
             {
                 dt.Rows.Add("@IdCliente", iIdCliente);

@@ -7,6 +7,12 @@ SELECT [IdPersona]
       ,[Nombre]
       ,[Direccion]
       ,[ClubCampestre].[dbo].[TB_Rol].[Descripcion]
+	  ,(SELECT MIN([ClubCampestre].[dbo].[TB_Telefonos].[Telefono]) 
+	  FROM [ClubCampestre].[dbo].[TB_Telefonos] 
+	  WHERE [ClubCampestre].[dbo].[TB_Telefonos].[IdPersona] = [ClubCampestre].[dbo].[TB_Telefonos].[IdPersona] ) AS Telefono
+	  ,(SELECT MIN([ClubCampestre].[dbo].[TB_Correos].[Correo])
+	  FROM [ClubCampestre].[dbo].[TB_Correos]
+	  WHERE [ClubCampestre].[dbo].[TB_Correos].[IdPersona] = [ClubCampestre].[dbo].[TB_Persona].[IdPersona] ) AS Correo
   FROM [ClubCampestre].[dbo].[TB_Persona]
   JOIN [ClubCampestre].[dbo].[TB_Rol]
   ON [ClubCampestre].[dbo].[TB_Persona].[IdRol] = [ClubCampestre].[dbo].[TB_Rol].[IdRol]
@@ -47,3 +53,24 @@ SELECT [IdMembresia]
   JOIN [dbo].[TB_Estado]
   ON [dbo].[TB_Estado].[IdEstado] = [dbo].[TB_Membresias].[IdEstado]
 GO
+
+-- TB_Servicio
+CREATE VIEW V_Servicio
+AS
+SELECT [IdServicio]
+      ,TBC.IdPersona AS Identificacion
+	  ,TBP.Nombre
+      ,TBTS.Descripcion AS "Tipo de Servicio"
+	  ,TBTS.costo AS Costo
+      ,[FechaRegistro]
+	  ,TBE.Estado
+  FROM [ClubCampestre].[dbo].[TB_Servicio] TBS
+  JOIN [ClubCampestre].[dbo].[TB_Clientes] TBC
+  ON TBS.IdCliente = TBC.IdCliente
+  JOIN [ClubCampestre].[dbo].[TB_Persona] TBP
+  ON TBP.IdPersona = TBC.IdPersona
+  JOIN [ClubCampestre].[dbo].[TB_TipoServicio] TBTS
+  ON TBTS.IdTipoServicio = TBS.IdTipoServicio
+  JOIN [ClubCampestre].[dbo].[TB_Estado] TBE
+  ON TBE.IdEstado = TBS.IdEstado
+  GO

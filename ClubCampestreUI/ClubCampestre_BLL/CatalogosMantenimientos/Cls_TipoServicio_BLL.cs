@@ -57,7 +57,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
                 //Obj_TipoServicio_Client.insertarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);
-                Obj_TipoServicio_Client.insertarTipoCliente(Obj_TipoServicio_DAL.BIdTipoServicio, Obj_TipoServicio_DAL.SPKDescripcion, ref sMsjError);
+                Obj_TipoServicio_Client.insertarTipoServicio(Obj_TipoServicio_DAL.BIdTipoServicio, Obj_TipoServicio_DAL.SPKDescripcion, Obj_TipoServicio_DAL.Fcosto, ref sMsjError);
                 Obj_TipoServicio_Client.Close();
                 Obj_TipoServicio_DAL.sMsjError = sMsjError;
             }
