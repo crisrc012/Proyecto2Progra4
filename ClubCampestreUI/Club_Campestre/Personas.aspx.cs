@@ -68,6 +68,7 @@ namespace Club_Campestre
             DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];
             DropDownRol.DataTextField = "Descripcion";
             DropDownRol.DataValueField = "IdRol";
+            DropDownRol.DataBind();
 
         }
     }
