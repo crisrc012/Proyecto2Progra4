@@ -143,7 +143,7 @@ namespace ClubCampestre_BLL.BD
                         foreach (DataRow Row in dtParams.Rows)
                         {
                             Obj_BD_DAL.Obj_sql_cmd.Parameters.Add(Row[0].ToString()
-                                , volverDatoSQL(Row[0].GetType())).Value = Row[1];
+                                , volverDatoSQL(Row[1].GetType())).Value = Row[1];
                         }
                     }
                 }
@@ -197,7 +197,7 @@ namespace ClubCampestre_BLL.BD
                         foreach (DataRow Row in dtParams.Rows)
                         {
                             Obj_BD_DAL.Obj_sql_cmd.Parameters.Add(Row[0].ToString()
-                                , volverDatoSQL(Row[0].GetType())).Value = Row[1];
+                                , volverDatoSQL(Row[1].GetType())).Value = Row[1];
                         }
                     }
                 }
