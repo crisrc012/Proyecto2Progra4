@@ -3262,19 +3262,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarRolRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte bIdRol;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sDescripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
         
         public insertarRolRequest() {
         }
         
-        public insertarRolRequest(byte bIdRol, string sDescripcion, string sMsj_error) {
-            this.bIdRol = bIdRol;
+        public insertarRolRequest(string sDescripcion, string sMsj_error) {
             this.sDescripcion = sDescripcion;
             this.sMsj_error = sMsj_error;
         }
@@ -4570,9 +4566,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarRol(request);
         }
         
-        public byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error) {
+        public byte insertarRol(string sDescripcion, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest();
-            inValue.bIdRol = bIdRol;
             inValue.sDescripcion = sDescripcion;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarRol(inValue);

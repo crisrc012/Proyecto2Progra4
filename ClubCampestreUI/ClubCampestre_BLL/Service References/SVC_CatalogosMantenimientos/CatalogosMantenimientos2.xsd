@@ -1374,7 +1374,6 @@
   <xs:element name="insertarRol">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="bIdRol" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sDescripcion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
