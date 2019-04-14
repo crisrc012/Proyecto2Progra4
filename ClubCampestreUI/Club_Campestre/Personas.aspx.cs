@@ -24,10 +24,7 @@ namespace Club_Campestre
 
         }
 
-        protected void CorreoGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+  
 
         protected void btnGuardar2_Click1(object sender, EventArgs e)
         {
@@ -39,12 +36,21 @@ namespace Club_Campestre
 
         }
 
-        protected void TelefonoGridView_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        protected void CorreoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
