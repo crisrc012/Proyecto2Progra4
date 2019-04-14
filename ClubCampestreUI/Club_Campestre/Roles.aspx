@@ -23,7 +23,7 @@
         <div class="pure-controls">
             <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
-                    <asp:BoundField DataField="IdRoles" HeaderText="Rol" />
+                    <asp:BoundField DataField="IdRol" HeaderText="Rol" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                     <asp:TemplateField>
                         <ItemTemplate>
