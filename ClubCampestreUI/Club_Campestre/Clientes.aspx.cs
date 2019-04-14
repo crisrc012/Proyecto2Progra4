@@ -66,7 +66,7 @@ namespace Club_Campestre
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             //Se instancia objeto
-                Obj_Clientes_DAL = new Cls_Clientes_DAL();
+            Obj_Clientes_DAL = new Cls_Clientes_DAL();
             //Secion tipo Editar
             Session["tipo"] = "E";
             //Recorre Grid buscando chk 
