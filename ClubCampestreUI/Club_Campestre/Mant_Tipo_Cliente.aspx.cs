@@ -20,7 +20,9 @@ namespace Club_Campestre
             Server.Transfer("Tipo_Clientes.aspx");
         }
 
-        protected void btnGuardar_Click(object sender, EventArgs e)
+       
+
+        protected void Guardar_ServerClick(object sender, EventArgs e)
         {
 
         }

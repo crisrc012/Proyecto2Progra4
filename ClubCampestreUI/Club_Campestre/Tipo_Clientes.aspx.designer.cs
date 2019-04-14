@@ -19,7 +19,7 @@ namespace Club_Campestre {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnEliminar;
         
         /// <summary>
         /// Control btnEditar.
@@ -28,7 +28,7 @@ namespace Club_Campestre {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnEditar;
         
         /// <summary>
         /// Control btnNuevo.
@@ -37,7 +37,7 @@ namespace Club_Campestre {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNuevo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnNuevo;
         
         /// <summary>
         /// Control txtFiltraTipocliente.
@@ -55,7 +55,7 @@ namespace Club_Campestre {
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnBuscar;
         
         /// <summary>
         /// Control errorMensaje.

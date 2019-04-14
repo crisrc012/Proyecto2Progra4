@@ -46,6 +46,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_Estado_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Persona_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Rol_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\SVC_CatalogosMantenimientos\Reference.cs">
