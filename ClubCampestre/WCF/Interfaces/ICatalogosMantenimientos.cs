@@ -37,7 +37,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
-        short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
+        short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
         bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
@@ -96,7 +96,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
+        byte insertarTipoServicio(string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
@@ -156,11 +156,23 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
-        byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
+        byte insertarRol(string sDescripcion, ref string sMsj_error);
         [OperationContract]
         bool actualizarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
         bool eliminarRol(byte bIdRol, ref string sMsj_error);
+        #endregion
+        #region Membresias
+        [OperationContract]
+        DataTable listarMemebresias(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error);
         #endregion
     }
 }

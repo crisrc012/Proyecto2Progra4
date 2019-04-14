@@ -71,10 +71,10 @@ namespace WCF.Contracts
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
             return Obj_Correos_BLL.Filtrar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
+        public short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            return Obj_Correos_BLL.Insertar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
+            return Obj_Correos_BLL.Insertar(sIdPersona, sCorreo, ref sMsjError);
         }
         public bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
@@ -212,10 +212,10 @@ namespace WCF.Contracts
             Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
             return Obj_TipoServicio_BLL.Filtrar(IdTipoServicio, Descripcion,Costo, ref sMsj_error);
         }
-        public char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
+        public byte insertarTipoServicio(string Descripcion, float Costo, ref string sMsj_error)
         {
             Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-            return Obj_TipoServicio_BLL.Insertar(IdTipoServicio, Descripcion, Costo, ref sMsj_error);
+            return Obj_TipoServicio_BLL.Insertar(Descripcion, Costo, ref sMsj_error);
         }
         public bool actualizarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
         {
@@ -315,7 +315,6 @@ namespace WCF.Contracts
         }
         #endregion
         #region Telefonos
-
         public DataTable listarTelefonos(ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
@@ -342,8 +341,33 @@ namespace WCF.Contracts
             return Obj_Telefonos_BLL.Eliminar(Telefono, ref sMsj_error);
         }
         #endregion
-
-
+        #region Membresias
+        public DataTable listarMemebresias(ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Listar(ref sMsj_error);
+        }
+        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+        }
+        public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Insertar(sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+        }
+        public bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Actualizar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+        }
+        public bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error)
+        {
+            Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
+            return Obj_Memebresias_BLL.Eliminar(iIdMembresia, ref sMsj_error);
+        }
+        #endregion
         #region Rol
         public DataTable listarRol(ref string sMsj_error)
         {
@@ -355,10 +379,10 @@ namespace WCF.Contracts
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Filtrar(bIdRol, sDescripcion, ref sMsj_error);
         }
-        public byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public byte insertarRol(string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
-            return Obj_Rol_BLL.Insertar(bIdRol, sDescripcion, ref sMsj_error);
+            return Obj_Rol_BLL.Insertar(sDescripcion, ref sMsj_error);
         }
         public bool actualizarRol(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {

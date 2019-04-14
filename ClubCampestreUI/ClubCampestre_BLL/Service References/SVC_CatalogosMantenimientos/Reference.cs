@@ -22,6 +22,41 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarRol", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarRolResponse")]
         System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarRolResponse> eliminarRolAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarRolRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarMemebresiasResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasResponse listarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarMemebresiasResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasResponse> listarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresiasResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse filtrarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresiasResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse> filtrarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresiasResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasResponse insertarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresiasResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasResponse> insertarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresiasResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasResponse actualizarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresiasResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasResponse> actualizarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresiasResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasResponse eliminarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresias", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresiasResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasResponse> eliminarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
         ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse listarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request);
         
@@ -500,6 +535,258 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public eliminarRolResponse(bool eliminarRolResult, string sMsj_error) {
             this.eliminarRolResult = eliminarRolResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarMemebresias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class listarMemebresiasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string sMsj_error;
+        
+        public listarMemebresiasRequest() {
+        }
+        
+        public listarMemebresiasRequest(string sMsj_error) {
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarMemebresiasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class listarMemebresiasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable listarMemebresiasResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public listarMemebresiasResponse() {
+        }
+        
+        public listarMemebresiasResponse(System.Data.DataTable listarMemebresiasResult, string sMsj_error) {
+            this.listarMemebresiasResult = listarMemebresiasResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarMemebresias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class filtrarMemebresiasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int iIdMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public byte bIdTipoMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public System.DateTime dFechaInicio;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public System.DateTime dFechaVence;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string sMsj_error;
+        
+        public filtrarMemebresiasRequest() {
+        }
+        
+        public filtrarMemebresiasRequest(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, string sMsj_error) {
+            this.iIdMembresia = iIdMembresia;
+            this.sIdCliente = sIdCliente;
+            this.bIdTipoMembresia = bIdTipoMembresia;
+            this.cIdEstado = cIdEstado;
+            this.dFechaInicio = dFechaInicio;
+            this.dFechaVence = dFechaVence;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="filtrarMemebresiasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class filtrarMemebresiasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable filtrarMemebresiasResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public filtrarMemebresiasResponse() {
+        }
+        
+        public filtrarMemebresiasResponse(System.Data.DataTable filtrarMemebresiasResult, string sMsj_error) {
+            this.filtrarMemebresiasResult = filtrarMemebresiasResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMemebresias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertarMemebresiasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public byte bIdTipoMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public System.DateTime dFechaInicio;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public System.DateTime dFechaVence;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string sMsj_error;
+        
+        public insertarMemebresiasRequest() {
+        }
+        
+        public insertarMemebresiasRequest(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, string sMsj_error) {
+            this.sIdCliente = sIdCliente;
+            this.bIdTipoMembresia = bIdTipoMembresia;
+            this.cIdEstado = cIdEstado;
+            this.dFechaInicio = dFechaInicio;
+            this.dFechaVence = dFechaVence;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="insertarMemebresiasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class insertarMemebresiasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int insertarMemebresiasResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public insertarMemebresiasResponse() {
+        }
+        
+        public insertarMemebresiasResponse(int insertarMemebresiasResult, string sMsj_error) {
+            this.insertarMemebresiasResult = insertarMemebresiasResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarMemebresias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class actualizarMemebresiasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int iIdMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public short sIdCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public byte bIdTipoMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public char cIdEstado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public System.DateTime dFechaInicio;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public System.DateTime dFechaVence;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
+        public string sMsj_error;
+        
+        public actualizarMemebresiasRequest() {
+        }
+        
+        public actualizarMemebresiasRequest(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, string sMsj_error) {
+            this.iIdMembresia = iIdMembresia;
+            this.sIdCliente = sIdCliente;
+            this.bIdTipoMembresia = bIdTipoMembresia;
+            this.cIdEstado = cIdEstado;
+            this.dFechaInicio = dFechaInicio;
+            this.dFechaVence = dFechaVence;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="actualizarMemebresiasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class actualizarMemebresiasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool actualizarMemebresiasResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public actualizarMemebresiasResponse() {
+        }
+        
+        public actualizarMemebresiasResponse(bool actualizarMemebresiasResult, string sMsj_error) {
+            this.actualizarMemebresiasResult = actualizarMemebresiasResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMemebresias", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class eliminarMemebresiasRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int iIdMembresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public eliminarMemebresiasRequest() {
+        }
+        
+        public eliminarMemebresiasRequest(int iIdMembresia, string sMsj_error) {
+            this.iIdMembresia = iIdMembresia;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="eliminarMemebresiasResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class eliminarMemebresiasResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool eliminarMemebresiasResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public eliminarMemebresiasResponse() {
+        }
+        
+        public eliminarMemebresiasResponse(bool eliminarMemebresiasResult, string sMsj_error) {
+            this.eliminarMemebresiasResult = eliminarMemebresiasResult;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -1046,22 +1333,18 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarCorreosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdCorreo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sIdPersona;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sCorreo;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsjError;
         
         public insertarCorreosRequest() {
         }
         
-        public insertarCorreosRequest(short sIdCorreo, string sIdPersona, string sCorreo, string sMsjError) {
-            this.sIdCorreo = sIdCorreo;
+        public insertarCorreosRequest(string sIdPersona, string sCorreo, string sMsjError) {
             this.sIdPersona = sIdPersona;
             this.sCorreo = sCorreo;
             this.sMsjError = sMsjError;
@@ -2194,22 +2477,18 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoServicioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte IdTipoServicio;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string Descripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public float Costo;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsj_error;
         
         public insertarTipoServicioRequest() {
         }
         
-        public insertarTipoServicioRequest(byte IdTipoServicio, string Descripcion, float Costo, string sMsj_error) {
-            this.IdTipoServicio = IdTipoServicio;
+        public insertarTipoServicioRequest(string Descripcion, float Costo, string sMsj_error) {
             this.Descripcion = Descripcion;
             this.Costo = Costo;
             this.sMsj_error = sMsj_error;
@@ -2222,7 +2501,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoServicioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarTipoServicioResult;
+        public byte insertarTipoServicioResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -2230,7 +2509,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarTipoServicioResponse() {
         }
         
-        public insertarTipoServicioResponse(char insertarTipoServicioResult, string sMsj_error) {
+        public insertarTipoServicioResponse(byte insertarTipoServicioResult, string sMsj_error) {
             this.insertarTipoServicioResult = insertarTipoServicioResult;
             this.sMsj_error = sMsj_error;
         }
@@ -3266,19 +3545,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarRolRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte bIdRol;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sDescripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
         
         public insertarRolRequest() {
         }
         
-        public insertarRolRequest(byte bIdRol, string sDescripcion, string sMsj_error) {
-            this.bIdRol = bIdRol;
+        public insertarRolRequest(string sDescripcion, string sMsj_error) {
             this.sDescripcion = sDescripcion;
             this.sMsj_error = sMsj_error;
         }
@@ -3391,6 +3666,109 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarRolResponse> eliminarRolAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarRolRequest request) {
             return base.Channel.eliminarRolAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.listarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest request) {
+            return base.Channel.listarMemebresias(request);
+        }
+        
+        public System.Data.DataTable listarMemebresias(ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest();
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).listarMemebresias(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.listarMemebresiasResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasResponse> listarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarMemebresiasRequest request) {
+            return base.Channel.listarMemebresiasAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.filtrarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest request) {
+            return base.Channel.filtrarMemebresias(request);
+        }
+        
+        public System.Data.DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest();
+            inValue.iIdMembresia = iIdMembresia;
+            inValue.sIdCliente = sIdCliente;
+            inValue.bIdTipoMembresia = bIdTipoMembresia;
+            inValue.cIdEstado = cIdEstado;
+            inValue.dFechaInicio = dFechaInicio;
+            inValue.dFechaVence = dFechaVence;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarMemebresias(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.filtrarMemebresiasResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse> filtrarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest request) {
+            return base.Channel.filtrarMemebresiasAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.insertarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest request) {
+            return base.Channel.insertarMemebresias(request);
+        }
+        
+        public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest();
+            inValue.sIdCliente = sIdCliente;
+            inValue.bIdTipoMembresia = bIdTipoMembresia;
+            inValue.cIdEstado = cIdEstado;
+            inValue.dFechaInicio = dFechaInicio;
+            inValue.dFechaVence = dFechaVence;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarMemebresias(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.insertarMemebresiasResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasResponse> insertarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarMemebresiasRequest request) {
+            return base.Channel.insertarMemebresiasAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.actualizarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest request) {
+            return base.Channel.actualizarMemebresias(request);
+        }
+        
+        public bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest();
+            inValue.iIdMembresia = iIdMembresia;
+            inValue.sIdCliente = sIdCliente;
+            inValue.bIdTipoMembresia = bIdTipoMembresia;
+            inValue.cIdEstado = cIdEstado;
+            inValue.dFechaInicio = dFechaInicio;
+            inValue.dFechaVence = dFechaVence;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).actualizarMemebresias(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.actualizarMemebresiasResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasResponse> actualizarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarMemebresiasRequest request) {
+            return base.Channel.actualizarMemebresiasAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.eliminarMemebresias(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest request) {
+            return base.Channel.eliminarMemebresias(request);
+        }
+        
+        public bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest();
+            inValue.iIdMembresia = iIdMembresia;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).eliminarMemebresias(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.eliminarMemebresiasResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasResponse> eliminarMemebresiasAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarMemebresiasRequest request) {
+            return base.Channel.eliminarMemebresiasAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3628,9 +4006,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarCorreos(request);
         }
         
-        public short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError) {
+        public short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest();
-            inValue.sIdCorreo = sIdCorreo;
             inValue.sIdPersona = sIdPersona;
             inValue.sCorreo = sCorreo;
             inValue.sMsjError = sMsjError;
@@ -4107,9 +4484,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTipoServicio(request);
         }
         
-        public char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error) {
+        public byte insertarTipoServicio(string Descripcion, float Costo, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoServicioRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoServicioRequest();
-            inValue.IdTipoServicio = IdTipoServicio;
             inValue.Descripcion = Descripcion;
             inValue.Costo = Costo;
             inValue.sMsj_error = sMsj_error;
@@ -4575,9 +4951,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarRol(request);
         }
         
-        public byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error) {
+        public byte insertarRol(string sDescripcion, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest();
-            inValue.bIdRol = bIdRol;
             inValue.sDescripcion = sDescripcion;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).insertarRol(inValue);
