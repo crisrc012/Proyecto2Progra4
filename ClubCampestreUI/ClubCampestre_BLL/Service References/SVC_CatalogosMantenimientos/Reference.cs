@@ -2194,22 +2194,18 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoServicioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte IdTipoServicio;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string Descripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public float Costo;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsj_error;
         
         public insertarTipoServicioRequest() {
         }
         
-        public insertarTipoServicioRequest(byte IdTipoServicio, string Descripcion, float Costo, string sMsj_error) {
-            this.IdTipoServicio = IdTipoServicio;
+        public insertarTipoServicioRequest(string Descripcion, float Costo, string sMsj_error) {
             this.Descripcion = Descripcion;
             this.Costo = Costo;
             this.sMsj_error = sMsj_error;
@@ -2222,7 +2218,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoServicioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarTipoServicioResult;
+        public byte insertarTipoServicioResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -2230,7 +2226,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarTipoServicioResponse() {
         }
         
-        public insertarTipoServicioResponse(char insertarTipoServicioResult, string sMsj_error) {
+        public insertarTipoServicioResponse(byte insertarTipoServicioResult, string sMsj_error) {
             this.insertarTipoServicioResult = insertarTipoServicioResult;
             this.sMsj_error = sMsj_error;
         }
@@ -4107,9 +4103,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTipoServicio(request);
         }
         
-        public char insertarTipoServicio(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error) {
+        public byte insertarTipoServicio(string Descripcion, float Costo, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoServicioRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoServicioRequest();
-            inValue.IdTipoServicio = IdTipoServicio;
             inValue.Descripcion = Descripcion;
             inValue.Costo = Costo;
             inValue.sMsj_error = sMsj_error;

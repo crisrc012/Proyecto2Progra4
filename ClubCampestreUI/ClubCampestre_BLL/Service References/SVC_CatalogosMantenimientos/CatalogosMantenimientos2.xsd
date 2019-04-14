@@ -837,7 +837,6 @@
   <xs:element name="insertarTipoServicio">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Costo" type="xs:float" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
@@ -847,7 +846,7 @@
   <xs:element name="insertarTipoServicioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoServicioResult" type="q9:char" />
+        <xs:element minOccurs="0" name="insertarTipoServicioResult" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -956,7 +955,7 @@
   <xs:element name="insertarTipoMembresiaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q10:char" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q9:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1063,7 +1062,7 @@
   <xs:element name="insertarTipoClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q11:char" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q10:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1171,7 +1170,7 @@
   <xs:element name="insertarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q12:char" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q11:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1278,7 +1277,7 @@
   <xs:element name="insertarTelefonosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q13:char" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q12:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
