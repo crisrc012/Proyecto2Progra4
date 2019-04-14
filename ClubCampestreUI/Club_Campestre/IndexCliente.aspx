@@ -24,10 +24,10 @@
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required="required" runat="server"/>
+                <input type="text" id="uname" placeholder="Enter Username" name="uname" required="required" runat="server"/>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required="required" runat="server"/>
+                <input type="password" id="psw" placeholder="Enter Password" name="psw" required="required" runat="server"/>
 
                 <button type="submit" onserverclick="IniciarSesion" runat="server">Login</button>
 
