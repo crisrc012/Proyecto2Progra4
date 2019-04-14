@@ -19,7 +19,7 @@ namespace Club_Campestre
         {
             if (!IsPostBack)
             {
-                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Estado"];
+                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
                 string tipo = Session["tipo"].ToString();
                 if (rol != null & tipo == "E")
                 {
