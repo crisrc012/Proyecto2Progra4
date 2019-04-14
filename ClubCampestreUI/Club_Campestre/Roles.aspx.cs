@@ -54,8 +54,6 @@ namespace Club_Campestre
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
                 this.BindGrid();
             }
-
-
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -80,8 +78,8 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text);
-                        Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
+                        Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text.Trim());
+                        Obj_Rol_DAL.sDescripcion = row.Cells[1].Text.Trim();
 
                         //Sesion estado lleva el objeto
                         Session["Rol"] = Obj_Rol_DAL;

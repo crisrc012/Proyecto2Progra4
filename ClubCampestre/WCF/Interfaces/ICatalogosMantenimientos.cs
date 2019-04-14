@@ -154,13 +154,13 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarRol(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        DataTable filtrarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
-        char insertarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
-        bool actualizarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        bool actualizarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
-        bool eliminarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error);
+        bool eliminarRol(byte bIdRol, ref string sMsj_error);
         #endregion
     }
 }

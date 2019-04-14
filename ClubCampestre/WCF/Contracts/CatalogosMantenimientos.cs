@@ -350,25 +350,25 @@ namespace WCF.Contracts
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarRol(Byte bIdRol,string sDescripcion, ref string sMsj_error)
+        public DataTable filtrarRol(byte bIdRol,string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Filtrar(bIdRol, sDescripcion, ref sMsj_error);
         }
-        public char insertarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public byte insertarRol(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Insertar(bIdRol, sDescripcion, ref sMsj_error);
         }
-        public bool actualizarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public bool actualizarRol(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Actualizar(bIdRol, sDescripcion, ref sMsj_error);
         }
-        public bool eliminarRol(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public bool eliminarRol(byte bIdRol, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
-            return Obj_Rol_BLL.Eliminar(bIdRol, sDescripcion, ref sMsj_error);
+            return Obj_Rol_BLL.Eliminar(bIdRol, ref sMsj_error);
         }
         #endregion
     }
