@@ -19,7 +19,7 @@
             <label for="cedula"> Cedula: </label>
             <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
               <label for="Rol"> Rol: </label>
-              <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownListRol_SelectedIndexChanged" Width="128px"></asp:DropDownList>
+              <asp:DropDownList ID="DropDownRol" runat="server" OnSelectedIndexChanged="DropDownListRol_SelectedIndexChanged" Width="128px"></asp:DropDownList>
           </div>
 
           <div class="pure-control-group">

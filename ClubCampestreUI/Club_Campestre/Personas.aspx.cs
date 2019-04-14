@@ -1,9 +1,12 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
+using ClubCampestre_DAL.CatalogosMantenimientos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 
 namespace Club_Campestre
 {
@@ -11,12 +14,12 @@ namespace Club_Campestre
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CargarRoles();
         }
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
-
+            //Prueba Will para Milton 
         }
 
         protected void btnRemover_Click1(object sender, EventArgs e)
@@ -52,6 +55,20 @@ namespace Club_Campestre
 
         protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        
+
+        private void CargarRoles()
+        {
+            Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
+            Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+            Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
+            DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];
+            DropDownRol.DataTextField = "Descripcion";
+            DropDownRol.DataValueField = "IdRol";
+            DropDownRol.DataBind();
 
         }
     }
