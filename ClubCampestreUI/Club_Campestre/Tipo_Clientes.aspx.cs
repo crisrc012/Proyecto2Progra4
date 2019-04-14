@@ -23,9 +23,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 this.BindGrid();
-                
             }
-
         }
 
         private void BindGrid()
