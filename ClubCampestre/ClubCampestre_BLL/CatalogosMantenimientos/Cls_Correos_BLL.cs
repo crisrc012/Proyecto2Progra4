@@ -14,7 +14,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Correos");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdCorreo", sCorreo);
+            if (sIdCorreo != short.MinValue)
+            {
+                dt.Rows.Add("@IdCorreo", sIdCorreo);
+            }
             if (sIdPersona != string.Empty)
             {
                 dt.Rows.Add("@IdPersona", sIdPersona);
@@ -35,9 +38,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCorreo, sIdPersona, sCorreo), "[dbo].[sp_search_TB_Correos]", ref sMsjError);
         }
 
-        public short Insertar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
+        public short Insertar(string sIdPersona, string sCorreo, ref string sMsjError)
         {
-            return Convert.ToInt16(Obj_BD_BLL.ExecuteScalar(inicializarDT(sIdCorreo, sIdPersona, sCorreo), "[dbo].[sp_insert_TB_Correos]", ref sMsjError));
+            return Convert.ToInt16(Obj_BD_BLL.ExecuteScalar(inicializarDT(short.MinValue, sIdPersona, sCorreo), "[dbo].[sp_insert_TB_Correos]", ref sMsjError));
         }
 
         public bool Actualizar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)

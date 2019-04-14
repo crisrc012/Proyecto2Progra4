@@ -71,10 +71,10 @@ namespace WCF.Contracts
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
             return Obj_Correos_BLL.Filtrar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public short insertarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
+        public short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            return Obj_Correos_BLL.Insertar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
+            return Obj_Correos_BLL.Insertar(sIdPersona, sCorreo, ref sMsjError);
         }
         public bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
@@ -350,7 +350,7 @@ namespace WCF.Contracts
         public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
-            return Obj_Memebresias_BLL.Filtrar(, ref sMsj_error);
+            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
         }
         public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
