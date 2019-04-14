@@ -7,6 +7,12 @@ SELECT [IdPersona]
       ,[Nombre]
       ,[Direccion]
       ,[ClubCampestre].[dbo].[TB_Rol].[Descripcion]
+	  ,(SELECT MIN([ClubCampestre].[dbo].[TB_Telefonos].[Telefono]) 
+	  FROM [ClubCampestre].[dbo].[TB_Telefonos] 
+	  WHERE [ClubCampestre].[dbo].[TB_Telefonos].[IdPersona] = [ClubCampestre].[dbo].[TB_Telefonos].[IdPersona] ) AS Telefono
+	  ,(SELECT MIN([ClubCampestre].[dbo].[TB_Correos].[Correo])
+	  FROM [ClubCampestre].[dbo].[TB_Correos]
+	  WHERE [ClubCampestre].[dbo].[TB_Correos].[IdPersona] = [ClubCampestre].[dbo].[TB_Persona].[IdPersona] ) AS Correo
   FROM [ClubCampestre].[dbo].[TB_Persona]
   JOIN [ClubCampestre].[dbo].[TB_Rol]
   ON [ClubCampestre].[dbo].[TB_Persona].[IdRol] = [ClubCampestre].[dbo].[TB_Rol].[IdRol]
