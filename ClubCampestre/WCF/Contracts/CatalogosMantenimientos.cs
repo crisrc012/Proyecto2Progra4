@@ -395,5 +395,38 @@ namespace WCF.Contracts
             return Obj_Rol_BLL.Eliminar(bIdRol, ref sMsj_error);
         }
         #endregion
+        #region Servicio
+        public DataTable listarServicio(ref string sMsj_error)
+        {
+            Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
+            return Obj_Servicios_BLL.Listar(ref sMsj_error);
+        }
+
+        public DataTable filtrarServicio(short iIdServicio, short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error)
+        {
+            Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
+            return Obj_Servicios_BLL.Filtrar(iIdServicio, iIdCliente, cIdEstado, bIdTipoServicio, ref sMsj_error);
+        }
+
+
+        public short insertarServicio(short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error)
+        {
+            Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
+            return Obj_Servicios_BLL.Insertar(iIdCliente, cIdEstado, bIdTipoServicio, ref sMsj_error);
+        }
+
+        public bool actualizarServicio(short iIdServicio, short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error)
+        {
+            Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
+            return Obj_Servicios_BLL.Actualizar(iIdServicio, iIdCliente, cIdEstado, bIdTipoServicio, ref sMsj_error);
+        }
+
+
+        public bool eliminarServicio(short iIdServicio, ref string sMsj_error)
+        {
+            Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
+            return Obj_Servicios_BLL.Eliminar(iIdServicio, ref sMsj_error);
+        }
+        #endregion
     }
 }

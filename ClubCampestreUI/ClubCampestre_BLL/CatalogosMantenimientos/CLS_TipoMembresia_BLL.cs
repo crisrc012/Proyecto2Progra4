@@ -73,7 +73,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
-                Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
+                Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
                 Obj_TipoMembresia_Client.Close();
                 Obj_TipoMembresia_DAL.SMsjError = sMsjError;
             }

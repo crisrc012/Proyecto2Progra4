@@ -48,6 +48,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_Membresias_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Persona_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Rol_BLL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Servicio_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Telefono_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_BLL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_BLL.cs" />
@@ -117,6 +118,9 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarRolResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.actualizarTelefonosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -157,6 +161,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarServicioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosResponse.datasource">
@@ -201,6 +208,9 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarRolResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarTelefonosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -243,6 +253,9 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarServicioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTelefonosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -280,6 +293,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarRolResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarServicioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarTelefonosResponse.datasource">

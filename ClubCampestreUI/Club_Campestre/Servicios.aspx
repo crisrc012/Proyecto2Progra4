@@ -25,10 +25,11 @@
             <asp:GridView class="pure-table" ID="ServicioGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
                     <asp:BoundField DataField="IdServicio" HeaderText="Id Servicio" />
-                    <asp:BoundField DataField="IdCLiente" HeaderText="Id Cliente" />
-                    <asp:BoundField DataField="Descripcion" HeaderText="Descripcion del Servicio" />
+                    <asp:BoundField DataField="Identificacion" HeaderText="Identificacion" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                    <asp:BoundField DataField="Tipo de Servicio" HeaderText="Tipo de Servicio" />
+                    <asp:BoundField DataField="Costo" HeaderText="Costo" />
                     <asp:BoundField DataField="FechaRegistro" HeaderText="Fecha de Registro" />
-                    <asp:BoundField DataField="Estado" HeaderText="Estado" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />

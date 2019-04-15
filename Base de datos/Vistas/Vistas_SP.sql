@@ -45,3 +45,16 @@ SELECT [IdMembresia]
 	  ,[Estado]
   FROM [ClubCampestre].[dbo].[V_Membresias]
 go
+
+-- V_Servicio
+create procedure [dbo].[sp_select_V_Servicio]
+as
+SELECT [IdServicio]
+      ,[Identificacion]
+      ,[Nombre]
+      ,[Tipo de Servicio]
+      ,[Costo]
+      ,[FechaRegistro]
+      ,[Estado]
+  FROM [ClubCampestre].[dbo].[V_Servicio]
+  go
