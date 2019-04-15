@@ -13,9 +13,30 @@ namespace Club_Campestre
 {
     public partial class Personas : System.Web.UI.Page
     {
+
+
+        #region Cls Persona 
+        Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
+        Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
+        #endregion
+
+        #region Cls Correo 
+        Cls_Correos_DAL Obj_Correo_DAL = new Cls_Correos_DAL();
+        Cls_Correos_BLL Obj_Correo_BLL = new Cls_Correos_BLL();
+        List<Cls_Correos_DAL> ListaCorreo = new List<Cls_Correos_DAL>();
+        #endregion
+
+        #region Cls Telefono
+        Cls_Telefonos_DAL Cls_Telefonos_DAL = new Cls_Telefonos_DAL();
+        Cls_Telefono_BLL Cls_Telefonos_BLL = new Cls_Telefono_BLL();
+        List<Cls_Telefonos_DAL> ListaTelefono = new List<Cls_Telefonos_DAL>();
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarRoles();
+            //Revisar con Marco el como vamos a manejar el editar usuario 
+            
         }
 
  
@@ -57,23 +78,176 @@ namespace Club_Campestre
             DropDownRol.DataBind();
         }
 
+        //Boton de Telefono 
         protected void btnAgregar2_Click1(object sender, EventArgs e)
         {
+            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+            Cls_Telefonos_DAL.STelefono = this.txtTelefono.Value.ToString().Trim();
+            GridViewTelefono.DataSource = null;
+            GridViewTelefono.DataBind();
+            ListaTelefono.Add(Cls_Telefonos_DAL);
+            GridViewTelefono.DataSource = ListaTelefono;
+            GridViewTelefono.DataBind();
+
+
+
 
         }
 
         protected void btnRemover2_Click1(object sender, EventArgs e)
         {
+            GridViewTelefono.DataSource = null;
+            GridViewTelefono.DataBind();
+
+            foreach (GridViewRow row in GridViewTelefono.Rows)
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
+                        Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
+                        ListaTelefono.Remove(Cls_Telefonos_DAL);
+
+                        //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
+                    }
+
+                }
+            }
+
+
+
+            GridViewTelefono.DataSource = ListaTelefono;
+            GridViewTelefono.DataBind();
 
         }
 
         protected void btnAgregar_Click1(object sender, EventArgs e)
         {
-
+            Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+            Obj_Correo_DAL.SCorreo = this.txtemail.Value.ToString().Trim();
+            CorreoPersonaGridView.DataSource = null;
+            CorreoPersonaGridView.DataBind();
+            ListaCorreo.Add(Obj_Correo_DAL);
+            CorreoPersonaGridView.DataSource = ListaCorreo;
+            CorreoPersonaGridView.DataBind();
         }
 
         protected void btnRemover_Click1(object sender, EventArgs e)
         {
+            CorreoPersonaGridView.DataSource = null;
+            CorreoPersonaGridView.DataBind();
+
+            foreach (GridViewRow row in CorreoPersonaGridView.Rows)
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        Obj_Correo_DAL.SIdPersona = row.Cells[0].Text;
+                        Obj_Correo_DAL.SCorreo = row.Cells[1].Text;
+                        ListaCorreo.Remove(Obj_Correo_DAL);
+
+                        //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
+                    }
+
+                }
+            }
+
+
+
+            CorreoPersonaGridView.DataSource = ListaCorreo;
+            CorreoPersonaGridView.DataBind();
+        }
+
+        protected void btnGuardar_Click1(object sender, EventArgs e)
+        {
+            Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
+            Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
+            Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
+            Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+
+            Obj_Persona_DAL.SIdPersona = this.txtCedula.Value;
+            Obj_Persona_DAL.SNombre = this.txtnombre.Value;
+            Obj_Persona_DAL.SDireccion = this.TextAreadireccion.Value;
+            Obj_Persona_DAL.BIdRol = Convert.ToByte( this.DropDownRol.SelectedValue);
+            Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+
+            //Telefono ingresa 
+
+            if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
+            {
+
+                foreach (GridViewRow row in GridViewTelefono.Rows)
+                {
+                    //busca el la fila
+                    if (row.RowType == DataControlRowType.DataRow)
+                    {
+                                            
+                        {
+                            Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
+                            Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
+                            
+                            Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//  estados insertar
+                        }
+
+
+                        
+
+                    }
+                }
+
+
+                //-Aqui agrego el de correo foreach 
+
+                foreach (GridViewRow row in CorreoPersonaGridView.Rows)
+                {
+                    //busca el la fila
+                    if (row.RowType == DataControlRowType.DataRow)
+                    {
+
+                        {
+                            Obj_Correo_DAL.SIdPersona = row.Cells[0].Text;
+                            Obj_Correo_DAL.SCorreo = row.Cells[1].Text;
+
+                           Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  estados insertar
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //Hay que hacer una validacion si el telefono y correo fueron cargados en el data grid 
+
+
+
 
         }
     }

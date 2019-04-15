@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Personas.aspx.cs" Inherits="Club_Campestre.Personas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true"  enableEventValidation="true" CodeBehind="Personas.aspx.cs" Inherits="Club_Campestre.Personas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,7 +28,7 @@
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
-              <textarea id="TextAreadireccion"  style="color: #0090ff"  rows="10" cols="50";></textarea>
+              <textarea id="TextAreadireccion" runat="server" style="color: #0090ff"  rows="10" cols="50"></textarea>
                   </div>
               <div></div>
                           <label for="telefono"> Telefono: </label>
@@ -38,7 +38,7 @@
               &nbsp;
               <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
               <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="GridView1" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                     <asp:TemplateField>
@@ -53,7 +53,7 @@
 
                <label for="correo"> Correo: </label>
               
-              <input runat="server" type="email" id="email1" style="color: #0090ff; width: 284px;" />
+              <input runat="server" type="email" id="txtemail" style="color: #0090ff; width: 284px;" />
               <asp:Button class="pure-button pure-button-primary" ID="Button1" runat="server" Text="+"  OnClick="btnAgregar_Click1" />
               &nbsp;
               <asp:Button class="pure-button pure-button-primary" ID="Button2" runat="server" Text="-"  OnClick="btnRemover_Click1" />
@@ -72,7 +72,7 @@
             <br />
         </div>
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-              <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onserverclick="btnGuardar_Click" OnClick="btnGuardar_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1" />
           </div>
 
           </fieldset>

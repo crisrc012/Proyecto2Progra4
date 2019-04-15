@@ -40,6 +40,15 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtnombre;
         
         /// <summary>
+        /// Control TextAreadireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextAreadireccion;
+        
+        /// <summary>
         /// Control txtTelefono.
         /// </summary>
         /// <remarks>
@@ -67,22 +76,22 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnremover2;
         
         /// <summary>
-        /// Control GridView1.
+        /// Control GridViewTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridViewTelefono;
         
         /// <summary>
-        /// Control email1.
+        /// Control txtemail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtemail;
         
         /// <summary>
         /// Control Button1.
