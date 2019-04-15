@@ -35,7 +35,7 @@
             <br />
         </div>
     </div> 
-        <a class="fa fa-lg fa-folder" href="Index.aspx" style="color:black">---Regresar</a>
+        <a class="fa fa-lg fa-folder" href="Index.aspx" style="color:black">---Regresar---</a>
     </div>
        
 </asp:Content>
