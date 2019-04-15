@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Membresias.aspx.cs" Inherits="Club_Campestre.Mant_Membresias" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Membresias.aspx.cs" Inherits="Club_Campestre.Mant_Membresias" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -50,8 +50,17 @@
                         </asp:GridView>
                         
                     </div>
-                    <div id="AddBene" style="display:none; position: fixed; z-index: 1; left: 0;  top: 0; width: 100%; height: 100%;  overflow: auto;   background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px;">
-
+                    <div id="AddBene" style="display:none; position: fixed; z-index: 1; left: 0;  top: 0; width: 100%; height: 100%;  overflow: auto;   background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px">
+                        <div action="/action_page.php" runat="server" style="background-color: #fefefe; margin: 20% auto 15% auto; border: 1px solid #888; width: 45%; -webkit-animation: animatezoom 0.6s; animation: animatezoom 0.6s">
+                            <div style="text-align: center; margin: 24px 0 12px 0; position: relative">
+                                <span onclick="document.getElementById('AddBene').style.display='none'" style="position: absolute; right: 25px; top: 0; color: #000; font-size: 35px; font-weight: bold;" title="Close Modal">&times;</span>
+                            </div>
+                            <div class="pure-control-group" style="padding: 16px">
+                                <label for="bencel"><b style="color:blue" >Cédula Beneficiario:</b></label>
+                                <input type="text" id="bencel" placeholder="Enter Cédula" name="bencel" required="required" runat="server" style="color:blue"/>
+                                <button class="pure-button pure-button-primary"  type="submit" runat="server" onserverclick="CargaBeneficiarios">Agregar</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="pure-controls">
