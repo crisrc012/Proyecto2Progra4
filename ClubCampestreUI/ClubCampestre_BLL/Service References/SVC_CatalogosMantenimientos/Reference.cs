@@ -2693,22 +2693,18 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoMembresiaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte IdTipoMembresia;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string Descripcion;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public float Costo;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsj_error;
         
         public insertarTipoMembresiaRequest() {
         }
         
-        public insertarTipoMembresiaRequest(byte IdTipoMembresia, string Descripcion, float Costo, string sMsj_error) {
-            this.IdTipoMembresia = IdTipoMembresia;
+        public insertarTipoMembresiaRequest(string Descripcion, float Costo, string sMsj_error) {
             this.Descripcion = Descripcion;
             this.Costo = Costo;
             this.sMsj_error = sMsj_error;
@@ -4578,9 +4574,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTipoMembresia(request);
         }
         
-        public char insertarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error) {
+        public char insertarTipoMembresia(string Descripcion, float Costo, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoMembresiaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoMembresiaRequest();
-            inValue.IdTipoMembresia = IdTipoMembresia;
             inValue.Descripcion = Descripcion;
             inValue.Costo = Costo;
             inValue.sMsj_error = sMsj_error;
