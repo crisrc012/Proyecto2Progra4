@@ -39,7 +39,7 @@
           </div>
 
           <div class="pure-controls">
-               <asp:Button class="pure-button pure-button-primary" ID ="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click"/>
+               <asp:Button class="pure-button pure-button-primary" ID ="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
               
           </div>
           </fieldset>
