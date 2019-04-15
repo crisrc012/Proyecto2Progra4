@@ -82,6 +82,7 @@
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
     <Content Include="Roles.aspx" />
+    <Content Include="Servicios.aspx" />
     <Content Include="Shared\css\font-awesome.min.css" />
     <Content Include="Shared\css\Login.css" />
     <Content Include="Shared\css\main.css" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios.aspx.cs">
+      <DependentUpon>Servicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicios.aspx.designer.cs">
+      <DependentUpon>Servicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="TipoMembresia.aspx.cs">
       <DependentUpon>TipoMembresia.aspx</DependentUpon>
