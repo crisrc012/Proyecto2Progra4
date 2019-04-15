@@ -48,29 +48,22 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
+            Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
+            Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+            string tipo = Session["tipo"].ToString();
+            if (tipo == "E")
+            {
+                Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
+                Server.Transfer("Clientes.aspx");
+            }
+            else
+            {
+                Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
+                Server.Transfer("Clientes.aspx");
+            }
         }
 
-
-
-         protected void Guardar_ServerClick(object sender, EventArgs e)
-            {
-                Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
-                Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-                Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
-                Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
-                {
-                    Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
-                    Server.Transfer("Clientes.aspx");
-                }
-                else
-                {
-                    Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
-                    Server.Transfer("Clientes.aspx");
-                }
-                }
-
     }
-    }
+}
