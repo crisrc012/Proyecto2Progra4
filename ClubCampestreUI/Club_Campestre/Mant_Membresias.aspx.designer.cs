@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Mant_Tipo_Cliente {
+    public partial class Mant_Membresias {
         
         /// <summary>
         /// mantenimiento control.
@@ -22,31 +22,49 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// txttipocliente control.
+        /// txtCedula control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txttipocliente;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCedula;
         
         /// <summary>
-        /// txtidcliente control.
+        /// txtNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtidcliente;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNombre;
         
         /// <summary>
-        /// txtidpersona control.
+        /// DropDownTipoCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtidpersona;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownTipoCliente;
+        
+        /// <summary>
+        /// IDCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText IDCliente;
+        
+        /// <summary>
+        /// BeneficiariosGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView BeneficiariosGridView;
         
         /// <summary>
         /// btnGuardar control.
