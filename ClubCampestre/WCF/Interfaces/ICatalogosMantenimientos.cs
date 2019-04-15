@@ -108,7 +108,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
+        char insertarTipoMembresia( string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
@@ -173,6 +173,18 @@ namespace WCF.Interfaces
         bool actualizarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
         [OperationContract]
         bool eliminarMemebresias(int iIdMembresia, ref string sMsj_error);
+        #endregion
+        #region Servicio
+        [OperationContract]
+        DataTable listarServicio(ref string sMsj_error);
+        [OperationContract]
+        DataTable filtrarServicio(short iIdServicio, short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error);
+        [OperationContract]
+        short insertarServicio(short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error);
+        [OperationContract]
+        bool actualizarServicio(short iIdServicio, short iIdCliente, char cIdEstado, byte bIdTipoServicio, ref string sMsj_error);
+        [OperationContract]
+        bool eliminarServicio(short iIdServicio, ref string sMsj_error);
         #endregion
     }
 }

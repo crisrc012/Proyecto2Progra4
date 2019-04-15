@@ -6,29 +6,26 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
     public class Cls_TipoServicio_BLL
     {
-
-            public void Listar(ref Cls_TipoServicio_DAL Obj_TipoServicio_DAL)
+        public void Listar(ref Cls_TipoServicio_DAL Obj_TipoServicio_DAL)
+        {
+            try
             {
-                try
-                {
-                    // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                    CatalogosMantenimientosClient Obj_TipoServicio_Client = new CatalogosMantenimientosClient();
-                    // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                    String sMsjError = string.Empty;
-                    Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.listarTipoServicio(ref sMsjError));
-                    Obj_TipoServicio_Client.Close();
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_TipoServicio_Client = new CatalogosMantenimientosClient();
+                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                String sMsjError = string.Empty;
+                Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.listarTipoServicio(ref sMsjError));
+                Obj_TipoServicio_Client.Close();
 
-                Obj_TipoServicio_DAL.sMsjError = sMsjError;
+            Obj_TipoServicio_DAL.sMsjError = sMsjError;
 
 
+        }
+            catch (Exception ex)
+            {
+                Obj_TipoServicio_DAL.sMsjError= ex.Message.ToString();
             }
-                catch (Exception ex)
-                {
-                    Obj_TipoServicio_DAL.sMsjError= ex.Message.ToString();
-                }
-            }
-
-
+        }
         public void Filtrar(ref Cls_TipoServicio_DAL  Obj_TipoServicio_DAL)
         {
             try
@@ -47,7 +44,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoServicio_DAL.sMsjError = ex.Message.ToString();
             }
         }
-
         public void Insertar(ref Cls_TipoServicio_DAL Obj_TipoServicio_DAL)
         {
             try
@@ -65,8 +61,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoServicio_DAL.sMsjError = ex.Message.ToString();
             }
         }
-
-
         public void Actualizar(ref Cls_TipoServicio_DAL Obj_TipoServicio_DAL)
         {
             try
@@ -85,7 +79,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoServicio_DAL.sMsjError = ex.Message.ToString();
             }
         }
-
         public void Eliminar(ref Cls_TipoServicio_DAL Obj_TipoServicio_DAL)
         {
             try
@@ -104,11 +97,5 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoServicio_DAL.sMsjError = ex.Message.ToString();
             }
         }
-
     }
-
-      
-
-
-    
 }

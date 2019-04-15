@@ -20,7 +20,7 @@ namespace Club_Campestre
 
         protected void IniciarSesion(object sender, EventArgs e)
         {
-            Cls_Usuarios_DAL Obj_Usuarios_DAL = new Cls_Usuarios_DAL();
+            Cls_Usuario_DAL Obj_Usuarios_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuarios_BLL = new Cls_Usuario_BLL();
 
             // buscar usuario por correo o por usuario

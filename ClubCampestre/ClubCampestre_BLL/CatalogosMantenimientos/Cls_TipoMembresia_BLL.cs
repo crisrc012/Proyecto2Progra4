@@ -36,9 +36,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoMembresia, Descripcion, Costo), "[dbo].[sp_search_TB_TipoMembresia]", ref sMsj_error).Copy();
         }
 
-        public char Insertar(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)
+        public char Insertar( string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(IdTipoMembresia, Descripcion, Costo), "[dbo].[sp_insert_TB_TipoMembresia]", ref sMsj_error));
+            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(byte.MinValue, Descripcion, Costo), "[dbo].[sp_insert_TB_TipoMembresia]", ref sMsj_error));
         }
 
         public bool Actualizar(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)

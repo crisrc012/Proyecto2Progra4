@@ -36,12 +36,25 @@ go
 create procedure [dbo].[sp_select_V_Membresia]
 as
 SELECT [IdMembresia]
-      ,[Identificación]
+      ,[Identificacion]
       ,[Nombre]
-      ,[Membresía]
+      ,[Membresia]
       ,[Costo]
       ,[FechaInicio]
       ,[FechaVencimiento]
 	  ,[Estado]
   FROM [ClubCampestre].[dbo].[V_Membresias]
 go
+
+-- V_Servicio
+create procedure [dbo].[sp_select_V_Servicio]
+as
+SELECT [IdServicio]
+      ,[Identificacion]
+      ,[Nombre]
+      ,[Tipo de Servicio]
+      ,[Costo]
+      ,[FechaRegistro]
+      ,[Estado]
+  FROM [ClubCampestre].[dbo].[V_Servicio]
+  go

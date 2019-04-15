@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Servicios {
+    public partial class Usuarios {
         
         /// <summary>
         /// btnEliminar control.
@@ -40,13 +40,13 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.Button btnNuevo;
         
         /// <summary>
-        /// txtFiltraServicio control.
+        /// FiltrarUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFiltraServicio;
+        protected global::System.Web.UI.WebControls.TextBox FiltrarUsuarios;
         
         /// <summary>
         /// btnBuscar control.
@@ -67,12 +67,12 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMensaje;
         
         /// <summary>
-        /// ServicioGridView control.
+        /// UsuariosGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ServicioGridView;
+        protected global::System.Web.UI.WebControls.GridView UsuariosGridView;
     }
 }

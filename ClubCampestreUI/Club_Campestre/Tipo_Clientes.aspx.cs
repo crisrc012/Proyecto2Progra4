@@ -18,7 +18,7 @@ namespace Club_Campestre
         Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindGrid();
+            
             ///Meter esto 
             if (!IsPostBack)
             {

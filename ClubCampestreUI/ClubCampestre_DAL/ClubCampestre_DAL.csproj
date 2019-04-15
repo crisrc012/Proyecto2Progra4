@@ -49,7 +49,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_TipoCliente_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoMembresia_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_TipoServicio_DAL.cs" />
-    <Compile Include="CatalogosMantenimientos\Cls_Usuarios_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Usuario_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

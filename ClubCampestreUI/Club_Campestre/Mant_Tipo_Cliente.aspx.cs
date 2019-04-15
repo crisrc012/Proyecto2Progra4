@@ -4,32 +4,38 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
 
-namespace Club_Campestre.Mantenimiento
+
+namespace Club_Campestre
 {
     public partial class Mant_Tipo_Cliente : System.Web.UI.Page
     {
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            CargaTipoCliente();
+
+            if (!IsPostBack)
             {
                 Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
                 string tipo = Session["tipo"].ToString();
                 if(clientes != null & tipo == "E")
                 {
-            
-                  /*  this.mantenimiento.InnerHtml = "Modificacion de Clientes";
+                    this.mantenimiento.InnerHtml = "Modificacion de Clientes";
                     this.txtidcliente.Value = clientes.SIdCliente.ToString();
-                    this.txtidpersona.Value = clientes.SIdPersona.ToString();*/
+                    this.txtidpersona.Value = clientes.SIdPersona.ToString();
                 }
                 else
                 {
-                  /*  this.mantemimiento.InnerHtml = "Nuevos de Clientes";
+                    this.mantenimiento.InnerHtml = "Nuevos de Clientes";
                     this.txtidcliente.Value = string.Empty;
-                    this.txtidpersona.Value = string.Empty;*/
+                    this.txtidpersona.Value = string.Empty;
                 }
             }
 
@@ -40,14 +46,12 @@ namespace Club_Campestre.Mantenimiento
             Server.Transfer("Clientes.aspx");
         }
 
-       
-
-        protected void Guardar_ServerClick(object sender, EventArgs e)
+        protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-           // Obj_Clientes_DAL.SIdCliente = Convert.ToChar(this.txtidcliente.Value);
-           // Obj_Clientes_DAL.SIdCliente = Convert.ToChar(this.txtidcliente.Value);
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
             string tipo = Session["tipo"].ToString();
             if (tipo == "E")
             {
@@ -59,7 +63,25 @@ namespace Club_Campestre.Mantenimiento
                 Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
                 Server.Transfer("Clientes.aspx");
             }
-            }
+        }
+
+        protected void DropDownListTCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
+        
+        private void CargaTipoCliente()
+        {
+            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+
+            DropDownTClientes.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+            DropDownTClientes.DataTextField = "Descripcion";
+            DropDownTClientes.DataValueField = "IdTipoCliente";
+            //DropDownTClientes.DataBinding();
+            
+        }
+
     }
+}
