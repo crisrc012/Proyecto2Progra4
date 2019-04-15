@@ -108,7 +108,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
+        char insertarTipoMembresia( string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
