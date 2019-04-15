@@ -14,28 +14,29 @@ namespace Club_Campestre
 {
     public partial class TipoMembresia : System.Web.UI.Page
     {
-        ////Wil
-        //#region Variables Globales
-        //Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
-        //Cls_Estado_DAL Obj_Estado_DAL;
-        //bool vFiltra = true;
-        //#endregion
-        ////Will
+        Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
+        CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindGrid();
+            ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
+
             }
 
 
         }
         private void BindGrid()
         {
-            //Aca tiene que programar el Grid Milton 
-
+            Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
+            CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+            Obj_TipoMembresia_BLL.ListaTipoMembresia(ref Obj_TipoMembresia_DAL);
+            TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
+            TipoMembresiaGridView.DataBind();
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -55,7 +56,12 @@ namespace Club_Campestre
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            //Botn Buscar
+            Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
+            CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+            Obj_TipoMembresia_DAL.SPKDescripcion = txtFiltraTipoMembre.Text;
+            Obj_TipoMembresia_BLL.Filtrar(ref Obj_TipoMembresia_DAL);
+            TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
+            TipoMembresiaGridView.DataBind();
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
