@@ -44,7 +44,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         }
         public DataTable Listar(ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Membresias]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_V_Membresia]", ref sMsj_error);
         }
 
         public DataTable Filtrar(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
