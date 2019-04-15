@@ -54,14 +54,12 @@ namespace Club_Campestre
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
                 this.BindGrid();
             }
-
-
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Estados.aspx", false);//llama pantalla
+            Server.Transfer("Mant_Rol.aspx", false);//llama pantalla
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -80,12 +78,12 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text);
-                        Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
+                        Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text.Trim());
+                        Obj_Rol_DAL.sDescripcion = row.Cells[1].Text.Trim();
 
                         //Sesion estado lleva el objeto
-                        Session["Estado"] = Obj_Rol_DAL;
-                        Server.Transfer("Mant_Estados.aspx");//llama la pantalla 
+                        Session["Rol"] = Obj_Rol_DAL;
+                        Server.Transfer("Mant_Rol.aspx");//llama la pantalla 
                     }
 
                 }
@@ -119,12 +117,12 @@ namespace Club_Campestre
                 }
                 if (Obj_Rol_DAL.sMsjError == string.Empty)
                 {
-                    this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
+                    this.errorMensaje.InnerHtml = "Rol Eliminado con exito.";
                     this.BindGrid();
                 }
                 else
                 {
-                    this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
+                    this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Rol.";
                     this.BindGrid();
                 }
 

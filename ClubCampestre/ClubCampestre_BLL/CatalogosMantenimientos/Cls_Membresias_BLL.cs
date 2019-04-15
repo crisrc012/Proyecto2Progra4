@@ -15,8 +15,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Membresias");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdMembresia", iIdMembresia);
-
+            if (iIdMembresia != int.MinValue)
+            {
+                dt.Rows.Add("@IdMembresia", iIdMembresia);
+            }
             if (sIdCliente != short.MinValue)
             {
                 dt.Rows.Add("@IdCliente", sIdCliente);
@@ -25,7 +27,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             {
                 dt.Rows.Add("@IdTipoMembresia", bIdTipoMembresia);
             }
-            if (char.IsWhiteSpace(cIdEstado))
+            if (cIdEstado != char.MinValue)
             {
                 dt.Rows.Add("@IdEstado", cIdEstado);
             }
@@ -42,44 +44,27 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         }
         public DataTable Listar(ref string sMsj_error)
         {
-
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Membresias]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_V_Membresia]", ref sMsj_error);
         }
 
         public DataTable Filtrar(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_search_TB_Membresias]", ref sMsj_error).Copy();
-
         }
 
-        public char Insertar(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        public int Insertar(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
-
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_insert_TB_Membresias]", ref sMsj_error));
-
+            return Convert.ToInt32(Obj_BD_BLL.ExecuteScalar(inicializarDT(int.MinValue, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_insert_TB_Membresias]", ref sMsj_error));
         }
 
         public bool Actualizar(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
-
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdMembresia,sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_update_TB_Membresias]", ref sMsj_error);
-
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_update_TB_Membresias]", ref sMsj_error);
         }
 
-        public bool Eliminar(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        public bool Eliminar(int iIdMembresia, ref string sMsj_error)
         {
-
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence), "[dbo].[sp_delete_TB_Membresias]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdMembresia, short.MinValue, byte.MinValue, char.MinValue, DateTime.MinValue, DateTime.MinValue), "[dbo].[sp_delete_TB_Membresias]", ref sMsj_error);
         }
-
-       /* private DataTable inicializarDT(int iIdMembresia, short.MinValue)
-        {
-            throw new NotImplementedException();
-        }*/
     }
 }
-
-
-
-
-

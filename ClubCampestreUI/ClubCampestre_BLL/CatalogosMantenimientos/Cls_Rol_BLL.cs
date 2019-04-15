@@ -56,7 +56,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
                 
-                Obj_Rol_Client.insertarRol(Obj_Rol_DAL.bIdRol, Obj_Rol_DAL.sDescripcion, ref sMsjError);
+                byte bScalar = Obj_Rol_Client.insertarRol(Obj_Rol_DAL.sDescripcion, ref sMsjError); // Aqui se devuelve un valor scalar, sino se va a usar, hay que mejor mandarlo a usar nonquery
                 Obj_Rol_Client.Close();
                 Obj_Rol_DAL.sMsjError = sMsjError;
             }
@@ -95,7 +95,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se manda a eliminar el dato
                 string sMsjError = string.Empty;
                 //Obj_Estado_Client.eliminarEstado(Obj_Estado_DAL.CIdEstado, ref sMsjError);
-                Obj_Rol_Client.eliminarRol(Obj_Rol_DAL.bIdRol,Obj_Rol_DAL.sDescripcion , ref sMsjError);
+                Obj_Rol_Client.eliminarRol(Obj_Rol_DAL.bIdRol, ref sMsjError);
                 Obj_Rol_Client.Close();
                 Obj_Rol_DAL.sMsjError = sMsjError;
             }

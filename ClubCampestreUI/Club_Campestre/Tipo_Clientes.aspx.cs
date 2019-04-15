@@ -14,6 +14,8 @@ namespace Club_Campestre
 {
     public partial class Tipo_Clientes : System.Web.UI.Page
     {
+        Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+        Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             BindGrid();
@@ -21,9 +23,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 this.BindGrid();
-                
             }
-
         }
 
         private void BindGrid()
@@ -52,6 +52,32 @@ namespace Club_Campestre
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
+            
+            //Se instancia objeto
+            Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            //Secion tipo Editar
+            
+            //Recorre Grid buscando chk 
+           foreach (GridViewRow row in TipoClienteGridView.Rows)
+           
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
+                        Obj_TipoCliente_DAL.SPKDescripcion = row.Cells[1].Text;
+
+                        //Sesion estado lleva el objeto
+                        Session["Estado"] = Obj_TipoCliente_DAL;
+                        Server.Transfer("Mant_Tipo_Cliente.aspx");//llama la pantalla 
+                    }
+
+                }
+            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)

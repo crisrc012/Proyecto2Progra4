@@ -22,8 +22,8 @@
     <div>
         <form class = "pure-form pure-form-aligned" method="post">
           <fieldset>
-           
-              <div class="pure-control-group">
+
+          <div class="pure-control-group">
             <label for="descripcion"> Tipo de Cliente: </label>
               <input runat="server" type="text" id="txttipocliente" style="color: #0090ff" class="auto-style1" />
           </div>

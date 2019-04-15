@@ -5,7 +5,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="bIdRol" type="xs:unsignedByte" />
-        <xs:element minOccurs="0" name="sDescripcion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -14,6 +13,123 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="eliminarRolResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarMemebresias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarMemebresiasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="listarMemebresiasResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filtrarMemebresias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIdMembresia" type="xs:int" />
+        <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+        <xs:element minOccurs="0" name="bIdTipoMembresia" type="xs:unsignedByte" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q1:char" />
+        <xs:element minOccurs="0" name="dFechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dFechaVence" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filtrarMemebresiasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filtrarMemebresiasResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarMemebresias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+        <xs:element minOccurs="0" name="bIdTipoMembresia" type="xs:unsignedByte" />
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q2:char" />
+        <xs:element minOccurs="0" name="dFechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dFechaVence" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="insertarMemebresiasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="insertarMemebresiasResult" type="xs:int" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarMemebresias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIdMembresia" type="xs:int" />
+        <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
+        <xs:element minOccurs="0" name="bIdTipoMembresia" type="xs:unsignedByte" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q3:char" />
+        <xs:element minOccurs="0" name="dFechaInicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dFechaVence" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarMemebresiasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="actualizarMemebresiasResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarMemebresias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iIdMembresia" type="xs:int" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eliminarMemebresiasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eliminarMemebresiasResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -51,7 +167,7 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q1:char" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q4:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -82,7 +198,7 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q2:char" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q5:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -101,7 +217,7 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q3:char" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q6:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -299,7 +415,6 @@
   <xs:element name="insertarCorreos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
@@ -378,7 +493,7 @@
   <xs:element name="filtrarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q4:char" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -407,7 +522,7 @@
   <xs:element name="insertarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q5:char" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -416,7 +531,7 @@
   <xs:element name="insertarEstadoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q6:char" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q9:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -424,7 +539,7 @@
   <xs:element name="actualizarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q10:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -441,7 +556,7 @@
   <xs:element name="eliminarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q11:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -838,7 +953,6 @@
   <xs:element name="insertarTipoServicio">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Costo" type="xs:float" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
@@ -848,7 +962,7 @@
   <xs:element name="insertarTipoServicioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoServicioResult" type="q9:char" />
+        <xs:element minOccurs="0" name="insertarTipoServicioResult" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -957,7 +1071,7 @@
   <xs:element name="insertarTipoMembresiaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q10:char" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q12:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1064,7 +1178,7 @@
   <xs:element name="insertarTipoClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q11:char" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q13:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1172,7 +1286,7 @@
   <xs:element name="insertarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q12:char" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q14:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1279,7 +1393,7 @@
   <xs:element name="insertarTelefonosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q13:char" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q15:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1376,7 +1490,6 @@
   <xs:element name="insertarRol">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="bIdRol" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sDescripcion" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -1385,7 +1498,7 @@
   <xs:element name="insertarRolResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarRolResult" type="q14:char" />
+        <xs:element minOccurs="0" name="insertarRolResult" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

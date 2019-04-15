@@ -19,8 +19,9 @@ namespace Club_Campestre
         {
             if (!IsPostBack)
             {
-                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Estado"];
+                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
                 string tipo = Session["tipo"].ToString();
+                this.txtRoles.Disabled = true;
                 if (rol != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Roles";
@@ -30,6 +31,7 @@ namespace Club_Campestre
                 else
                 {
                     this.mantenimiento.InnerHtml = "Nuevos Roles";
+                    this.txtRoles.Visible = false; // Este campo es Identity se debe de ocultar al ser nuevo
                     this.txtRoles.Value = string.Empty;
                     this.txtdescripcion.Value = string.Empty;
                 }
@@ -40,7 +42,10 @@ namespace Club_Campestre
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-            Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
+            if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+            {
+                Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
+            }
             Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
             string tipo = Session["tipo"].ToString();
             if (tipo == "E")

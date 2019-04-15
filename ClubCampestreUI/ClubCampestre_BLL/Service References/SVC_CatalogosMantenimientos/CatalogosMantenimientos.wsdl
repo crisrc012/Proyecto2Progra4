@@ -13,6 +13,36 @@
   <wsdl:message name="ICatalogosMantenimientos_eliminarRol_OutputMessage">
     <wsdl:part name="parameters" element="tns:eliminarRolResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarMemebresias_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarMemebresias" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_listarMemebresias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarMemebresiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarMemebresias_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarMemebresias" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarMemebresias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarMemebresiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarMemebresias_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertarMemebresias" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_insertarMemebresias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertarMemebresiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarMemebresias_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMemebresias" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_actualizarMemebresias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMemebresiasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarMemebresias_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMemebresias" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_eliminarMemebresias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarMemebresiasResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_listarBeneficiarios_InputMessage">
     <wsdl:part name="parameters" element="tns:listarBeneficiarios" />
   </wsdl:message>
@@ -396,6 +426,26 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarRol" message="tns:ICatalogosMantenimientos_eliminarRol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarRolResponse" message="tns:ICatalogosMantenimientos_eliminarRol_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="listarMemebresias">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarMemebresias" message="tns:ICatalogosMantenimientos_listarMemebresias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarMemebresiasResponse" message="tns:ICatalogosMantenimientos_listarMemebresias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="filtrarMemebresias">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresias" message="tns:ICatalogosMantenimientos_filtrarMemebresias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresiasResponse" message="tns:ICatalogosMantenimientos_filtrarMemebresias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarMemebresias">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresias" message="tns:ICatalogosMantenimientos_insertarMemebresias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresiasResponse" message="tns:ICatalogosMantenimientos_insertarMemebresias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMemebresias">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresias" message="tns:ICatalogosMantenimientos_actualizarMemebresias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresiasResponse" message="tns:ICatalogosMantenimientos_actualizarMemebresias_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMemebresias">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresias" message="tns:ICatalogosMantenimientos_eliminarMemebresias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresiasResponse" message="tns:ICatalogosMantenimientos_eliminarMemebresias_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="listarBeneficiarios">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" message="tns:ICatalogosMantenimientos_listarBeneficiarios_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_listarBeneficiarios_OutputMessage" />
@@ -653,6 +703,51 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="eliminarRol">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarMemebresias">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarMemebresias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filtrarMemebresias">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarMemebresias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarMemebresias">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarMemebresias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMemebresias">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/actualizarMemebresias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarMemebresias">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/eliminarMemebresias" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

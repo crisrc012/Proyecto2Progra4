@@ -9,12 +9,15 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(Byte bIdRol, string sDescripcion)
+        private DataTable inicializarDT(byte bIdRol, string sDescripcion)
         {
             DataTable dt = new DataTable("Persona");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdRol", bIdRol);
+            if (bIdRol != byte.MinValue)
+            {
+                dt.Rows.Add("@IdRol", bIdRol);
+            }
             if (sDescripcion != string.Empty)
             {
                 dt.Rows.Add("@Descripcion", sDescripcion);
@@ -26,27 +29,27 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Rol]", ref sMsj_error);
         }
 
-        public DataTable Filtrar(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public DataTable Filtrar(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(bIdRol, sDescripcion), "[dbo].[sp_search_TB_Rol]", ref sMsj_error).Copy();
         }
 
 
-        public char Insertar(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public byte Insertar(string sDescripcion, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(bIdRol,sDescripcion), "[dbo].[sp_insert_TB_Rol]", ref sMsj_error));
+            return Convert.ToByte(Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(byte.MinValue, sDescripcion), "[dbo].[sp_insert_TB_Rol]", ref sMsj_error));
         }
 
 
-        public bool Actualizar(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public bool Actualizar(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {
             return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(bIdRol, sDescripcion), "[dbo].[sp_update_TB_Rol]", ref sMsj_error);
         }
 
 
-        public bool Eliminar(Byte bIdRol, string sDescripcion, ref string sMsj_error)
+        public bool Eliminar(byte bIdRol, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(bIdRol, sDescripcion), "[dbo].[sp_delete_TB_Rol]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(bIdRol, string.Empty), "[dbo].[sp_delete_TB_Rol]", ref sMsj_error);
         }
 
     }

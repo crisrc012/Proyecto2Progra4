@@ -4,14 +4,59 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using ClubCampestre_DAL.CatalogosMantenimientos;
+using ClubCampestre_BLL.CatalogosMantenimientos;
 
 namespace Club_Campestre
 {
     public partial class Membresias : System.Web.UI.Page
     {
+
+        #region Variables Globales
+        Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
+        Cls_Membresias_DAL Obj_Membresias_DAL;
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                this.BindGrid();
+            }
+        }
 
+        private void BindGrid()
+        {
+            //Se instancia objeto
+            Obj_Membresias_DAL = new Cls_Membresias_DAL();
+
+            if (this.txtFiltrarMembresias.Text == string.Empty)//listar
+            {
+                //llamado metodo listar estados
+                Obj_Membresias_BLL.Listar(ref Obj_Membresias_DAL);
+
+            }
+            else
+            {
+                Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(this.txtFiltrarMembresias.Text);
+                //llamado metodo listar estados
+                Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
+            }
+
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
+            {
+                //Carga de Grid con DataSet instanciado en DAL
+                this.MembresiasGridView.DataSource = Obj_Membresias_DAL.DS.Tables[0];
+                this.MembresiasGridView.DataBind();
+            }
+            else
+            {
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
+                this.BindGrid();
+            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
