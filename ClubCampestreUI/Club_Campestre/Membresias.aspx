@@ -16,6 +16,7 @@
             <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
             <asp:TextBox ID="txtFiltrarMembresias" runat="server" ForeColor="Blue" onkeypress="return NoEnterBuscar(event)"></asp:TextBox>
             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
+            <label id="errorMensaje" runat="server"></label>
         </div>
         <br />
         <div class="pure-controls">

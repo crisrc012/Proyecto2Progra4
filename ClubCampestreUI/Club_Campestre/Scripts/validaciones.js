@@ -1,4 +1,13 @@
-﻿function NoEnterBuscar(e) {
+﻿function AgregarBene() {
+    var modal = document.getElementById('AddBene');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
+function NoEnterBuscar(e) {
     if((e.keyCode == 13) || (e.which  == 13))
         return false
 }
