@@ -14,7 +14,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Usuario");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@Usuario", IdUsuario);
+            if (IdUsuario != string.Empty)
+            {
+                dt.Rows.Add("@Usuario", IdUsuario);
+            }
             if (IdPersona != string.Empty)
             {
                 dt.Rows.Add("@IdPersona", IdPersona);
