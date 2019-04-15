@@ -46,5 +46,42 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoMembresia_Dal.SMsjError = ex.Message.ToString();
             }
         }
+
+        public void Actualizar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
+                // Se mandan a actualizar los datos
+                string sMsjError = string.Empty;
+                Obj_TipoMembresia_Client.actualizarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
+                Obj_TipoMembresia_Client.Close();
+                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
+            }
+            catch (Exception ex)
+            {
+                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
+            }
+        }
+
+        public void Insertar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
+                // Se mandan a insertar los datos
+                string sMsjError = string.Empty;
+                Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
+                Obj_TipoMembresia_Client.Close();
+                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
+            }
+            catch (Exception ex)
+            {
+                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
+            }
+        }
+
     }
 }

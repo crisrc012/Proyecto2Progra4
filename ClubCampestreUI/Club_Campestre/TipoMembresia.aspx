@@ -28,7 +28,7 @@
                     <asp:BoundField DataField="costo" HeaderText="Costo" />
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
+                            <asp:CheckBox  ID="chkRow" runat="server" ItemStyle-Width="5" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
