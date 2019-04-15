@@ -36,9 +36,9 @@ go
 create procedure [dbo].[sp_select_V_Membresia]
 as
 SELECT [IdMembresia]
-      ,[Identificación]
+      ,[Identificacion]
       ,[Nombre]
-      ,[Membresía]
+      ,[Membresia]
       ,[Costo]
       ,[FechaInicio]
       ,[FechaVencimiento]

@@ -38,10 +38,10 @@ GO
 -- TB_Membresias - V_Clientes - TB_TipoMembresia - TB_Estado
 CREATE VIEW V_Membresias AS
 SELECT [IdMembresia]
-      ,[dbo].[V_Clientes].[IdPersona] AS 'Identificación'
+      ,[dbo].[V_Clientes].[IdPersona] AS Identificacion
 	  ,[dbo].[V_Clientes].[Nombre]
-      ,[dbo].[TB_TipoMembresia].[Descripcion] AS 'Membresía'
-	  ,[dbo].[TB_TipoMembresia].[costo] AS 'Costo'
+      ,[dbo].[TB_TipoMembresia].[Descripcion] AS Membresia
+	  ,[dbo].[TB_TipoMembresia].[costo] AS Costo
       ,[dbo].[TB_Estado].[Estado]
       ,[FechaInicio]
       ,[FechaVencimiento]
