@@ -72,6 +72,7 @@
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
     <Content Include="Mant_Estados.aspx" />
+    <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Tipo_Cliente.aspx" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="Mant_Estados.aspx.designer.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Membresias.aspx.cs">
+      <DependentUpon>Mant_Membresias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Membresias.aspx.designer.cs">
+      <DependentUpon>Mant_Membresias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Persona.aspx.cs">
       <DependentUpon>Mant_Persona.aspx</DependentUpon>
