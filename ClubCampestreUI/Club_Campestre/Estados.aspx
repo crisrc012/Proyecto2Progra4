@@ -21,7 +21,7 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="EstadoGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+            <asp:GridView class="pure-table" ID="EstadoGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="304px">
                 <Columns>
                     <asp:BoundField DataField="IdEstado" HeaderText="Estado" />
                     <asp:BoundField DataField="Estado" HeaderText="Descripcion" />
@@ -35,7 +35,7 @@
             <br />
         </div>
     </div> 
-
+        <a class="fa fa-lg fa-folder" href="Index.aspx" style="color:black">---Regresar</a>
     </div>
        
 </asp:Content>
