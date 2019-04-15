@@ -22,7 +22,7 @@
 
         .main {
             margin: auto;
-            width: 90%;
+            width: 85%;
         }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
