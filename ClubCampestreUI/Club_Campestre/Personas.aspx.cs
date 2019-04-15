@@ -18,28 +18,7 @@ namespace Club_Campestre
             CargarRoles();
         }
 
-        protected void btnGuardar_Click1(object sender, EventArgs e)
-        {
-            //Prueba Will para Milton 
-        }
-
-        protected void btnRemover_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-  
-
-        protected void btnGuardar2_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnRemover2_Click1(object sender, EventArgs e)
-        {
-
-        }
-
+ 
 
 
         protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,7 +35,7 @@ namespace Club_Campestre
 
         protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.DropDownRol.Text =this.DropDownRol.SelectedValue;
+            //this.DropDownRol.Text =this.DropDownRol.SelectedValue;
         }
 
         
@@ -76,6 +55,26 @@ namespace Club_Campestre
             DropDownRol.DataTextField = "Descripcion";
             DropDownRol.DataValueField = "IdRol";
             DropDownRol.DataBind();
+        }
+
+        protected void btnAgregar2_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRemover2_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAgregar_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnRemover_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }

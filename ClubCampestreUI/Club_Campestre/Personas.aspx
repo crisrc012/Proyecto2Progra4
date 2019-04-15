@@ -34,9 +34,9 @@
                           <label for="telefono"> Telefono: </label>
               
               <input runat="server" type="text" id="txtTelefono" style="color: #0090ff; width: 284px;" />
-              <asp:Button class="pure-button pure-button-primary" ID="btnagregar2" runat="server" Text="+" onserverclick="btnAgregar2_Click" OnClick="btnGuardar2_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="btnagregar2" runat="server" Text="+"  OnClick="btnAgregar2_Click1" />
               &nbsp;
-              <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-" onserverclick="btnRemover2_Click" OnClick="btnRemover2_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
               <div class="pure-controls">
                     <asp:GridView class="pure-table" ID="GridView1" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
                 <Columns>
@@ -54,9 +54,9 @@
                <label for="correo"> Correo: </label>
               
               <input runat="server" type="email" id="email1" style="color: #0090ff; width: 284px;" />
-              <asp:Button class="pure-button pure-button-primary" ID="Button1" runat="server" Text="+" onserverclick="btnAgregar_Click" OnClick="btnGuardar_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="Button1" runat="server" Text="+"  OnClick="btnAgregar_Click1" />
               &nbsp;
-              <asp:Button class="pure-button pure-button-primary" ID="Button2" runat="server" Text="-" onserverclick="btnRemover_Click" OnClick="btnRemover_Click1" />
+              <asp:Button class="pure-button pure-button-primary" ID="Button2" runat="server" Text="-"  OnClick="btnRemover_Click1" />
           
                     <div class="pure-controls">
                     <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged">
