@@ -25,8 +25,8 @@
 
           <div class="pure-control-group">
             <label for="descripcion"> Tipo de Cliente: </label>
-              <input runat="server" type="text" id="txttipocliente" style="color: #0090ff" class="auto-style1" />
-          </div>
+             <asp:DropDownList ID="DropDownTClientes" runat="server" OnSelectedIndexChanged="DropDownListTCliente_SelectedIndexChanged"  ForeColor="Blue" Width="180px" Height="16px"> </asp:DropDownList>
+              </div>
 
           <div class="pure-control-group">
             <label for="descripcion"> Id Cliente: </label>
