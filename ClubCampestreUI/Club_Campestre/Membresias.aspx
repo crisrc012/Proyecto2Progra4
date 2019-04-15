@@ -23,9 +23,9 @@
             <asp:GridView class="pure-table" ID="MembresiasGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
                 <Columns>
                     <asp:BoundField DataField="IdMembresia" HeaderText="Membresia"/>
-                    <asp:BoundField DataField="Identificación" HeaderText="Cedula"/>
+                    <asp:BoundField DataField="Identificacion" HeaderText="Cedula"/>
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre"/>
-                    <asp:BoundField DataField="Membresía" HeaderText="Tipo Membresia"/>
+                    <asp:BoundField DataField="Membresia" HeaderText="Tipo Membresia"/>
                     <asp:BoundField DataField="Costo" HeaderText="Costo"/>
                     <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio"  />
                     <asp:BoundField DataField="FechaVencimiento" HeaderText="Fecha Vencimiento"  />
