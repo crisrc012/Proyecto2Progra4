@@ -37,7 +37,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
-        short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError);
+        string insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
         bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
@@ -144,7 +144,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
-        char insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
         bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]

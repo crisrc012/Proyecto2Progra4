@@ -71,7 +71,7 @@ namespace WCF.Contracts
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
             return Obj_Correos_BLL.Filtrar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError)
+        public string insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
             return Obj_Correos_BLL.Insertar(sIdPersona, sCorreo, ref sMsjError);
@@ -325,7 +325,7 @@ namespace WCF.Contracts
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Filtrar(Telefono, IdPersona, ref sMsj_error);
         }
-        public char insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        public string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Insertar(Telefono, IdPersona, ref sMsj_error);
