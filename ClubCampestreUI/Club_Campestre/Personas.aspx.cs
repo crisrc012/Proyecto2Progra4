@@ -265,7 +265,7 @@ namespace Club_Campestre
 
             //Telefono ingresa 
 
-          //  if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
+           if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
             {
 
                 foreach (GridViewRow row in GridViewTelefono.Rows)
