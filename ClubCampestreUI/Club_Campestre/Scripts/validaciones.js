@@ -1,10 +1,54 @@
-﻿function AgregarBene() {
+﻿function AddRow() {
+    var grd = document.getElementById("<%=BeneficiariosGridView.ClientID %>");
+
+    var tbody = gridView.getElementsByTagName("tbody")[0];
+
+    var tbod = grd.rows[0].parentNode;
+    var newRow = grd.rows[grd.rows.length - 1].cloneNode(true);
+
+    var txtName = document.getElementById("<%=bencel.ClientID %>");
+    SetValue(newRow, 0, "IdPersona", txtName);
+
+    tbod.appendChild(newRow);
+
     var modal = document.getElementById('AddBene');
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    modal.style.display = "none";
+
+    return false;
+
+};
+
+function SetValue(row, index, name, textbox) {
+    //Reference the Cell and set the value.
+    row.cells[index].innerHTML = textbox.value;
+
+    //Create and add a Hidden Field to send value to server.
+    var input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = textbox.value;
+    row.cells[index].appendChild(input);
+
+    //Clear the TextBox.
+    textbox.value = "";
+}
+
+function delrow(rowindex) {
+
+    var gridID = document.getElementById("<%=InjGrid.ClientID %>");
+
+    gridID.deleteRow(rowindex + 1);
+
+    document.getElementById("<%=txthidnoofrows.ClientID %>").value = gridID.rows.length - 1;
+
+    return false;
+
+}
+
+
+function AgregarBene() {
+    var modal = document.getElementById('AddBene');
+            modal.style.display = "block";   
 }
 
 function NoEnterBuscar(e) {
