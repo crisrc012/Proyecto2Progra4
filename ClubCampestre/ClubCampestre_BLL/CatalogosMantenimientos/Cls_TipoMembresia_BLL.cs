@@ -14,7 +14,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("TipoMembresia");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdTipoMembresia", IdTipoMembresia);
+            if (IdTipoMembresia != byte.MinValue)
+            {
+                dt.Rows.Add("@IdTipoMembresia", IdTipoMembresia);
+            }
             if (Descripcion != string.Empty)
             {
                 dt.Rows.Add("@Descripcion", Descripcion);
@@ -36,9 +39,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoMembresia, Descripcion, Costo), "[dbo].[sp_search_TB_TipoMembresia]", ref sMsj_error).Copy();
         }
 
-        public char Insertar( string Descripcion, float Costo, ref string sMsj_error)
+        public byte Insertar(string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(byte.MinValue, Descripcion, Costo), "[dbo].[sp_insert_TB_TipoMembresia]", ref sMsj_error));
+            return Convert.ToByte(Obj_BD_BLL.ExecuteScalar(inicializarDT(byte.MinValue, Descripcion, Costo), "[dbo].[sp_insert_TB_TipoMembresia]", ref sMsj_error));
         }
 
         public bool Actualizar(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)

@@ -2980,7 +2980,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoMembresiaResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarTipoMembresiaResult;
+        public byte insertarTipoMembresiaResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -2988,7 +2988,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarTipoMembresiaResponse() {
         }
         
-        public insertarTipoMembresiaResponse(char insertarTipoMembresiaResult, string sMsj_error) {
+        public insertarTipoMembresiaResponse(byte insertarTipoMembresiaResult, string sMsj_error) {
             this.insertarTipoMembresiaResult = insertarTipoMembresiaResult;
             this.sMsj_error = sMsj_error;
         }
@@ -4934,7 +4934,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTipoMembresia(request);
         }
         
-        public char insertarTipoMembresia(string Descripcion, float Costo, ref string sMsj_error) {
+        public byte insertarTipoMembresia(string Descripcion, float Costo, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoMembresiaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoMembresiaRequest();
             inValue.Descripcion = Descripcion;
             inValue.Costo = Costo;
