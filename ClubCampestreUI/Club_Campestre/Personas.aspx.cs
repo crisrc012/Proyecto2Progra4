@@ -265,7 +265,7 @@ namespace Club_Campestre
 
             //Telefono ingresa 
 
-            if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
+          //  if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
             {
 
                 foreach (GridViewRow row in GridViewTelefono.Rows)
@@ -297,7 +297,7 @@ namespace Club_Campestre
                     {
 
                         {
-                            Obj_Correo_DAL.SIdPersona = this.txtemail.Value.ToString().Trim();
+                            Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
 
                             Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  estados insertar
