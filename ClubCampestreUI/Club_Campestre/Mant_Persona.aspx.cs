@@ -33,13 +33,7 @@ namespace Club_Campestre
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-
-
-        //Metodo que listat 
+        //Metodo que listar
         private void BindGrid()
         {
             //Se instancia objeto

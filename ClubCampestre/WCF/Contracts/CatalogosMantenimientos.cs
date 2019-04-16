@@ -174,25 +174,26 @@ namespace WCF.Contracts
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Listar(ref sMsjError);
         }
-
         public DataTable filtrarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Filtrar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
-
-        public short insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
+        public DataTable filtrarPersonaV(string sIdPersona, string sNombre, string sDireccion, string sRol, ref string sMsjError)
+        {
+            Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
+            return Obj_Persona_BLL.Filtrar(sIdPersona, sNombre, sDireccion, sRol, ref sMsjError);
+        }
+        public bool insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Insertar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
-
         public bool actualizarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             return Obj_Persona_BLL.Actualizar(sIdPersona, sNombre, sDireccion, sIdRol, ref sMsjError);
         }
-
         public bool eliminarPersona(string sIdPersona, ref string sMsjError)
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
@@ -228,9 +229,7 @@ namespace WCF.Contracts
             return Obj_TipoServicio_BLL.Eliminar(IdTipoServicio, ref sMsj_error);
         }
         #endregion
-
         #region TipoMembresia
-        
         public DataTable listarTipoMembresia(ref string sMsj_error)
         {
             Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
@@ -257,7 +256,6 @@ namespace WCF.Contracts
             return Obj_TipoMebresia_BLL.Eliminar(IdTipoMembresia, ref sMsj_error);
         }
         #endregion
-
         #region TipoCliente
 
         public DataTable listarTipoCliente(ref string sMsj_error)

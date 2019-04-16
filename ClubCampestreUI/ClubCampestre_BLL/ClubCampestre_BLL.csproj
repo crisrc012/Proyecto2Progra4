@@ -205,6 +205,9 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarPersonaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarPersonaVResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarRolResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
