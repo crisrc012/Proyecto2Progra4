@@ -14,7 +14,7 @@ go
 -- Filtrar
 create procedure [dbo].[sp_search_V_Persona]
 (
-	@IdPersona varchar (20) ,@Nombre varchar (50) ,@Direccion varchar (150) ,@Descripcion varchar (15)
+	@IdPersona varchar (20) ,@Nombre varchar (50) ,@Direccion varchar (150) ,@Rol varchar (15)
 )
 as
 SELECT [IdPersona] AS Identificacion
@@ -27,7 +27,7 @@ SELECT [IdPersona] AS Identificacion
   WHERE [IdPersona] LIKE '%' + ISNULL(@IdPersona, [IdPersona]) + '%'
 AND [Nombre] LIKE '%' + ISNULL(@Nombre, [Nombre]) + '%'
 AND [Direccion] LIKE '%' + ISNULL(@Direccion, [Direccion]) + '%'
-AND [Descripcion] LIKE '%' + ISNULL(@Descripcion, [Descripcion]) + '%'
+AND [Descripcion] LIKE '%' + ISNULL(@Rol, [Descripcion]) + '%'
 go
 
 --V_Clientes
