@@ -36,7 +36,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdPersona, sNombre, sDireccion, sIdRol), "[dbo].[sp_search_TB_Persona]", ref sMsjError);
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdPersona, sNombre, sDireccion, sIdRol), "[dbo].[sp_search_V_Persona]", ref sMsjError);
         }
 
         public short Insertar(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
