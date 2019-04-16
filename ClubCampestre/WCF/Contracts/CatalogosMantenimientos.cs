@@ -241,7 +241,7 @@ namespace WCF.Contracts
             Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
             return Obj_TipoMebresia_BLL.Filtrar(IdTipoMembresia, Descripcion, Costo, ref sMsj_error);
         }
-        public char insertarTipoMembresia(string Descripcion, float Costo, ref string sMsj_error)
+        public byte insertarTipoMembresia(string Descripcion, float Costo, ref string sMsj_error)
         {
             Cls_TipoMembresia_BLL Obj_TipoMebresia_BLL = new Cls_TipoMembresia_BLL();
             return Obj_TipoMebresia_BLL.Insertar( Descripcion, Costo, ref sMsj_error);

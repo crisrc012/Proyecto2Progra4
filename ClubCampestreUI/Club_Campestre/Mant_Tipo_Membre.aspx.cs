@@ -24,6 +24,7 @@ namespace Club_Campestre
                 if (TipoMembresia != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion Tipo de Membresias";
+                    this.txtTipoMembre.Disabled = true;
                     this.txtTipoMembre.Value = TipoMembresia.BIdTipoMembresia.ToString();
                     this.txtdescripcion.Value = TipoMembresia.SPKDescripcion;
                     this.txtcosto.Value = TipoMembresia.Fcosto.ToString();
@@ -31,6 +32,8 @@ namespace Club_Campestre
                 else
                 {
                     this.mantenimiento.InnerHtml = "Nuevos tipos de Membresias";
+                    this.txtTipoMembre.Disabled = true;
+                    this.txtTipoMembre.Visible = false;
                     this.txtTipoMembre.Value = string.Empty;
                     this.txtdescripcion.Value = string.Empty;
                     this.txtcosto.Value = string.Empty;
@@ -47,9 +50,8 @@ namespace Club_Campestre
         {
             CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-           
             Obj_TipoMembresia_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-            Obj_TipoMembresia_DAL.Fcosto = Convert.ToInt64(txtcosto.Value);
+            Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(txtcosto.Value);
             string tipo = Session["tipo"].ToString();
             if (tipo == "E")
             {
@@ -59,14 +61,9 @@ namespace Club_Campestre
             }
             else
             {
-
                 Obj_TipoMembresia_BLL.Insertar(ref Obj_TipoMembresia_DAL);
                 Server.Transfer("TipoMembresia.aspx");
             }
         }
-        
-       
-
-      
     }
 }
