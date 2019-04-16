@@ -15,8 +15,10 @@ namespace Club_Campestre
     public partial class Mant_Membresias : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {       
-                 
+        {
+            CargarTipoMembresias();
+
+
         }
         protected void CargaBeneficiarios(object sender, EventArgs e)
         {
@@ -56,7 +58,41 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            returnaNombre(this.txtCedula.Value);
+            this.txtNombre.Value = returnaNombre(this.txtCedula.Value);
+            fechavence();
+            //guardarmembresia
+            //guardarbene
         }
+
+        private void CargarTipoMembresias()
+        {
+            Cls_TipoMembresia_DAL Obj_Tipo_DAL = new Cls_TipoMembresia_DAL();
+            CLS_TipoMembresia_BLL Obj_Tipo_BLL = new CLS_TipoMembresia_BLL();
+            Obj_Tipo_BLL.ListaTipoMembresia(ref Obj_Tipo_DAL);
+
+            //DataRow row = Obj_Rol_DAL.DS.Tables[0].NewRow();
+            //row["IdRol"] = 0;
+            //row["Descripcion"] = "-- Seleccione --";
+            //Obj_Rol_DAL.DS.Tables[0].Rows.Add(row);
+
+            DropDownTipoCliente.DataSource = Obj_Tipo_DAL.DS.Tables[0];
+            DropDownTipoCliente.DataTextField = "Descripcion";
+            DropDownTipoCliente.DataValueField = "IdTipoMembresia";
+            DropDownTipoCliente.DataBind();
+        }
+
+        private void fechavence()
+        {
+            DateTime fechainicio;
+            fechainicio = Convert.ToDateTime(FechaInicio.Value);
+            FechaVence.Value = fechainicio.AddYears(1).ToString();
+        }
+
+        private void InsertarBeneficiarios()
+        {
+            Cls_Beneficiarios_DAL Obj_Beneficiario = new Cls_Beneficiarios_DAL();
+            
+        }
+
     }
 }

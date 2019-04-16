@@ -1,30 +1,6 @@
-﻿function AgregarBene() {
-    var modal = document.getElementById('AddBene');
-            modal.style.display = "block";   
-}
-
-function NoEnterBuscar(e) {
+﻿function NoEnterBuscar(e) {
     if((e.keyCode == 13) || (e.which  == 13))
         return false
-}
-
-function myFunction() {
-    var x = document.getElementById("txtFiltrar").value;
-    document.getElementById("errorMensaje").innerHTML = "You wrote: " + x;
-}
-
-
-function Alert() {
-    var mjs = document.getElementById("errorMensaje").value;
-    if (caja_texto.trim() === "") {       
-        return false;
-    }
-    else {
-        alert(mjs);
-        return true;
-    }
-
-
 }
 
 function SoloNumeros(e) {

@@ -22,17 +22,17 @@
                         <label for="DropDownTipoCliente">Tipo Membresia:</label>
                         <asp:DropDownList ID="DropDownTipoCliente" runat="server" Width="178px" ForeColor="Blue"></asp:DropDownList>
                         <label for="IDCliente">ID Cliente:</label>
-                        <input runat="server" type="text" id="IDCliente" value="" style="color: blue" />
+                        <input runat="server" type="text" id="IDCliente" value="Socio" style="color: blue" />
                     </div>
 
                     <div class="pure-control-group">
                         <label for="FechaInicio">Fecha Inicio:</label>
-                        <input id="FechaInicio" type="date" style="color: blue">
+                        <input id="FechaInicio" type="date" style="color: blue" runat="server">
                         
                     </div>
                     <div class="pure-control-group">
                         <label for="FechaVence">Fecha Vencimiento:</label>
-                        <input id="FechaVence" type="date" style="color: blue" disabled>
+                        <input id="FechaVence" type="date" style="color: blue" disabled runat="server">
                     </div>
                     <section>
                         <div class="pure-control-group">
