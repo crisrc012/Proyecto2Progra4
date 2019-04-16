@@ -58,6 +58,33 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlInputText IDCliente;
         
         /// <summary>
+        /// FechaInicio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl FechaInicio;
+        
+        /// <summary>
+        /// FechaVence control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl FechaVence;
+        
+        /// <summary>
+        /// txtbenefiario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbenefiario;
+        
+        /// <summary>
         /// BeneficiariosGridView control.
         /// </summary>
         /// <remarks>
@@ -65,15 +92,6 @@ namespace Club_Campestre {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView BeneficiariosGridView;
-        
-        /// <summary>
-        /// bencel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText bencel;
         
         /// <summary>
         /// btnGuardar control.

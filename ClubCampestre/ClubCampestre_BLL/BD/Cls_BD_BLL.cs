@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 
 namespace ClubCampestre_BLL.BD
 {
-
     public class Cls_BD_BLL
     {
         #region Miembros privados

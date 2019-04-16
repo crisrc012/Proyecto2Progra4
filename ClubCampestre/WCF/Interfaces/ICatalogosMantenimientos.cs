@@ -84,7 +84,9 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
-        short insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
+        DataTable filtrarPersonaV(string sIdPersona, string sNombre, string sDireccion, string sRol, ref string sMsjError);
+        [OperationContract]
+        bool insertarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
         bool actualizarPersona(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError);
         [OperationContract]
@@ -108,7 +110,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoMembresia( string Descripcion, float Costo, ref string sMsj_error);
+        byte insertarTipoMembresia( string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoMembresia(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error);
         [OperationContract]

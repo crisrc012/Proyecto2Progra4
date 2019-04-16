@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="actualizarRol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bIdRol" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="sDescripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="actualizarRolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="actualizarRolResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="eliminarRol">
     <xs:complexType>
       <xs:sequence>
@@ -950,6 +967,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="filtrarPersonaV">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sNombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sDireccion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sRol" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filtrarPersonaVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filtrarPersonaVResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="insertarPersona">
     <xs:complexType>
       <xs:sequence>
@@ -964,7 +1012,7 @@
   <xs:element name="insertarPersonaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="insertarPersonaResult" type="xs:short" />
+        <xs:element minOccurs="0" name="insertarPersonaResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1181,7 +1229,7 @@
   <xs:element name="insertarTipoMembresiaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoMembresiaResult" type="q15:char" />
+        <xs:element minOccurs="0" name="insertarTipoMembresiaResult" type="xs:unsignedByte" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1288,7 +1336,7 @@
   <xs:element name="insertarTipoClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q16:char" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTipoClienteResult" type="q15:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1396,7 +1444,7 @@
   <xs:element name="insertarUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q17:char" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarUsuarioResult" type="q16:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1503,7 +1551,7 @@
   <xs:element name="insertarTelefonosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q18:char" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarTelefonosResult" type="q17:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1609,23 +1657,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="insertarRolResult" type="xs:unsignedByte" />
-        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="actualizarRol">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="bIdRol" type="xs:unsignedByte" />
-        <xs:element minOccurs="0" name="sDescripcion" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="actualizarRolResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="actualizarRolResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
