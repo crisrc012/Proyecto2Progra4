@@ -56,9 +56,9 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             //Secion tipo Editar
-            
+            Session["tipo"] = "E";
             //Recorre Grid buscando chk 
-           foreach (GridViewRow row in TipoClienteGridView.Rows)
+            foreach (GridViewRow row in TipoClienteGridView.Rows)
            
             {
                 //busca el la fila
