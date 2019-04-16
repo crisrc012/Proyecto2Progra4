@@ -36,10 +36,10 @@ namespace Club_Campestre
         {
             CargarRoles();
             //Revisar con Marco el como vamos a manejar el editar usuario 
-            
+
         }
 
- 
+
 
 
         protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,20 +59,20 @@ namespace Club_Campestre
             //this.DropDownRol.Text =this.DropDownRol.SelectedValue;
         }
 
-        
+
 
         private void CargarRoles()
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
             Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
             Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
-                       
+
             //DataRow row = Obj_Rol_DAL.DS.Tables[0].NewRow();
             //row["IdRol"] = 0;
             //row["Descripcion"] = "-- Seleccione --";
             //Obj_Rol_DAL.DS.Tables[0].Rows.Add(row);
 
-            DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];          
+            DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];
             DropDownRol.DataTextField = "Descripcion";
             DropDownRol.DataValueField = "IdRol";
             DropDownRol.DataBind();
@@ -81,13 +81,28 @@ namespace Club_Campestre
         //Boton de Telefono 
         protected void btnAgregar2_Click1(object sender, EventArgs e)
         {
-            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-            Cls_Telefonos_DAL.STelefono = this.txtTelefono.Value.ToString().Trim();
-            GridViewTelefono.DataSource = null;
+
+
+
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("telefono");
+
+            if (ViewState["tablatelefono"] == null)
+            {
+                ViewState["tablatelefono"] = tabla;
+            }
+            else
+            {
+                tabla = (DataTable)ViewState["tablatelefono"];
+            }
+
+          
+            tabla.Rows.Add(this.txtTelefono.Value.ToString().Trim());
+
+            GridViewTelefono.DataSource = tabla;
             GridViewTelefono.DataBind();
-            ListaTelefono.Add(Cls_Telefonos_DAL);
-            GridViewTelefono.DataSource = ListaTelefono;
-            GridViewTelefono.DataBind();
+
+            ViewState["tablatelefono"] = tabla;
 
 
 
@@ -96,9 +111,47 @@ namespace Club_Campestre
 
         protected void btnRemover2_Click1(object sender, EventArgs e)
         {
-            GridViewTelefono.DataSource = null;
-            GridViewTelefono.DataBind();
+            //GridViewTelefono.DataSource = null;
+            //GridViewTelefono.DataBind();
 
+            //foreach (GridViewRow row in GridViewTelefono.Rows)
+            //{
+            //    //busca el la fila
+            //    if (row.RowType == DataControlRowType.DataRow)
+            //    {
+            //        //si esta checkeado instancia las propiedades del objeto
+            //        CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+            //        if (chkRow.Checked)
+            //        {
+            //            Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
+            //            Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
+            //            ListaTelefono.Remove(Cls_Telefonos_DAL);
+
+            //            //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
+            //        }
+
+            //    }
+            //}
+
+
+
+            //GridViewTelefono.DataSource = ListaTelefono;
+            //GridViewTelefono.DataBind();
+
+
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("telefono");
+
+            if (ViewState["tablatelefono"] == null)
+            {
+                ViewState["tablatelefono"] = tabla;
+            }
+            else
+            {
+                tabla = (DataTable)ViewState["tablatelefono"];
+            }
+
+            List<int> quitar = new List<int>();
             foreach (GridViewRow row in GridViewTelefono.Rows)
             {
                 //busca el la fila
@@ -108,39 +161,65 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
-                        Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
-                        ListaTelefono.Remove(Cls_Telefonos_DAL);
-
-                        //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
+                        quitar.Add(row.RowIndex);
                     }
 
                 }
             }
 
+            for (int i = quitar.Count - 1; i >= 0; i--)
+            {
+                tabla.Rows.RemoveAt(quitar[i]);
+            }
 
 
-            GridViewTelefono.DataSource = ListaTelefono;
+
+
+            GridViewTelefono.DataSource = tabla;
             GridViewTelefono.DataBind();
+
+            ViewState["tablatelefono"] = tabla;
 
         }
 
         protected void btnAgregar_Click1(object sender, EventArgs e)
         {
-            Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-            Obj_Correo_DAL.SCorreo = this.txtemail.Value.ToString().Trim();
-            CorreoPersonaGridView.DataSource = null;
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("correo");
+
+            if (ViewState["tablaCorreo"] == null)
+            {
+                ViewState["tablaCorreo"] = tabla;
+            }
+            else
+            {
+                tabla = (DataTable)ViewState["tablaCorreo"];
+            }
+
+            tabla.Rows.Add(this.txtemail.Value.ToString().Trim());
+
+            CorreoPersonaGridView.DataSource = tabla;
             CorreoPersonaGridView.DataBind();
-            ListaCorreo.Add(Obj_Correo_DAL);
-            CorreoPersonaGridView.DataSource = ListaCorreo;
-            CorreoPersonaGridView.DataBind();
+
+            ViewState["tablaCorreo"] = tabla;
         }
 
         protected void btnRemover_Click1(object sender, EventArgs e)
         {
-            CorreoPersonaGridView.DataSource = null;
-            CorreoPersonaGridView.DataBind();
 
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("correo");
+
+            if (ViewState["tablaCorreo"] == null)
+            {
+                ViewState["tablaCorreo"] = tabla;
+            }
+            else
+            {
+                tabla = (DataTable)ViewState["tablaCorreo"];
+            }
+
+            List<int> quitar = new List<int>();
             foreach (GridViewRow row in CorreoPersonaGridView.Rows)
             {
                 //busca el la fila
@@ -150,20 +229,25 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Correo_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Correo_DAL.SCorreo = row.Cells[1].Text;
-                        ListaCorreo.Remove(Obj_Correo_DAL);
-
-                        //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
+                        quitar.Add(row.RowIndex);
                     }
 
                 }
             }
 
+            for (int i = quitar.Count-1; i >= 0; i--)
+            {
+                tabla.Rows.RemoveAt(quitar[i]);
+            }
 
+           
+                        
 
-            CorreoPersonaGridView.DataSource = ListaCorreo;
+            CorreoPersonaGridView.DataSource = tabla;
             CorreoPersonaGridView.DataBind();
+
+            ViewState["tablaCorreo"] = tabla;
+
         }
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
@@ -176,7 +260,7 @@ namespace Club_Campestre
             Obj_Persona_DAL.SIdPersona = this.txtCedula.Value;
             Obj_Persona_DAL.SNombre = this.txtnombre.Value;
             Obj_Persona_DAL.SDireccion = this.TextAreadireccion.Value;
-            Obj_Persona_DAL.BIdRol = Convert.ToByte( this.DropDownRol.SelectedValue);
+            Obj_Persona_DAL.BIdRol = Convert.ToByte(this.DropDownRol.SelectedValue);
             Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
 
             //Telefono ingresa 
@@ -189,16 +273,16 @@ namespace Club_Campestre
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
                     {
-                                            
+
                         {
-                            Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
-                            Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
-                            
+                            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+                            Cls_Telefonos_DAL.STelefono = row.Cells[0].Text;
+
                             Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//  estados insertar
                         }
 
 
-                        
+
 
                     }
                 }
@@ -213,10 +297,10 @@ namespace Club_Campestre
                     {
 
                         {
-                            Obj_Correo_DAL.SIdPersona = row.Cells[0].Text;
-                            Obj_Correo_DAL.SCorreo = row.Cells[1].Text;
+                            Obj_Correo_DAL.SIdPersona = this.txtemail.Value.ToString().Trim();
+                            Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
 
-                           Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  estados insertar
+                            Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  estados insertar
                         }
 
 
@@ -228,7 +312,7 @@ namespace Club_Campestre
             }
 
 
-            
+
 
 
 
