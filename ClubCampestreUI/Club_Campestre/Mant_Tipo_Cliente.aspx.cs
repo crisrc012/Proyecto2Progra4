@@ -79,9 +79,7 @@ namespace Club_Campestre
             DropDownTClientes.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
             DropDownTClientes.DataTextField = "Descripcion";
             DropDownTClientes.DataValueField = "IdTipoCliente";
-            //DropDownTClientes.DataBinding();
-            
+            DropDownTClientes.DataBind();
         }
-
     }
 }
