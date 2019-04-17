@@ -35,10 +35,11 @@ namespace Club_Campestre
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarRoles();
-            //Revisar con Marco el como vamos a manejar el editar usuario 
 
         }
 
+
+       
 
 
 
@@ -56,7 +57,7 @@ namespace Club_Campestre
 
         protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //this.DropDownRol.Text =this.DropDownRol.SelectedValue;
+          
         }
 
 
@@ -278,7 +279,7 @@ namespace Club_Campestre
                             Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Cls_Telefonos_DAL.STelefono = row.Cells[0].Text;
 
-                            Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//  estados insertar
+                            Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//   insertar
                         }
 
 
@@ -300,7 +301,7 @@ namespace Club_Campestre
                             Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
 
-                            Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  estados insertar
+                            Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  insertar
                         }
 
 
@@ -309,30 +310,23 @@ namespace Club_Campestre
                     }
                 }
 
+                    Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+                    Server.Transfer("Mant_Persona.aspx");
+                
+
             }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //Hay que hacer una validacion si el telefono y correo fueron cargados en el data grid 
-
-
-
-
         }
+
+
+
+
+
+
+
     }
 }

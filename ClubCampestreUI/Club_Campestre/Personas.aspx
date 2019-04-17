@@ -14,8 +14,8 @@
     <div>
          <form class = "pure-form pure-form-aligned" method="post">
           <fieldset>
-
-          <div class="pure-control-group">
+           <div class="pure-control-group">
+             
             <label for="cedula"> Cedula: </label>
             <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
               <label for="Rol"> Rol: </label>
@@ -33,10 +33,10 @@
               <div></div>
                           <label for="telefono"> Telefono: </label>
               
-              <input runat="server" type="text" id="txtTelefono" style="color: #0090ff; width: 284px;" />
+              <input runat="server" type="text" id="txtTelefono" onkeypress="javascript:return SoloNumeros(event)" style="color: #0090ff; width: 284px;" />
               <asp:Button class="pure-button pure-button-primary" ID="btnagregar2" runat="server" Text="+"  OnClick="btnAgregar2_Click1" />
               &nbsp;
-              <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
+              <asp:Button  class="pure-button pure-button-primary"  ID="btnremover2" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
               <div class="pure-controls">
                     <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
                 <Columns>
@@ -80,4 +80,5 @@
              </div>
     </div>
            </div>
+
 </asp:Content>
