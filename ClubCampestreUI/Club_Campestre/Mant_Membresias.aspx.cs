@@ -58,13 +58,34 @@ namespace Club_Campestre
             Obj_Persona_DAL.SIdPersona = cedula.Trim();
             Obj_Persona_BLL.Filtrar(ref Obj_Persona_DAL);
 
-            return Obj_Persona_DAL.DS.Tables[0].Rows[0][1].ToString(); ;
+            if(Obj_Persona_DAL.SMsjError == string.Empty)
+            {
+                if (Obj_Persona_DAL.DS.Tables[0].Rows.Count > 0)
+                {
+                    return Obj_Persona_DAL.DS.Tables[0].Rows[0][1].ToString();
+                }
+                else
+                {
+                    this.mensajeError.InnerHtml = "PERSONA NO REGISTRADA INGRESE AL BOTON DE PERSONAS";
+                    return "";
+                }
+            }
+            else
+            {
+                this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
+                return "";
+            }
+            
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            //guardarmembresia
-            //guardarbene
+            if (!IsPostBack)
+            {
+                InsertarMembresia();
+                InsertarBeneficiarios();
+            }
+                
         }
 
         private void CargarTipoMembresias()
@@ -86,9 +107,13 @@ namespace Club_Campestre
 
         private void fechavence()
         {
-            //DateTime fechainicio;
-            //fechainicio = Convert.ToDateTime(FechaInicio.Value);
-            //FechaVence.Value = fechainicio.AddYears(1).ToString();
+            DateTime fechainicio;
+            if(FechaInicio.Value != string.Empty)
+            {
+                fechainicio = Convert.ToDateTime(FechaInicio.Value);
+                FechaVence.Value = fechainicio.AddYears(1).ToString("yyyy-MM-dd");
+            }
+           
         }
 
         private void InsertarBeneficiarios()
@@ -100,7 +125,7 @@ namespace Club_Campestre
             {
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
-                    Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
+                    Obj_Beneficiario_DAL.SIdCliente = 1; // Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';
 
@@ -115,7 +140,7 @@ namespace Club_Campestre
             Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
 
             Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
-            Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
+            Obj_Membresias_DAL.SPKIdCliente = 1; //Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
             Obj_Membresias_DAL.CFKIdEstado = 'A';
@@ -123,22 +148,41 @@ namespace Club_Campestre
             Obj_Membresias_BLL.Insertar(ref Obj_Membresias_DAL);
         }
 
-        private short returnaIdCliente(string cedula)
+        private string returnaIdCliente(string cedula)
         {
             Cls_Cliente_BLL Obj_Cliente_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
 
             Obj_Cliente_DAL.SIdPersona = cedula;
-            Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
+            //Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
+            //return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
 
-            return Obj_Cliente_DAL.SIdCliente;
+            return "Socio";
         }
 
         private void validaDatos()
         {
             this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
-            this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim()).ToString();
+            this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim());
             fechavence();
+        }
+
+        protected void QuitarBeneficiarios(object sender, EventArgs e)
+        {
+            foreach (GridViewRow row in BeneficiariosGridView.Rows)
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                       //eliminar fila
+                    }
+
+                }
+            }
         }
 
     }
