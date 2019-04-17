@@ -49,7 +49,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             {
                 dt.Rows.Add("@Direccion", sDireccion);
             }
-            if (sRol != string.Empty || cType == 'S')
+            if (sRol != string.Empty)
             {
                 dt.Rows.Add("@Rol", sRol);
             }

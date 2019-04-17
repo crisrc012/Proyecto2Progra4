@@ -55,10 +55,10 @@ namespace Club_Campestre
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
 
-            Obj_Persona_DAL.SIdPersona = cedula;
+            Obj_Persona_DAL.SIdPersona = cedula.Trim();
             Obj_Persona_BLL.Filtrar(ref Obj_Persona_DAL);
 
-            return Obj_Persona_DAL.SNombre;
+            return Obj_Persona_DAL.DS.Tables[0].Rows[0][1].ToString(); ;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -86,9 +86,9 @@ namespace Club_Campestre
 
         private void fechavence()
         {
-            DateTime fechainicio;
-            fechainicio = Convert.ToDateTime(FechaInicio.Value);
-            FechaVence.Value = fechainicio.AddYears(1).ToString();
+            //DateTime fechainicio;
+            //fechainicio = Convert.ToDateTime(FechaInicio.Value);
+            //FechaVence.Value = fechainicio.AddYears(1).ToString();
         }
 
         private void InsertarBeneficiarios()
@@ -136,8 +136,8 @@ namespace Club_Campestre
 
         private void validaDatos()
         {
-            this.txtNombre.Value = returnaNombre(this.txtCedula.Value);
-            this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value).ToString();
+            this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
+            this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim()).ToString();
             fechavence();
         }
 
