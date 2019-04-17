@@ -38,7 +38,7 @@
               &nbsp;
               <asp:Button class="pure-button pure-button-primary" ID="btnremover2" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
               <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                     <asp:TemplateField>
@@ -59,7 +59,7 @@
               <asp:Button class="pure-button pure-button-primary" ID="Button2" runat="server" Text="-"  OnClick="btnRemover_Click1" />
           
                     <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="correo" HeaderText="Direcciones de Correo" />
                     <asp:TemplateField>
