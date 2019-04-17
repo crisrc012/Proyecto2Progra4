@@ -9,7 +9,12 @@
             <div>
                 <h1 runat="server" id="mantenimiento">Membresias</h1>
             </div>
-            <form class="pure-form pure-form-aligned">
+            <div  class="pure-form pure-form-aligned">
+                <input class="pure-button pure-button-primary" id="btnPersonas" type="button" value="Personas" onclick="location.href ='Personas.aspx' " />  
+                <br />
+                <span style="color:red" id="mensajeError" runat="server"></span>
+            </div>
+            <div class="pure-form pure-form-aligned">
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="txtCedula">Cedula Cliente:</label>
@@ -32,14 +37,14 @@
                     </div>
                     <div class="pure-control-group">
                         <label for="FechaVence">Fecha Vencimiento:</label>
-                        <input id="FechaVence" type="date" style="color: blue" disabled runat="server">
+                        <input id="FechaVence" type="date" style="color: blue" runat="server" disabled >
                     </div>
                     <section>
                         <div class="pure-control-group">
                             <label for="BeneficiariosGridView">Beneficiarios:</label>
-                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue"></asp:TextBox>
+                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue" required="required"></asp:TextBox>
                             <input type="button" class="pure-button pure-button-primary" value="Agregar" runat="server"  onserverclick="CargaBeneficiarios" />
-                            <input type="button" class="pure-button pure-button-primary" runat="server" value="Quitar" />
+                            <input type="button" class="pure-button pure-button-primary" runat="server" onserverclick="QuitarBeneficiarios" value="Quitar" />
 
                             <span id="RegistroBeneficiarios"></span>
 
@@ -62,7 +67,7 @@
                         <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" /> 
                     </div>
                 </fieldset>
-            </form>
+            </div>
           </div>
     </div>
 </asp:Content>
