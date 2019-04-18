@@ -72,8 +72,10 @@
             <br />
         </div>
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-              <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1" />
-          </div>
+            <input class="pure-button pure-button-primary"  id="btnRegresar" type="button" value="Regresar" onclick="location.href = 'Mant_Persona.aspx' "  /> 
+             &nbsp;  
+            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1" />
+           </div>
 
           </fieldset>
         </form>
