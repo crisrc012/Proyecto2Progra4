@@ -13,9 +13,13 @@
         </div>
         <div class="pure-controls">
             <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+            &nbsp;
             <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
+            &nbsp;
             <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+            &nbsp;
             <asp:TextBox ID="txtFiltraPersona" runat="server" OnTextChanged="txtFiltraPersona_TextChanged" ForeColor="Blue" onkeypress="return NoEnterBuscar(event)"></asp:TextBox>
+            &nbsp;
             <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
         </div>

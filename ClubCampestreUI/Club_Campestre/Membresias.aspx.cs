@@ -101,9 +101,8 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(row.Cells[0].Text);
-                       
                         //Sesion estado lleva el objeto
-                        Session["Estado"] = Obj_Membresias_DAL;
+                        Session["Membresia"] = Obj_Membresias_DAL;
                         Server.Transfer("Mant_Membresias.aspx");//llama la pantalla 
                     }
 

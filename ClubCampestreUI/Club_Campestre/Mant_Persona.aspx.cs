@@ -113,9 +113,13 @@ namespace Club_Campestre
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
                             Obj_Persona_DAL = new Cls_Persona_DAL();
+                             Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+                              Obj_Correos_DAL = new Cls_Correos_DAL();
+            
 
-                //Recorre Grid buscando chk 
-                foreach (GridViewRow row in PersonaGridView.Rows)
+
+            //Recorre Grid buscando chk 
+            foreach (GridViewRow row in PersonaGridView.Rows)
                 {
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
@@ -124,10 +128,17 @@ namespace Club_Campestre
                         CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                         if (chkRow.Checked)
                         {
-                            Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
 
-                            //llamado metodo eliminar estados
-                            Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);// eliminar estados
+                            Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
+                        Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
+                        Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
+
+
+                        Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);
+                        Obj_Telefonos_BLL.Eliminar(ref Obj_Telefonos_DAL);
+                        Obj_Correos_BLL.Eliminar(ref Obj_Correos_DAL);
+
+
                         }
 
                     }
