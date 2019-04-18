@@ -28,7 +28,7 @@
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
-              <textarea id="TextAreadireccion" runat="server" style="color: #0090ff"  rows="10" cols="50"></textarea>
+              <textarea id="TextAreadireccion" runat="server" style="color: #0090ff"></textarea>
                   </div>
               <div></div>
                           <label for="telefono"> Telefono: </label>
@@ -74,7 +74,7 @@
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
             <input class="pure-button pure-button-primary"  id="btnRegresar" type="button" value="Regresar" onclick="location.href = 'Mant_Persona.aspx' "  /> 
              &nbsp;  
-            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1" />
+            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click1" />
            </div>
 
           </fieldset>
@@ -82,8 +82,7 @@
              </div>
     </div>
            </div>
-
-   
+ 
     
 
 </asp:Content>
