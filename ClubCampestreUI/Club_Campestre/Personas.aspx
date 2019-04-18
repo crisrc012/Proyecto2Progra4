@@ -17,14 +17,14 @@
            <div class="pure-control-group">
              
             <label for="cedula"> Cedula: </label>
-            <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
+            <input runat="server" onkeypress="javascript:return SoloNumeros(event)" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
               <label for="Rol"> Rol: </label>
               <asp:DropDownList ID="DropDownRol" runat="server" OnSelectedIndexChanged="DropDownListRol_SelectedIndexChanged"  ForeColor="Blue" Width="191px"> </asp:DropDownList>
           </div>
 
           <div class="pure-control-group">
             <label for="nombre"> Nombre: </label>
-              <input runat="server" type="text" id="txtnombre" onkeypress="javascript:return soloLetras(event)" style="color: #0090ff" />
+              <input runat="server"   type="text" onkeypress="return soloLetras(event)" id="txtnombre"  style="color: #0090ff" />
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
@@ -82,5 +82,8 @@
              </div>
     </div>
            </div>
+
+   
+    
 
 </asp:Content>
