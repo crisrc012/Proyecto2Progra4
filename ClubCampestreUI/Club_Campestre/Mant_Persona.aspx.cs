@@ -94,18 +94,16 @@ namespace Club_Campestre
                         Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Persona_DAL.SNombre = row.Cells[1].Text;
                         Obj_Persona_DAL.SDireccion = row.Cells[2].Text;
-                        Obj_Persona_DAL.BIdRol = Convert.ToByte(row.Cells[3].Text); // Hacer filtar del idRol, por la vista se carga la descripción unicamente //Corregir
-                        Obj_Persona_BLL.Actualizar(ref Obj_Persona_DAL);
-                        Obj_Correos_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Correos_DAL.SIdCorreo = 1;//Valor estatico debido a falta de informacion en el view de listar Personas
-                        Obj_Correos_DAL.SCorreo = row.Cells[5].Text;
-                        Obj_Correos_BLL.Actualizar(ref Obj_Correos_DAL);
-                        Obj_Telefonos_DAL.STelefono = row.Cells[4].Text;
-                        Obj_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Telefonos_BLL.Actualizar(ref Obj_Telefonos_DAL);
-                        //Sesion estado lleva el objeto
+                        // INICIO: Obtener Rol
+                        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+                        Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
+                        Obj_Rol_DAL.sDescripcion = row.Cells[3].Text;
+                        Obj_Rol_BLL.Filtrar(ref Obj_Rol_DAL);
+                        Obj_Persona_DAL.BIdRol = Convert.ToByte(Obj_Rol_DAL.DS.Tables[0].Rows[0][0].ToString());
+                        // FIN: Obtener Rol
+                        //Sesion persona lleva el objeto
                         Session["Persona"] = Obj_Persona_DAL;
-                        Server.Transfer("Mant_Persona.aspx");//llama la pantalla
+                        Server.Transfer("Personas.aspx");//llama la pantalla
                     }
                 }
             }
@@ -115,9 +113,13 @@ namespace Club_Campestre
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
                             Obj_Persona_DAL = new Cls_Persona_DAL();
+                             Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+                              Obj_Correos_DAL = new Cls_Correos_DAL();
+            
 
-                //Recorre Grid buscando chk 
-                foreach (GridViewRow row in PersonaGridView.Rows)
+
+            //Recorre Grid buscando chk 
+            foreach (GridViewRow row in PersonaGridView.Rows)
                 {
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
@@ -126,10 +128,17 @@ namespace Club_Campestre
                         CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                         if (chkRow.Checked)
                         {
-                            Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
 
-                            //llamado metodo eliminar estados
-                            Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);// eliminar estados
+                            Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
+                        Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
+                        Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
+
+
+                        Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);
+                        Obj_Telefonos_BLL.Eliminar(ref Obj_Telefonos_DAL);
+                        Obj_Correos_BLL.Eliminar(ref Obj_Correos_DAL);
+
+
                         }
 
                     }
