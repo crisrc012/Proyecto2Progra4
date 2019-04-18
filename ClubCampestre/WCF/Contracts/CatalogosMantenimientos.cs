@@ -323,7 +323,7 @@ namespace WCF.Contracts
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Filtrar(Telefono, IdPersona, ref sMsj_error);
         }
-        public string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        public bool insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Insertar(Telefono, IdPersona, ref sMsj_error);

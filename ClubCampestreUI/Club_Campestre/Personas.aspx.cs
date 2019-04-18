@@ -2,11 +2,8 @@
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data;
+using System.Web.UI.WebControls;
 
 
 namespace Club_Campestre
@@ -26,16 +23,55 @@ namespace Club_Campestre
         List<Cls_Correos_DAL> ListaCorreo = new List<Cls_Correos_DAL>();
         #endregion
 
+        private string tipoSession = "N";
+
         #region Cls Telefono
-        Cls_Telefonos_DAL Cls_Telefonos_DAL = new Cls_Telefonos_DAL();
-        Cls_Telefono_BLL Cls_Telefonos_BLL = new Cls_Telefono_BLL();
+        Cls_Telefonos_DAL Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+        Cls_Telefono_BLL Obj_Telefonos_BLL = new Cls_Telefono_BLL();
         List<Cls_Telefonos_DAL> ListaTelefono = new List<Cls_Telefonos_DAL>();
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarRoles();
+            if (!IsPostBack)
+            {
+                CargarRoles(); // Carga combo con posibles valores
 
+                Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+                string tipo = Session["tipo"].ToString();
+                tipoSession = tipo;
+                if (persona != null & tipo == "E")
+                {
+                    //this.mantenimiento.InnerHtml = "Modificacion de Persona";
+
+                    // Carga de datos persona
+                    this.txtCedula.Value = persona.SIdPersona;
+                    txtnombre.Value = persona.SNombre;
+                    TextAreadireccion.Value = persona.SDireccion;
+
+                    // Carga Rol
+                    DropDownRol.SelectedValue = persona.BIdRol.ToString();
+
+                    // carga grid teléfonos
+                    Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+                    Obj_Telefonos_DAL.SIdPersona = persona.SIdPersona;
+                    Obj_Telefonos_BLL.Filtrar(ref Obj_Telefonos_DAL);
+                    GridViewTelefono.DataSource = Obj_Telefonos_DAL.DS.Tables[0];
+                    GridViewTelefono.DataBind();
+                    // carga grid de correos
+                    Obj_Correo_DAL = new Cls_Correos_DAL();
+                    Obj_Correo_DAL.SIdPersona = persona.SIdPersona;
+                    Obj_Correo_BLL.Filtrar(ref Obj_Correo_DAL);
+                    CorreoPersonaGridView.DataSource = Obj_Correo_DAL.DS.Tables[0];
+                    CorreoPersonaGridView.DataBind();
+                }
+                else
+                {
+                    //this.mantenimiento.InnerHtml = "Nuevos de Estados";
+                    // establecer controles en empty
+
+                }
+            }
         }
 
 
@@ -82,14 +118,31 @@ namespace Club_Campestre
         //Boton de Telefono 
         protected void btnAgregar2_Click1(object sender, EventArgs e)
         {
+            // Agregra Telefono
+            if (txtTelefono.Value.ToString().Trim() == string.Empty)
+            {
+                return;
+            }
 
+            DataTable tabla;
 
+            if (GridViewTelefono.Rows.Count > 0)
+            {
+                tabla = new DataTable();
+                tabla.Columns.Add("telefono");
+                ViewState["tablatelefono"] = tabla;
 
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("telefono");
+                foreach (GridViewRow row in GridViewTelefono.Rows)
+                {
+                    tabla.Rows.Add(row.Cells[0].Text);
+                }
+            }
+
 
             if (ViewState["tablatelefono"] == null)
             {
+                tabla = new DataTable();
+                tabla.Columns.Add("telefono");
                 ViewState["tablatelefono"] = tabla;
             }
             else
@@ -97,49 +150,17 @@ namespace Club_Campestre
                 tabla = (DataTable)ViewState["tablatelefono"];
             }
 
-          
             tabla.Rows.Add(this.txtTelefono.Value.ToString().Trim());
 
             GridViewTelefono.DataSource = tabla;
             GridViewTelefono.DataBind();
 
             ViewState["tablatelefono"] = tabla;
-
-
-
-
+            txtTelefono.Value = string.Empty;
         }
 
         protected void btnRemover2_Click1(object sender, EventArgs e)
         {
-            //GridViewTelefono.DataSource = null;
-            //GridViewTelefono.DataBind();
-
-            //foreach (GridViewRow row in GridViewTelefono.Rows)
-            //{
-            //    //busca el la fila
-            //    if (row.RowType == DataControlRowType.DataRow)
-            //    {
-            //        //si esta checkeado instancia las propiedades del objeto
-            //        CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
-            //        if (chkRow.Checked)
-            //        {
-            //            Cls_Telefonos_DAL.SIdPersona = row.Cells[0].Text;
-            //            Cls_Telefonos_DAL.STelefono = row.Cells[1].Text;
-            //            ListaTelefono.Remove(Cls_Telefonos_DAL);
-
-            //            //Cls_Telefonos_BLL.Eliminar(ref Cls_Telefonos_DAL);// eliminar estados
-            //        }
-
-            //    }
-            //}
-
-
-
-            //GridViewTelefono.DataSource = ListaTelefono;
-            //GridViewTelefono.DataBind();
-
-
             DataTable tabla = new DataTable();
             tabla.Columns.Add("telefono");
 
@@ -172,42 +193,51 @@ namespace Club_Campestre
             {
                 tabla.Rows.RemoveAt(quitar[i]);
             }
-
-
-
-
             GridViewTelefono.DataSource = tabla;
             GridViewTelefono.DataBind();
-
             ViewState["tablatelefono"] = tabla;
-
         }
 
         protected void btnAgregar_Click1(object sender, EventArgs e)
         {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("correo");
+            // Agregar Correo
+            if (txtemail.Value.ToString().Trim() == string.Empty)
+            {
+                return;
+            }
+
+            DataTable tabla;
+
+            if (CorreoPersonaGridView.Rows.Count > 0)
+            {
+                tabla = new DataTable();
+                tabla.Columns.Add("correo");
+                ViewState["tablacorreo"] = tabla;
+                foreach (GridViewRow row in GridViewTelefono.Rows)
+                {
+                    tabla.Rows.Add(row.Cells[0].Text);
+                }
+            }
 
             if (ViewState["tablaCorreo"] == null)
             {
-                ViewState["tablaCorreo"] = tabla;
+                tabla = new DataTable();
+                tabla.Columns.Add("correo");
+                ViewState["tablacorreo"] = tabla;
             }
             else
             {
                 tabla = (DataTable)ViewState["tablaCorreo"];
             }
-
             tabla.Rows.Add(this.txtemail.Value.ToString().Trim());
-
             CorreoPersonaGridView.DataSource = tabla;
             CorreoPersonaGridView.DataBind();
-
             ViewState["tablaCorreo"] = tabla;
+            txtemail.Value = string.Empty;
         }
 
         protected void btnRemover_Click1(object sender, EventArgs e)
         {
-
             DataTable tabla = new DataTable();
             tabla.Columns.Add("correo");
 
@@ -266,31 +296,23 @@ namespace Club_Campestre
 
 
             //Telefono ingresa 
-            #region
-
-
+            #region Telefono 
 
             if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
             {
-
                 foreach (GridViewRow row in GridViewTelefono.Rows)
                 {
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
                     {
-
                         {
-                            Cls_Telefonos_DAL.STelefono = row.Cells[0].Text;
-                            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-                            
-
-                            Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//   insertar
+                            Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
+                            Obj_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+                            Obj_Telefonos_BLL.Insertar(ref Obj_Telefonos_DAL);//   insertar
                         }
-
                     }
                 }
-                #endregion Telefono 
-
+                #endregion 
 
                 //-Aqui agrego el de correo foreach 
                 #region Correo
@@ -312,14 +334,8 @@ namespace Club_Campestre
                 #endregion
 
                 Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
-                    Server.Transfer("Mant_Persona.aspx");
-                
-
+                Server.Transfer("Mant_Persona.aspx");
             }
-
         }
-
-
-
     }
 }
