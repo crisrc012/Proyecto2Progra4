@@ -372,12 +372,12 @@ namespace WCF.Contracts
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarRol(byte bIdRol,string sDescripcion, ref string sMsj_error)
+        public DataTable filtrarRol(byte bIdRol, string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Filtrar(bIdRol, sDescripcion, ref sMsj_error);
         }
-        public byte insertarRol(string sDescripcion, ref string sMsj_error)
+        public string insertarRol(string sDescripcion, ref string sMsj_error)
         {
             Cls_Roles_BLL Obj_Rol_BLL = new Cls_Roles_BLL();
             return Obj_Rol_BLL.Insertar(sDescripcion, ref sMsj_error);

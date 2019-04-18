@@ -261,12 +261,16 @@ namespace Club_Campestre
             Obj_Persona_DAL.SIdPersona = this.txtCedula.Value;
             Obj_Persona_DAL.SNombre = this.txtnombre.Value;
             Obj_Persona_DAL.SDireccion = this.TextAreadireccion.Value;
-            Obj_Persona_DAL.BIdRol = Convert.ToByte(this.DropDownRol.SelectedValue);
+            Obj_Persona_DAL.BIdRol = Convert.ToByte(DropDownRol.SelectedValue);
             Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
 
-            //Telefono ingresa 
 
-           if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
+            //Telefono ingresa 
+            #region
+
+
+
+            if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
             {
 
                 foreach (GridViewRow row in GridViewTelefono.Rows)
@@ -276,21 +280,20 @@ namespace Club_Campestre
                     {
 
                         {
-                            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Cls_Telefonos_DAL.STelefono = row.Cells[0].Text;
+                            Cls_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+                            
 
                             Cls_Telefonos_BLL.Insertar(ref Cls_Telefonos_DAL);//   insertar
                         }
 
-
-
-
                     }
                 }
+                #endregion Telefono 
 
 
                 //-Aqui agrego el de correo foreach 
-
+                #region Correo
                 foreach (GridViewRow row in CorreoPersonaGridView.Rows)
                 {
                     //busca el la fila
@@ -304,27 +307,17 @@ namespace Club_Campestre
                             Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  insertar
                         }
 
-
-
-
                     }
                 }
+                #endregion
 
-                    Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+                Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
                     Server.Transfer("Mant_Persona.aspx");
                 
 
             }
 
-
-
-
-
         }
-
-
-
-
 
 
 

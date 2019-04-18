@@ -24,7 +24,7 @@
 
           <div class="pure-control-group">
             <label for="nombre"> Nombre: </label>
-              <input runat="server" type="text" id="txtnombre" style="color: #0090ff" />
+              <input runat="server" type="text" id="txtnombre" onkeypress="javascript:return soloLetras(event)" style="color: #0090ff" />
           </div>
               <div  class="pure-control-group">
                   <label for="direccion">Direccion</label>
