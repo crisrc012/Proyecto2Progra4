@@ -14,11 +14,40 @@ namespace Club_Campestre
 {
     public partial class Mant_Membresias : System.Web.UI.Page
     {
+        #region Variables Globales
+        Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
+        Cls_Membresias_DAL Obj_Membresias_DAL;
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CargarTipoMembresias();
+
+                Cls_Membresias_DAL membresia = (Cls_Membresias_DAL)Session["Membresia"];
+                string tipo = Session["tipo"].ToString();
+                if (membresia != null & tipo == "E")
+                {
+                    Obj_Membresias_DAL = new Cls_Membresias_DAL();
+                    Obj_Membresias_DAL.iIdMembresia = membresia.iIdMembresia;
+                    Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
+
+                    this.mantenimiento.InnerHtml = "Modificacion de Membresias";
+                    this.txtCedula.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][1].ToString();
+                    this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][3].ToString();
+                    this.FechaInicio.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][6].ToString();
+                    this.FechaVence.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][7].ToString();
+                    validaDatos();
+                }
+                else
+                {
+                    this.mantenimiento.InnerHtml = "Ingreso de Membresias";
+                    this.txtCedula.Value = string.Empty;
+                    this.DropDownTipoCliente.SelectedValue = "0";
+                    this.FechaInicio.Value = DateTime.Today.ToString("yyyy-MM-dd");
+                    fechavence();
+                }                   
             }
             else
             {
