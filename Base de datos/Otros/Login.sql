@@ -1,6 +1,13 @@
 USE [master]
 GO
-CREATE LOGIN [servicio] WITH PASSWORD=N'Servicio123', DEFAULT_DATABASE=[ClubCampestre], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+IF NOT EXISTS 
+    (SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'LoginName')
+BEGIN
+    CREATE LOGIN [LoginName] WITH PASSWORD = N'password'
+	CREATE LOGIN [servicio] WITH PASSWORD=N'Servicio123', DEFAULT_DATABASE=[ClubCampestre], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+END
 GO
 USE [ClubCampestre]
 GO

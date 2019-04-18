@@ -22,6 +22,15 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
+        /// mensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mensajeError;
+        
+        /// <summary>
         /// txtCedula control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace Club_Campestre {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbenefiario;
+        
+        /// <summary>
+        /// btnAgregar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnAgregar;
         
         /// <summary>
         /// BeneficiariosGridView control.

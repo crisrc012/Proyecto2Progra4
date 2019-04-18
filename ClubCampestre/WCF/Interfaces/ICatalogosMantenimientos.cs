@@ -146,7 +146,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
-        string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        bool insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
         bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
@@ -158,7 +158,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]
-        byte insertarRol(string sDescripcion, ref string sMsj_error);
+        string  insertarRol(string sDescripcion, ref string sMsj_error);
         [OperationContract]
         bool actualizarRol(byte bIdRol, string sDescripcion, ref string sMsj_error);
         [OperationContract]

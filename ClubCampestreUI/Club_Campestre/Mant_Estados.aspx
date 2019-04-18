@@ -17,12 +17,12 @@
 
                         <div class="pure-control-group">
                             <label for="txtestado">Estado: </label>
-                            <input runat="server" type="text" id="txtestado" value="" maxlength="1" style="color: #0090ff"/>
+                            <input runat="server" type="text" id="txtestado" onkeypress="return soloLetras(event)" value="" maxlength="1" style="color: #0090ff"/>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="txtdescripcion">Descripcion: </label>
-                            <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" />
+                            <input runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)"  style="color: #0090ff" />
                         </div>
 
                         <div class="pure-controls">
