@@ -35,8 +35,11 @@ namespace Club_Campestre
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
             CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
             Obj_TipoMembresia_BLL.ListaTipoMembresia(ref Obj_TipoMembresia_DAL);
-            TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
-            TipoMembresiaGridView.DataBind();
+            if (Obj_TipoMembresia_DAL.DS.Tables.Count > 0)
+            {
+                TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
+                TipoMembresiaGridView.DataBind();
+            }
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
