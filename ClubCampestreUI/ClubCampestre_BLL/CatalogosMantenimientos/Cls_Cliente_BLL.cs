@@ -32,6 +32,23 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Clientes_Client = new CatalogosMantenimientosClient();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
+                Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientes(Obj_Clientes_DAL.SIdCliente, Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError));
+                Obj_Clientes_Client.Close();
+                Obj_Clientes_DAL.SMsjError = sMsjError;
+            }
+            catch (Exception ex)
+            {
+                Obj_Clientes_DAL.SMsjError = ex.Message.ToString();
+            }
+        }
+        public void FiltrarV(ref Cls_Clientes_DAL Obj_Clientes_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_Clientes_Client = new CatalogosMantenimientosClient();
+                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                string sMsjError = string.Empty;
                 Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientesV(Obj_Clientes_DAL.SIdCliente, string.Empty, Obj_Clientes_DAL.SIdPersona, string.Empty, string.Empty, string.Empty, ref sMsjError));
                 Obj_Clientes_Client.Close();
                 Obj_Clientes_DAL.SMsjError = sMsjError;
