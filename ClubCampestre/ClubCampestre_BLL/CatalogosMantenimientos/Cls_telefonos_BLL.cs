@@ -14,6 +14,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Telefonos");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
+            if (Telefono != string.Empty)
+            {
+                dt.Rows.Add("@Telefono", Telefono);
+            }
             if (IdPersona != string.Empty )
             {
                 dt.Rows.Add("@IdPErsona", IdPersona);
@@ -27,12 +31,12 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(string Telefono, string IdPersona, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(Telefono, IdPersona), "[dbo].[sp_search_TB_Telefonos]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(Telefono, IdPersona), "[dbo].[sp_search_TB_Telefonos]", ref sMsj_error);
         }
 
-        public string  Insertar(string Telefono, string IdPersona, ref string sMsj_error)
+        public bool  Insertar(string Telefono, string IdPersona, ref string sMsj_error)
         {
-            return (Obj_BD_BLL.ExecuteScalar(inicializarDT(Telefono, IdPersona), "[dbo].[sp_insert_TB_Telefonos]", ref sMsj_error));
+            return (Obj_BD_BLL.ExecuteNonQuery(inicializarDT(Telefono, IdPersona), "[dbo].[sp_insert_TB_Telefonos]", ref sMsj_error));
         }
 
         public bool Actualizar(string Telefono, string IdPersona, ref string sMsj_error)

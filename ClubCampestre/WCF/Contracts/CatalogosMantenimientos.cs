@@ -268,7 +268,7 @@ namespace WCF.Contracts
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Filtrar(IdTipoCliente, Descripcion, ref sMsj_error);
         }
-        public char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        public string  insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
         {
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Insertar(IdTipoCliente, Descripcion, ref sMsj_error);
@@ -296,7 +296,7 @@ namespace WCF.Contracts
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Filtrar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
         }
-        public char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        public bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
         {
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Insertar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
@@ -323,7 +323,7 @@ namespace WCF.Contracts
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Filtrar(Telefono, IdPersona, ref sMsj_error);
         }
-        public string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
+        public bool insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Insertar(Telefono, IdPersona, ref sMsj_error);
@@ -345,10 +345,10 @@ namespace WCF.Contracts
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
             return Obj_Memebresias_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error)
         {
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
-            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, ref sMsj_error);
         }
         public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {

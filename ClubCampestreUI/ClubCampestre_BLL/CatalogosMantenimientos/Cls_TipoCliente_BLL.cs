@@ -46,5 +46,51 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 Obj_TipoCliente_Dal.SMsjError = ex.Message.ToString();
             }
         }
+
+        public void Insertar(ref Cls_TipoCliente_DAL Obj_TipoCliente_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_TipoCliente_Client = new CatalogosMantenimientosClient();
+                // Se mandan a insertar los datos
+                string sMsjError = string.Empty;
+                char bScalar = Obj_TipoCliente_Client.insertarTipoCliente(Obj_TipoCliente_DAL.BIdTipoCliente, Obj_TipoCliente_DAL.SPKDescripcion, ref sMsjError);
+                //Obj_TipoCliente_Client.insertarTipoCliente(Obj_TipoCliente_DAL.BIdTipoCliente, Obj_TipoCliente_DAL.SPKDescripcion, ref sMsjError);  /*insertarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);*/
+                Obj_TipoCliente_Client.Close();
+                Obj_TipoCliente_DAL.SMsjError = sMsjError;
+             
+            }
+            catch (Exception ex)
+            {
+                Obj_TipoCliente_DAL.SMsjError = ex.Message.ToString();
+                
+            }
+        }
+
+
+        public void Actualizar(ref Cls_TipoCliente_DAL Obj_TipoCliente_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_TipoCliente_Client = new CatalogosMantenimientosClient();
+                // Se mandan a actualizar los datos
+                string sMsjError = string.Empty;
+                //Obj_Estado_Client.actualizarEstado(Obj_Estado_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);
+                Obj_TipoCliente_Client.actualizarTipoCliente(Obj_TipoCliente_DAL.BIdTipoCliente, Obj_TipoCliente_DAL.SPKDescripcion, ref sMsjError);
+
+                Obj_TipoCliente_Client.Close();
+                Obj_TipoCliente_DAL.SMsjError = sMsjError;
+              
+            }
+            catch (Exception ex)
+            {
+                Obj_TipoCliente_DAL.SMsjError = ex.Message.ToString();
+            }
+        }
+
+
+
     }
 }

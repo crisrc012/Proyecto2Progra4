@@ -122,7 +122,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
+        String  insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
@@ -134,7 +134,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
-        char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
+        bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
         bool actualizarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
@@ -146,7 +146,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
-        string insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
+        bool insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
         bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
@@ -168,7 +168,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarMemebresias(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error);
         [OperationContract]
         int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
         [OperationContract]

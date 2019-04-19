@@ -31,8 +31,44 @@ namespace Club_Campestre
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
-            TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
-            TipoClienteGridView.DataBind();
+            if (Obj_TipoCliente_DAL.DS.Tables.Count > 0) {
+                TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+                TipoClienteGridView.DataBind();
+            }
+            
+            //Se instancia objeto
+
+            //Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            //Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+            //Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+
+            //if (this.txtFiltraTipocliente .Text== string.Empty)//listar
+            //{
+            //    //llamado metodo listar estados
+            //    Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+
+            //}
+            //else
+            //{
+
+            //    Obj_TipoCliente_DAL.SPKDescripcion = this.txtFiltraTipocliente.Text;
+            //    //llamado metodo listar estados
+            //   Obj_TipoCliente_BLL.Filtrar(ref Obj_TipoCliente_DAL);
+            //}
+
+            //if (Obj_TipoCliente_DAL.SMsjError == string.Empty)
+            //{
+            //    //Carga de Grid con DataSet instanciado en DAL
+            //    this.TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+            //    this.TipoClienteGridView.DataBind();
+            //}
+            //else
+            //{
+            //    this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar .";
+            //    this.BindGrid();
+            //}
+
+
         }
 
         private void Filtrar()
@@ -46,7 +82,7 @@ namespace Club_Campestre
         {
             //Identificcion en lo que estamos trabjanado es un estado N
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Tipo_Cliente.aspx", false);
+            Server.Transfer("Mantenimiento_Tipos_De_Clientes.aspx", false);
         }
 
 

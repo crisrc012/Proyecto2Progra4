@@ -11,23 +11,22 @@
             </div>
             <div  class="pure-form pure-form-aligned">
                 <input class="pure-button pure-button-primary" id="btnPersonas" type="button" value="Personas" onclick="location.href ='Personas.aspx' " />  
-                <br />
                 <span style="color:red" id="mensajeError" runat="server"></span>
             </div>
             <div class="pure-form pure-form-aligned">
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="txtCedula">Cedula Cliente:</label>
-                        <input runat="server" type="text" id="txtCedula" style="color: blue"/>
+                        <input runat="server" type="text" id="txtCedula" style="color: blue" required />
                         <label for="txtNombre">Nombre:</label>
-                        <input runat="server" type="text" id="txtNombre" value="" style="color: #0090ff; width: 305px;" />
+                        <input runat="server" type="text" id="txtNombre" value="" style="color: #0090ff; width: 305px;"/>
                     </div>
 
                     <div class="pure-control-group">
                         <label for="DropDownTipoCliente">Tipo Membresia:</label>
                         <asp:DropDownList ID="DropDownTipoCliente" runat="server" Width="178px" ForeColor="Blue"></asp:DropDownList>
                         <label for="IDCliente">ID Cliente:</label>
-                        <input runat="server" type="text" id="IDCliente" value="Socio" style="color: blue" />
+                        <input runat="server" type="text" id="IDCliente" value="Socio" style="color: blue"  />
                     </div>
 
                     <div class="pure-control-group">
@@ -42,16 +41,16 @@
                     <section>
                         <div class="pure-control-group">
                             <label for="BeneficiariosGridView">Beneficiarios:</label>
-                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue" required="required"></asp:TextBox>
-                            <input type="button" class="pure-button pure-button-primary" value="Agregar" runat="server"  onserverclick="CargaBeneficiarios" />
+                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue" ></asp:TextBox>
+                            <input type="button" id="btnAgregar" class="pure-button pure-button-primary" value="Agregar" runat="server"  onserverclick="CargaBeneficiarios" />
                             <input type="button" class="pure-button pure-button-primary" runat="server" onserverclick="QuitarBeneficiarios" value="Quitar" />
 
                             <span id="RegistroBeneficiarios"></span>
 
-                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Height="171px" Width="495px">
+                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px">
                                 <Columns>
-                                    <asp:BoundField DataField="IdPersona" HeaderText="ID Beneficiario" />
-                                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                                    <asp:BoundField DataField="IdPersona" HeaderText="ID Beneficiario" ItemStyle-Width="100" />
+                                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="200"  />
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
@@ -61,11 +60,14 @@
                             </asp:GridView>
                         </div>
                     </section>                  
+                    <section>
+                        <div class="pure-controls">
+                            <input class="pure-button pure-button-primary" id="btnRegresar" type="button" value="Regresar" onclick="location.href = 'Membresias.aspx' " />
+                            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <input type ="checkbox" id="checkok" runat="server"/>checkear para poder guardar<br />
+                        </div>
+                    </section>
 
-                    <div class="pure-controls">
-                        <input class="pure-button pure-button-primary"  id="btnRegresar" type="button" value="Regresar" onclick="location.href ='Membresias.aspx' " />   
-                        <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" /> 
-                    </div>
                 </fieldset>
             </div>
           </div>

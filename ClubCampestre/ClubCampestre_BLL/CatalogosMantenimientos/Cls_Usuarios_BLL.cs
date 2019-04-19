@@ -16,7 +16,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             dt.Columns.Add("Valor");
             if (IdUsuario != string.Empty)
             {
-                dt.Rows.Add("@Usuario", IdUsuario);
+                dt.Rows.Add("@IdUsuario", IdUsuario);
             }
             if (IdPersona != string.Empty)
             {
@@ -39,9 +39,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdUsuario, IdPersona, Contrasena), "[dbo].[sp_search_TB_Usuarios]", ref sMsj_error).Copy();
         }
 
-        public char Insertar(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        public bool Insertar(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(IdUsuario, IdPersona, Contrasena), "[dbo].[sp_insert_TB_Usuarios]", ref sMsj_error));
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdUsuario, IdPersona, Contrasena), "[dbo].[sp_insert_TB_Usuarios]", ref sMsj_error);
         }
 
         public bool Actualizar(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
