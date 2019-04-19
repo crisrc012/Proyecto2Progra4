@@ -345,10 +345,10 @@ namespace WCF.Contracts
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
             return Obj_Memebresias_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error)
         {
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
-            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, ref sMsj_error);
         }
         public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
