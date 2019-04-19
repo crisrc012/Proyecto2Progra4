@@ -4,6 +4,7 @@ using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Club_Campestre
 {
@@ -135,7 +136,8 @@ namespace Club_Campestre
             if (this.checkok.Checked)
             {
                 InsertarMembresia();
-                InsertarBeneficiarios();
+                //InsertarBeneficiarios();
+                Server.Transfer("Membresias.aspx");
             }                
         }
 
@@ -185,7 +187,7 @@ namespace Club_Campestre
 
             Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
             Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
-            Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
+            Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value); 
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
             Obj_Membresias_DAL.CFKIdEstado = 'A';
 
