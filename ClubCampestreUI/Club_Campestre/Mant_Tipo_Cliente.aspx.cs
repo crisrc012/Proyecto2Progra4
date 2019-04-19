@@ -28,13 +28,15 @@ namespace Club_Campestre
                 if(clientes != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
-                    this.txtidcliente.Value = clientes.SIdCliente.ToString();
+                    this.DropDownTClientes.SelectedValue = clientes.BIdTipoCliente.ToString();
+                   // this.txtidcliente.Value = clientes.SIdCliente.ToString();
                     this.txtidpersona.Value = clientes.SIdPersona.ToString();
                 }
                 else
                 {
                     this.mantenimiento.InnerHtml = "Nuevos de Clientes";
-                    this.txtidcliente.Value = string.Empty;
+                   // this.txtidcliente.Value = string.Empty;
+                    this.DropDownTClientes.SelectedValue = string.Empty;
                     this.txtidpersona.Value = string.Empty;
                 }
             }
@@ -50,9 +52,12 @@ namespace Club_Campestre
         {
             Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
-            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+
+            Obj_Clientes_DAL.SIdPersona = this.txtidpersona.Value;
+            Obj_Clientes_DAL.BIdTipoCliente = Convert.ToByte(this.DropDownTClientes.SelectedValue);
+           // Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
             string tipo = Session["tipo"].ToString();
+
             if (tipo == "E")
             {
                 Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
