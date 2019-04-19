@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
@@ -33,15 +26,14 @@ namespace Club_Campestre
             //Instancia del Objeto
             Obj_Clientes_DAL = new Cls_Clientes_DAL();
 
-            if (this.txtFiltraClientes.Text == string.Empty)
-                
-                {
+            if (this.txtFiltraClientes.Text.Trim() == string.Empty)
+            {
                 Obj_Clientes_BLL.Listar(ref Obj_Clientes_DAL);
             }
             else
             {
-                Obj_Clientes_DAL.SIdCliente =Convert.ToByte(this.txtFiltraClientes.Text);
-                //Llamado del metodo listar clientes
+                Obj_Clientes_DAL.SIdPersona = this.txtFiltraClientes.Text.Trim();
+                //Llamado del metodo filtrar clientes
                 Obj_Clientes_BLL.Filtrar(ref Obj_Clientes_DAL);
             }
             if (Obj_Clientes_DAL.SMsjError == string.Empty)
