@@ -17,6 +17,7 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
         Cls_Membresias_DAL Obj_Membresias_DAL;
+        bool guardaBandera = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -132,12 +133,11 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (this.checkok.Checked)
             {
                 InsertarMembresia();
                 InsertarBeneficiarios();
-            }
-                
+            }                
         }
 
         private void CargarTipoMembresias()
@@ -217,6 +217,7 @@ namespace Club_Campestre
             this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
             this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim());
             fechavence();
+            guardaBandera = false;
         }
 
         protected void QuitarBeneficiarios(object sender, EventArgs e)
