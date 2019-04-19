@@ -268,7 +268,7 @@ namespace WCF.Contracts
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Filtrar(IdTipoCliente, Descripcion, ref sMsj_error);
         }
-        public char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        public string  insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
         {
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Insertar(IdTipoCliente, Descripcion, ref sMsj_error);

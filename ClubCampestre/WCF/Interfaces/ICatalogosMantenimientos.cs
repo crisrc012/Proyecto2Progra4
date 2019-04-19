@@ -122,7 +122,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
-        char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
+        String  insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
         bool actualizarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error);
         [OperationContract]
