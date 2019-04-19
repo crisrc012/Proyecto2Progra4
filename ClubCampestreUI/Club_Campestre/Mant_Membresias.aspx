@@ -17,7 +17,7 @@
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="txtCedula">Cedula Cliente:</label>
-                        <input runat="server" type="text" id="txtCedula" style="color: blue" required="required"/>
+                        <input runat="server" type="text" id="txtCedula" style="color: blue" required />
                         <label for="txtNombre">Nombre:</label>
                         <input runat="server" type="text" id="txtNombre" value="" style="color: #0090ff; width: 305px;"/>
                     </div>
@@ -60,11 +60,14 @@
                             </asp:GridView>
                         </div>
                     </section>                  
+                    <section>
+                        <div class="pure-controls">
+                            <input class="pure-button pure-button-primary" id="btnRegresar" type="button" value="Regresar" onclick="location.href = 'Membresias.aspx' " />
+                            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <input type ="checkbox" id="checkok" runat="server"/>checkear para poder guardar<br />
+                        </div>
+                    </section>
 
-                    <div class="pure-controls">
-                        <input class="pure-button pure-button-primary"  id="btnRegresar" type="button" value="Regresar" onclick="location.href ='Membresias.aspx' " />   
-                        <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" /> 
-                    </div>
                 </fieldset>
             </div>
           </div>
