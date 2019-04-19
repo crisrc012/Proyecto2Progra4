@@ -200,7 +200,7 @@ namespace Club_Campestre
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
             Obj_Cliente_DAL.SIdPersona = cedula;
             Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
-            return Obj_Cliente_DAL.SIdCliente.ToString();
+            return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }
 
         private void validaDatos()
