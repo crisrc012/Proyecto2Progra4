@@ -31,6 +31,64 @@ AND [Descripcion] LIKE '%' + ISNULL(@Rol, [Descripcion]) + '%'
 go
 
 --V_Clientes
+--Select
+CREATE PROCEDURE [dbo].[sp_select_V_Clientes]
+AS
+SELECT [IdCliente]
+      ,[Tipo de Cliente]
+      ,[IdPersona]
+      ,[Nombre]
+      ,[Direccion]
+      ,[Rol]
+  FROM [ClubCampestre].[dbo].[V_Clientes]
+GO
+
+-- Filtrar
+CREATE PROCEDURE [dbo].[sp_search_V_Clientes]
+(
+	@IdCliente smallint, @TipoCliente varchar (20),
+	@IdPersona varchar (20), @Nombre varchar (50),
+	@Direccion varchar (150), @Rol varchar (15)
+)
+AS
+IF @IdCliente = 0
+BEGIN
+	SET @IdCliente = null
+END
+IF @TipoCliente = ''
+BEGIN
+	SET @TipoCliente = null
+END
+IF @IdPersona = ''
+BEGIN
+	SET @IdPersona = null
+END
+IF @Nombre = ''
+BEGIN
+	SET @Nombre = null
+END
+IF @Direccion = ''
+BEGIN
+	SET @Direccion = null
+END
+IF @Rol = ''
+BEGIN
+	SET @Rol = null
+END
+SELECT [IdCliente]
+      ,[Tipo de Cliente]
+      ,[IdPersona]
+      ,[Nombre]
+      ,[Direccion]
+      ,[Rol]
+  FROM [ClubCampestre].[dbo].[V_Clientes]
+  WHERE [IdCliente] = ISNULL(@IdCliente,[IdCliente])
+  AND [Tipo de Cliente] LIKE '%' + ISNULL(@TipoCliente,[Tipo de Cliente]) + '%'
+  AND [IdPersona] LIKE '%' + ISNULL(@IdPersona,[IdPersona]) + '%'
+  AND [Nombre] LIKE '%' + ISNULL(@Nombre,[Nombre]) + '%'
+  AND [Direccion] LIKE '%' + ISNULL(@Direccion,[Direccion]) + '%'
+  AND [Rol] LIKE '%' + ISNULL(@Rol,[Rol]) + '%'
+GO
 
 
 --V_Membresias
