@@ -296,7 +296,7 @@ namespace WCF.Contracts
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Filtrar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
         }
-        public char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        public bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
         {
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Insertar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);

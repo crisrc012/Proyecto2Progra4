@@ -80,6 +80,7 @@
     <Content Include="Mant_Tipo_Cliente.aspx" />
     <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="Mant_Tipo_Servicio.aspx" />
+    <Content Include="Mant_Usuarios.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
@@ -251,6 +252,13 @@
     </Compile>
     <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
       <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.designer.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

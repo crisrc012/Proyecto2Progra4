@@ -12,11 +12,11 @@
             </header>
         </div>
         <div class="pure-controls">
-            <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar"/>
-            <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" />
-            <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" />
-            <asp:TextBox ID="FiltrarUsuarios" runat="server" ForeColor="Blue"></asp:TextBox>
-            <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" />
+            <asp:Button class="pure-button pure-button-primary" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click"/>
+            <asp:Button class="pure-button pure-button-primary" ID="btnEditar" runat="server" Text="Editar" OnClick="btnEditar_Click" />
+            <asp:Button class="pure-button pure-button-primary" ID="btnNuevo" runat="server" Text="Nuevo" OnClick="btnNuevo_Click" />
+            <asp:TextBox ID="FiltrarUsuarios" runat="server" ForeColor="Blue" OnTextChanged="Filtrar_TextChanged"></asp:TextBox>
+            <asp:Button class="pure-button pure-button-primary" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
             <label id="errorMensaje" runat="server"></label>
         </div>
         <br />
