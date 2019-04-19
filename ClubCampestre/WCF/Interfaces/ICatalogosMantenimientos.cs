@@ -134,7 +134,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
-        char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
+        bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
         bool actualizarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]

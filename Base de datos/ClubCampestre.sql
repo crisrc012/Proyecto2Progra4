@@ -22,7 +22,7 @@ create table TB_Persona (
 go
 
 create table TB_Usuarios (
-		IdUsuario varchar (6) not null,
+		IdUsuario varchar (25) not null,
 		IdPersona varchar (20) not null unique, 
 		Contrasena varchar (50) not null,
 		constraint [PK_IdUsuario] primary key clustered(

@@ -73,6 +73,7 @@
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
     <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
+    <Content Include="Ingreso.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
@@ -80,6 +81,7 @@
     <Content Include="Mant_Tipo_Cliente.aspx" />
     <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="Mant_Tipo_Servicio.aspx" />
+    <Content Include="Mant_Usuarios.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
@@ -203,6 +205,13 @@
     <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.designer.cs">
       <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ingreso.aspx.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingreso.aspx.designer.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mant_Estados.aspx.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -251,6 +260,13 @@
     </Compile>
     <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
       <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.designer.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

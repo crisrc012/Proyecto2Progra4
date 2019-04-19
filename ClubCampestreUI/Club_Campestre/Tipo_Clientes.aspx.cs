@@ -31,8 +31,11 @@ namespace Club_Campestre
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
-            TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
-            TipoClienteGridView.DataBind();
+            if (Obj_TipoCliente_DAL.DS.Tables.Count > 0) {
+                TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
+                TipoClienteGridView.DataBind();
+            }
+            
             //Se instancia objeto
 
             //Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();

@@ -55,7 +55,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Usuario.aspx", false);//llama pantalla
+            Server.Transfer("Mant_Usuarios.aspx", false);//llama pantalla
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace Club_Campestre
 
                         //Sesion estado lleva el objeto
                         Session["Usuario"] = Obj_Usuario_DAL;
-                        Server.Transfer("Mant_Usuario.aspx");//llama la pantalla 
+                        Server.Transfer("Mant_Usuarios.aspx");//llama la pantalla 
                     }
 
                 }
