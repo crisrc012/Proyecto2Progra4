@@ -168,7 +168,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarMemebresias(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
+        DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error);
         [OperationContract]
         int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error);
         [OperationContract]

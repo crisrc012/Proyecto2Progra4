@@ -676,27 +676,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public byte bIdTipoMembresia;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public char cIdEstado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public System.DateTime dFechaInicio;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
-        public System.DateTime dFechaVence;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=6)]
         public string sMsj_error;
         
         public filtrarMemebresiasRequest() {
         }
         
-        public filtrarMemebresiasRequest(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, string sMsj_error) {
+        public filtrarMemebresiasRequest(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, string sMsj_error) {
             this.iIdMembresia = iIdMembresia;
             this.sIdCliente = sIdCliente;
             this.bIdTipoMembresia = bIdTipoMembresia;
-            this.cIdEstado = cIdEstado;
-            this.dFechaInicio = dFechaInicio;
-            this.dFechaVence = dFechaVence;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -1671,7 +1659,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarCorreosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short insertarCorreosResult;
+        public string insertarCorreosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsjError;
@@ -1679,7 +1667,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarCorreosResponse() {
         }
         
-        public insertarCorreosResponse(short insertarCorreosResult, string sMsjError) {
+        public insertarCorreosResponse(string insertarCorreosResult, string sMsjError) {
             this.insertarCorreosResult = insertarCorreosResult;
             this.sMsjError = sMsjError;
         }
@@ -3723,7 +3711,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTelefonosResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarTelefonosResult;
+        public bool insertarTelefonosResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -3731,7 +3719,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarTelefonosResponse() {
         }
         
-        public insertarTelefonosResponse(char insertarTelefonosResult, string sMsj_error) {
+        public insertarTelefonosResponse(bool insertarTelefonosResult, string sMsj_error) {
             this.insertarTelefonosResult = insertarTelefonosResult;
             this.sMsj_error = sMsj_error;
         }
@@ -3927,7 +3915,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarRolResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public byte insertarRolResult;
+        public string insertarRolResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -3935,7 +3923,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarRolResponse() {
         }
         
-        public insertarRolResponse(byte insertarRolResult, string sMsj_error) {
+        public insertarRolResponse(string insertarRolResult, string sMsj_error) {
             this.insertarRolResult = insertarRolResult;
             this.sMsj_error = sMsj_error;
         }
@@ -4027,14 +4015,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.filtrarMemebresias(request);
         }
         
-        public System.Data.DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, System.DateTime dFechaInicio, System.DateTime dFechaVence, ref string sMsj_error) {
+        public System.Data.DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasRequest();
             inValue.iIdMembresia = iIdMembresia;
             inValue.sIdCliente = sIdCliente;
             inValue.bIdTipoMembresia = bIdTipoMembresia;
-            inValue.cIdEstado = cIdEstado;
-            inValue.dFechaInicio = dFechaInicio;
-            inValue.dFechaVence = dFechaVence;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarMemebresiasResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarMemebresias(inValue);
             sMsj_error = retVal.sMsj_error;
@@ -4440,7 +4425,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarCorreos(request);
         }
         
-        public short insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError) {
+        public string insertarCorreos(string sIdPersona, string sCorreo, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarCorreosRequest();
             inValue.sIdPersona = sIdPersona;
             inValue.sCorreo = sCorreo;
@@ -5313,7 +5298,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTelefonos(request);
         }
         
-        public char insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error) {
+        public bool insertarTelefonos(string Telefono, string IdPersona, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTelefonosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTelefonosRequest();
             inValue.Telefono = Telefono;
             inValue.IdPersona = IdPersona;
@@ -5405,7 +5390,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarRol(request);
         }
         
-        public byte insertarRol(string sDescripcion, ref string sMsj_error) {
+        public string insertarRol(string sDescripcion, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarRolRequest();
             inValue.sDescripcion = sDescripcion;
             inValue.sMsj_error = sMsj_error;

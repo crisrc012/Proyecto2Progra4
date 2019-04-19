@@ -56,7 +56,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 // Se mandan a insertar los datos
                 string sMsjError = string.Empty;
                 
-                byte bScalar = Obj_Rol_Client.insertarRol(Obj_Rol_DAL.sDescripcion, ref sMsjError); // Aqui se devuelve un valor scalar, sino se va a usar, hay que mejor mandarlo a usar nonquery
+                Obj_Rol_Client.insertarRol(Obj_Rol_DAL.sDescripcion, ref sMsjError); // Aqui se devuelve un valor scalar, sino se va a usar, hay que mejor mandarlo a usar nonquery
                 Obj_Rol_Client.Close();
                 Obj_Rol_DAL.sMsjError = sMsjError;
             }

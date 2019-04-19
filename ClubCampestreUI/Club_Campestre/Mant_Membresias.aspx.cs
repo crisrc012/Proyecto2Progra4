@@ -25,19 +25,19 @@ namespace Club_Campestre
             {
                 CargarTipoMembresias();
 
-                Cls_Membresias_DAL membresia = (Cls_Membresias_DAL)Session["Membresia"];
+                Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
+                Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
                 string tipo = Session["tipo"].ToString();
-                if (membresia != null & tipo == "E")
+                txtNombre.Disabled = true;
+                if (Obj_Membresias_DAL != null & tipo == "E")
                 {
-                    Obj_Membresias_DAL = new Cls_Membresias_DAL();
-                    Obj_Membresias_DAL.iIdMembresia = membresia.iIdMembresia;
                     Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
-
                     this.mantenimiento.InnerHtml = "Modificacion de Membresias";
-                    this.txtCedula.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][1].ToString();
-                    this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][3].ToString();
-                    this.FechaInicio.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][6].ToString();
-                    this.FechaVence.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][7].ToString();
+                    this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
+                    this.txtNombre.Value = Obj_Persona_DAL.SNombre;
+                    this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
+                    this.FechaInicio.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][4].ToString();
+                    this.FechaVence.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][5].ToString();
                     BindGridBeneficiarios();
                     validaDatos();
                 }
@@ -145,12 +145,6 @@ namespace Club_Campestre
             Cls_TipoMembresia_DAL Obj_Tipo_DAL = new Cls_TipoMembresia_DAL();
             CLS_TipoMembresia_BLL Obj_Tipo_BLL = new CLS_TipoMembresia_BLL();
             Obj_Tipo_BLL.ListaTipoMembresia(ref Obj_Tipo_DAL);
-
-            //DataRow row = Obj_Rol_DAL.DS.Tables[0].NewRow();
-            //row["IdRol"] = 0;
-            //row["Descripcion"] = "-- Seleccione --";
-            //Obj_Rol_DAL.DS.Tables[0].Rows.Add(row);
-
             DropDownTipoCliente.DataSource = Obj_Tipo_DAL.DS.Tables[0];
             DropDownTipoCliente.DataTextField = "Descripcion";
             DropDownTipoCliente.DataValueField = "IdTipoMembresia";
@@ -204,17 +198,17 @@ namespace Club_Campestre
         {
             Cls_Cliente_BLL Obj_Cliente_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
-
             Obj_Cliente_DAL.SIdPersona = cedula;
-            //Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
-            //return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
-
-            return "Socio";
+            Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
+            return Obj_Cliente_DAL.SIdCliente.ToString();
         }
 
         private void validaDatos()
         {
-            this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
+            if (this.txtNombre.Value == null || this.txtNombre.Value == string.Empty)
+            {
+                this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
+            }
             this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim());
             fechavence();
         }
@@ -261,10 +255,12 @@ namespace Club_Campestre
             Obj_Beneficiario_DAL.SIdCliente = 1;
             Obj_Beneficiario_BLL.Filtrar(ref Obj_Beneficiario_DAL);
 
-            this.BeneficiariosGridView.DataSource = Obj_Beneficiario_DAL.DS.Tables[0];
-            this.BeneficiariosGridView.DataBind();
-
+            // Si no hay beneficiaros
+            if (Obj_Beneficiario_DAL.DS.Tables.Count > 0)
+            {
+                this.BeneficiariosGridView.DataSource = Obj_Beneficiario_DAL.DS.Tables[0];
+                this.BeneficiariosGridView.DataBind();
+            }
         }
-
     }
 }
