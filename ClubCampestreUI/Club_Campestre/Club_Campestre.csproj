@@ -72,6 +72,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
+    <Content Include="Ingreso.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="IndexCliente.aspx.designer.cs">
       <DependentUpon>IndexCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso.aspx.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingreso.aspx.designer.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Estados.aspx.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
