@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
 using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
+using System.Collections.Generic;
 
 namespace Club_Campestre
 {
@@ -25,11 +20,11 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 CargarTipoMembresias();
-
                 Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
                 Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
                 string tipo = Session["tipo"].ToString();
                 txtNombre.Disabled = true;
+                IDCliente.Disabled = true;
                 if (Obj_Membresias_DAL != null & tipo == "E")
                 {
                     Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
@@ -37,9 +32,13 @@ namespace Club_Campestre
                     this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
                     this.txtNombre.Value = Obj_Persona_DAL.SNombre;
                     this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
-                    this.FechaInicio.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][4].ToString();
-                    this.FechaVence.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][5].ToString();
-                    BindGridBeneficiarios();
+                    // Fecha Inicio
+                    string[] fechaInicio = Obj_Membresias_DAL.DS.Tables[0].Rows[0][4].ToString().Split('/');
+                    int month = Convert.ToInt32(fechaInicio[0]);
+                    int day = Convert.ToInt32(fechaInicio[1]);
+                    int year = Convert.ToInt32(fechaInicio[2].Split(' ')[0]);
+                    //
+                    this.FechaInicio.Value = new DateTime(year, month, day).ToString("yyyy-MM-dd");
                     validaDatos();
                 }
                 else
@@ -159,7 +158,6 @@ namespace Club_Campestre
                 fechainicio = Convert.ToDateTime(FechaInicio.Value);
                 FechaVence.Value = fechainicio.AddYears(1).ToString("yyyy-MM-dd");
             }
-           
         }
 
         private void InsertarBeneficiarios()
@@ -171,7 +169,7 @@ namespace Club_Campestre
             {
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
-                    Obj_Beneficiario_DAL.SIdCliente = 1; // Convert.ToInt16(IDCliente.Value);
+                    Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';
 
@@ -186,7 +184,7 @@ namespace Club_Campestre
             Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
 
             Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
-            Obj_Membresias_DAL.SPKIdCliente = 1; //Convert.ToInt16(IDCliente.Value);
+            Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
             Obj_Membresias_DAL.CFKIdEstado = 'A';
@@ -211,6 +209,7 @@ namespace Club_Campestre
             }
             this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim());
             fechavence();
+            BindGridBeneficiarios(this.IDCliente.Value);
             guardaBandera = false;
         }
 
@@ -248,12 +247,12 @@ namespace Club_Campestre
             BeneficiariosGridView.DataBind();
         }
 
-        private void BindGridBeneficiarios()
+        private void BindGridBeneficiarios(string IdCliente)
         {
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
 
-            Obj_Beneficiario_DAL.SIdCliente = 1;
+            Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IdCliente);
             Obj_Beneficiario_BLL.Filtrar(ref Obj_Beneficiario_DAL);
 
             // Si no hay beneficiaros
