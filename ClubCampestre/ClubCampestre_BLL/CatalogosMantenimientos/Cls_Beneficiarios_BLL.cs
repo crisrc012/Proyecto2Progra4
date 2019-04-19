@@ -14,7 +14,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Beneficiarios");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
+            //dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
+            if (sIdBeneficiario != short.MinValue)
+            {
+                dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
+            }
             if (sIdCliente != short.MinValue)
             {
                 dt.Rows.Add("@IdCliente", sIdCliente);
@@ -23,7 +27,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             {
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
-            if (char.IsWhiteSpace(cIdEstado))
+            if (cIdEstado != ' ')
             {
                 dt.Rows.Add("@IdEstado", cIdEstado);
             }

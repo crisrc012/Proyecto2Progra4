@@ -12,12 +12,15 @@ namespace Club_Campestre
     {
         #region Variables Globales
         Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
-        Cls_Membresias_DAL Obj_Membresias_DAL;
-        bool guardaBandera = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
+            customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
+
             if (!IsPostBack)
             {
                 CargarTipoMembresias();
@@ -33,14 +36,9 @@ namespace Club_Campestre
                     this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
                     this.txtNombre.Value = Obj_Persona_DAL.SNombre;
                     this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
-                    // Fecha Inicio
-                    string[] fechaInicio = Obj_Membresias_DAL.DS.Tables[0].Rows[0][4].ToString().Split('/');
-                    int month = Convert.ToInt32(fechaInicio[0]);
-                    int day = Convert.ToInt32(fechaInicio[1]);
-                    int year = Convert.ToInt32(fechaInicio[2].Split(' ')[0]);
-                    //
-                    this.FechaInicio.Value = new DateTime(year, month, day).ToString("yyyy-MM-dd");
+                    this.FechaInicio.Value = Convert.ToDateTime(Obj_Membresias_DAL.DS.Tables[0].Rows[0][4], customCulture).ToString("yyyy-MM-dd");
                     validaDatos();
+                    BindGridBeneficiarios();
                 }
                 else
                 {
@@ -135,9 +133,18 @@ namespace Club_Campestre
         {
             if (this.checkok.Checked)
             {
-                InsertarMembresia();
-                //InsertarBeneficiarios();
-                Server.Transfer("Membresias.aspx");
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+
+                }
+                else
+                {
+                    InsertarMembresia();
+                    InsertarBeneficiarios();
+                    Server.Transfer("Membresias.aspx");
+                }
+                    
             }                
         }
 
@@ -210,9 +217,7 @@ namespace Club_Campestre
                 this.txtNombre.Value = returnaNombre(this.txtCedula.Value.Trim());
             }
             this.IDCliente.Value = returnaIdCliente(this.txtCedula.Value.Trim());
-            fechavence();
-            BindGridBeneficiarios(this.IDCliente.Value);
-            guardaBandera = false;
+            fechavence();                
         }
 
         protected void QuitarBeneficiarios(object sender, EventArgs e)
@@ -249,12 +254,11 @@ namespace Club_Campestre
             BeneficiariosGridView.DataBind();
         }
 
-        private void BindGridBeneficiarios(string IdCliente)
+        private void BindGridBeneficiarios()
         {
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
-
-            Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IdCliente);
+            Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(this.IDCliente.Value);
             Obj_Beneficiario_BLL.Filtrar(ref Obj_Beneficiario_DAL);
 
             // Si no hay beneficiaros
