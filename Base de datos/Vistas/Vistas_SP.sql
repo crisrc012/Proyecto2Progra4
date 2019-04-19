@@ -51,7 +51,7 @@ CREATE PROCEDURE [dbo].[sp_search_V_Clientes]
 	@Direccion varchar (150), @Rol varchar (15)
 )
 AS
-IF @IdCliente = 0
+IF @IdCliente = -32768
 BEGIN
 	SET @IdCliente = null
 END

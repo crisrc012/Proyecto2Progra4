@@ -44,6 +44,11 @@ namespace WCF.Contracts
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
             return Obj_Clientes_BLL.Filtrar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
         }
+        public DataTable filtrarClientesV(short sIdCliente, string sTipoCliente, string sIdPersona, string sNombre, string sDireccion, string sRol, ref string sMsjError)
+        {
+            Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
+            return Obj_Clientes_BLL.Filtrar(sIdCliente, sTipoCliente, sIdPersona, sNombre, sDireccion, sRol, ref sMsjError);
+        }
         public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
