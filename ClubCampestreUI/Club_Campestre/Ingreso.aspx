@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Ingreso.aspx.cs" Inherits="Club_Campestre.Ingreso" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -39,7 +40,8 @@
               &nbsp;
               <asp:Button  class="pure-button pure-button-primary"  ID="btnremoverInvitado" runat="server" Text="-"  />
               <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="GridViewIvitados" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" >
+                    <asp:GridView class="pure-table" ID="GridViewIvitados" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" AllowPaging="True" OnSelectedIndexChanging="GridViewIvitados_SelectedIndexChanging" PageSize="5" 
+PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="IdPersona" HeaderText="Cedula" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
@@ -53,7 +55,7 @@
 
                <label for="correo"> Servicios: </label>
                     <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="ServiciosGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" >
+                    <asp:GridView class="pure-table" ID="ServiciosGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnSelectedIndexChanging="ServiciosGridView_SelectedIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv" >
                 <Columns>
                     <asp:BoundField DataField="IdTipoServicio" HeaderText="IdTipoServicio" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Servicio" />
