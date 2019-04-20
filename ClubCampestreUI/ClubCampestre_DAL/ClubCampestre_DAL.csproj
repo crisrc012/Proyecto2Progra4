@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
     <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +42,7 @@
     <Compile Include="CatalogosMantenimientos\Cls_Facturacion_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_FacturaDetalle_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Ingresos_DAL.cs" />
+    <Compile Include="CatalogosMantenimientos\Cls_Ingreso_Dal.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Membresias_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Persona_DAL.cs" />
     <Compile Include="CatalogosMantenimientos\Cls_Rol_DAL.cs" />

@@ -188,5 +188,9 @@ namespace WCF.Interfaces
         [OperationContract]
         bool eliminarServicio(short iIdServicio, ref string sMsj_error);
         #endregion
+        #region Ingresos
+        [OperationContract]
+        DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error);
+        #endregion
     }
 }

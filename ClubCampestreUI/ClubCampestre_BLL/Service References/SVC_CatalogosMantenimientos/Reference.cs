@@ -99,6 +99,13 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/eliminarServicio", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/eliminarServicioResponse")]
         System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarServicioResponse> eliminarServicioAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarServicioRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Cargar", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/CargarResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse Cargar(ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Cargar", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/CargarResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse> CargarAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
         ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse listarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request);
         
@@ -1089,6 +1096,62 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public eliminarServicioResponse(bool eliminarServicioResult, string sMsj_error) {
             this.eliminarServicioResult = eliminarServicioResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Cargar", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CargarRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string Nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string TipoCliente;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public string Membresia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public float Costo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
+        public string sMsj_error;
+        
+        public CargarRequest() {
+        }
+        
+        public CargarRequest(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, string sMsj_error) {
+            this.IdPersona = IdPersona;
+            this.Nombre = Nombre;
+            this.TipoCliente = TipoCliente;
+            this.Membresia = Membresia;
+            this.Costo = Costo;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CargarResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class CargarResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.Data.DataTable CargarResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sMsj_error;
+        
+        public CargarResponse() {
+        }
+        
+        public CargarResponse(System.Data.DataTable CargarResult, string sMsj_error) {
+            this.CargarResult = CargarResult;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -3283,7 +3346,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarTipoClienteResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarTipoClienteResult;
+        public string insertarTipoClienteResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -3291,7 +3354,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarTipoClienteResponse() {
         }
         
-        public insertarTipoClienteResponse(char insertarTipoClienteResult, string sMsj_error) {
+        public insertarTipoClienteResponse(string insertarTipoClienteResult, string sMsj_error) {
             this.insertarTipoClienteResult = insertarTipoClienteResult;
             this.sMsj_error = sMsj_error;
         }
@@ -3499,7 +3562,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarUsuarioResult;
+        public bool insertarUsuarioResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -3507,7 +3570,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarUsuarioResponse() {
         }
         
-        public insertarUsuarioResponse(char insertarUsuarioResult, string sMsj_error) {
+        public insertarUsuarioResponse(bool insertarUsuarioResult, string sMsj_error) {
             this.insertarUsuarioResult = insertarUsuarioResult;
             this.sMsj_error = sMsj_error;
         }
@@ -4188,6 +4251,28 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarServicioResponse> eliminarServicioAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarServicioRequest request) {
             return base.Channel.eliminarServicioAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.Cargar(ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest request) {
+            return base.Channel.Cargar(request);
+        }
+        
+        public System.Data.DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest();
+            inValue.IdPersona = IdPersona;
+            inValue.Nombre = Nombre;
+            inValue.TipoCliente = TipoCliente;
+            inValue.Membresia = Membresia;
+            inValue.Costo = Costo;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).Cargar(inValue);
+            sMsj_error = retVal.sMsj_error;
+            return retVal.CargarResult;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse> CargarAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest request) {
+            return base.Channel.CargarAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -5111,7 +5196,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarTipoCliente(request);
         }
         
-        public char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error) {
+        public string insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoClienteRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarTipoClienteRequest();
             inValue.IdTipoCliente = IdTipoCliente;
             inValue.Descripcion = Descripcion;
@@ -5204,7 +5289,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarUsuario(request);
         }
         
-        public char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error) {
+        public bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarUsuarioRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarUsuarioRequest();
             inValue.IdUsuario = IdUsuario;
             inValue.IdPersona = IdPersona;

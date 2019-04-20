@@ -18,6 +18,7 @@
              
             <label for="cedula"> Cedula: </label>
             <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
+               <asp:Button ID="TxtConsultar" class="pure-button pure-button-primary" runat="server" Text="Consultar" OnClick="TxtConsultar_Click" />
               <label for="Rol"> TipoCliente: </label>
               <input runat="server" type="text" id="TxtTipoCliente"  ForeColor="Blue" Width="191px" />
           </div>
@@ -52,7 +53,7 @@
 
                <label for="correo"> Servicios: </label>
                     <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="ServiciosGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" >
                 <Columns>
                     <asp:BoundField DataField="IdTipoServicio" HeaderText="IdTipoServicio" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Servicio" />
@@ -64,12 +65,17 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
+                        <label id="errorMensaje" runat="server"></label>
             <br />
+
         </div>
+            <div class="pure-control-group"> 
+                 <label for="TxtTotal"> Total: </label>
+            <input runat="server" type="text" id ="TxtTotal" value="" style="color: #0090ff"/>
+            </div>  
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-            <input class="pure-button pure-button-primary"  id="btnRegresar" type="button" value="Regresar" onclick="location.href = 'Mant_Persona.aspx' "  /> 
-             &nbsp;  
-            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1" />
+            
+            <asp:Button class="pure-button pure-button-primary" ID="btnFacturar" runat="server" Text="Facturar"   />
            </div>
 
           </fieldset>
