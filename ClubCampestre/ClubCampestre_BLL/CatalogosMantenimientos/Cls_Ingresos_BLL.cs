@@ -43,7 +43,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo), "[dbo].[sp_search_TB_TipoMembresia]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo), "[dbo].[sp_search_cargar_membresia]", ref sMsj_error).Copy();
 
         }
     }
