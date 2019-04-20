@@ -22,6 +22,15 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtCedula;
         
         /// <summary>
+        /// Control TxtConsultar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button TxtConsultar;
+        
+        /// <summary>
         /// Control TxtTipoCliente.
         /// </summary>
         /// <remarks>
@@ -94,21 +103,39 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.GridView GridViewIvitados;
         
         /// <summary>
-        /// Control CorreoPersonaGridView.
+        /// Control ServiciosGridView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CorreoPersonaGridView;
+        protected global::System.Web.UI.WebControls.GridView ServiciosGridView;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control errorMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorMensaje;
+        
+        /// <summary>
+        /// Control TxtTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TxtTotal;
+        
+        /// <summary>
+        /// Control btnFacturar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFacturar;
     }
 }
