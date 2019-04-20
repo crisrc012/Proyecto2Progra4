@@ -8,6 +8,7 @@ function SoloNumeros(e) {
     var teclado = String.fromCharCode(key);
     var numero = "0123456789.";
 
+    if ((e.keyCode != 13) || (e.which != 13))
     return numero.indexOf(teclado) !== -1;
 }
 

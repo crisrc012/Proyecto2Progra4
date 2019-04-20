@@ -74,9 +74,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCliente, sTipoCliente, sIdPersona, sNombre, sDireccion, sRol, true), "[dbo].[sp_search_V_Clientes]", ref sMsjError);
         }
 
-        public short Insertar(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
+        public short Insertar(byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
-            return Convert.ToInt16(Obj_BD_BLL.ExecuteScalar(inicializarDT(sIdCliente, bIdTipoCliente, sIdPersona), "[dbo].[sp_insert_TB_Clientes]", ref sMsjError));
+            return Convert.ToInt16(Obj_BD_BLL.ExecuteScalar(inicializarDT(short.MinValue, bIdTipoCliente, sIdPersona), "[dbo].[sp_insert_TB_Clientes]", ref sMsjError));
         }
 
         public bool Actualizar(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
