@@ -49,10 +49,10 @@ namespace WCF.Contracts
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
             return Obj_Clientes_BLL.Filtrar(sIdCliente, sTipoCliente, sIdPersona, sNombre, sDireccion, sRol, ref sMsjError);
         }
-        public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
+        public short insertarClientes(byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            return Obj_Clientes_BLL.Insertar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
+            return Obj_Clientes_BLL.Insertar(bIdTipoCliente, sIdPersona, ref sMsjError);
         }
         public bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {

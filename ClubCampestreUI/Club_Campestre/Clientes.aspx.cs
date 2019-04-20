@@ -10,7 +10,6 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
         Cls_Clientes_DAL Obj_Clientes_DAL;
-      
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -52,7 +51,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Tipo_Cliente.aspx", false);
+            Server.Transfer("Mant_Cliente.aspx", false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -77,9 +76,8 @@ namespace Club_Campestre
 
                         //Sesion estado lleva el objeto
                         Session["Estado"] = Obj_Clientes_DAL;
-                        Server.Transfer("Mant_Tipo_Cliente.aspx");//llama la pantalla 
+                        Server.Transfer("Mant_Cliente.aspx");//llama la pantalla 
                     }
-
                 }
             }
         }
@@ -98,7 +96,6 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-
                         Obj_Clientes_DAL.SIdCliente = Convert.ToByte(row.Cells[0].Text);
                         Obj_Clientes_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
                         Obj_Clientes_DAL.SIdPersona = row.Cells[2].Text;

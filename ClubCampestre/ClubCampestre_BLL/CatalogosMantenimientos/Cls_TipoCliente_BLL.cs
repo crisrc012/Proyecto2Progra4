@@ -1,5 +1,4 @@
 ﻿using ClubCampestre_BLL.BD;
-using System;
 using System.Data;
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
@@ -8,13 +7,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(byte IdTipoCliente, string Descripcion)
+        private DataTable inicializarDT(byte IdTipoCliente, string Descripcion, bool bFiltrar = false)
         {
             DataTable dt = new DataTable("TipoCliente");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdTipoCliente", IdTipoCliente);
-            if (Descripcion != string.Empty)
+            if (IdTipoCliente != byte.MinValue || bFiltrar)
+            {
+                dt.Rows.Add("@IdTipoCliente", IdTipoCliente);
+            }
+            if (Descripcion != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@Descripcion", Descripcion);
             }

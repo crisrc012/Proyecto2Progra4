@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ClubCampestre_DAL.BD;
+using System;
 using System.Configuration;
 using System.Data;
-using ClubCampestre_DAL.BD;
 using System.Data.SqlClient;
 
 namespace ClubCampestre_BLL.BD
