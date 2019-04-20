@@ -45,6 +45,7 @@ namespace Club_Campestre
                     //this.mantenimiento.InnerHtml = "Modificacion de Persona";
 
                     // Carga de datos persona
+                    this.txtCedula.Disabled = true;
                     this.txtCedula.Value = persona.SIdPersona;
                     txtnombre.Value = persona.SNombre;
                     TextAreadireccion.Value = persona.SDireccion;
@@ -262,7 +263,6 @@ namespace Club_Campestre
                     {
                         quitar.Add(row.RowIndex);
                     }
-
                 }
             }
 
@@ -270,15 +270,9 @@ namespace Club_Campestre
             {
                 tabla.Rows.RemoveAt(quitar[i]);
             }
-
-           
-                        
-
             CorreoPersonaGridView.DataSource = tabla;
             CorreoPersonaGridView.DataBind();
-
             ViewState["tablaCorreo"] = tabla;
-
         }
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
@@ -332,10 +326,28 @@ namespace Club_Campestre
                     }
                 }
                 #endregion
-
-                Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+                if (tipoSession == "E")
+                {
+                    Obj_Persona_BLL.Actualizar(ref Obj_Persona_DAL);
+                }
+                else
+                {
+                    Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+                }
                 Server.Transfer("Mant_Persona.aspx");
             }
+        }
+
+        protected void GridViewTelefono_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewTelefono.PageIndex = e.NewPageIndex;
+            //this.**MetodoparaTraerlosTelefonosdelaBasedeDatos;
+        }
+
+        protected void CorreoPersonaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            CorreoPersonaGridView.PageIndex = e.NewPageIndex;
+            //this.**MetodoparaTraerlosCorreosdelaBasedeDatos;
         }
     }
 }

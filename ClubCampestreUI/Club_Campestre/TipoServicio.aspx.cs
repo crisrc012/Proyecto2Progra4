@@ -121,5 +121,11 @@ namespace Club_Campestre
                 this.BindGrid();
             }
         }
+
+        protected void TipoServicioGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            TipoServicioGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

@@ -139,5 +139,16 @@ namespace Club_Campestre
             }
             vFiltra = true;
         }
+
+        protected void RolesGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void RolesGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            RolesGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

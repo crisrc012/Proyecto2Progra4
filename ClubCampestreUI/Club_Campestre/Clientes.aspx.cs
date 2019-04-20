@@ -70,12 +70,13 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Clientes_DAL.SIdCliente = Convert.ToSByte(row.Cells[0].Text);
-                        Obj_Clientes_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
+                        Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(row.Cells[0].Text);
+                        string sTipoCliente = row.Cells[1].Text;
                         Obj_Clientes_DAL.SIdPersona = row.Cells[2].Text;
 
                         //Sesion estado lleva el objeto
-                        Session["Estado"] = Obj_Clientes_DAL;
+                        Session["Clientes"] = Obj_Clientes_DAL;
+                        Session["TipoCliente"] = sTipoCliente;
                         Server.Transfer("Mant_Cliente.aspx");//llama la pantalla 
                     }
                 }
@@ -96,9 +97,7 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Clientes_DAL.SIdCliente = Convert.ToByte(row.Cells[0].Text);
-                        Obj_Clientes_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
-                        Obj_Clientes_DAL.SIdPersona = row.Cells[2].Text;
+                        Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(row.Cells[0].Text);
                         //llamado metodo eliminar estados
                         Obj_Clientes_BLL.Eliminar(ref Obj_Clientes_DAL);// eliminar estados
                     }
@@ -122,5 +121,10 @@ namespace Club_Campestre
             this.BindGrid();
         }
         
+        protected void ClientesGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ClientesGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

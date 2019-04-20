@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Membresias.aspx.cs" Inherits="Club_Campestre.Mant_Membresias" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -17,7 +18,7 @@
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="txtCedula">Cedula Cliente:</label>
-                        <input runat="server" type="text" id="txtCedula" style="color: blue" required />
+                        <input runat="server" type="text" id="txtCedula" style="color: blue" required onkeypress="return SoloNumeros(event)"/>
                         <label for="txtNombre">Nombre:</label>
                         <input runat="server" type="text" id="txtNombre" value="" style="color: #0090ff; width: 305px;"/>
                     </div>
@@ -41,13 +42,13 @@
                     <section>
                         <div class="pure-control-group">
                             <label for="BeneficiariosGridView">Beneficiarios:</label>
-                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue" onkeypress="return soloLetras(event)"></asp:TextBox>
+                            <asp:TextBox ID="txtbenefiario" runat="server"  style="color:blue" onkeypress="return SoloNumeros(event)"></asp:TextBox>
                             <input type="button" id="btnAgregar" class="pure-button pure-button-primary" value="Agregar" runat="server"  onserverclick="CargaBeneficiarios" />
                             <input type="button" class="pure-button pure-button-primary" runat="server" onserverclick="QuitarBeneficiarios" value="Quitar" />
 
                             <span id="RegistroBeneficiarios"></span>
 
-                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px">
+                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px" AllowPaging="True" PageSize="5" PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="BeneficiariosGridView_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="IdPersona" HeaderText="ID Beneficiario" ItemStyle-Width="100" />
                                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="200"  />

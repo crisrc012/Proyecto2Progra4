@@ -162,6 +162,11 @@ namespace Club_Campestre
                 this.BindGrid();
         
         }
-        
+
+        protected void PersonaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            PersonaGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

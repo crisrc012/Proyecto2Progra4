@@ -40,6 +40,15 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtcosto;
         
         /// <summary>
+        /// Control lblGuardar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGuardar;
+        
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
