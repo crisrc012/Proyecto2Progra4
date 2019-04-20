@@ -45,20 +45,35 @@ namespace Club_Campestre
         {
             CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            Obj_TipoMembresia_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-            Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(txtcosto.Value);
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
+            if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
+
             {
-                Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(this.txtTipoMembre.Value);
-                Obj_TipoMembresia_BLL.Actualizar(ref Obj_TipoMembresia_DAL);
-                Server.Transfer("TipoMembresia.aspx");
+
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
+
             }
             else
             {
-                Obj_TipoMembresia_BLL.Insertar(ref Obj_TipoMembresia_DAL);
-                Server.Transfer("TipoMembresia.aspx");
+                lblGuardar.Visible = false;
+                Obj_TipoMembresia_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
+                Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(txtcosto.Value);
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(this.txtTipoMembre.Value);
+                    Obj_TipoMembresia_BLL.Actualizar(ref Obj_TipoMembresia_DAL);
+                    Server.Transfer("TipoMembresia.aspx");
+                }
+                else
+                {
+                    Obj_TipoMembresia_BLL.Insertar(ref Obj_TipoMembresia_DAL);
+                    Server.Transfer("TipoMembresia.aspx");
+                }
+
             }
+
         }
     }
 }
