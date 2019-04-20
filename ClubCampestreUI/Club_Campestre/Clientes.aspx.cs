@@ -34,7 +34,7 @@ namespace Club_Campestre
             {
                 Obj_Clientes_DAL.SIdPersona = this.txtFiltraClientes.Text.Trim();
                 //Llamado del metodo filtrar clientes
-                Obj_Clientes_BLL.Filtrar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.FiltrarV(ref Obj_Clientes_DAL);
             }
             if (Obj_Clientes_DAL.SMsjError == string.Empty)
             {
