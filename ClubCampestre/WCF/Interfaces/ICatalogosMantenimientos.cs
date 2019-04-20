@@ -27,7 +27,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarClientesV(short sIdCliente, string sTipoCliente, string sIdPersona, string sNombre, string sDireccion, string sRol, ref string sMsjError);
         [OperationContract]
-        short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
+        short insertarClientes(byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
         [OperationContract]
         bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError);
         [OperationContract]

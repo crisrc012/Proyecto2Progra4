@@ -1522,22 +1522,18 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarClientesRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short sIdCliente;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public byte bIdTipoCliente;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sIdPersona;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsjError;
         
         public insertarClientesRequest() {
         }
         
-        public insertarClientesRequest(short sIdCliente, byte bIdTipoCliente, string sIdPersona, string sMsjError) {
-            this.sIdCliente = sIdCliente;
+        public insertarClientesRequest(byte bIdTipoCliente, string sIdPersona, string sMsjError) {
             this.bIdTipoCliente = bIdTipoCliente;
             this.sIdPersona = sIdPersona;
             this.sMsjError = sMsjError;
@@ -4438,9 +4434,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarClientes(request);
         }
         
-        public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError) {
+        public short insertarClientes(byte bIdTipoCliente, string sIdPersona, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarClientesRequest();
-            inValue.sIdCliente = sIdCliente;
             inValue.bIdTipoCliente = bIdTipoCliente;
             inValue.sIdPersona = sIdPersona;
             inValue.sMsjError = sMsjError;
