@@ -64,8 +64,8 @@ namespace Club_Campestre
                         Obj_TipoCliente_DAL.SPKDescripcion = row.Cells[1].Text;
 
                         //Sesion estado lleva el objeto
-                        Session["Estado"] = Obj_TipoCliente_DAL;
-                        Server.Transfer("Mant_Tipo_Cliente.aspx");//llama la pantalla 
+                        Session["MantenimientoTipoDeClientes"] = Obj_TipoCliente_DAL;
+                        Server.Transfer("Mantenimiento_Tipos_De_Clientes.aspx");//llama la pantalla 
                     }
                 }
             }
