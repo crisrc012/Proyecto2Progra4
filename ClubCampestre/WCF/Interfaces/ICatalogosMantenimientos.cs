@@ -192,7 +192,7 @@ namespace WCF.Interfaces
         #endregion
         #region Ingresos
         [OperationContract]
-        DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error);
+        DataTable Cargar(string IdPersona, ref string sMsj_error);
         #endregion
     }
 }

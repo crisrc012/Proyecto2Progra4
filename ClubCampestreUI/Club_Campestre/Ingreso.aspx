@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Ingreso.aspx.cs" Inherits="Club_Campestre.Ingreso" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Ingreso.aspx.cs" Inherits="Club_Campestre.Ingreso" EnableEventValidation ="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -14,27 +14,35 @@
     <div>
          <form class = "pure-form pure-form-aligned" method="post">
           <fieldset>
+              
+
            <div class="pure-control-group">
-             
+
             <label for="cedula"> Cedula: </label>
             <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
-               <asp:Button ID="TxtConsultar" class="pure-button pure-button-primary" runat="server" Text="Consultar" OnClick="TxtConsultar_Click" />
+
+               <asp:Button ID="TxtConsultar" class="pure-button pure-button-primary" runat="server" Text="Consultar"  OnClick="TxtConsultar_Click" />
               <label for="Rol"> TipoCliente: </label>
-              <input runat="server" type="text" id="TxtTipoCliente"  ForeColor="Blue" Width="191px" />
+              <input runat="server" type="text" id="TxtTipoCliente"  ForeColor="Blue" Width="191px" style="color: #0090ff" />
+
           </div>
 
           <div class="pure-control-group">
             <label for="nombre"> Nombre: </label>
               <input runat="server" type="text" id="txtnombre" onkeypress="javascript:return soloLetras(event)" style="color: #0090ff" />
          <div > </div>
+              
               <div class="pure-control-group">
              <label for="cedula"> Membresia: </label>
             <input runat="server" type="text" id ="TxtMembresia" value="" style="color: #0090ff"/>
               <label for="Rol"> Costo: </label>
-              <input runat="server" type="text" id="TxtCosto"  ForeColor="Blue" Width="191px" />
+              <input runat="server" type="text" id="TxtCosto"  ForeColor="Blue" Width="191px" style="color: #0090ff" />
+             
              </div>
                </div>
-               <label for="telefono" > Invitado</label><input runat="server" type="text" id="txtInvitado"  style="color: #0090ff; width: 284px;" />
+
+              
+               <label for="btnagregarInvitado" > Invitado</label><input runat="server" type="text" id="txtInvitado"  style="color: #0090ff; width: 284px;" />
               <asp:Button class="pure-button pure-button-primary" ID="btnagregarInvitado" runat="server" Text="+"   />
               &nbsp;
               <asp:Button  class="pure-button pure-button-primary"  ID="btnremoverInvitado" runat="server" Text="-"  />
@@ -50,6 +58,7 @@
             </asp:GridView>
             <br />
         </div>
+            
 
                <label for="correo"> Servicios: </label>
                     <div class="pure-controls">

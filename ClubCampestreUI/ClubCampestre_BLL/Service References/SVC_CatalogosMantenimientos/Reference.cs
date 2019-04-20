@@ -1156,29 +1156,13 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public string IdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public string Nombre;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
-        public string TipoCliente;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public string Membresia;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
-        public float Costo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=5)]
         public string sMsj_error;
         
         public CargarRequest() {
         }
         
-        public CargarRequest(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, string sMsj_error) {
+        public CargarRequest(string IdPersona, string sMsj_error) {
             this.IdPersona = IdPersona;
-            this.Nombre = Nombre;
-            this.TipoCliente = TipoCliente;
-            this.Membresia = Membresia;
-            this.Costo = Costo;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -4339,13 +4323,9 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.Cargar(request);
         }
         
-        public System.Data.DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error) {
+        public System.Data.DataTable Cargar(string IdPersona, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarRequest();
             inValue.IdPersona = IdPersona;
-            inValue.Nombre = Nombre;
-            inValue.TipoCliente = TipoCliente;
-            inValue.Membresia = Membresia;
-            inValue.Costo = Costo;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.CargarResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).Cargar(inValue);
             sMsj_error = retVal.sMsj_error;

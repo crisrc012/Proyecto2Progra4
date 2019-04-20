@@ -432,10 +432,10 @@ namespace WCF.Contracts
         }
         #endregion
         #region Devuelve_Datos_Ingreso
-        public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
+        public DataTable Cargar(string IdPersona,  ref string sMsj_error)
         {
             Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
-            return Obj_Ingresos_BLL.Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo, ref sMsj_error);
+            return Obj_Ingresos_BLL.Cargar(IdPersona, ref sMsj_error);
         }
         #endregion
     }

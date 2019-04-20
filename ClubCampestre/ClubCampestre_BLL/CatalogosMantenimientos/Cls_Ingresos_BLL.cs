@@ -18,7 +18,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             dt.Columns.Add("Valor");
             if (IdPersona != string.Empty)
             {
-                dt.Rows.Add("@IdPersona", Nombre);
+                dt.Rows.Add("@IdPersona", IdPersona);
             }
             if (Nombre != string.Empty)
             {
@@ -41,9 +41,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return dt;
         }
 
-        public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
+        public DataTable Cargar(string IdPersona, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo), "[dbo].[sp_search_cargar_membresia]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, string.Empty, string.Empty, string.Empty, float.MinValue), "[dbo].[sp_search_cargar_membresia]", ref sMsj_error);
 
         }
     }

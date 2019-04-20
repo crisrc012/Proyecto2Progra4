@@ -19,7 +19,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Ingresos_Client = new CatalogosMantenimientosClient();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
-                Obj_Ingreso_DAL.DS.Tables.Add(Obj_Ingresos_Client.Cargar(Obj_Ingreso_DAL.IdPersona, Obj_Ingreso_DAL.Nombre, Obj_Ingreso_DAL.TipoCliente, Obj_Ingreso_DAL.Membresia, Obj_Ingreso_DAL.Costo, ref sMsjError));
+                Obj_Ingreso_DAL.DS.Tables.Add(Obj_Ingresos_Client.Cargar(Obj_Ingreso_DAL.IdPersona,  ref sMsjError));
                 Obj_Ingresos_Client.Close();
                 Obj_Ingreso_DAL.SMsj_error = sMsjError;
             }

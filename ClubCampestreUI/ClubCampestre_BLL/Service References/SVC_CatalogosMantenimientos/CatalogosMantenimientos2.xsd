@@ -279,10 +279,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="TipoCliente" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Membresia" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Costo" type="xs:float" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

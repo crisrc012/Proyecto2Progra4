@@ -8,7 +8,7 @@ create procedure [dbo].[sp_search_cargar_membresia]
 
 
 (
-	@IdPersona varchar, @Nombre varchar, @TipoCliente varchar, @Membrresia varchar, @costo float 
+	@IdPersona varchar (20)
 )
 
 
@@ -21,5 +21,6 @@ inner join TB_TipoCliente as d on b.IdTipoCliente = d.IdTipoCliente
 inner join TB_TipoMembresia as e on a.IdTipoMembresia = e.IdTipoMembresia
 where c.IdPersona = @IdPersona
 GO
+
 
 
