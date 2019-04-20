@@ -22,7 +22,7 @@ create table TB_Persona (
 go
 
 create table TB_Usuarios (
-		IdUsuario varchar (6) not null,
+		IdUsuario varchar (25) not null,
 		IdPersona varchar (20) not null unique, 
 		Contrasena varchar (50) not null,
 		constraint [PK_IdUsuario] primary key clustered(
@@ -60,7 +60,7 @@ create table TB_Telefonos (
 go
 
 create table TB_TipoCliente (
-		IdTipoCliente tinyint identity (1,1) not null,--PK
+		IdTipoCliente tinyint identity (1,1) not null,
 		Descripcion varchar (20) not null,
 		constraint [PK_IdTipoCliente] primary key clustered(
 					IdTipoCliente asc
@@ -120,7 +120,6 @@ create table TB_Servicio (
 )
 go
 
-
 create table TB_TipoMembresia (
 		IdTipoMembresia tinyint identity (1,1) not null,
 		Descripcion varchar (20) not null unique, 
@@ -130,7 +129,6 @@ create table TB_TipoMembresia (
 		)
 )
 go
-
 
 create table TB_Membresias (
 		IdMembresia int  identity (1,1) not null,
@@ -166,7 +164,6 @@ create table Tb_Facturacion (
 					IdFactura asc
 		)
 )
-
 
 create table Tb_FacturaDetalle (
 		IdFacturaDetalle int identity (1,1) not null,

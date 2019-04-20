@@ -1,0 +1,15 @@
+﻿.pagingDiv table {
+    padding-left: 10px;
+    width: auto;
+}
+ 
+.pagingDiv table td {
+    display: inline;
+}
+ 
+.pagingDiv a, .pagingDiv span {
+    display: inline-block;
+    background: transparent;
+    font-size: 16px;
+    color: #1e255b;
+}

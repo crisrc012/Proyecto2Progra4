@@ -83,7 +83,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
                 // Se manda a eliminar el dato
                 string sMsjError = string.Empty;
-                Obj_Beneficiario_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, ref sMsjError);
+                Obj_Beneficiario_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.SIdCliente, ref sMsjError);
                 Obj_Beneficiario_Client.Close();
                 Obj_Beneficiarios_DAL.SMsjError = sMsjError;
             }

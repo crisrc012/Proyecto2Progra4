@@ -1,5 +1,4 @@
 ﻿using ClubCampestre_BLL.BD;
-using System;
 using System.Data;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
@@ -9,20 +8,20 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(short sIdCorreo, string sIdPersona, string sCorreo)
+        private DataTable inicializarDT(short sIdCorreo, string sIdPersona, string sCorreo, bool bFiltrar = false)
         {
             DataTable dt = new DataTable("Correos");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            if (sIdCorreo != short.MinValue)
+            if (sIdCorreo != short.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@IdCorreo", sIdCorreo);
             }
-            if (sIdPersona != string.Empty)
+            if (sIdPersona != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
-            if (sCorreo != string.Empty)
+            if (sCorreo != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@Correo", sCorreo);
             }
@@ -35,7 +34,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCorreo, sIdPersona, sCorreo), "[dbo].[sp_search_TB_Correos]", ref sMsjError);
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdCorreo, sIdPersona, sCorreo, true), "[dbo].[sp_search_TB_Correos]", ref sMsjError);
         }
 
         public string  Insertar(string sIdPersona, string sCorreo, ref string sMsjError)

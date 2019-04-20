@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
@@ -118,7 +111,6 @@ namespace Club_Campestre
                         //llamado metodo eliminar estados
                         Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
                     }
-
                 }
             }
             if (Obj_Estado_DAL.sMsjError == string.Empty)
@@ -130,8 +122,7 @@ namespace Club_Campestre
             {
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
                 this.BindGrid();
-            }      
-
+            }
         }
 
         // evento para Buscar
@@ -144,6 +135,5 @@ namespace Club_Campestre
         {
             this.BindGrid();
         }
-  
     }
 }

@@ -1,5 +1,4 @@
 ﻿using ClubCampestre_BLL.BD;
-using System;
 using System.Data;
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
@@ -8,13 +7,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(byte IdTipoCliente, string Descripcion)
+        private DataTable inicializarDT(byte IdTipoCliente, string Descripcion, bool bFiltrar = false)
         {
             DataTable dt = new DataTable("TipoCliente");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdTipoCliente", IdTipoCliente);
-            if (Descripcion != string.Empty)
+            if (IdTipoCliente != byte.MinValue || bFiltrar)
+            {
+                dt.Rows.Add("@IdTipoCliente", IdTipoCliente);
+            }
+            if (Descripcion != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@Descripcion", Descripcion);
             }
@@ -30,9 +32,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoCliente, Descripcion), "[dbo].[sp_search_TB_TipoCliente]", ref sMsj_error).Copy();
         }
 
-        public char Insertar(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        public string Insertar(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(IdTipoCliente, Descripcion), "[dbo].[sp_insert_TB_TipoCliente]", ref sMsj_error));
+            return (Obj_BD_BLL.ExecuteScalar(inicializarDT(IdTipoCliente, Descripcion), "[dbo].[sp_insert_TB_TipoCliente]", ref sMsj_error));
         }
 
         public bool Actualizar(byte IdTipoCliente, string Descripcion, ref string sMsj_error)

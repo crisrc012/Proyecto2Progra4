@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -72,16 +73,20 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
+    <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
+    <Content Include="Ingreso.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
-    <Content Include="Mant_Tipo_Cliente.aspx" />
+    <Content Include="Mant_Cliente.aspx" />
     <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="Mant_Tipo_Servicio.aspx" />
+    <Content Include="Mant_Usuarios.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
+    <Content Include="Shared\css\gridviews.css" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Roles.aspx" />
     <Content Include="Servicios.aspx" />
@@ -195,6 +200,20 @@
     <Compile Include="IndexCliente.aspx.designer.cs">
       <DependentUpon>IndexCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.cs">
+      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.designer.cs">
+      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingreso.aspx.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingreso.aspx.designer.cs">
+      <DependentUpon>Ingreso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mant_Estados.aspx.cs">
       <DependentUpon>Mant_Estados.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,12 +242,12 @@
     <Compile Include="Mant_Rol.aspx.designer.cs">
       <DependentUpon>Mant_Rol.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_Tipo_Cliente.aspx.cs">
-      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+    <Compile Include="Mant_Cliente.aspx.cs">
+      <DependentUpon>Mant_Cliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_Tipo_Cliente.aspx.designer.cs">
-      <DependentUpon>Mant_Tipo_Cliente.aspx</DependentUpon>
+    <Compile Include="Mant_Cliente.aspx.designer.cs">
+      <DependentUpon>Mant_Cliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Tipo_Membre.aspx.cs">
       <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
@@ -243,6 +262,13 @@
     </Compile>
     <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
       <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mant_Usuarios.aspx.designer.cs">
+      <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

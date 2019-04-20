@@ -1,59 +1,50 @@
 ﻿using ClubCampestre_BLL.BD;
-using System.Data;
 using System;
+using System.Data;
+
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
+   
     public class Cls_Ingresos_BLL
     {
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(int iIdIngreso, short sIdCliente, int iIdMembresia, DateTime dFecha)
+        private DataTable Datatable_Cargar(string IdPersona,string Nombre, string TipoCliente, string Membresia, float Costo)//datatable para devolver en ingresos
         {
-            DataTable dt = new DataTable("Ingreso");
+            DataTable dt = new DataTable("Cliente_Membresia");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            dt.Rows.Add("@IdIngreso", iIdIngreso);
-
-            if (sIdCliente != short.MinValue)
+            if (IdPersona != string.Empty)
             {
-                dt.Rows.Add("@IdCliente", sIdCliente);
+                dt.Rows.Add("@IdPersona", Nombre);
             }
-            if (iIdMembresia != short.MinValue)
+            if (Nombre != string.Empty)
             {
-                dt.Rows.Add("@IdMembresia", iIdMembresia);
+                dt.Rows.Add("@Nombre", Nombre);
             }
-            if (dFecha != DateTime.MinValue)
+            if (TipoCliente != string.Empty)
             {
-                dt.Rows.Add("@FechaIngreso", dFecha);
+                dt.Rows.Add("@TipoCliente", TipoCliente);
             }
 
+            if (Membresia != string.Empty)
+            {
+                dt.Rows.Add("@Membresia", Membresia);
+            }
+
+            if (Costo != float.MinValue)
+            {
+                dt.Rows.Add("@Costo", Costo);
+            }
             return dt;
         }
-        public DataTable Listar(ref string sMsj_error)
-        {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Ingresos]", ref sMsj_error);
-        }
 
-        public DataTable Filtrar(int iIdIngreso, short sIdCliente, int iIdMembresia, DateTime dFecha, ref string sMsj_error)
+        public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(iIdIngreso, sIdCliente, iIdMembresia, dFecha), "[dbo].[sp_search_TB_Ingresos]", ref sMsj_error).Copy();
-        }
+            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo), "[dbo].[sp_search_cargar_membresia]", ref sMsj_error).Copy();
 
-        public char Insertar(int iIdIngreso,short sIdCliente, int iIdMembresia, DateTime dFecha, ref string sMsj_error)
-        {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(iIdIngreso, sIdCliente, iIdMembresia, dFecha), "[dbo].[sp_insert_TB_Ingresos]", ref sMsj_error));
-        }
-
-        public bool Actualizar(int iIdIngreso,short sIdCliente, int iIdMembresia, DateTime dFecha, ref string sMsj_error)
-        {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdIngreso, sIdCliente, iIdMembresia, dFecha), "[dbo].[sp_update_TB_Ingresos]", ref sMsj_error);
-        }
-
-        public bool Eliminar(int iIdIngreso, short sIdCliente, int iIdMembresia, DateTime dFecha, ref string sMsj_error)
-        {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(iIdIngreso, sIdCliente, iIdMembresia, dFecha), "[dbo].[sp_delete_TB_Ingresos]", ref sMsj_error);
         }
     }
 }

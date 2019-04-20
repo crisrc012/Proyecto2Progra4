@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Mant_Tipo_Cliente {
+    public partial class Mantenimiento_Tipos_De_Clientes {
         
         /// <summary>
         /// mantenimiento control.
@@ -22,31 +22,22 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// DropDownTClientes control.
+        /// txtIdTipoCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownTClientes;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtIdTipoCliente;
         
         /// <summary>
-        /// txtidcliente control.
+        /// txtdescripcion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtidcliente;
-        
-        /// <summary>
-        /// txtidpersona control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtidpersona;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
         
         /// <summary>
         /// btnGuardar control.

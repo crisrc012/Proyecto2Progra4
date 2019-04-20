@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="Club_Campestre.Clientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -23,11 +24,14 @@
                 <br />
             </div>
             <div class="pure-controls">
-                <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+                <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" PageSize="5" OnSelectedIndexChanging="ClientesGridView_SelectedIndexChanging" PagerStyle-CssClass="pagingDiv" >
                     <Columns>
-                        <asp:BoundField DataField="IdCliente" HeaderText="Id_Cliente" />
-                        <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo_Cliente" />
-                        <asp:BoundField DataField="IdPersona" HeaderText="Id_Persona" />
+                        <asp:BoundField DataField="IdCliente" HeaderText="ID Cliente" />
+                        <asp:BoundField DataField="Tipo de Cliente" HeaderText="Tipo de Cliente" />
+                        <asp:BoundField DataField="IdPersona" HeaderText="Cédula" />
+                        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                        <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
+                        <asp:BoundField DataField="Rol" HeaderText="Rol" />
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />

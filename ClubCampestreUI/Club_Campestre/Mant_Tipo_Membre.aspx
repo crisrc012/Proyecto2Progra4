@@ -22,11 +22,11 @@
 
           <div class="pure-control-group">
             <label for="descripcion"> Descripcion: </label>
-              <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" />
+              <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" onkeypress="return soloLetras(event)"/>
           </div>
                         <div class="pure-control-group">
             <label for="Costo"> Costo: </label>
-              <input runat="server" type="text" id="txtcosto" style="color: #0090ff" />
+              <input runat="server" type="text" id="txtcosto" style="color: #0090ff" onkeypress="return SoloNumeros(event)" />
           </div>
 
           <div class="pure-controls">

@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
 
 
 namespace Club_Campestre
 {
     public partial class Mant_Tipo_Cliente : System.Web.UI.Page
     {
-       
-
         protected void Page_Load(object sender, EventArgs e)
         {
             CargaTipoCliente();
@@ -25,7 +15,8 @@ namespace Club_Campestre
             {
                 Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
                 string tipo = Session["tipo"].ToString();
-                if(clientes != null & tipo == "E")
+                txtidcliente.Disabled = true;
+                if (clientes != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
                     this.DropDownTClientes.SelectedValue = clientes.BIdTipoCliente.ToString();
@@ -34,6 +25,7 @@ namespace Club_Campestre
                 }
                 else
                 {
+                    this.txtidcliente.Visible = false;
                     this.mantenimiento.InnerHtml = "Nuevos de Clientes";
                    // this.txtidcliente.Value = string.Empty;
                     this.DropDownTClientes.SelectedValue = string.Empty;
@@ -52,10 +44,8 @@ namespace Club_Campestre
         {
             Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
-
-            Obj_Clientes_DAL.SIdPersona = this.txtidpersona.Value;
-            Obj_Clientes_DAL.BIdTipoCliente = Convert.ToByte(this.DropDownTClientes.SelectedValue);
-           // Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
+            Obj_Clientes_DAL.SIdCliente = Convert.ToByte(this.txtidcliente.Value);
             string tipo = Session["tipo"].ToString();
 
             if (tipo == "E")

@@ -27,10 +27,10 @@ namespace WCF.Contracts
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
             return Obj_Beneficiarios_BLL.Actualizar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public bool eliminarBeneficiarios(short sIdBeneficiario, ref string sMsjError)
+        public bool eliminarBeneficiarios(short sIdCliente, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            return Obj_Beneficiarios_BLL.Eliminar(sIdBeneficiario, ref sMsjError);
+            return Obj_Beneficiarios_BLL.Eliminar(sIdCliente, ref sMsjError);
         }
         #endregion
         #region Clientes
@@ -44,10 +44,15 @@ namespace WCF.Contracts
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
             return Obj_Clientes_BLL.Filtrar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
         }
-        public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
+        public DataTable filtrarClientesV(short sIdCliente, string sTipoCliente, string sIdPersona, string sNombre, string sDireccion, string sRol, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            return Obj_Clientes_BLL.Insertar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
+            return Obj_Clientes_BLL.Filtrar(sIdCliente, sTipoCliente, sIdPersona, sNombre, sDireccion, sRol, ref sMsjError);
+        }
+        public short insertarClientes(byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
+        {
+            Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
+            return Obj_Clientes_BLL.Insertar(bIdTipoCliente, sIdPersona, ref sMsjError);
         }
         public bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
@@ -268,7 +273,7 @@ namespace WCF.Contracts
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Filtrar(IdTipoCliente, Descripcion, ref sMsj_error);
         }
-        public char insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
+        public string  insertarTipoCliente(byte IdTipoCliente, string Descripcion, ref string sMsj_error)
         {
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             return Obj_TipoCliente_BLL.Insertar(IdTipoCliente, Descripcion, ref sMsj_error);
@@ -296,7 +301,7 @@ namespace WCF.Contracts
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Filtrar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
         }
-        public char insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        public bool insertarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
         {
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Insertar(IdUsuario, IdPersona, Contrasena, ref sMsj_error);
@@ -345,10 +350,10 @@ namespace WCF.Contracts
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
             return Obj_Memebresias_BLL.Listar(ref sMsj_error);
         }
-        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
+        public DataTable filtrarMemebresias(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, ref string sMsj_error)
         {
             Cls_Membresias_BLL Obj_Memebresias_BLL = new Cls_Membresias_BLL();
-            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, cIdEstado, dFechaInicio, dFechaVence, ref sMsj_error);
+            return Obj_Memebresias_BLL.Filtrar(iIdMembresia, sIdCliente, bIdTipoMembresia, ref sMsj_error);
         }
         public int insertarMemebresias(short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, ref string sMsj_error)
         {
@@ -424,6 +429,13 @@ namespace WCF.Contracts
         {
             Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
             return Obj_Servicios_BLL.Eliminar(iIdServicio, ref sMsj_error);
+        }
+        #endregion
+        #region Devuelve_Datos_Ingreso
+        public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
+        {
+            Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
+            return Obj_Ingresos_BLL.Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo, ref sMsj_error);
         }
         #endregion
     }
