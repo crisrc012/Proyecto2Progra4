@@ -3,8 +3,6 @@ using System.Web.UI.WebControls;
 using System.Data;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
-using System.Collections.Generic;
-using System.Globalization;
 
 namespace Club_Campestre
 {

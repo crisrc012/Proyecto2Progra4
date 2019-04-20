@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
@@ -18,7 +11,6 @@ namespace Club_Campestre
         Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             ///Meter esto 
             if (!IsPostBack)
             {
@@ -35,40 +27,6 @@ namespace Club_Campestre
                 TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
                 TipoClienteGridView.DataBind();
             }
-            
-            //Se instancia objeto
-
-            //Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
-            //Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-            //Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
-
-            //if (this.txtFiltraTipocliente .Text== string.Empty)//listar
-            //{
-            //    //llamado metodo listar estados
-            //    Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
-
-            //}
-            //else
-            //{
-
-            //    Obj_TipoCliente_DAL.SPKDescripcion = this.txtFiltraTipocliente.Text;
-            //    //llamado metodo listar estados
-            //   Obj_TipoCliente_BLL.Filtrar(ref Obj_TipoCliente_DAL);
-            //}
-
-            //if (Obj_TipoCliente_DAL.SMsjError == string.Empty)
-            //{
-            //    //Carga de Grid con DataSet instanciado en DAL
-            //    this.TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
-            //    this.TipoClienteGridView.DataBind();
-            //}
-            //else
-            //{
-            //    this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar .";
-            //    this.BindGrid();
-            //}
-
-
         }
 
         private void Filtrar()
@@ -85,7 +43,6 @@ namespace Club_Campestre
             Server.Transfer("Mantenimiento_Tipos_De_Clientes.aspx", false);
         }
 
-
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             
@@ -95,7 +52,6 @@ namespace Club_Campestre
             Session["tipo"] = "E";
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoClienteGridView.Rows)
-           
             {
                 //busca el la fila
                 if (row.RowType == DataControlRowType.DataRow)
@@ -111,14 +67,40 @@ namespace Club_Campestre
                         Session["Estado"] = Obj_TipoCliente_DAL;
                         Server.Transfer("Mant_Tipo_Cliente.aspx");//llama la pantalla 
                     }
-
                 }
             }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+            //Recorre Grid buscando chk 
+            foreach (GridViewRow row in TipoClienteGridView.Rows)
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    //si esta checkeado instancia las propiedades del objeto
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
+                        Obj_TipoCliente_DAL.SPKDescripcion = row.Cells[1].Text;
+                        //llamado metodo eliminar
+                        Obj_TipoCliente_BLL.Eliminar(ref Obj_TipoCliente_DAL);
+                    }
+                }
+            }
+            if (Obj_TipoCliente_DAL.SMsjError == string.Empty)
+            {
+                this.errorMensaje.InnerHtml = "Tipo de Cliente Eliminado con exito.";
+                this.BindGrid();
+            }
+            else
+            {
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Tipo de cliente.";
+                this.BindGrid();
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
