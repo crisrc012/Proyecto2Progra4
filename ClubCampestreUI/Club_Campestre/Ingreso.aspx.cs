@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
+using ClubCampestre_BLL.CatalogosMantenimientos;
 using System.Data;
 
 namespace Club_Campestre
@@ -13,8 +13,8 @@ namespace Club_Campestre
     public partial class Ingreso : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-        Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
+        Cls_Ingreso_Dal Obj_Ingreso_DAL;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,18 +49,18 @@ namespace Club_Campestre
         private void BindGrid()
         {
             //Se instancia objeto
-            Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
+            Obj_Ingreso_DAL = new Cls_Ingreso_Dal();
 
+
+
+            //llamado metodo listar estados
+            Obj_Ingreso_BLL.Cargar(ref Obj_Ingreso_DAL);
             
-           
-                //llamado metodo listar estados
-                Obj_TipoServicio_BLL.Listar(ref Obj_TipoServicio_DAL);
             
-            
-            if (Obj_TipoServicio_DAL.sMsjError == string.Empty)
+            if (Obj_Ingreso_DAL.SMsj_error == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
-                this.ServiciosGridView.DataSource = Obj_TipoServicio_DAL.DS.Tables[0];
+                this.ServiciosGridView.DataSource = Obj_Ingreso_DAL.DS.Tables[0];
                 this.ServiciosGridView.DataBind();
             }
             else
