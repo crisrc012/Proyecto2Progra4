@@ -27,10 +27,10 @@ namespace WCF.Contracts
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
             return Obj_Beneficiarios_BLL.Actualizar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public bool eliminarBeneficiarios(short sIdBeneficiario, ref string sMsjError)
+        public bool eliminarBeneficiarios(short sIdCliente, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            return Obj_Beneficiarios_BLL.Eliminar(sIdBeneficiario, ref sMsjError);
+            return Obj_Beneficiarios_BLL.Eliminar(sIdCliente, ref sMsjError);
         }
         #endregion
         #region Clientes

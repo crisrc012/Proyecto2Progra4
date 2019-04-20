@@ -44,6 +44,7 @@ namespace Club_Campestre
                 //Carga de Grid con DataSet instanciado en DAL
                 this.MembresiasGridView.DataSource = Obj_Membresias_DAL.DS.Tables[0];
                 this.MembresiasGridView.DataBind();
+                this.errorMensaje.InnerHtml = "Proceso Ejecutado con Exito";
             }
             else
             {
@@ -66,11 +67,21 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Membresias_DAL.iIdMembresia = Convert.ToChar(row.Cells[0].Text);
+                        Obj_Membresias_DAL.iIdMembresia = Convert.ToInt32(row.Cells[0].Text);
                         //llamado metodo eliminar estados
                         Obj_Membresias_BLL.Eliminar(ref Obj_Membresias_DAL);// eliminar estados
                     }
                 }
+            }
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
+            {
+                this.errorMensaje.InnerHtml = "Membresia Eliminada con exito.";
+                this.BindGrid();
+            }
+            else
+            {
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Membresias.";
+                this.BindGrid();
             }
         }
 
