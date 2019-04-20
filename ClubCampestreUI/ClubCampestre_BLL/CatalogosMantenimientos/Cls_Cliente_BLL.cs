@@ -23,7 +23,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                         Obj_Clientes_Client.actualizarClientes(Obj_Clientes_DAL.SIdCliente, Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Clientes_Client.eliminarPersona(Convert.ToString(Obj_Clientes_DAL.SIdCliente), ref sMsjError);
+                        Obj_Clientes_Client.eliminarClientes(Obj_Clientes_DAL.SIdCliente, ref sMsjError);
                         break;
                     case BD.Filtrar:
                         Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientes(Obj_Clientes_DAL.SIdCliente, Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError));
