@@ -120,6 +120,10 @@ namespace Club_Campestre
            
         }
 
-        
+        protected void TipoClienteGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            TipoClienteGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

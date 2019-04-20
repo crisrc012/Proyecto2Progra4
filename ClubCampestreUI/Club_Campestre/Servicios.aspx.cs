@@ -72,5 +72,12 @@ namespace Club_Campestre
         {
 
         }
+
+        protected void ServicioGridView_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            ServicioGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+
+        }
     }
 }

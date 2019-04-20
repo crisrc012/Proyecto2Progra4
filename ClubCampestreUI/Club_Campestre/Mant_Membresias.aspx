@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Membresias.aspx.cs" Inherits="Club_Campestre.Mant_Membresias" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -47,7 +48,7 @@
 
                             <span id="RegistroBeneficiarios"></span>
 
-                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px">
+                            <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px" AllowPaging="True" PageSize="5" PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="BeneficiariosGridView_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="IdPersona" HeaderText="ID Beneficiario" ItemStyle-Width="100" />
                                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" ItemStyle-Width="200"  />

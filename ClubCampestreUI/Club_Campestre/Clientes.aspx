@@ -24,7 +24,7 @@
                 <br />
             </div>
             <div class="pure-controls">
-                <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" PageSize="5" OnSelectedIndexChanging="ClientesGridView_SelectedIndexChanging" PagerStyle-CssClass="pagingDiv" >
+                <asp:GridView class="pure-table" ID="ClientesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" PageSize="5" PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="ClientesGridView_PageIndexChanging" >
                     <Columns>
                         <asp:BoundField DataField="IdCliente" HeaderText="ID Cliente" />
                         <asp:BoundField DataField="Tipo de Cliente" HeaderText="Tipo de Cliente" />

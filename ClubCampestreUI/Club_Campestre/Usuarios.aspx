@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="Club_Campestre.Usuarios" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <link href="Shared/css/gridviews.css" type="text/css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

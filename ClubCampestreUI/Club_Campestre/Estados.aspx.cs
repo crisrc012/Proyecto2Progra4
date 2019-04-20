@@ -136,9 +136,9 @@ namespace Club_Campestre
             this.BindGrid();
         }
 
-        protected void EstadoGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void EstadoGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            EstadoGridView.SelectedIndex = e.NewSelectedIndex;
+            EstadoGridView.PageIndex = e.NewPageIndex;
             this.BindGrid();
         }
     }

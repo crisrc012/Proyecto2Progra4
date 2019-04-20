@@ -337,5 +337,17 @@ namespace Club_Campestre
                 Server.Transfer("Mant_Persona.aspx");
             }
         }
+
+        protected void GridViewTelefono_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridViewTelefono.PageIndex = e.NewPageIndex;
+            //this.**MetodoparaTraerlosTelefonosdelaBasedeDatos;
+        }
+
+        protected void CorreoPersonaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            CorreoPersonaGridView.PageIndex = e.NewPageIndex;
+            //this.**MetodoparaTraerlosCorreosdelaBasedeDatos;
+        }
     }
 }

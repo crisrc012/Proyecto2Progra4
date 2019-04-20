@@ -69,16 +69,16 @@ namespace Club_Campestre
                 this.BindGrid();
             }
         }
-
-        protected void GridViewIvitados_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        
+        protected void GridViewIvitados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridViewIvitados.SelectedIndex = e.NewSelectedIndex; 
+            GridViewIvitados.PageIndex = e.NewPageIndex;
             this.BindGrid();
         }
 
-        protected void ServiciosGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void ServiciosGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-           ServiciosGridView.SelectedIndex = e.NewSelectedIndex;
+            ServiciosGridView.PageIndex = e.NewPageIndex;
             this.BindGrid();
         }
     }

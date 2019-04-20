@@ -125,5 +125,11 @@ namespace Club_Campestre
         {
             this.BindGrid();
         }
+
+        protected void MembresiasGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            MembresiasGridView.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
     }
 }

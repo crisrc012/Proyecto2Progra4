@@ -342,5 +342,13 @@ namespace Club_Campestre
                 }
             }
         }
+
+      
+
+        protected void BeneficiariosGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            BeneficiariosGridView.PageIndex = e.NewPageIndex;
+            this.BindGridBeneficiarios();
+        }
     }
 }

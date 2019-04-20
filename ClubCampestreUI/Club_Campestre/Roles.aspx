@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" Inherits="Club_Campestre.Roles" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -21,7 +22,7 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue">
+            <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnPageIndexChanging="RolesGridView_PageIndexChanging" OnSelectedIndexChanged="RolesGridView_SelectedIndexChanged" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="IdRol" HeaderText="Rol" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />

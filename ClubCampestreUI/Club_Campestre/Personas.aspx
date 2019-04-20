@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true"  enableEventValidation="false" CodeBehind="Personas.aspx.cs" Inherits="Club_Campestre.Personas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href ="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -38,7 +39,7 @@
               &nbsp;
               <asp:Button  class="pure-button pure-button-primary"  ID="btnquitarTelefono" runat="server" Text="-"  OnClick="btnRemover2_Click1" />
               <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="GridViewTelefono_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
                     <asp:TemplateField>
@@ -59,7 +60,7 @@
               <asp:Button class="pure-button pure-button-primary" ID="btnquitarCorreo" runat="server" Text="-"  OnClick="btnRemover_Click1" />
           
                     <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged">
+                    <asp:GridView class="pure-table" ID="CorreoPersonaGridView" runat="server"  Height="156px" Width="400px" AutoGenerateColumns="false" ForeColor="Blue" OnSelectedIndexChanged="CorreoPersonaGridView_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="CorreoPersonaGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="correo" HeaderText="Direcciones de Correo" />
                     <asp:TemplateField>
