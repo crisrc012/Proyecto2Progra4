@@ -17,7 +17,7 @@ namespace WCF.Interfaces
         [OperationContract]
         bool actualizarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error);
         [OperationContract]
-        bool eliminarBeneficiarios(short SIdBeneficiario, ref string sMsj_error);
+        bool eliminarBeneficiarios(short sIdCliente, ref string sMsj_error);
         #endregion
         #region Clientes
         [OperationContract]

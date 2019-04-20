@@ -1338,7 +1338,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class eliminarBeneficiariosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public short SIdBeneficiario;
+        public short sIdCliente;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -1346,8 +1346,8 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public eliminarBeneficiariosRequest() {
         }
         
-        public eliminarBeneficiariosRequest(short SIdBeneficiario, string sMsj_error) {
-            this.SIdBeneficiario = SIdBeneficiario;
+        public eliminarBeneficiariosRequest(short sIdCliente, string sMsj_error) {
+            this.sIdCliente = sIdCliente;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -4360,9 +4360,9 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.eliminarBeneficiarios(request);
         }
         
-        public bool eliminarBeneficiarios(short SIdBeneficiario, ref string sMsj_error) {
+        public bool eliminarBeneficiarios(short sIdCliente, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosRequest();
-            inValue.SIdBeneficiario = SIdBeneficiario;
+            inValue.sIdCliente = sIdCliente;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).eliminarBeneficiarios(inValue);
             sMsj_error = retVal.sMsj_error;

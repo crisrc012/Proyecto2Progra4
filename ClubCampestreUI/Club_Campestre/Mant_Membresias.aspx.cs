@@ -12,6 +12,7 @@ namespace Club_Campestre
     {
         #region Variables Globales
         Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
+        public static int IdMembresia;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,6 +27,7 @@ namespace Club_Campestre
                 CargarTipoMembresias();
                 Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
                 Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
+                IdMembresia = Obj_Membresias_DAL.iIdMembresia;
                 string tipo = Session["tipo"].ToString();
                 txtNombre.Disabled = true;
                 IDCliente.Disabled = true;
@@ -71,18 +73,16 @@ namespace Club_Campestre
                     if (BeneficiariosGridView.Rows.Count == 4)
                     {
                         this.mensajeError.InnerHtml = "No puede exceder el maximo de 4 beneficiarios";
-                        this.txtbenefiario.Text = string.Empty;
+                        //this.txtbenefiario.Text = string.Empty;
                     }
-                    else
+
+                    foreach (GridViewRow row in BeneficiariosGridView.Rows)
                     {
-                        foreach (GridViewRow row in BeneficiariosGridView.Rows)
-                        {
-                            dr = dt.NewRow();
-                            dr["IdPersona"] = row.Cells[0].Text.ToString();
-                            dr["Nombre"] = row.Cells[1].Text.ToString();
-                            dt.Rows.Add(dr);
-                        }
-                    }
+                        dr = dt.NewRow();
+                        dr["IdPersona"] = row.Cells[0].Text.ToString();
+                        dr["Nombre"] = row.Cells[1].Text.ToString();
+                        dt.Rows.Add(dr);
+                    }                    
                      
                 }
                 nombre = returnaNombre(txtbenefiario.Text);
@@ -93,13 +93,17 @@ namespace Club_Campestre
                 }
                 else
                 {
-                    dr = dt.NewRow();
-                    dr["IdPersona"] = txtbenefiario.Text;
-                    dr["Nombre"] = nombre;
-                    dt.Rows.Add(dr);
-                    BeneficiariosGridView.DataSource = dt;
-                    BeneficiariosGridView.DataBind();
-                    this.txtbenefiario.Text = string.Empty;
+                    if (BeneficiariosGridView.Rows.Count != 4)
+                    {
+                        dr = dt.NewRow();
+                        dr["IdPersona"] = txtbenefiario.Text;
+                        dr["Nombre"] = nombre;
+                        dt.Rows.Add(dr);
+                        BeneficiariosGridView.DataSource = dt;
+                        BeneficiariosGridView.DataBind();
+                        this.txtbenefiario.Text = string.Empty;
+                    }
+                    
                 }
             }
             else
@@ -190,6 +194,7 @@ namespace Club_Campestre
             {
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
+                    Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
                     Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';
@@ -210,7 +215,19 @@ namespace Club_Campestre
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
             Obj_Membresias_DAL.CFKIdEstado = 'A';
 
+            
             Obj_Membresias_BLL.Insertar(ref Obj_Membresias_DAL);
+
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
+            {
+                this.mensajeError.InnerHtml = " Membresia Registrada Correctamente";
+
+            }
+            else
+            {
+                this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
+
+            }
         }
 
         private string returnaIdCliente(string cedula)
@@ -218,6 +235,8 @@ namespace Club_Campestre
             Cls_Cliente_BLL Obj_Cliente_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
             Obj_Cliente_DAL.SIdPersona = cedula;
+            Obj_Cliente_DAL.SIdCliente = short.MinValue;
+            Obj_Cliente_DAL.BIdTipoCliente = byte.MinValue;
             Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
             return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }
@@ -271,6 +290,9 @@ namespace Club_Campestre
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
             Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(this.IDCliente.Value);
+            Obj_Beneficiario_DAL.SIdPersona = string.Empty;
+            Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
+            Obj_Beneficiario_DAL.CIdEstado = ' ';
             Obj_Beneficiario_BLL.Filtrar(ref Obj_Beneficiario_DAL);
 
             // Si no hay beneficiaros
@@ -286,6 +308,7 @@ namespace Club_Campestre
             Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
             Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
 
+            Obj_Membresias_DAL.iIdMembresia = IdMembresia;
             Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
             Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
@@ -299,14 +322,19 @@ namespace Club_Campestre
         {
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
-
-            Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
-            Obj_Beneficiario_BLL.Eliminar(ref Obj_Beneficiario_DAL);
+                      
 
             if (BeneficiariosGridView.Rows.Count > 0)
             {
+                Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
+                Obj_Beneficiario_DAL.SIdPersona = string.Empty;
+                Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
+                Obj_Beneficiario_DAL.CIdEstado = ' ';
+                Obj_Beneficiario_BLL.Eliminar(ref Obj_Beneficiario_DAL);
+
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
+                    Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
                     Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';

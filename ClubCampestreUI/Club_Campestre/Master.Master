@@ -90,7 +90,7 @@
     </form>
 
      <div >
-         <footer style="width: 100vw">
+         <footer style="width: 80px">
          </footer>        
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
