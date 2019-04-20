@@ -1,13 +1,12 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
-
+using System;
+using System.Net;
 
 namespace Club_Campestre.Mantenimiento
 {
     public partial class Mant_Estados : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -17,8 +16,9 @@ namespace Club_Campestre.Mantenimiento
                 if (estado != null & tipo == "E")
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Estados";
+                    this.txtestado.Disabled = true;
                     this.txtestado.Value = estado.CIdEstado.ToString();
-                    this.txtdescripcion.Value = estado.SEstado;
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(estado.SEstado);
                 }
                 else
                 {
