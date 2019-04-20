@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClubCampestre_BLL.SVC_CatalogosMantenimientos;
+﻿using ClubCampestre_BLL.SVC_CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
+using System;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
-  public class CLS_TipoMembresia_BLL
+    public class CLS_TipoMembresia_BLL
     {
         public void ListaTipoMembresia(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_Dal)
         {

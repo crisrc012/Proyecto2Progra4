@@ -12,6 +12,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         private DataTable inicializarDT(int iIdMembresia, short sIdCliente, byte bIdTipoMembresia, char cIdEstado, DateTime dFechaInicio, DateTime dFechaVence, bool bFiltrar = false)
         {
+            System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
+            customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
+
             DataTable dt = new DataTable("Membresias");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
@@ -33,11 +38,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             }
             if (dFechaInicio != DateTime.MinValue)
             {
-                dt.Rows.Add("@FechaInicio", dFechaInicio);
+                dt.Rows.Add("@FechaInicio", Convert.ToDateTime(dFechaInicio, customCulture));
             }
             if (dFechaVence != DateTime.MinValue)
             {
-                dt.Rows.Add("@FechaVencimiento", dFechaVence);
+                dt.Rows.Add("@FechaVencimiento", Convert.ToDateTime(dFechaVence, customCulture));
             }
             return dt;
 

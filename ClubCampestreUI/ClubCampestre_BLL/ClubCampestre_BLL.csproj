@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -190,6 +191,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarClientesVResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarCorreosResponse.datasource">
