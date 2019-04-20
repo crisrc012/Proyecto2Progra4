@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="Club_Campestre.Usuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="Shared/css/gridviews.css" type="text/css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -21,7 +22,7 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView ID="UsuariosGridView" runat="server" class="pure-table" AutoGenerateColumns="false" ForeColor="Blue">
+            <asp:GridView CssClass="pure-table" ID="UsuariosGridView" runat="server" class="pure-table" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnPageIndexChanging="UsuariosGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" />
                     <asp:BoundField DataField="IdPersona" HeaderText="IdPersona" />
@@ -32,6 +33,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+                <PagerSettings Mode="NumericFirstLast"/>
             </asp:GridView>
             <br />
         </div>
