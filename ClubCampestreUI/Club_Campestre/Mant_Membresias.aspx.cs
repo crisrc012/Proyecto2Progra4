@@ -25,12 +25,13 @@ namespace Club_Campestre
                 CargarTipoMembresias();
                 Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
                 Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
-                IdMembresia = Obj_Membresias_DAL.iIdMembresia;
+               
                 string tipo = Session["tipo"].ToString();
                 txtNombre.Disabled = true;
                 IDCliente.Disabled = true;
                 if (Obj_Membresias_DAL != null & tipo == "E")
                 {
+                    IdMembresia = Obj_Membresias_DAL.iIdMembresia;
                     Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
                     this.mantenimiento.InnerHtml = "Modificacion de Membresias";
                     this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
