@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Tipo_Servicio.aspx.cs" Inherits="Club_Campestre.Mant_Tipo_Servicio" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -19,11 +20,16 @@
                             <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" onkeypress="return soloLetras(event)" />
                         </div>
                         <div class="pure-control-group">
+
                             <label for="txtcosto">Costo: </label>
                             <input runat="server" type="text" id="txtcosto" style="color: #0090ff" onkeypress="return SoloNumeros(event)" />
                         </div>
 
                         <div class="pure-controls">
+                            
+                            <label for="btnguardar" id="lblGuardar" runat="server">
+
+                            </label>
                             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         </div>
                     </fieldset>
@@ -31,5 +37,5 @@
                 <a href="TipoServicio.aspx">Regresar</a>
             </div>
         </div>
-    </div>  
+    </div>
 </asp:Content>

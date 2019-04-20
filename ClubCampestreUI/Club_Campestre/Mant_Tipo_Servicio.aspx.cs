@@ -37,20 +37,36 @@ namespace Club_Campestre
 
             Cls_TipoServicio_BLL Obj_tiposervicio_BLL = new Cls_TipoServicio_BLL();
             Cls_TipoServicio_DAL Obj_tiposervicio_DAL = new Cls_TipoServicio_DAL();
-            //Obj_tiposervicio_DAL.BIdTipoServicio = Convert.ToByte(this.txtIdServicio.Value);
-            Obj_tiposervicio_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-            Obj_tiposervicio_DAL.Fcosto = Convert.ToInt32(this.txtcosto.Value);
 
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
+            //Le metimos un IF  y usamos un OR para validar losm dos campos de texto 
+            if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
+
             {
-                Obj_tiposervicio_BLL.Actualizar(ref Obj_tiposervicio_DAL);
-                Server.Transfer("TipoServicio.aspx");
+
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
+
             }
             else
             {
-                Obj_tiposervicio_BLL.Insertar(ref Obj_tiposervicio_DAL);
-                Server.Transfer("TipoServicio.aspx");
+                // se oculata el label 
+                lblGuardar.Visible = false;
+                
+                Obj_tiposervicio_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
+                Obj_tiposervicio_DAL.Fcosto = Convert.ToInt32(this.txtcosto.Value);
+
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_tiposervicio_BLL.Actualizar(ref Obj_tiposervicio_DAL);
+                    Server.Transfer("TipoServicio.aspx");
+                }
+                else
+                {
+                    Obj_tiposervicio_BLL.Insertar(ref Obj_tiposervicio_DAL);
+                    Server.Transfer("TipoServicio.aspx");
+                }
             }
 
         }

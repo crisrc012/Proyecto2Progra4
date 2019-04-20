@@ -37,22 +37,44 @@ namespace Club_Campestre
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-            if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+
+            //Validar Campos en Blanco 
+
+            if (txtdescripcion.Value.Trim().Equals(string.Empty))
+
             {
-                Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
+
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
+
             }
-            Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
-            {
-                Obj_Rol_BLL.Actualizar(ref Obj_Rol_DAL);
-                Server.Transfer("Roles.aspx");
-            }
+
             else
             {
-                Obj_Rol_BLL.Insertar(ref Obj_Rol_DAL);
-                Server.Transfer("Roles.aspx");
+                lblGuardar.Visible = false;
+                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+                {
+                    Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
+                }
+                Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_Rol_BLL.Actualizar(ref Obj_Rol_DAL);
+                    Server.Transfer("Roles.aspx");
+                }
+                else
+                {
+                    Obj_Rol_BLL.Insertar(ref Obj_Rol_DAL);
+                    Server.Transfer("Roles.aspx");
+                }
+
+
             }
+
+            //Validar campos en Blanco 
+
         }
     }
 }
