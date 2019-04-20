@@ -27,10 +27,10 @@ namespace WCF.Contracts
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
             return Obj_Beneficiarios_BLL.Actualizar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
         }
-        public bool eliminarBeneficiarios(short sIdBeneficiario, ref string sMsjError)
+        public bool eliminarBeneficiarios(short sIdCliente, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            return Obj_Beneficiarios_BLL.Eliminar(sIdBeneficiario, ref sMsjError);
+            return Obj_Beneficiarios_BLL.Eliminar(sIdCliente, ref sMsjError);
         }
         #endregion
         #region Clientes
@@ -49,10 +49,10 @@ namespace WCF.Contracts
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
             return Obj_Clientes_BLL.Filtrar(sIdCliente, sTipoCliente, sIdPersona, sNombre, sDireccion, sRol, ref sMsjError);
         }
-        public short insertarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
+        public short insertarClientes(byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
-            return Obj_Clientes_BLL.Insertar(sIdCliente, bIdTipoCliente, sIdPersona, ref sMsjError);
+            return Obj_Clientes_BLL.Insertar(bIdTipoCliente, sIdPersona, ref sMsjError);
         }
         public bool actualizarClientes(short sIdCliente, byte bIdTipoCliente, string sIdPersona, ref string sMsjError)
         {
@@ -429,6 +429,13 @@ namespace WCF.Contracts
         {
             Cls_Servicios_BLL Obj_Servicios_BLL = new Cls_Servicios_BLL();
             return Obj_Servicios_BLL.Eliminar(iIdServicio, ref sMsj_error);
+        }
+        #endregion
+        #region Devuelve_Datos_Ingreso
+        public DataTable Cargar(string IdPersona, string Nombre, string TipoCliente, string Membresia, float Costo, ref string sMsj_error)
+        {
+            Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
+            return Obj_Ingresos_BLL.Cargar(IdPersona, Nombre, TipoCliente, Membresia, Costo, ref sMsj_error);
         }
         #endregion
     }
