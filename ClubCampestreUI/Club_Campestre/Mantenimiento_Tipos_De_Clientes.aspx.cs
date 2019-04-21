@@ -35,23 +35,35 @@ namespace Club_Campestre
         {
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-           
-            if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+
+            if (txtdescripcion.Value.Trim().Equals(string.Empty))
             {
-                Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
-            }
-            Obj_TipoCliente_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
-            {
-                Obj_TipoCliente_BLL.Actualizar(ref Obj_TipoCliente_DAL);
-                Server.Transfer("Tipo_Clientes.aspx");
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
             }
             else
             {
-                Obj_TipoCliente_BLL.Insertar(ref Obj_TipoCliente_DAL);
-                Server.Transfer("Tipo_Clientes.aspx");
+                lblGuardar.Visible = false;
+                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+                {
+                    Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
+                }
+                Obj_TipoCliente_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_TipoCliente_BLL.Actualizar(ref Obj_TipoCliente_DAL);
+                    Server.Transfer("Tipo_Clientes.aspx");
+                }
+                else
+                {
+                    Obj_TipoCliente_BLL.Insertar(ref Obj_TipoCliente_DAL);
+                    Server.Transfer("Tipo_Clientes.aspx");
+                }
             }
+
+
         }
     }
 }

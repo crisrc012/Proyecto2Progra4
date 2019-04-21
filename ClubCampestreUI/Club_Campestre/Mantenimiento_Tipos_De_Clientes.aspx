@@ -24,6 +24,7 @@
                             <input runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" value=""  style="color: #0090ff"/>
                         </div>
                         <div class="pure-controls">
+                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
                             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         </div>
                     </fieldset>
