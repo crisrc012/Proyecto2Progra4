@@ -26,9 +26,9 @@ namespace Club_Campestre
 
             //validar usuario y contrasenia y devolver nombre y rol
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-            Obj_Persona_DAL.BIdRol = 1;
+            Obj_Persona_DAL.bIdRol = 1;
 
-            if (Obj_Persona_DAL.BIdRol == 1)
+            if (Obj_Persona_DAL.bIdRol == 1)
             {
                 Server.Transfer("Index.aspx", false);//llama pantalla
             }

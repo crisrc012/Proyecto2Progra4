@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Persona_Client.actualizarPersona(Obj_Persona_DAL.SIdPersona, Obj_Persona_DAL.SNombre, Obj_Persona_DAL.SDireccion, Obj_Persona_DAL.BIdRol, ref sMsjError);
+                        Obj_Persona_Client.actualizarPersona(Obj_Persona_DAL.sIdPersona, Obj_Persona_DAL.sNombre, Obj_Persona_DAL.sDireccion, Obj_Persona_DAL.bIdRol, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Persona_Client.eliminarPersona(Obj_Persona_DAL.SIdPersona, ref sMsjError);
+                        Obj_Persona_Client.eliminarPersona(Obj_Persona_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Persona_DAL.DS.Tables.Add(Obj_Persona_Client.filtrarPersonaV(Obj_Persona_DAL.SIdPersona, Obj_Persona_DAL.SNombre, Obj_Persona_DAL.SDireccion, Obj_Persona_DAL.SRol, ref sMsjError));
+                        Obj_Persona_DAL.DS.Tables.Add(Obj_Persona_Client.filtrarPersonaV(Obj_Persona_DAL.sIdPersona, Obj_Persona_DAL.sNombre, Obj_Persona_DAL.sDireccion, Obj_Persona_DAL.sRol, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Persona_Client.insertarPersona(Obj_Persona_DAL.SIdPersona, Obj_Persona_DAL.SNombre, Obj_Persona_DAL.SDireccion, Obj_Persona_DAL.BIdRol, ref sMsjError);
+                        Obj_Persona_Client.insertarPersona(Obj_Persona_DAL.sIdPersona, Obj_Persona_DAL.sNombre, Obj_Persona_DAL.sDireccion, Obj_Persona_DAL.bIdRol, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Persona_DAL.DS.Tables.Add(Obj_Persona_Client.listarPersona(ref sMsjError));
@@ -36,11 +36,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_Persona_DAL.SMsjError = sMsjError;
+                Obj_Persona_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Persona_DAL.SMsjError = ex.Message.ToString();
+                Obj_Persona_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {

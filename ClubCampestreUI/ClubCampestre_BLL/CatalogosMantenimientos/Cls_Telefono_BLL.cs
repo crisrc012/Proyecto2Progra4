@@ -20,16 +20,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Telefonos_Client.actualizarTelefonos(Obj_Telefonos_DAL.STelefono, Obj_Telefonos_DAL.SIdPersona, ref sMsjError);
+                        Obj_Telefonos_Client.actualizarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Telefonos_Client.eliminarTelefonos(Obj_Telefonos_DAL.SIdPersona, ref sMsjError);
+                        Obj_Telefonos_Client.eliminarTelefonos(Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Telefonos_DAL.DS.Tables.Add(Obj_Telefonos_Client.filtrarTelefonos(Obj_Telefonos_DAL.STelefono, Obj_Telefonos_DAL.SIdPersona, ref sMsjError));
+                        Obj_Telefonos_DAL.DS.Tables.Add(Obj_Telefonos_Client.filtrarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Telefonos_Client.insertarTelefonos(Obj_Telefonos_DAL.STelefono, Obj_Telefonos_DAL.SIdPersona, ref sMsjError);
+                        Obj_Telefonos_Client.insertarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Telefonos_DAL.DS.Tables.Add(Obj_Telefonos_Client.listarTelefonos(ref sMsjError));
@@ -37,11 +37,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_Telefonos_DAL.SMsjError = sMsjError;
+                Obj_Telefonos_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Telefonos_DAL.SMsjError = ex.Message.ToString();
+                Obj_Telefonos_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {

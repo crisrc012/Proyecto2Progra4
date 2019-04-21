@@ -25,7 +25,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                         Obj_Beneficiarios_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.sIdCliente, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError));
+                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, ref sMsjError));
                         break;
                     case BD.Insertar:
                         Obj_Beneficiarios_Client.insertarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError);
@@ -48,7 +48,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 {
                     Obj_Beneficiarios_Client.Close();
                 }
-
             }
         }
     }

@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_TipoMembresia_Client.actualizarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
+                        Obj_TipoMembresia_Client.actualizarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_TipoMembresia_Client.eliminarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, ref sMsjError);
+                        Obj_TipoMembresia_Client.eliminarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_TipoMembresia_DAL.DS.Tables.Add(Obj_TipoMembresia_Client.filtrarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError));
+                        Obj_TipoMembresia_DAL.DS.Tables.Add(Obj_TipoMembresia_Client.filtrarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
+                        Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_TipoMembresia_DAL.DS.Tables.Add(Obj_TipoMembresia_Client.listarTipoMembresia(ref sMsjError));
@@ -36,11 +36,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
+                Obj_TipoMembresia_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
+                Obj_TipoMembresia_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {

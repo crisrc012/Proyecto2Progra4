@@ -11,7 +11,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarBeneficiarios(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error);
+        DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, ref string sMsj_error);
         [OperationContract]
         short insertarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error);
         [OperationContract]

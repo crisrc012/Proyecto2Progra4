@@ -40,12 +40,12 @@ namespace Club_Campestre
             }
             else
             {
-                Obj_Persona_DAL.SIdPersona = this.txtFiltraPersona.Text;
+                Obj_Persona_DAL.sIdPersona = this.txtFiltraPersona.Text;
                 //llamado metodo listar estados
                 Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
             }
 
-            if (Obj_Persona_DAL.SMsjError == string.Empty)
+            if (Obj_Persona_DAL.sMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.PersonaGridView.DataSource = Obj_Persona_DAL.DS.Tables[0];
@@ -81,15 +81,15 @@ namespace Club_Campestre
                         Obj_Persona_DAL = new Cls_Persona_DAL();
                         //Secion tipo Editar
                         Session["tipo"] = BD.Actualizar;
-                        Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Persona_DAL.SNombre = WebUtility.HtmlDecode(row.Cells[1].Text);
-                        Obj_Persona_DAL.SDireccion = WebUtility.HtmlDecode(row.Cells[2].Text);
+                        Obj_Persona_DAL.sIdPersona = row.Cells[0].Text;
+                        Obj_Persona_DAL.sNombre = WebUtility.HtmlDecode(row.Cells[1].Text);
+                        Obj_Persona_DAL.sDireccion = WebUtility.HtmlDecode(row.Cells[2].Text);
                         // INICIO: Obtener Rol
                         Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                         Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
                         Obj_Rol_DAL.sDescripcion = row.Cells[3].Text;
                         Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
-                        Obj_Persona_DAL.BIdRol = Convert.ToByte(Obj_Rol_DAL.DS.Tables[0].Rows[0][0].ToString());
+                        Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Rol_DAL.DS.Tables[0].Rows[0][0].ToString());
                         // FIN: Obtener Rol
                         //Sesion persona lleva el objeto
                         Session["Persona"] = Obj_Persona_DAL;
@@ -115,17 +115,16 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-
-                        Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
-                        Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
+                        Obj_Persona_DAL.sIdPersona = row.Cells[0].Text;
+                        Obj_Correos_DAL.sCorreo = row.Cells[0].Text;
+                        Obj_Telefonos_DAL.sTelefono = row.Cells[0].Text;
                         Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Eliminar);
                         Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Eliminar);
                         Obj_Correos_BLL.crudCorreos(ref Obj_Correos_DAL, BD.Eliminar);
                     }
                 }
             }
-            if (Obj_Persona_DAL.SMsjError == string.Empty)
+            if (Obj_Persona_DAL.sMsjError == string.Empty)
             {
                 this.errorMensaje.InnerHtml = "Persona Eliminada con exito.";
                 this.BindGrid();
