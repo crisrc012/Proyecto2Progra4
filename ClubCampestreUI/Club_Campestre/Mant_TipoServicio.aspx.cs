@@ -11,14 +11,13 @@ namespace Club_Campestre
         {
             if (!IsPostBack)
             {
-                Cls_TipoServicio_DAL tiposervicio = (Cls_TipoServicio_DAL)Session["TipoServicio"];
-                string tipo = Session["tipo"].ToString();
-                if (tiposervicio != null & tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_TipoServicio_DAL tiposervicio = (Cls_TipoServicio_DAL)Session["TipoServicio"];
                     this.mantenimiento.InnerHtml = "Modificacion de Servicio";
-                    //this.txtIdServicio.Value = tiposervicio.BIdTipoServicio.ToString();
-                    this.txtdescripcion.Value = tiposervicio.SPKDescripcion.ToString();
-                    this.txtcosto.Value = tiposervicio.Fcosto.ToString();
+                    //this.txtIdServicio.Value = tiposervicio.bIdTipoServicio.ToString();
+                    this.txtdescripcion.Value = tiposervicio.sDescripcion.ToString();
+                    this.txtcosto.Value = tiposervicio.fCosto.ToString();
                 }
                 else
                 {
@@ -32,8 +31,6 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cls_TipoServicio_BLL Obj_tiposervicio_BLL = new Cls_TipoServicio_BLL();
-            Cls_TipoServicio_DAL Obj_tiposervicio_DAL = new Cls_TipoServicio_DAL();
             //Le metimos un IF  y usamos un OR para validar losm dos campos de texto 
             if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
             {
@@ -45,20 +42,19 @@ namespace Club_Campestre
             {
                 // se oculta el label 
                 lblGuardar.Visible = false;
-                Obj_tiposervicio_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-                Obj_tiposervicio_DAL.Fcosto = Convert.ToInt32(this.txtcosto.Value);
-
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
+                Cls_TipoServicio_BLL Obj_tiposervicio_BLL = new Cls_TipoServicio_BLL();
+                Cls_TipoServicio_DAL Obj_tiposervicio_DAL = new Cls_TipoServicio_DAL();
+                Obj_tiposervicio_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
+                Obj_tiposervicio_DAL.fCosto = Convert.ToInt32(this.txtcosto.Value);
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
                     Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Actualizar);
-                    Server.Transfer(pantallaMantenimiento);
                 }
                 else
                 {
                     Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Insertar);
-                    Server.Transfer(pantallaMantenimiento);
                 }
+                Response.Redirect(pantallaMantenimiento, true);
             }
         }
     }

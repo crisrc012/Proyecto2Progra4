@@ -1,8 +1,8 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
 using System.Data;
+using System.Web.UI.WebControls;
 
 
 namespace Club_Campestre
@@ -25,11 +25,9 @@ namespace Club_Campestre
 
         protected void TxtConsultar_Click(object sender, EventArgs e)
         {
-            
-                Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
+            Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
             Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
             Obj_Ingreso_Dal.IdPersona = txtCedula.Value;
-            
             Obj_Ingreso_BLL.Cargar(ref Obj_Ingreso_Dal);
             DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
             if (dt.Rows.Count == 0)
@@ -39,24 +37,19 @@ namespace Club_Campestre
             else
             {
                 foreach (DataRow row in dt.Rows)
-            {
-                txtnombre.Value = Convert.ToString(row[1]);
-                TxtTipoCliente.Value = Convert.ToString(row[2]);
-                TxtMembresia.Value = Convert.ToString(row[3]);
-                TxtCosto.Value = Convert.ToString(row[4]);
-
+                {
+                    txtnombre.Value = Convert.ToString(row[1]);
+                    TxtTipoCliente.Value = Convert.ToString(row[2]);
+                    TxtMembresia.Value = Convert.ToString(row[3]);
+                    TxtCosto.Value = Convert.ToString(row[4]);
+                }
             }
-            }
-
         }
 
         private void BindGrid()
         {
             //Se instancia objeto
             Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
-
-
-
             //llamado metodo listar estados
             Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
             
@@ -91,11 +84,8 @@ namespace Club_Campestre
             Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
             Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
             Obj_Ingreso_Dal.IdPersona = txtInvitado.Value;
-            
             Obj_Ingreso_BLL.Invitado_Beneficiario(ref Obj_Ingreso_Dal);
             DataTable dI = Obj_Ingreso_Dal.DI.Tables[0];
-            
-            DataRow Dr = null;
             if (dI.Rows.Count == 0)
             {
                 Response.Write("<script>window.alert('La cedula ingresada no existe, por favor corroboré el dato o registrelo primero en el mantenimiento de personas');</script>");
@@ -108,9 +98,6 @@ namespace Club_Campestre
                     GridViewInvitados.DataSource = dI;
                     GridViewInvitados.DataBind();
                     this.txtInvitado.Value = string.Empty;
-
-
-
                 }
             }
         }
@@ -120,18 +107,14 @@ namespace Club_Campestre
             double Total_Adicionales = 0;
             double Total_Servicios = 0;
             double Total = 0;
-            
             foreach (GridViewRow row  in GridViewInvitados.Rows)
             {
                 Total_Adicionales += Convert.ToDouble(row.Cells[3].Text);
             }
-
             foreach (GridViewRow row in ServiciosGridView.Rows)
             {
                 if(row.RowType == DataControlRowType.DataRow)
                 {
-                    
-
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if(chkRow.Checked)
                     {
@@ -140,14 +123,11 @@ namespace Club_Campestre
 
                     else
                     {
-                        Total_Servicios = Total_Servicios;
+                        //Total_Servicios = Total_Servicios;
                     }
                 }
-
             }
-
             Total = Total_Adicionales + Total_Servicios;
-
             TxtTotal.Value = Convert.ToString(Total);
         }
     }

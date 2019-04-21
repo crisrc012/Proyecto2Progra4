@@ -14,10 +14,10 @@ namespace Club_Campestre
         {
             if (!IsPostBack)
             {
-                Cls_TipoMembresia_DAL TipoMembresia = (Cls_TipoMembresia_DAL)Session["TipoMembresia"];
-                string tipo = Session["tipo"].ToString();
-                if (TipoMembresia != null & tipo == "E")
+                
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_TipoMembresia_DAL TipoMembresia = (Cls_TipoMembresia_DAL)Session["TipoMembresia"];
                     this.mantenimiento.InnerHtml = "Modificacion Tipo de Membresias";
                     this.txtTipoMembre.Disabled = true;
                     this.txtTipoMembre.Value = TipoMembresia.BIdTipoMembresia.ToString();
@@ -56,8 +56,7 @@ namespace Club_Campestre
                 lblGuardar.Visible = false;
                 Obj_TipoMembresia_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
                 Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(txtcosto.Value);
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
                     Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(this.txtTipoMembre.Value);
                     Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Actualizar);

@@ -2,7 +2,6 @@
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
 
-
 namespace Club_Campestre
 {
     public partial class Mant_Tipo_Cliente : System.Web.UI.Page
@@ -14,10 +13,10 @@ namespace Club_Campestre
 
             if (!IsPostBack)
             {
-                Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
                 txtidcliente.Disabled = true;
-                if (clientes != null & (BD)Session["tipo"] == BD.Actualizar)
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
                     this.DropDownTClientes.Text = Session["TipoCliente"].ToString();
                     this.txtidcliente.Value = clientes.sIdCliente.ToString();
@@ -33,8 +32,6 @@ namespace Club_Campestre
                     this.txtidpersona.Value = string.Empty;
                 }
             }
-
-
         }
         protected void btnAtras_Click(object sender, EventArgs e)
         {

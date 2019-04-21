@@ -8,9 +8,9 @@ namespace Club_Campestre
     public partial class Roles : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
-        Cls_Rol_DAL Obj_Rol_DAL;
-        bool vFiltra = true;
+        private Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        private Cls_Rol_DAL Obj_Rol_DAL;
+        private bool vFiltra = true;
         private string pantallaMantenimiento = "Mant_Rol.aspx";
         #endregion
 

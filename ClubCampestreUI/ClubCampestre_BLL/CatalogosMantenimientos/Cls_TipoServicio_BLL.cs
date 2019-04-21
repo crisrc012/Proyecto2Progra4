@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_TipoServicio_Client.actualizarTipoServicio(Obj_TipoServicio_DAL.BIdTipoServicio, Obj_TipoServicio_DAL.SPKDescripcion, Obj_TipoServicio_DAL.Fcosto, ref sMsjError);
+                        Obj_TipoServicio_Client.actualizarTipoServicio(Obj_TipoServicio_DAL.bIdTipoServicio, Obj_TipoServicio_DAL.sDescripcion, Obj_TipoServicio_DAL.fCosto, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_TipoServicio_Client.eliminarTipoServicio(Obj_TipoServicio_DAL.BIdTipoServicio, ref sMsjError);
+                        Obj_TipoServicio_Client.eliminarTipoServicio(Obj_TipoServicio_DAL.bIdTipoServicio, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.filtrarTipoServicio(Obj_TipoServicio_DAL.BIdTipoServicio, Obj_TipoServicio_DAL.SPKDescripcion, Obj_TipoServicio_DAL.Fcosto, ref sMsjError));
+                        Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.filtrarTipoServicio(Obj_TipoServicio_DAL.bIdTipoServicio, Obj_TipoServicio_DAL.sDescripcion, Obj_TipoServicio_DAL.fCosto, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_TipoServicio_Client.insertarTipoServicio(Obj_TipoServicio_DAL.SPKDescripcion, Obj_TipoServicio_DAL.Fcosto, ref sMsjError);
+                        Obj_TipoServicio_Client.insertarTipoServicio(Obj_TipoServicio_DAL.sDescripcion, Obj_TipoServicio_DAL.fCosto, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.listarTipoServicio(ref sMsjError));

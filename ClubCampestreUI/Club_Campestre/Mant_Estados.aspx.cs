@@ -12,9 +12,9 @@ namespace Club_Campestre.Mantenimiento
         {
             if (!IsPostBack)
             {
-                Cls_Estado_DAL estado = (Cls_Estado_DAL)Session["Estado"];
-                if (estado != null && (BD)Session["tipo"] == BD.Actualizar)
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Estado_DAL estado = (Cls_Estado_DAL)Session["Estado"];
                     this.mantenimiento.InnerHtml = "Modificacion de Estados";
                     this.txtestado.Disabled = true;
                     this.txtestado.Value = estado.CIdEstado.ToString();

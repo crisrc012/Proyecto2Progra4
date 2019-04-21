@@ -11,34 +11,32 @@ namespace Club_Campestre
     public partial class Personas : System.Web.UI.Page
     {
         #region Cls Persona 
-        Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-        Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
+        private Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
+        private Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
         #endregion
-
         #region Cls Correo 
-        Cls_Correos_DAL Obj_Correo_DAL = new Cls_Correos_DAL();
-        Cls_Correos_BLL Obj_Correo_BLL = new Cls_Correos_BLL();
-        List<Cls_Correos_DAL> ListaCorreo = new List<Cls_Correos_DAL>();
+        private Cls_Correos_DAL Obj_Correo_DAL = new Cls_Correos_DAL();
+        private Cls_Correos_BLL Obj_Correo_BLL = new Cls_Correos_BLL();
+        private List<Cls_Correos_DAL> ListaCorreo = new List<Cls_Correos_DAL>();
         #endregion
-
-        private string tipoSession = "N";
-
+        #region Rol
+        private Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        #endregion
         #region Cls Telefono
-        Cls_Telefonos_DAL Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
-        Cls_Telefono_BLL Obj_Telefonos_BLL = new Cls_Telefono_BLL();
-        List<Cls_Telefonos_DAL> ListaTelefono = new List<Cls_Telefonos_DAL>();
+        private Cls_Telefonos_DAL Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+        private Cls_Telefono_BLL Obj_Telefonos_BLL = new Cls_Telefono_BLL();
+        private List<Cls_Telefonos_DAL> ListaTelefono = new List<Cls_Telefonos_DAL>();
         #endregion
-
+        private string pantallaMantenimiento = "Mant_Persona.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CargarRoles(); // Carga combo con posibles valores
-                Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
-                string tipo = Session["tipo"].ToString();
-                tipoSession = tipo;
-                if (persona != null & tipo == "E")
+                
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
                     //this.mantenimiento.InnerHtml = "Modificacion de Persona";
                     // Carga de datos persona
                     this.txtCedula.Disabled = true;
@@ -85,7 +83,6 @@ namespace Club_Campestre
         private void CargarRoles()
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-            Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
             Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];
             DropDownRol.DataTextField = "Descripcion";
@@ -156,7 +153,7 @@ namespace Club_Campestre
                     }
                 }
             }
-            for (int i = quitar.Count - 1; i >= 0; i--)
+            for (int i = quitar.Count; i > 0; i--)
             {
                 tabla.Rows.RemoveAt(quitar[i]);
             }
@@ -226,7 +223,7 @@ namespace Club_Campestre
                     }
                 }
             }
-            for (int i = quitar.Count - 1; i >= 0; i--)
+            for (int i = quitar.Count; i > 0; i--)
             {
                 tabla.Rows.RemoveAt(quitar[i]);
             }
@@ -238,56 +235,49 @@ namespace Club_Campestre
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-            Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-            Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
             Obj_Persona_DAL.SIdPersona = this.txtCedula.Value;
             Obj_Persona_DAL.SNombre = this.txtnombre.Value;
             Obj_Persona_DAL.SDireccion = this.TextAreadireccion.Value;
             Obj_Persona_DAL.BIdRol = Convert.ToByte(DropDownRol.SelectedValue);
-            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
-            //Telefono ingresa 
             #region Telefono 
-            if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
+            foreach (GridViewRow row in GridViewTelefono.Rows)
             {
-                foreach (GridViewRow row in GridViewTelefono.Rows)
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
                 {
-                    //busca el la fila
-                    if (row.RowType == DataControlRowType.DataRow)
                     {
-                        {
-                            Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
-                            Obj_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-                            Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
-                        }
+                        Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
+                        Obj_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+                        Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
                     }
                 }
-                #endregion 
-                //-Aqui agrego el de correo foreach 
-                #region Correo
-                foreach (GridViewRow row in CorreoPersonaGridView.Rows)
-                {
-                    //busca el la fila
-                    if (row.RowType == DataControlRowType.DataRow)
-                    {
-                        {
-                            Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-                            Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
-                            Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Insertar);//  insertar
-                        }
-                    }
-                }
-                #endregion
-                if (tipoSession == "E")
-                {
-                    Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Actualizar);
-                }
-                else
-                {
-                    Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
-                }
-                Server.Transfer("Mant_Persona.aspx");
             }
+            #endregion 
+            //-Aqui agrego el de correo foreach 
+            #region Correo
+            foreach (GridViewRow row in CorreoPersonaGridView.Rows)
+            {
+                //busca el la fila
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    {
+                        Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
+                        Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
+                        Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Insertar);//  insertar
+                    }
+                }
+            }
+            #endregion
+            if ((BD)Session["tipo"] == BD.Actualizar)
+            {
+                Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Actualizar);
+            }
+            else
+            {
+                Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
+            }
+            Response.Redirect(pantallaMantenimiento, true);
         }
 
         protected void GridViewTelefono_PageIndexChanging(object sender, GridViewPageEventArgs e)

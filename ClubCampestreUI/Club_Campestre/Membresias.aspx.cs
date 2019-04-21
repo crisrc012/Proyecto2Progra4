@@ -53,7 +53,6 @@ namespace Club_Campestre
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            Obj_Membresias_DAL = new Cls_Membresias_DAL();
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in MembresiasGridView.Rows)
             {
@@ -64,6 +63,7 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        Obj_Membresias_DAL = new Cls_Membresias_DAL();
                         Obj_Membresias_DAL.iIdMembresia = Convert.ToInt32(row.Cells[0].Text);
                         //llamado metodo eliminar Membresias
                         Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Eliminar); // eliminar Membresias
@@ -84,10 +84,6 @@ namespace Club_Campestre
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            //Se instancia objeto
-            Obj_Membresias_DAL = new Cls_Membresias_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = BD.Actualizar;
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in MembresiasGridView.Rows)
             {
@@ -98,6 +94,10 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        //Se instancia objeto
+                        Obj_Membresias_DAL = new Cls_Membresias_DAL();
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
                         Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(row.Cells[0].Text);
                         Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
                         Obj_Persona_DAL.SIdPersona = row.Cells[1].Text;

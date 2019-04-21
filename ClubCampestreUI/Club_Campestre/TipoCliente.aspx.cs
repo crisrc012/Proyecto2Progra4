@@ -40,7 +40,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             //Identificcion en lo que estamos trabjanado es un estado N
-            Session["tipo"] = "N";
+            Session["tipo"] = BD.Insertar;
             Response.Redirect(pantallaMantenimiento, false);
         }
 
@@ -59,7 +59,7 @@ namespace Club_Campestre
                         //Se instancia objeto
                         Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
                         //Secion tipo Editar
-                        Session["tipo"] = "E";
+                        Session["tipo"] = BD.Actualizar;
                         Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoCliente_DAL.sDescripcion = row.Cells[1].Text;
                         //Sesion estado lleva el objeto

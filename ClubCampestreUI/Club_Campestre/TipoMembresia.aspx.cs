@@ -34,18 +34,13 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             //aca tiene que programar el boton Nuevo 
-            Session["tipo"] = "N";
+            Session["tipo"] = BD.Insertar;
             Server.Transfer(pantallaMantenimiento, false);//llama pantalla
         }
 
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-
-            //Se instancia objeto
-            Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = "E";
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoMembresiaGridView.Rows)
             {
@@ -56,6 +51,10 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        //Se instancia objeto
+                        Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
                         Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoMembresia_DAL.SPKDescripcion = WebUtility.HtmlDecode(row.Cells[1].Text);
                         Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);

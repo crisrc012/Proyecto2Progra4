@@ -13,9 +13,8 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 Cls_TipoCliente_DAL TipoCliente = (Cls_TipoCliente_DAL)Session["TipoCliente"];
-                string tipo = Session["tipo"].ToString();
                 txtIdTipoCliente.Disabled = true;
-                if (TipoCliente != null & tipo == "E")
+                if (TipoCliente != null & (BD)Session["tipo"] == BD.Actualizar)
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
                     this.txtIdTipoCliente.Value = TipoCliente.BIdTipoCliente.ToString();
@@ -33,10 +32,6 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
-            Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-
-
             if (txtdescripcion.Value.Trim().Equals(string.Empty))
             {
                 //se agrega el label que indique lo que no hay datos 
@@ -45,25 +40,21 @@ namespace Club_Campestre
             }
             else
             {
+                Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+                Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
                 lblGuardar.Visible = false;
-                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
+                Obj_TipoCliente_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
                     Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
-                }
-                Obj_TipoCliente_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
-                {
                     Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Actualizar);
-                    Response.Redirect(pantallaMantenimiento, true);
                 }
                 else
                 {
                     Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Insertar);
-                    Response.Redirect(pantallaMantenimiento, true);
                 }
+                Response.Redirect(pantallaMantenimiento, true);
             }
-
         }
     }
 }

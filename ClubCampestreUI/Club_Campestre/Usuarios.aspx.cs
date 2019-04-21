@@ -1,7 +1,7 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
@@ -54,14 +54,13 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
+            Session["tipo"] = BD.Insertar;
             Server.Transfer(pantallaMantenimiento, false);//llama pantalla
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            //Secion tipo Editar
-            Session["tipo"] = "E";
+            
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in UsuariosGridView.Rows)
             {
@@ -69,9 +68,10 @@ namespace Club_Campestre
                 if (row.RowType == DataControlRowType.DataRow)
                 {
                     //si esta checkeado instancia las propiedades del objeto
-                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
-                    if (chkRow.Checked)
+                    if ((row.Cells[0].FindControl("chkRow") as CheckBox).Checked)
                     {
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
                         //Se instancia objeto
                         Obj_Usuario_DAL = new Cls_Usuario_DAL();
                         Obj_Usuario_DAL.SIdUsuario = row.Cells[0].Text.Trim();

@@ -1,24 +1,20 @@
 ﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
-using System.Web.Services;
 
 namespace Club_Campestre
 {
     public partial class Mant_Usuarios : System.Web.UI.Page
     {
         private string pantallaMantenimiento = "Usuarios.aspx";
-        private string tipo = "N";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LlenarDDL();
-                Cls_Usuario_DAL Obj_Usuarios_DAL = (Cls_Usuario_DAL)Session["Usuario"];
-                Cls_Usuario_BLL Obj_Usuarios_BLL = new Cls_Usuario_BLL();
-                tipo = Session["tipo"].ToString();
-                if (Obj_Usuarios_DAL != null & tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Usuario_DAL Obj_Usuarios_DAL = (Cls_Usuario_DAL)Session["Usuario"];
                     //Obj_Usuarios_BLL.Desencripta(ref Obj_Usuarios_DAL);
                     this.mantenimiento.InnerHtml = "Modificacion de Usuario";
                     this.txtusuario.Disabled = true;
@@ -36,8 +32,6 @@ namespace Club_Campestre
                 }
             }
         }
-
-        [WebMethod]
         private void LlenarDDL() //Llenado del Drop down list
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
@@ -52,8 +46,6 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
-            Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
             if (txtusuario.Value.Trim().Equals(string.Empty) || txtcontrasena.Value.Trim().Equals(string.Empty))
             {
                 //se agrega el label que indique lo que no hay datos 
@@ -65,11 +57,13 @@ namespace Club_Campestre
                 lblGuardar.Visible = false;
                 if (!txtcontrasena.Value.Trim().Equals(string.Empty))
                 {
+                    Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
+                    Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
                     Obj_Usuario_DAL.SIdUsuario = this.txtusuario.Value.ToString();
                     Obj_Usuario_DAL.SIdPersona = this.DropDownTUsuarios.SelectedValue.ToString();
                     Obj_Usuario_DAL.SContrasena = this.txtcontrasena.Value.ToString();
                     Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                    if (tipo == "E")
+                    if ((BD)Session["tipo"] == BD.Actualizar)
                     {
                         Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Actualizar);
                     }

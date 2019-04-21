@@ -15,10 +15,10 @@ namespace Club_Campestre
         {
             if (!IsPostBack)
             {
-                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
                 this.txtRoles.Disabled = true;
-                if (rol != null & (BD)Session["tipo"] == BD.Actualizar)
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
                     this.mantenimiento.InnerHtml = "Modificacion de Roles";
                     this.txtRoles.Value = rol.bIdRol.ToString();
                     this.txtdescripcion.Value = WebUtility.HtmlDecode(rol.sDescripcion);
