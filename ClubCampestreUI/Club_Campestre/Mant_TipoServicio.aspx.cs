@@ -51,12 +51,12 @@ namespace Club_Campestre
                 string tipo = Session["tipo"].ToString();
                 if (tipo == "E")
                 {
-                    Obj_tiposervicio_BLL.Actualizar(ref Obj_tiposervicio_DAL);
+                    Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Actualizar);
                     Server.Transfer(pantallaMantenimiento);
                 }
                 else
                 {
-                    Obj_tiposervicio_BLL.Insertar(ref Obj_tiposervicio_DAL);
+                    Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Insertar);
                     Server.Transfer(pantallaMantenimiento);
                 }
             }

@@ -36,7 +36,7 @@ namespace Club_Campestre
                     {
                         Obj_TipoServicio_DAL.BIdTipoServicio= Convert.ToByte(row.Cells[0].Text);
                         //llamado metodo eliminar estados
-                        Obj_TipoServicio_BLL.Eliminar(ref Obj_TipoServicio_DAL);// eliminar estados
+                        Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Eliminar);// eliminar estados
                     }
                 }
             }
@@ -103,13 +103,13 @@ namespace Club_Campestre
             if (this.txtFiltraTipoServicio.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_TipoServicio_BLL.Listar(ref Obj_TipoServicio_DAL);
+                Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
             }
             else
             {
                 Obj_TipoServicio_DAL.SPKDescripcion = this.txtFiltraTipoServicio.Text;
                 //llamado metodo listar estados
-                Obj_TipoServicio_BLL.Filtrar(ref Obj_TipoServicio_DAL);
+                Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Filtrar);
             }
             if (Obj_TipoServicio_DAL.sMsjError == string.Empty)
             {
