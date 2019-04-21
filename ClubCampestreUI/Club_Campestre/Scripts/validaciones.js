@@ -3,14 +3,28 @@
         return false
 }
 
-function SoloNumeros(e) {
-    var key = e.keyCode || e.which;
-    var teclado = String.fromCharCode(key);
-    var numero = "0123456789.";
 
-    if ((e.keyCode != 13) || (e.which != 13))
-    return numero.indexOf(teclado) !== -1;
+
+function SoloNumeros(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    numeros = "0123456789";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+    }
 }
+
+
 
 function SOLO_LETRAS(e) {
     key = e.keyCode || e.which;
@@ -30,6 +44,7 @@ function SOLO_LETRAS(e) {
             document.getElementById("formError").innerHTML = "no puede digitar numeros";
             return false;
         }
+
         else {
             document.getElementById("formError").innerHTML = "";
             return true;
@@ -37,28 +52,6 @@ function SOLO_LETRAS(e) {
 
     }
 } 
-
-
-//function soloLetras(e) {
-//    key = e.keyCode || e.which;
-//    tecla = String.fromCharCode(key).toLowerCase();
-//    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
-//    especiales = [8, 37, 39, 46];
-
-//    tecla_especial = false
-//    for(var i in especiales) {
-//        if(key == especiales[i]) {
-//            tecla_especial = true;
-//            break;
-//        }
-//    }
-
-//    if(letras.indexOf(tecla) == -1 && !tecla_especial)
-//        return false;
-//}
-
-
-
 
    function soloLetras(e){
        key = e.keyCode || e.which;
@@ -78,11 +71,7 @@ function SOLO_LETRAS(e) {
            return false;
        }
    }
-
-
-    
-
-
+ 
 function isNumberKey(evt) {
     var charCode = (evt.which) ? evt.which : event.keyCode
     if (charCode > 31 && (charCode < 48 || charCode > 57))
@@ -108,7 +97,6 @@ function VALIDA_INPUT_TEXT() {
         document.getElementById("formError").innerHTML = "";
         return true;
     }
-
 
 }
 
