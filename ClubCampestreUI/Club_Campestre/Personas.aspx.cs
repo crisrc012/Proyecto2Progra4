@@ -43,7 +43,7 @@ namespace Club_Campestre
                     txtnombre.Value = Obj_Persona_DAL.sNombre;
                     TextAreadireccion.Value = Obj_Persona_DAL.sDireccion;
                     // Carga Rol
-                    DropDownRol.SelectedValue = Obj_Persona_DAL.bIdRol.ToString();
+                    DropDownRol.Value = Obj_Persona_DAL.bIdRol.ToString();
                     // carga grid teléfonos
                     Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
                     Obj_Telefonos_DAL.sIdPersona = Obj_Persona_DAL.sIdPersona;
@@ -240,7 +240,7 @@ namespace Club_Campestre
             Obj_Persona_DAL.sIdPersona = txtCedula.Value.Trim();
             Obj_Persona_DAL.sNombre = txtnombre.Value.Trim();
             Obj_Persona_DAL.sDireccion = TextAreadireccion.Value.Trim();
-            Obj_Persona_DAL.bIdRol = Convert.ToByte(DropDownRol.SelectedValue);
+            Obj_Persona_DAL.bIdRol = Convert.ToByte(DropDownRol.Value);
             // Primero se inserta la persona, de lo contrario no se insertarán los telefonos ni los correos
             // Por que el IdPErsona, es la llave primaria de estos campos
             if ((BD)Session["tipo"] == BD.Actualizar)
