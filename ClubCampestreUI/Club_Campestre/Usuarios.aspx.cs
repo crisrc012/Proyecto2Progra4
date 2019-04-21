@@ -79,7 +79,6 @@ namespace Club_Campestre
                         //Sesion estado lleva el objeto
                         Session["Usuario"] = Obj_Usuario_DAL;
                         Response.Redirect(pantallaMantenimiento, false);
-                        //Server.Transfer(pantallaMantenimiento, false);//llama la pantalla 
                     }
                 }
             }

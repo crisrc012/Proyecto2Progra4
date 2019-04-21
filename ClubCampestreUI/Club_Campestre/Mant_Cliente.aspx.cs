@@ -8,7 +8,6 @@ namespace Club_Campestre
     public partial class Mant_Tipo_Cliente : System.Web.UI.Page
     {
         private string pantallaMantenimiento = "Clientes.aspx";
-        private string tipo = "N";
         protected void Page_Load(object sender, EventArgs e)
         {
             CargaTipoCliente();
@@ -16,9 +15,8 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
-                tipo = Session["tipo"].ToString();
                 txtidcliente.Disabled = true;
-                if (clientes != null & tipo == "E")
+                if (clientes != null & (BD)Session["tipo"] == BD.Actualizar)
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
                     this.DropDownTClientes.Text = Session["TipoCliente"].ToString();
@@ -50,7 +48,7 @@ namespace Club_Campestre
             Obj_Clientes_DAL.sIdCliente = Convert.ToInt16(txtidcliente.Value);
             Obj_Clientes_DAL.bIdTipoCliente = Convert.ToByte(DropDownTClientes.SelectedValue);
             Obj_Clientes_DAL.sIdPersona = txtidpersona.Value.ToString().Trim();
-            if (tipo == "E")
+            if ((BD)Session["tipo"] == BD.Actualizar)
             {
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Actualizar);
             }

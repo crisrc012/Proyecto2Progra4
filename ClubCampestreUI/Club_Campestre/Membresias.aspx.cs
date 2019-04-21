@@ -9,8 +9,9 @@ namespace Club_Campestre
     {
 
         #region Variables Globales
-        Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
-        Cls_Membresias_DAL Obj_Membresias_DAL;
+        private Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
+        private Cls_Membresias_DAL Obj_Membresias_DAL;
+        private string pantallaMantenimiento = "Mant_Membresias.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,12 +26,10 @@ namespace Club_Campestre
         {
             //Se instancia objeto
             Obj_Membresias_DAL = new Cls_Membresias_DAL();
-
             if (this.txtFiltrarMembresias.Text == string.Empty)//listar
             {
                 //llamado metodo listar Membresias
                 Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Listar);
-
             }
             else
             {
@@ -38,7 +37,6 @@ namespace Club_Campestre
                 //llamado metodo filtrar Membresias
                 Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Filtrar);
             }
-
             if (Obj_Membresias_DAL.SMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
@@ -56,7 +54,6 @@ namespace Club_Campestre
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             Obj_Membresias_DAL = new Cls_Membresias_DAL();
-
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in MembresiasGridView.Rows)
             {
@@ -90,7 +87,7 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Membresias_DAL = new Cls_Membresias_DAL();
             //Secion tipo Editar
-            Session["tipo"] = "E";
+            Session["tipo"] = BD.Actualizar;
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in MembresiasGridView.Rows)
             {
@@ -108,7 +105,7 @@ namespace Club_Campestre
                         //Sesion estado lleva el objeto
                         Session["Membresia"] = Obj_Membresias_DAL;
                         Session["Persona"] = Obj_Persona_DAL;
-                        Server.Transfer("Mant_Membresias.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false); //llama la pantalla 
                     }
                 }
             }
@@ -116,8 +113,8 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
-            Server.Transfer("Mant_Membresias.aspx", false);//llama pantalla
+            Session["tipo"] = BD.Insertar;
+            Response.Redirect(pantallaMantenimiento, false); //llama la pantalla 
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

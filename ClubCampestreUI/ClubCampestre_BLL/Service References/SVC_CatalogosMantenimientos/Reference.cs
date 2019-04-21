@@ -2068,7 +2068,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
     public partial class insertarEstadoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public char insertarEstadoResult;
+        public bool insertarEstadoResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string sMsj_error;
@@ -2076,7 +2076,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public insertarEstadoResponse() {
         }
         
-        public insertarEstadoResponse(char insertarEstadoResult, string sMsj_error) {
+        public insertarEstadoResponse(bool insertarEstadoResult, string sMsj_error) {
             this.insertarEstadoResult = insertarEstadoResult;
             this.sMsj_error = sMsj_error;
         }
@@ -4751,7 +4751,7 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.insertarEstado(request);
         }
         
-        public char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error) {
+        public bool insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarEstadoRequest();
             inValue.cIdEstado = cIdEstado;
             inValue.sEstado = sEstado;

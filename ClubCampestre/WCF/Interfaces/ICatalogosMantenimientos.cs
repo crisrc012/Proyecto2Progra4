@@ -51,7 +51,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
-        char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
+        bool insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
         bool actualizarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]

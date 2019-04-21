@@ -103,7 +103,7 @@ namespace WCF.Contracts
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             return Obj_Estado_BLL.Filtrar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
+        public bool insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             return Obj_Estado_BLL.Insertar(cIdEstado, sEstado, ref sMsj_error);

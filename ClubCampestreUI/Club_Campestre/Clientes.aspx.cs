@@ -51,16 +51,13 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
+            Session["tipo"] = BD.Insertar;
             Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            //Se instancia objeto
-            Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = "E";
+            
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in ClientesGridView.Rows)
             {
@@ -71,10 +68,13 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        //Se instancia objeto
+                        Obj_Clientes_DAL = new Cls_Clientes_DAL();
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
                         Obj_Clientes_DAL.sIdCliente = Convert.ToInt16(row.Cells[0].Text);
                         string sTipoCliente = row.Cells[1].Text;
                         Obj_Clientes_DAL.sIdPersona = row.Cells[2].Text;
-
                         //Sesion estado lleva el objeto
                         Session["Clientes"] = Obj_Clientes_DAL;
                         Session["TipoCliente"] = sTipoCliente;

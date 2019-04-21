@@ -9,7 +9,6 @@ namespace Club_Campestre
     {
         #region Variables Globales
         private string pantallaMantenimiento = "Roles.aspx";
-        private string tipo = "N";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -17,9 +16,8 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
-                tipo = Session["tipo"].ToString();
                 this.txtRoles.Disabled = true;
-                if (rol != null & tipo == "E")
+                if (rol != null & (BD)Session["tipo"] == BD.Actualizar)
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Roles";
                     this.txtRoles.Value = rol.bIdRol.ToString();
@@ -50,7 +48,7 @@ namespace Club_Campestre
                 Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
                 Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                 Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
-                if (tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
                     Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value); // Si se edita se debe de obtener el ID
                     Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Actualizar);

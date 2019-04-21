@@ -1,16 +1,18 @@
-﻿using System;
-using System.Web.UI.WebControls;
-using System.Data;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Data;
+using System.Net;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
     public partial class Mant_Membresias : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
-        public static int IdMembresia;
+        private Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
+        private int IdMembresia;
+        private string pantallaMantenimiento = "Membresias.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,16 +27,15 @@ namespace Club_Campestre
                 CargarTipoMembresias();
                 Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
                 Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
-                string tipo = Session["tipo"].ToString();
                 txtNombre.Disabled = true;
                 IDCliente.Disabled = true;
-                if (Obj_Membresias_DAL != null & tipo == "E")
+                if (Obj_Membresias_DAL != null & (BD)Session["tipo"] == BD.Actualizar)
                 {
                     IdMembresia = Obj_Membresias_DAL.iIdMembresia;
                     Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Filtrar);
                     this.mantenimiento.InnerHtml = "Modificacion de Membresias";
                     this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
-                    this.txtNombre.Value = Obj_Persona_DAL.SNombre;
+                    this.txtNombre.Value = WebUtility.HtmlDecode(Obj_Persona_DAL.SNombre);
                     this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
                     this.FechaInicio.Value = Convert.ToDateTime(Obj_Membresias_DAL.DS.Tables[0].Rows[0][4], customCulture).ToString("yyyy-MM-dd");
                     validaDatos();
@@ -134,19 +135,17 @@ namespace Club_Campestre
         {
             if (this.checkok.Checked)
             {
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
                     ActualizarMembresia();
                     ActualizarBeneficiarios();
-                    Server.Transfer("Membresias.aspx");
                 }
                 else
                 {
                     InsertarMembresia();
                     InsertarBeneficiarios();
-                    Server.Transfer("Membresias.aspx");
                 }
+                Response.Redirect(pantallaMantenimiento, true);
             }
         }
 

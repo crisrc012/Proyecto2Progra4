@@ -34,9 +34,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(char.MinValue, sEstado, true), "[dbo].[sp_search_TB_Estado]", ref sMsj_error);
         }
 
-        public char Insertar(char cIdEstado, string sEstado, ref string sMsj_error)
+        public bool Insertar(char cIdEstado, string sEstado, ref string sMsj_error)
         {
-            return Convert.ToChar(Obj_BD_BLL.ExecuteScalar(inicializarDT(cIdEstado, sEstado), "[dbo].[sp_insert_TB_Estado]", ref sMsj_error));
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(cIdEstado, sEstado), "[dbo].[sp_insert_TB_Estado]", ref sMsj_error);
         }
 
         public bool Actualizar(char cIdEstado, string sEstado, ref string sMsj_error)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
@@ -14,10 +10,9 @@ namespace Club_Campestre
     public partial class Ingreso : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
-        Cls_Ingreso_Dal Obj_Ingreso_DAL;
-        Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-        Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        private Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
+        private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+        private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
         
         #endregion
         protected void Page_Load(object sender, EventArgs e)

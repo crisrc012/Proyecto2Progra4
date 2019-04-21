@@ -44,13 +44,9 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\CatalogosMantenimientos.cs" />
-    <Compile Include="Contracts\MantenimientosGenericos.cs" />
-    <Compile Include="Interfaces\IMantenimientosGenericos.cs" />
     <Compile Include="Interfaces\ICatalogosMantenimientos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

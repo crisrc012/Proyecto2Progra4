@@ -7,6 +7,8 @@ namespace Club_Campestre
 {
     public partial class Mant_Usuarios : System.Web.UI.Page
     {
+        private string pantallaMantenimiento = "Usuarios.aspx";
+        private string tipo = "N";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -14,7 +16,7 @@ namespace Club_Campestre
                 LlenarDDL();
                 Cls_Usuario_DAL Obj_Usuarios_DAL = (Cls_Usuario_DAL)Session["Usuario"];
                 Cls_Usuario_BLL Obj_Usuarios_BLL = new Cls_Usuario_BLL();
-                string tipo = Session["tipo"].ToString();
+                tipo = Session["tipo"].ToString();
                 if (Obj_Usuarios_DAL != null & tipo == "E")
                 {
                     //Obj_Usuarios_BLL.Desencripta(ref Obj_Usuarios_DAL);
@@ -67,7 +69,6 @@ namespace Club_Campestre
                     Obj_Usuario_DAL.SIdPersona = this.DropDownTUsuarios.SelectedValue.ToString();
                     Obj_Usuario_DAL.SContrasena = this.txtcontrasena.Value.ToString();
                     Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                    string tipo = Session["tipo"].ToString();
                     if (tipo == "E")
                     {
                         Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Actualizar);
@@ -77,7 +78,7 @@ namespace Club_Campestre
                         Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Insertar);
                     }
                 }
-                Server.Transfer("Usuarios.aspx");
+                Response.Redirect(pantallaMantenimiento, true);
             }
         }
 
