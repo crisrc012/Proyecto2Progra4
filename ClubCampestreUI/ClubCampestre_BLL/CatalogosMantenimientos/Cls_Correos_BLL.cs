@@ -48,7 +48,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 {
                     Obj_Correos_Client.Close();
                 }
-
             }
         }
     }
