@@ -20,7 +20,7 @@
            <div class="pure-control-group">
 
             <label for="cedula"> Cedula: </label>
-            <input runat="server" type="text" id ="txtCedula" value="" style="color: #0090ff"/>
+            <input runat="server" type="text" id ="txtCedula" value="" required style="color: #0090ff"/>
 
                <asp:Button ID="TxtConsultar" class="pure-button pure-button-primary" runat="server" Text="Consultar"  OnClick="TxtConsultar_Click" />
               <label for="Rol"> TipoCliente: </label>
@@ -44,11 +44,11 @@
 
               
                <label for="btnagregarInvitado" > Invitado</label><input runat="server" type="text" id="txtInvitado"  style="color: #0090ff; width: 284px;" />
-              <asp:Button class="pure-button pure-button-primary" ID="btnagregarInvitado" runat="server" Text="+"   />
+              <asp:Button class="pure-button pure-button-primary" ID="btnagregarInvitado" runat="server" Text="+" OnClick="btnagregarInvitado_Click"   />
               &nbsp;
               <asp:Button  class="pure-button pure-button-primary"  ID="btnremoverInvitado" runat="server" Text="-"  />
               <div class="pure-controls">
-                    <asp:GridView class="pure-table" ID="GridViewIvitados" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" AllowPaging="True" PageSize="5" 
+                    <asp:GridView class="pure-table" ID="GridViewInvitados" runat="server" AutoGenerateColumns="false" ForeColor="Blue"  Height="156px" Width="400px" AllowPaging="True" PageSize="5" 
 PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="GridViewIvitados_PageIndexChanging">
                 <Columns>
                     <asp:BoundField DataField="IdPersona" HeaderText="Cedula" />

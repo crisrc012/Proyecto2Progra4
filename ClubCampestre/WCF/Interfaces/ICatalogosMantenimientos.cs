@@ -194,5 +194,9 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable Cargar(string IdPersona, ref string sMsj_error);
         #endregion
+        #region Ingresos
+        [OperationContract]
+        DataTable Invitado_Beneficiario(string IdPersona, ref string sMsj_error);
+        #endregion
     }
 }

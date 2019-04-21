@@ -438,5 +438,13 @@ namespace WCF.Contracts
             return Obj_Ingresos_BLL.Cargar(IdPersona, ref sMsj_error);
         }
         #endregion
+
+        #region Invitado_Beneficiario
+        public DataTable Invitado_Beneficiario(string IdPersona, ref string sMsj_error)
+        {
+            Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
+            return Obj_Ingresos_BLL.Invitado_Beneciario(IdPersona, ref sMsj_error);
+        }
+        #endregion
     }
 }

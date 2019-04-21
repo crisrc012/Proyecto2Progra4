@@ -17,6 +17,7 @@ namespace Club_Campestre
         Cls_Ingreso_Dal Obj_Ingreso_DAL;
         Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,8 +36,13 @@ namespace Club_Campestre
             
             Obj_Ingreso_BLL.Cargar(ref Obj_Ingreso_Dal);
             DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
-
-            foreach(DataRow row in dt.Rows)
+            if (dt.Rows.Count == 0)
+            {
+                Response.Write("<script>window.alert('La cedula ingresada no corresponde a ningun cliente. Por favro ingrese un cliente valido');</script>");
+            }
+            else
+            {
+                foreach (DataRow row in dt.Rows)
             {
                 txtnombre.Value = Convert.ToString(row[1]);
                 TxtTipoCliente.Value = Convert.ToString(row[2]);
@@ -44,7 +50,8 @@ namespace Club_Campestre
                 TxtCosto.Value = Convert.ToString(row[4]);
 
             }
-            
+            }
+
         }
 
         private void BindGrid()
@@ -73,7 +80,7 @@ namespace Club_Campestre
         
         protected void GridViewIvitados_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridViewIvitados.PageIndex = e.NewPageIndex;
+            GridViewInvitados.PageIndex = e.NewPageIndex;
             this.BindGrid();
         }
 
@@ -81,6 +88,35 @@ namespace Club_Campestre
         {
             ServiciosGridView.PageIndex = e.NewPageIndex;
             this.BindGrid();
+        }
+
+        protected void btnagregarInvitado_Click(object sender, EventArgs e)
+        {
+            Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
+            Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
+            Obj_Ingreso_Dal.IdPersona = txtInvitado.Value;
+            
+            Obj_Ingreso_BLL.Invitado_Beneficiario(ref Obj_Ingreso_Dal);
+            DataTable dI = Obj_Ingreso_Dal.DI.Tables[0];
+            
+            DataRow Dr = null;
+            if (dI.Rows.Count == 0)
+            {
+                Response.Write("<script>window.alert('La cedula ingresada no existe, por favor corroboré el dato o registrelo primero en el mantenimiento de personas');</script>");
+            }
+            else
+            {
+                foreach (DataRow row in dI.Rows)
+                {
+                   
+                    GridViewInvitados.DataSource = dI;
+                    GridViewInvitados.DataBind();
+                    this.txtInvitado.Value = string.Empty;
+
+
+
+                }
+            }
         }
     }
 }
