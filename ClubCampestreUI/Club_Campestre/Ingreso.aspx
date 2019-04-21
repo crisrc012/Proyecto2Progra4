@@ -85,7 +85,8 @@ PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="GridViewIvitados_PageIndexC
             <input runat="server" type="text" id ="TxtTotal" value="" style="color: #0090ff"/>
             </div>  
         <div class="pure-controls" style="width:  330px; margin:0 auto; ">
-            
+            <asp:Button ID="Btntotalizar" runat="server" class="pure-button pure-button-primary" Text="Totalizar" OnClick="Btntotalizar_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button class="pure-button pure-button-primary" ID="btnFacturar" runat="server" Text="Facturar"   />
            </div>
 

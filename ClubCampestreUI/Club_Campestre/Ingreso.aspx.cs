@@ -8,6 +8,7 @@ using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
 using System.Data;
 
+
 namespace Club_Campestre
 {
     public partial class Ingreso : System.Web.UI.Page
@@ -117,6 +118,42 @@ namespace Club_Campestre
 
                 }
             }
+        }
+
+        protected void Btntotalizar_Click(object sender, EventArgs e)
+        {
+            double Total_Adicionales = 0;
+            double Total_Servicios = 0;
+            double Total = 0;
+            
+            foreach (GridViewRow row  in GridViewInvitados.Rows)
+            {
+                Total_Adicionales += Convert.ToDouble(row.Cells[3].Text);
+            }
+
+            foreach (GridViewRow row in ServiciosGridView.Rows)
+            {
+                if(row.RowType == DataControlRowType.DataRow)
+                {
+                    
+
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if(chkRow.Checked)
+                    {
+                        Total_Servicios += Convert.ToDouble(row.Cells[2].Text);
+                    }
+
+                    else
+                    {
+                        Total_Servicios = Total_Servicios;
+                    }
+                }
+
+            }
+
+            Total = Total_Adicionales + Total_Servicios;
+
+            TxtTotal.Value = Convert.ToString(Total);
         }
     }
 }
