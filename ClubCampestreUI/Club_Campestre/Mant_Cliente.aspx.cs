@@ -52,12 +52,12 @@ namespace Club_Campestre
 
             if (tipo == "E")
             {
-                Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Actualizar);
                 Server.Transfer("Clientes.aspx");
             }
             else
             {
-                Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Insertar);
                 Server.Transfer("Clientes.aspx");
             }
         }

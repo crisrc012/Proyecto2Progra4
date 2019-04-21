@@ -27,13 +27,13 @@ namespace Club_Campestre
 
             if (this.txtFiltraClientes.Text.Trim() == string.Empty)
             {
-                Obj_Clientes_BLL.Listar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Listar);
             }
             else
             {
                 Obj_Clientes_DAL.SIdPersona = this.txtFiltraClientes.Text.Trim();
                 //Llamado del metodo filtrar clientes
-                Obj_Clientes_BLL.FiltrarV(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.FiltrarVista);
             }
             if (Obj_Clientes_DAL.SMsjError == string.Empty)
             {
@@ -98,8 +98,8 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(row.Cells[0].Text);
-                        //llamado metodo eliminar estados
-                        Obj_Clientes_BLL.Eliminar(ref Obj_Clientes_DAL);// eliminar estados
+                        //llamado metodo eliminar cliente
+                        Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Eliminar);// eliminar cliente
                     }
 
                 }

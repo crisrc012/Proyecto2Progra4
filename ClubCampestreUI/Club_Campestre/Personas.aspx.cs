@@ -62,7 +62,7 @@ namespace Club_Campestre
                     // carga grid de correos
                     Obj_Correo_DAL = new Cls_Correos_DAL();
                     Obj_Correo_DAL.SIdPersona = persona.SIdPersona;
-                    Obj_Correo_BLL.Filtrar(ref Obj_Correo_DAL);
+                    Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Filtrar);
                     CorreoPersonaGridView.DataSource = Obj_Correo_DAL.DS.Tables[0];
                     CorreoPersonaGridView.DataBind();
                 }
@@ -319,10 +319,8 @@ namespace Club_Campestre
                         {
                             Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
-
-                            Obj_Correo_BLL.Insertar(ref Obj_Correo_DAL);//  insertar
+                            Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Insertar);//  insertar
                         }
-
                     }
                 }
                 #endregion
