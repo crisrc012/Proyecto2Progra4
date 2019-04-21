@@ -37,7 +37,7 @@ namespace Club_Campestre
                 //llamado metodo filtrar Membresias
                 Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Filtrar);
             }
-            if (Obj_Membresias_DAL.SMsjError == string.Empty)
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.MembresiasGridView.DataSource = Obj_Membresias_DAL.DS.Tables[0];
@@ -70,7 +70,7 @@ namespace Club_Campestre
                     }
                 }
             }
-            if (Obj_Membresias_DAL.SMsjError == string.Empty)
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
             {
                 this.errorMensaje.InnerHtml = "Membresia Eliminada con exito.";
                 this.BindGrid();
@@ -100,8 +100,8 @@ namespace Club_Campestre
                         Session["tipo"] = BD.Actualizar;
                         Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(row.Cells[0].Text);
                         Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-                        Obj_Persona_DAL.SIdPersona = row.Cells[1].Text;
-                        Obj_Persona_DAL.SNombre = row.Cells[2].Text;
+                        Obj_Persona_DAL.sIdPersona = row.Cells[1].Text;
+                        Obj_Persona_DAL.sNombre = row.Cells[2].Text;
                         //Sesion estado lleva el objeto
                         Session["Membresia"] = Obj_Membresias_DAL;
                         Session["Persona"] = Obj_Persona_DAL;

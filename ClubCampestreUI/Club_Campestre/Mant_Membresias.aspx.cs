@@ -17,11 +17,6 @@ namespace Club_Campestre
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
-            customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
-            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
-
             if (!IsPostBack)
             {
                 CargarTipoMembresias();
@@ -35,10 +30,16 @@ namespace Club_Campestre
                     Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Filtrar);
                     this.mantenimiento.InnerHtml = "Modificacion de Membresias";
                     this.txtCedula.Disabled = true;
-                    this.txtCedula.Value = Obj_Persona_DAL.SIdPersona;
-                    this.txtNombre.Value = WebUtility.HtmlDecode(Obj_Persona_DAL.SNombre);
+                    this.txtCedula.Value = Obj_Persona_DAL.sIdPersona;
+                    this.txtNombre.Value = WebUtility.HtmlDecode(Obj_Persona_DAL.sNombre);
                     this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
-                    this.FechaInicio.Value = Convert.ToDateTime(Obj_Membresias_DAL.DS.Tables[0].Rows[0][4], customCulture).ToString("yyyy-MM-dd");
+                    //
+                    //System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
+                    //customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+                    //System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+                    //System.Threading.Thread.CurrentThread.CurrentUICulture = customCulture;
+                    //
+                    this.FechaInicio.Value = Convert.ToDateTime(Obj_Membresias_DAL.DS.Tables[0].Rows[0][4]).ToString("yyyy-MM-dd");
                     validaDatos();
                     BindGridBeneficiarios();
                 }
@@ -111,9 +112,9 @@ namespace Club_Campestre
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-            Obj_Persona_DAL.SIdPersona = cedula.Trim();
+            Obj_Persona_DAL.sIdPersona = cedula.Trim();
             Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
-            if(Obj_Persona_DAL.SMsjError == string.Empty)
+            if(Obj_Persona_DAL.sMsjError == string.Empty)
             {
                 if (Obj_Persona_DAL.DS.Tables[0].Rows.Count > 0)
                 {
@@ -122,13 +123,13 @@ namespace Club_Campestre
                 else
                 {
                     this.mensajeError.InnerHtml = "PERSONA NO REGISTRADA INGRESE AL BOTON DE PERSONAS";
-                    return "";
+                    return string.Empty;
                 }
             }
             else
             {
                 this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
-                return "";
+                return string.Empty;
             }
         }
 
@@ -183,7 +184,6 @@ namespace Club_Campestre
                     Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.sIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.cIdEstado = 'A';
-
                     Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Insertar);
                 }
             }
@@ -192,15 +192,14 @@ namespace Club_Campestre
         private void InsertarMembresia()
         {
             Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
-            Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
-            Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
-            Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
+            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
+            Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value); 
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
-            Obj_Membresias_DAL.CFKIdEstado = 'A';
+            Obj_Membresias_DAL.cIdEstado = 'A';
             Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Insertar);
 
-            if (Obj_Membresias_DAL.SMsjError == string.Empty)
+            if (Obj_Membresias_DAL.sMsjError == string.Empty)
             {
                 this.mensajeError.InnerHtml = " Membresia Registrada Correctamente";
             }
@@ -215,8 +214,8 @@ namespace Club_Campestre
             Cls_Clientes_BLL Obj_Cliente_BLL = new Cls_Clientes_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
             Obj_Cliente_DAL.sIdPersona = cedula;
-            Obj_Cliente_DAL.sIdCliente = short.MinValue;
-            Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
+            //Obj_Cliente_DAL.sIdCliente = short.MinValue;
+            //Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
             Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Filtrar);
             return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }
@@ -266,11 +265,10 @@ namespace Club_Campestre
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
             Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(this.IDCliente.Value);
-            Obj_Beneficiario_DAL.sIdPersona = string.Empty;
-            Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
-            Obj_Beneficiario_DAL.cIdEstado = ' ';
+            //Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+            //Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+            //Obj_Beneficiario_DAL.cIdEstado = ' ';
             Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Filtrar);
-
             // Si no hay beneficiaros
             if (Obj_Beneficiario_DAL.DS.Tables.Count > 0)
             {
@@ -284,24 +282,24 @@ namespace Club_Campestre
             Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
             Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
             Obj_Membresias_DAL.iIdMembresia = IdMembresia;
-            Obj_Membresias_DAL.BFKIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
-            Obj_Membresias_DAL.SPKIdCliente = Convert.ToInt16(IDCliente.Value);
+            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
+            Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
-            Obj_Membresias_DAL.CFKIdEstado = 'A';
+            Obj_Membresias_DAL.cIdEstado = 'A';
             Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Actualizar);
         }
 
         private void ActualizarBeneficiarios()
         {
-            Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
-            Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
             if (BeneficiariosGridView.Rows.Count > 0)
             {
+                Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
+                Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
                 Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
-                Obj_Beneficiario_DAL.sIdPersona = string.Empty;
-                Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
-                Obj_Beneficiario_DAL.cIdEstado = ' ';
+                //Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+                //Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+                //Obj_Beneficiario_DAL.cIdEstado = ' ';
                 Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Eliminar);
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
