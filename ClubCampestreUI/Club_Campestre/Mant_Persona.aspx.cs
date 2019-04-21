@@ -126,7 +126,7 @@ namespace Club_Campestre
                         Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
                         Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
                         Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Eliminar);
-                        Obj_Telefonos_BLL.Eliminar(ref Obj_Telefonos_DAL);
+                        Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Eliminar);
                         Obj_Correos_BLL.crudCorreos(ref Obj_Correos_DAL, BD.Eliminar);
                         }
                     }

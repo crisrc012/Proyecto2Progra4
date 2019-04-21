@@ -50,7 +50,7 @@ namespace Club_Campestre
                     // carga grid teléfonos
                     Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
                     Obj_Telefonos_DAL.SIdPersona = persona.SIdPersona;
-                    Obj_Telefonos_BLL.Filtrar(ref Obj_Telefonos_DAL);
+                    Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Filtrar);
                     GridViewTelefono.DataSource = Obj_Telefonos_DAL.DS.Tables[0];
                     GridViewTelefono.DataBind();
                     // carga grid de correos
@@ -258,7 +258,7 @@ namespace Club_Campestre
                         {
                             Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
                             Obj_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-                            Obj_Telefonos_BLL.Insertar(ref Obj_Telefonos_DAL);//   insertar
+                            Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
                         }
                     }
                 }
