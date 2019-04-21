@@ -22,7 +22,7 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnPageIndexChanging="RolesGridView_PageIndexChanging" OnSelectedIndexChanged="RolesGridView_SelectedIndexChanged" PageSize="5" PagerStyle-CssClass="pagingDiv">
+            <asp:GridView class="pure-table" ID="RolesGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="304px" AllowPaging="True" OnPageIndexChanging="RolesGridView_PageIndexChanging" OnSelectedIndexChanged="RolesGridView_SelectedIndexChanged" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
                     <asp:BoundField DataField="IdRol" HeaderText="Rol" />
                     <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />

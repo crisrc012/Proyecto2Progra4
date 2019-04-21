@@ -22,7 +22,7 @@
         </div>
         <br />
         <div class="pure-controls">
-            <asp:GridView ID="TipoClienteGridView" class="pure-table" runat="server" AutoGenerateColumns="false" ForeColor="blue" AllowPaging="True" OnPageIndexChanging="TipoClienteGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv" >
+            <asp:GridView ID="TipoClienteGridView" class="pure-table" runat="server" AutoGenerateColumns="false" ForeColor="blue" Height="156px" Width="304px" AllowPaging="True" OnPageIndexChanging="TipoClienteGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv" >
                 <Columns>
                     <asp:BoundField DataField="IdTipoCliente" HeaderText="Tipo Cliente"/>
                     <asp:BoundField DataField="Descripcion" HeaderText="Tipo Cliente"/>
