@@ -28,7 +28,16 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownTClientes;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect DropDownTClientes;
+        
+        /// <summary>
+        /// lblidCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblidCliente;
         
         /// <summary>
         /// txtidcliente control.

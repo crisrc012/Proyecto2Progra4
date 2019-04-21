@@ -16,7 +16,7 @@
           <fieldset>
 
           <div class="pure-control-group">
-            <label for="Tipo_de_Membresia" id="lblTipoMembresia"> Tipo de Membresia: </label>
+            <label for="Tipo_de_Membresia" id="lblTipoMembresia" runat="server"> Tipo de Membresia: </label>
             <input runat="server" type="text" id ="txtTipoMembre" value="" style="color: #0090ff"/>
           </div>
 
