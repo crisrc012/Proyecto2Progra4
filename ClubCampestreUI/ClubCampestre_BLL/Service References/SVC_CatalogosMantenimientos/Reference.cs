@@ -1285,19 +1285,15 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public string sIdPersona;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
-        public char cIdEstado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
         public string sMsj_error;
         
         public filtrarBeneficiariosRequest() {
         }
         
-        public filtrarBeneficiariosRequest(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, string sMsj_error) {
+        public filtrarBeneficiariosRequest(short sIdBeneficiario, short sIdCliente, string sIdPersona, string sMsj_error) {
             this.sIdBeneficiario = sIdBeneficiario;
             this.sIdCliente = sIdCliente;
             this.sIdPersona = sIdPersona;
-            this.cIdEstado = cIdEstado;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -4423,12 +4419,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.filtrarBeneficiarios(request);
         }
         
-        public System.Data.DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error) {
+        public System.Data.DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosRequest();
             inValue.sIdBeneficiario = sIdBeneficiario;
             inValue.sIdCliente = sIdCliente;
             inValue.sIdPersona = sIdPersona;
-            inValue.cIdEstado = cIdEstado;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.filtrarBeneficiariosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).filtrarBeneficiarios(inValue);
             sMsj_error = retVal.sMsj_error;
