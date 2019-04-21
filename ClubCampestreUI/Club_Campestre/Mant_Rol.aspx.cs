@@ -8,7 +8,8 @@ namespace Club_Campestre
     public partial class Mant_Rol : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        private string pantallaMantenimiento = "Roles.aspx";
+        private string tipo = "N";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -16,7 +17,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
-                string tipo = Session["tipo"].ToString();
+                tipo = Session["tipo"].ToString();
                 this.txtRoles.Disabled = true;
                 if (rol != null & tipo == "E")
                 {
@@ -36,10 +37,7 @@ namespace Club_Campestre
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
-            Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-
             //Validar Campos en Blanco 
-
             if (txtdescripcion.Value.Trim().Equals(string.Empty))
             {
                 //se agrega el label que indique lo que no hay datos 
@@ -49,22 +47,19 @@ namespace Club_Campestre
             else
             {
                 lblGuardar.Visible = false;
-                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
-                {
-                    Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
-                }
+                Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
+                Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                 Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
-                string tipo = Session["tipo"].ToString();
                 if (tipo == "E")
                 {
+                    Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value); // Si se edita se debe de obtener el ID
                     Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Actualizar);
-                    Server.Transfer("Roles.aspx");
                 }
                 else
                 {
                     Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Insertar);
-                    Server.Transfer("Roles.aspx");
                 }
+                Response.Redirect(pantallaMantenimiento, true);
             }
             //Validar campos en Blanco 
         }

@@ -41,7 +41,7 @@ namespace Club_Campestre
         {
             //Identificcion en lo que estamos trabjanado es un estado N
             Session["tipo"] = "N";
-            Server.Transfer(pantallaMantenimiento, false);
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -63,10 +63,9 @@ namespace Club_Campestre
                     {
                         Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoCliente_DAL.sDescripcion = row.Cells[1].Text;
-
                         //Sesion estado lleva el objeto
                         Session["TipoCliente"] = Obj_TipoCliente_DAL;
-                        Server.Transfer(pantallaMantenimiento);//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
                 }
             }

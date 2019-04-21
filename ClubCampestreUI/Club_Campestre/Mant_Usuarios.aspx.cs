@@ -1,6 +1,7 @@
 ﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
+using System.Web.Services;
 
 namespace Club_Campestre
 {
@@ -34,6 +35,7 @@ namespace Club_Campestre
             }
         }
 
+        [WebMethod]
         private void LlenarDDL() //Llenado del Drop down list
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();

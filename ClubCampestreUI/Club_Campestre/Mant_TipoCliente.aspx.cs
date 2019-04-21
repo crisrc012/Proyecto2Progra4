@@ -29,7 +29,6 @@ namespace Club_Campestre
                     this.txtdescripcion.Value = string.Empty;
                 }
             }
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -56,12 +55,12 @@ namespace Club_Campestre
                 if (tipo == "E")
                 {
                     Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Actualizar);
-                    Server.Transfer(pantallaMantenimiento);
+                    Response.Redirect(pantallaMantenimiento, true);
                 }
                 else
                 {
                     Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Insertar);
-                    Server.Transfer(pantallaMantenimiento);
+                    Response.Redirect(pantallaMantenimiento, true);
                 }
             }
 

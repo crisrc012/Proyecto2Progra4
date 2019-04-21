@@ -11,6 +11,7 @@ namespace Club_Campestre
         Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
         Cls_Rol_DAL Obj_Rol_DAL;
         bool vFiltra = true;
+        private string pantallaMantenimiento = "Mant_Rol.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,13 +29,13 @@ namespace Club_Campestre
 
             if (this.FiltrarRol.Text == string.Empty)//listar
             {
-                //llamado metodo listar estados
+                //llamado metodo listar roles
                 Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             }
             else
             {
                 Obj_Rol_DAL.sDescripcion = this.FiltrarRol.Text;
-                //llamado metodo listar estados
+                //llamado metodo listar roles
                 Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
             }
 
@@ -54,7 +55,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Rol.aspx", false);//llama pantalla
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -78,7 +79,7 @@ namespace Club_Campestre
 
                         //Sesion estado lleva el objeto
                         Session["Rol"] = Obj_Rol_DAL;
-                        Server.Transfer("Mant_Rol.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
                 }
             }
