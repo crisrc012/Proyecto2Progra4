@@ -9,7 +9,7 @@ namespace Club_Campestre
     public partial class TipoMembresia : System.Web.UI.Page
     {
         private Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-        private CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+        private Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
         private string pantallaMantenimiento = "Mant_TipoMembre.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,8 +22,8 @@ namespace Club_Campestre
         private void BindGrid()
         {
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
-            Obj_TipoMembresia_BLL.ListaTipoMembresia(ref Obj_TipoMembresia_DAL);
+            Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
+            Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Listar);
             if (Obj_TipoMembresia_DAL.DS.Tables.Count > 0)
             {
                 TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
@@ -70,9 +70,9 @@ namespace Club_Campestre
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+            Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
             Obj_TipoMembresia_DAL.SPKDescripcion = txtFiltraTipoMembre.Text;
-            Obj_TipoMembresia_BLL.Filtrar(ref Obj_TipoMembresia_DAL);
+            Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Filtrar);
             TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
             TipoMembresiaGridView.DataBind();
         }
@@ -94,7 +94,7 @@ namespace Club_Campestre
                         Obj_TipoMembresia_DAL.SPKDescripcion = row.Cells[1].Text;
                         Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);
                         //llamado metodo eliminar estados
-                        Obj_TipoMembresia_BLL.Eliminar(ref Obj_TipoMembresia_DAL);// eliminar estados
+                        Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Eliminar);// eliminar estados
                     }
                 }
             }

@@ -7,7 +7,7 @@ namespace Club_Campestre
     public partial class Mant_Tipo_Membre : System.Web.UI.Page
     {
         #region Variables Globales
-        private CLS_TipoMembresia_BLL Obj_Estado_BLL = new CLS_TipoMembresia_BLL();
+        private Cls_TipoMembresia_BLL Obj_Estado_BLL = new Cls_TipoMembresia_BLL();
         private string pantallaMantenimiento = "TipoMembresia.aspx";
         #endregion
         protected void Page_Load(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Club_Campestre
 
        protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+            Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
             if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
             {
@@ -60,12 +60,12 @@ namespace Club_Campestre
                 if (tipo == "E")
                 {
                     Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(this.txtTipoMembre.Value);
-                    Obj_TipoMembresia_BLL.Actualizar(ref Obj_TipoMembresia_DAL);
+                    Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Actualizar);
                     Server.Transfer(pantallaMantenimiento);
                 }
                 else
                 {
-                    Obj_TipoMembresia_BLL.Insertar(ref Obj_TipoMembresia_DAL);
+                    Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Insertar);
                     Server.Transfer(pantallaMantenimiento);
                 }
             }
