@@ -89,6 +89,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     case BD.Listar:
                         Obj_Usuario_DAL.DS.Tables.Add(Obj_Usuario_Client.listarUsuario(ref sMsjError));
                         break;
+                    case BD.FiltrarVista:
+                        Obj_Usuario_DAL.DS.Tables.Add(Obj_Usuario_Client.filtrarUsuario(Obj_Usuario_DAL.SIdUsuario, Obj_Usuario_DAL.SIdPersona, Obj_Usuario_DAL.SContrasena, ref sMsjError));
+                        break;
                     default:
                         break;
                 }

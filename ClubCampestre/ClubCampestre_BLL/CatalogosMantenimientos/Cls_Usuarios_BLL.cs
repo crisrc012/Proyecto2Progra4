@@ -30,12 +30,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         }
         public DataTable Listar(ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Usuarios]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_V_Usuarios]", ref sMsj_error);
         }
 
         public DataTable Filtrar(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
         {
             return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdUsuario, IdPersona, Contrasena), "[dbo].[sp_search_TB_Usuarios]", ref sMsj_error).Copy();
+        }
+        public DataTable FiltrarV(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdUsuario, IdPersona, Contrasena), "[dbo].[sp_search_V_Usuarios]", ref sMsj_error).Copy();
         }
 
         public bool Insertar(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error)

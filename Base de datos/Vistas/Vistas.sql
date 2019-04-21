@@ -76,3 +76,17 @@ SELECT [IdServicio]
   JOIN [ClubCampestre].[dbo].[TB_Estado] TBE
   ON TBE.IdEstado = TBS.IdEstado
   GO
+
+-- TB_Usuarios
+CREATE VIEW V_Usuarios
+AS
+SELECT [IdUsuario] AS Usuario
+      ,[dbo].[TB_Usuarios].[IdPersona] AS Identificacion
+	  ,[dbo].[TB_Persona].[Nombre]
+	  ,[dbo].[TB_Rol].[Descripcion] AS Rol
+  FROM [dbo].[TB_Usuarios]
+  JOIN [dbo].[TB_Persona]
+  ON [dbo].[TB_Persona].[IdPersona] = [dbo].[TB_Usuarios].[IdPersona]
+  JOIN [dbo].[TB_Rol]
+  ON [dbo].[TB_Rol].[IdRol] = [dbo].[TB_Persona].[IdRol]
+GO
