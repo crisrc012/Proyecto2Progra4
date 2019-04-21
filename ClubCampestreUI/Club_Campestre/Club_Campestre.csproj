@@ -70,7 +70,9 @@
   <ItemGroup>
     <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
-    <Content Include="favicon.ico" />
+    <Content Include="favicon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
     <Content Include="Mant_TipoCliente.aspx" />
