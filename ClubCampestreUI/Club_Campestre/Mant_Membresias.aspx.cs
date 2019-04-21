@@ -212,7 +212,7 @@ namespace Club_Campestre
 
         private string returnaIdCliente(string cedula)
         {
-            Cls_Cliente_BLL Obj_Cliente_BLL = new Cls_Cliente_BLL();
+            Cls_Clientes_BLL Obj_Cliente_BLL = new Cls_Clientes_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
             Obj_Cliente_DAL.sIdPersona = cedula;
             Obj_Cliente_DAL.sIdCliente = short.MinValue;

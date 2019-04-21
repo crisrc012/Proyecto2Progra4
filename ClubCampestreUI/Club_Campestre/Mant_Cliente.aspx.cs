@@ -7,6 +7,8 @@ namespace Club_Campestre
 {
     public partial class Mant_Tipo_Cliente : System.Web.UI.Page
     {
+        private string pantallaMantenimiento = "Clientes.aspx";
+        private string tipo = "N";
         protected void Page_Load(object sender, EventArgs e)
         {
             CargaTipoCliente();
@@ -14,7 +16,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 Cls_Clientes_DAL clientes = (Cls_Clientes_DAL)Session["Clientes"];
-                string tipo = Session["tipo"].ToString();
+                tipo = Session["tipo"].ToString();
                 txtidcliente.Disabled = true;
                 if (clientes != null & tipo == "E")
                 {
@@ -38,28 +40,25 @@ namespace Club_Campestre
         }
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Clientes.aspx");
+            Response.Redirect(pantallaMantenimiento, true);
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
+            Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
             Cls_Clientes_DAL Obj_Clientes_DAL = new Cls_Clientes_DAL();
             Obj_Clientes_DAL.sIdCliente = Convert.ToInt16(txtidcliente.Value);
             Obj_Clientes_DAL.bIdTipoCliente = Convert.ToByte(DropDownTClientes.SelectedValue);
             Obj_Clientes_DAL.sIdPersona = txtidpersona.Value.ToString().Trim();
-            string tipo = Session["tipo"].ToString();
-
             if (tipo == "E")
             {
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Actualizar);
-                Server.Transfer("Clientes.aspx");
             }
             else
             {
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Insertar);
-                Server.Transfer("Clientes.aspx");
             }
+            Response.Redirect(pantallaMantenimiento, true);
         }
 
         protected void DropDownListTCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,7 +71,6 @@ namespace Club_Campestre
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
             Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Listar);
-
             DropDownTClientes.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
             DropDownTClientes.DataTextField = "Descripcion";
             DropDownTClientes.DataValueField = "IdTipoCliente";

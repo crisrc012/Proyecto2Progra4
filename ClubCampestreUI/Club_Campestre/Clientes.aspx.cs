@@ -8,8 +8,9 @@ namespace Club_Campestre
     public partial class Clientes : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Cliente_BLL Obj_Clientes_BLL = new Cls_Cliente_BLL();
-        Cls_Clientes_DAL Obj_Clientes_DAL;
+        private Cls_Clientes_BLL Obj_Clientes_BLL = new Cls_Clientes_BLL();
+        private Cls_Clientes_DAL Obj_Clientes_DAL;
+        private string pantallaMantenimiento = "Mant_Cliente.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Cliente.aspx", false);
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace Club_Campestre
                         //Sesion estado lleva el objeto
                         Session["Clientes"] = Obj_Clientes_DAL;
                         Session["TipoCliente"] = sTipoCliente;
-                        Server.Transfer("Mant_Cliente.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
                 }
             }
@@ -86,7 +87,6 @@ namespace Club_Campestre
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             Obj_Clientes_DAL = new Cls_Clientes_DAL();
-
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in ClientesGridView.Rows)
             {
@@ -101,7 +101,6 @@ namespace Club_Campestre
                         //llamado metodo eliminar cliente
                         Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Eliminar);// eliminar cliente
                     }
-
                 }
             }
             if (Obj_Clientes_DAL.sMsjError == string.Empty)

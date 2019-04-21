@@ -4,7 +4,7 @@ using System;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
-    public class Cls_Cliente_BLL
+    public class Cls_Clientes_BLL
     {
         public void crudCliente(ref Cls_Clientes_DAL Obj_Clientes_DAL, BD Accion)
         {
