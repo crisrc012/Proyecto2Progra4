@@ -10,6 +10,11 @@
             <div>
                 <header>
                     <h1 runat="server" id="mantenimiento">Usuarios</h1>
+                    <script src="Scripts/jquery-3.3.1.min.js"></script>
+                    <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
+                    <script src="Scripts/jquery-ui-1.12.1.min.js"></script>
+                    <script src="Scripts/chosen.jquery.min.js"></script>
+                    <link href="Content/chosen.css" rel="stylesheet" />
                 </header>
             </div>
             <div>
@@ -22,9 +27,8 @@
                         </div>
 
                         <div class="pure-control-group">
-                            <label for="txtdescripcion">Identificación: </label>
-                            <asp:DropDownList ID="DropDownTUsuarios" runat="server" OnSelectedIndexChanged="DropDownTUsuarios_SelectedIndexChanged" ForeColor="Blue" Width="250px" Height="35px">
-                            </asp:DropDownList>
+                            <label for="txtdescripcion">Persona: </label>
+                            <select id="DropDownTUsuarios" runat="server" name="DropDownTUsuarios" class="chosen"></select>
                             &nbsp;
                         </div>
 
@@ -43,4 +47,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $('.chosen').chosen();
+    </script>
 </asp:Content>

@@ -55,7 +55,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = BD.Insertar;
-            Server.Transfer(pantallaMantenimiento, false);//llama pantalla
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)

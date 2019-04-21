@@ -20,7 +20,7 @@ namespace Club_Campestre
                 {
                     Obj_Clientes_DAL = (Cls_Clientes_DAL)Session["Clientes"];
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
-                    this.DropDownTClientes.Text = Session["TipoCliente"].ToString();
+                    this.DropDownTClientes.Value = Session["TipoCliente"].ToString();
                     this.txtidcliente.Value = Obj_Clientes_DAL.sIdCliente.ToString();
                     this.txtidpersona.Value = Obj_Clientes_DAL.sIdPersona.ToString();
                     this.txtidpersona.Disabled = true;
@@ -29,6 +29,7 @@ namespace Club_Campestre
                 }
                 else
                 {
+                    lblidCliente.Visible = false;
                     this.txtidcliente.Visible = false;
                     this.mantenimiento.InnerHtml = "Nuevos de Clientes";
                     this.txtidcliente.Value = string.Empty;
@@ -45,7 +46,7 @@ namespace Club_Campestre
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Obj_Clientes_DAL = new Cls_Clientes_DAL();
-            Obj_Clientes_DAL.bIdTipoCliente = Convert.ToByte(DropDownTClientes.SelectedValue.ToString());
+            Obj_Clientes_DAL.bIdTipoCliente = Convert.ToByte(DropDownTClientes.Value);
             //Obj_Clientes_DAL.sIdPersona = txtidpersona.Value.Trim();
             Obj_Clientes_DAL.sIdPersona = DropDownPersona.Value;
             if ((BD)Session["tipo"] == BD.Actualizar)

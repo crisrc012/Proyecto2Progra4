@@ -24,6 +24,7 @@ namespace Club_Campestre
                 else
                 {
                     this.mantenimiento.InnerHtml = "Nuevos de Tipos Cliente";
+                    lblIdTipoCliente.Visible = false;
                     this.txtIdTipoCliente.Visible = false;
                     this.txtIdTipoCliente.Value = string.Empty;
                     this.txtdescripcion.Value = string.Empty;

@@ -20,10 +20,10 @@
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="DropDownTClientes">Tipo de Cliente: </label>
-                        <asp:DropDownList ID="DropDownTClientes" runat="server" ForeColor="Green" Width="180px" CssClass="chosen"></asp:DropDownList>
+                        <select id="DropDownTClientes" runat="server" name="DropDownTClientes" class="chosen"></select>
                     </div>
                     <div class="pure-control-group">
-                        <label for="txtidcliente">Id Cliente: </label>
+                        <label for="txtidcliente" id="lblidCliente" runat="server">Id Cliente: </label>
                         <input runat="server" type="text" id="txtidcliente" style="color: #0090ff" class="auto-style1" />
                     </div>
                     <div class="pure-control-group">

@@ -15,7 +15,7 @@
                 <form class="pure-form pure-form-aligned" method="post">
                     <fieldset>
                      <div class="pure-control-group">
-                            <label for="txtIdTipodeCliente" id="lblIdTipoCliente">ID Tipo de Cliente: </label>
+                            <label for="txtIdTipodeCliente" id="lblIdTipoCliente" runat="server">ID Tipo de Cliente: </label>
                             <input runat="server" type="text" id="txtIdTipoCliente" onkeypress="return soloLetras(event)" value=""  style="color: #0090ff"/>
                         </div>
 

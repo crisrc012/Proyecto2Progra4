@@ -27,6 +27,7 @@ namespace Club_Campestre
                 else
                 {
                     this.mantenimiento.InnerHtml = "Nuevos tipos de Membresias";
+                    lblTipoMembresia.Visible = false;
                     this.txtTipoMembre.Disabled = true;
                     this.txtTipoMembre.Visible = false;
                     this.txtTipoMembre.Value = string.Empty;

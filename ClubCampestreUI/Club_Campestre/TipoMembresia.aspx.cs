@@ -89,8 +89,8 @@ namespace Club_Campestre
                         Obj_TipoMembresia_DAL.bIdTipoMembresia = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoMembresia_DAL.sDescripcion = row.Cells[1].Text;
                         Obj_TipoMembresia_DAL.fCosto = Convert.ToSingle(row.Cells[2].Text);
-                        //llamado metodo eliminar estados
-                        Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Eliminar);// eliminar estados
+                        //llamado metodo eliminar tipo membresia
+                        Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Eliminar);// eliminar tipo membresia
                     }
                 }
             }
