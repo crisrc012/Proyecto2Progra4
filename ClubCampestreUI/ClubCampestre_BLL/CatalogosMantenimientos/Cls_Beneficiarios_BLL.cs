@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Beneficiarios_Client.actualizarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError);
+                        Obj_Beneficiarios_Client.actualizarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Beneficiarios_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.SIdCliente, ref sMsjError);
+                        Obj_Beneficiarios_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.sIdCliente, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError));
+                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Beneficiarios_Client.insertarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError);
+                        Obj_Beneficiarios_Client.insertarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.listarBeneficiarios(ref sMsjError));
@@ -36,11 +36,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
+                Obj_Beneficiarios_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
+                Obj_Beneficiarios_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {

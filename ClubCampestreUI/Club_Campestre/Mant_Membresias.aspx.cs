@@ -179,10 +179,10 @@ namespace Club_Campestre
             {
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
-                    Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
-                    Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
-                    Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
-                    Obj_Beneficiario_DAL.CIdEstado = 'A';
+                    Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+                    Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
+                    Obj_Beneficiario_DAL.sIdPersona = row.Cells[0].Text.ToString();
+                    Obj_Beneficiario_DAL.cIdEstado = 'A';
 
                     Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Insertar);
                 }
@@ -214,9 +214,9 @@ namespace Club_Campestre
         {
             Cls_Cliente_BLL Obj_Cliente_BLL = new Cls_Cliente_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
-            Obj_Cliente_DAL.SIdPersona = cedula;
-            Obj_Cliente_DAL.SIdCliente = short.MinValue;
-            Obj_Cliente_DAL.BIdTipoCliente = byte.MinValue;
+            Obj_Cliente_DAL.sIdPersona = cedula;
+            Obj_Cliente_DAL.sIdCliente = short.MinValue;
+            Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
             Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Filtrar);
             return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }
@@ -265,10 +265,10 @@ namespace Club_Campestre
         {
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
-            Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(this.IDCliente.Value);
-            Obj_Beneficiario_DAL.SIdPersona = string.Empty;
-            Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
-            Obj_Beneficiario_DAL.CIdEstado = ' ';
+            Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(this.IDCliente.Value);
+            Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+            Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+            Obj_Beneficiario_DAL.cIdEstado = ' ';
             Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Filtrar);
 
             // Si no hay beneficiaros
@@ -298,17 +298,17 @@ namespace Club_Campestre
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
             if (BeneficiariosGridView.Rows.Count > 0)
             {
-                Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
-                Obj_Beneficiario_DAL.SIdPersona = string.Empty;
-                Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
-                Obj_Beneficiario_DAL.CIdEstado = ' ';
+                Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
+                Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+                Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+                Obj_Beneficiario_DAL.cIdEstado = ' ';
                 Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Eliminar);
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
-                    Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
-                    Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
-                    Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
-                    Obj_Beneficiario_DAL.CIdEstado = 'A';
+                    Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+                    Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
+                    Obj_Beneficiario_DAL.sIdPersona = row.Cells[0].Text.ToString();
+                    Obj_Beneficiario_DAL.cIdEstado = 'A';
                     Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Insertar);
                 }
             }

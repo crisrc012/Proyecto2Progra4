@@ -19,31 +19,31 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Clientes_Client.actualizarClientes(Obj_Clientes_DAL.SIdCliente, Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError);
+                        Obj_Clientes_Client.actualizarClientes(Obj_Clientes_DAL.sIdCliente, Obj_Clientes_DAL.bIdTipoCliente, Obj_Clientes_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Clientes_Client.eliminarClientes(Obj_Clientes_DAL.SIdCliente, ref sMsjError);
+                        Obj_Clientes_Client.eliminarClientes(Obj_Clientes_DAL.sIdCliente, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientes(Obj_Clientes_DAL.SIdCliente, Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError));
+                        Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientes(Obj_Clientes_DAL.sIdCliente, Obj_Clientes_DAL.bIdTipoCliente, Obj_Clientes_DAL.sIdPersona, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Clientes_Client.insertarClientes(Obj_Clientes_DAL.BIdTipoCliente, Obj_Clientes_DAL.SIdPersona, ref sMsjError);
+                        Obj_Clientes_Client.insertarClientes(Obj_Clientes_DAL.bIdTipoCliente, Obj_Clientes_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.listarClientes(ref sMsjError));
                         break;
                     case BD.FiltrarVista:
-                        Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientesV(Obj_Clientes_DAL.SIdCliente, string.Empty, Obj_Clientes_DAL.SIdPersona, string.Empty, string.Empty, string.Empty, ref sMsjError));
+                        Obj_Clientes_DAL.DS.Tables.Add(Obj_Clientes_Client.filtrarClientesV(Obj_Clientes_DAL.sIdCliente, string.Empty, Obj_Clientes_DAL.sIdPersona, string.Empty, string.Empty, string.Empty, ref sMsjError));
                         break;
                     default:
                         break;
                 }
-                Obj_Clientes_DAL.SMsjError = sMsjError;
+                Obj_Clientes_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Clientes_DAL.SMsjError = ex.Message.ToString();
+                Obj_Clientes_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {
