@@ -69,13 +69,13 @@ namespace Club_Campestre
                 if (tipo == "E")
                 {
                     Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                    Obj_Usuario_BLL.Actualizar(ref Obj_Usuario_DAL);
+                    Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Actualizar);
                     Server.Transfer("Usuarios.aspx");
                 }
                 else
                 {
                     Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                    Obj_Usuario_BLL.Insertar(ref Obj_Usuario_DAL);
+                    Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Insertar);
                     Server.Transfer("Usuarios.aspx");
                 }
             }

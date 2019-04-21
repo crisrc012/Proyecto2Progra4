@@ -6,7 +6,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
     public class Cls_Beneficiarios_BLL
     {
-        private void crudBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL, BD Accion)
+        public void crudBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL, BD Accion)
         {
             // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
             CatalogosMantenimientosClient Obj_Beneficiarios_Client = new CatalogosMantenimientosClient();
@@ -50,26 +50,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 }
 
             }
-        }
-        public void Listar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            crudBeneficiarios(ref Obj_Beneficiarios_DAL, BD.Listar);
-        }
-        public void Filtrar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            crudBeneficiarios(ref Obj_Beneficiarios_DAL, BD.Filtrar);
-        }
-        public void Insertar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            crudBeneficiarios(ref Obj_Beneficiarios_DAL, BD.Insertar);
-        }
-        public void Actualizar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            crudBeneficiarios(ref Obj_Beneficiarios_DAL, BD.Actualizar);
-        }
-        public void Eliminar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            crudBeneficiarios(ref Obj_Beneficiarios_DAL, BD.Eliminar);
         }
     }
 }

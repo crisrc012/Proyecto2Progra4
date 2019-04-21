@@ -184,7 +184,7 @@ namespace Club_Campestre
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';
 
-                    Obj_Beneficiario_BLL.Insertar(ref Obj_Beneficiario_DAL);
+                    Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Insertar);
                 }
             }
         }
@@ -269,7 +269,7 @@ namespace Club_Campestre
             Obj_Beneficiario_DAL.SIdPersona = string.Empty;
             Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
             Obj_Beneficiario_DAL.CIdEstado = ' ';
-            Obj_Beneficiario_BLL.Filtrar(ref Obj_Beneficiario_DAL);
+            Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Filtrar);
 
             // Si no hay beneficiaros
             if (Obj_Beneficiario_DAL.DS.Tables.Count > 0)
@@ -302,14 +302,14 @@ namespace Club_Campestre
                 Obj_Beneficiario_DAL.SIdPersona = string.Empty;
                 Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
                 Obj_Beneficiario_DAL.CIdEstado = ' ';
-                Obj_Beneficiario_BLL.Eliminar(ref Obj_Beneficiario_DAL);
+                Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Eliminar);
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
                     Obj_Beneficiario_DAL.SIdBeneficiario = short.MinValue;
                     Obj_Beneficiario_DAL.SIdCliente = Convert.ToInt16(IDCliente.Value);
                     Obj_Beneficiario_DAL.SIdPersona = row.Cells[0].Text.ToString();
                     Obj_Beneficiario_DAL.CIdEstado = 'A';
-                    Obj_Beneficiario_BLL.Insertar(ref Obj_Beneficiario_DAL);
+                    Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Insertar);
                 }
             }
         }
