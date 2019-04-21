@@ -29,14 +29,14 @@ namespace Club_Campestre
             if (this.FiltrarUsuarios.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Usuario_BLL.Listar(ref Obj_Usuario_DAL);
+                Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Listar);
 
             }
             else
             {
                 Obj_Usuario_DAL.SIdUsuario = this.FiltrarUsuarios.Text;
                 //llamado metodo listar estados
-                Obj_Usuario_BLL.Filtrar(ref Obj_Usuario_DAL);
+                Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Filtrar);
             }
 
             if (Obj_Usuario_DAL.sMsjError == string.Empty)
@@ -107,7 +107,7 @@ namespace Club_Campestre
                             Obj_Usuario_DAL.SIdPersona = row.Cells[1].Text;
                             Obj_Usuario_DAL.SContrasena = row.Cells[2].Text;
                             //llamado metodo eliminar estados
-                            Obj_Usuario_BLL.Eliminar(ref Obj_Usuario_DAL);// eliminar estados
+                            Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Eliminar);// eliminar estados
                         }
                     }
                 }
