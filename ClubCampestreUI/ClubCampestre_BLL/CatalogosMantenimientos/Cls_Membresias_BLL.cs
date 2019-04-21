@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Membresias_Client.actualizarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.SPKIdCliente, Obj_Membresias_DAL.BFKIdTipoMembresia, Obj_Membresias_DAL.CFKIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
+                        Obj_Membresias_Client.actualizarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, Obj_Membresias_DAL.cIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
                         break;
                     case BD.Eliminar:
                         Obj_Membresias_Client.eliminarMemebresias(Obj_Membresias_DAL.iIdMembresia, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Membresias_DAL.DS.Tables.Add(Obj_Membresias_Client.filtrarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.SPKIdCliente, Obj_Membresias_DAL.BFKIdTipoMembresia, ref sMsjError));
+                        Obj_Membresias_DAL.DS.Tables.Add(Obj_Membresias_Client.filtrarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Membresias_Client.insertarMemebresias(Obj_Membresias_DAL.SPKIdCliente, Obj_Membresias_DAL.BFKIdTipoMembresia, Obj_Membresias_DAL.CFKIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
+                        Obj_Membresias_Client.insertarMemebresias(Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, Obj_Membresias_DAL.cIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Membresias_DAL.DS.Tables.Add(Obj_Membresias_Client.listarMemebresias(ref sMsjError));
@@ -36,11 +36,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_Membresias_DAL.SMsjError = sMsjError;
+                Obj_Membresias_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Membresias_DAL.SMsjError = ex.Message.ToString();
+                Obj_Membresias_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {

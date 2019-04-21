@@ -19,16 +19,16 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 switch (Accion)
                 {
                     case BD.Actualizar:
-                        Obj_Correos_Client.actualizarCorreos(Obj_Correos_DAL.SIdCorreo, Obj_Correos_DAL.SIdPersona, Obj_Correos_DAL.SCorreo, ref sMsjError);
+                        Obj_Correos_Client.actualizarCorreos(Obj_Correos_DAL.sIdCorreo, Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Correos_Client.eliminarCorreos(Obj_Correos_DAL.SIdCorreo, ref sMsjError);
+                        Obj_Correos_Client.eliminarCorreos(Obj_Correos_DAL.sIdCorreo, ref sMsjError);
                         break;
                     case BD.Filtrar:
-                        Obj_Correos_DAL.DS.Tables.Add(Obj_Correos_Client.filtrarCorreos(Obj_Correos_DAL.SIdCorreo, Obj_Correos_DAL.SIdPersona, Obj_Correos_DAL.SCorreo, ref sMsjError));
+                        Obj_Correos_DAL.DS.Tables.Add(Obj_Correos_Client.filtrarCorreos(Obj_Correos_DAL.sIdCorreo, Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError));
                         break;
                     case BD.Insertar:
-                        Obj_Correos_Client.insertarCorreos(Obj_Correos_DAL.SIdPersona, Obj_Correos_DAL.SCorreo, ref sMsjError);
+                        Obj_Correos_Client.insertarCorreos(Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError);
                         break;
                     case BD.Listar:
                         Obj_Correos_DAL.DS.Tables.Add(Obj_Correos_Client.listarCorreos(ref sMsjError));
@@ -36,11 +36,11 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                     default:
                         break;
                 }
-                Obj_Correos_DAL.SMsjError = sMsjError;
+                Obj_Correos_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Correos_DAL.SMsjError = ex.Message.ToString();
+                Obj_Correos_DAL.sMsjError = ex.Message.ToString();
             }
             finally
             {
