@@ -7,8 +7,9 @@ namespace Club_Campestre
 {
     public partial class Tipo_Clientes : System.Web.UI.Page
     {
-        Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
-        Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
+        private string pantallaMantenimiento = "Mant_TipoCliente.aspx";
+        private Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
+        private Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             ///Meter esto 
@@ -22,7 +23,7 @@ namespace Club_Campestre
         {
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-            Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+            Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Listar);
             if (Obj_TipoCliente_DAL.DS.Tables.Count > 0) {
                 TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
                 TipoClienteGridView.DataBind();
@@ -40,7 +41,7 @@ namespace Club_Campestre
         {
             //Identificcion en lo que estamos trabjanado es un estado N
             Session["tipo"] = "N";
-            Server.Transfer("Mantenimiento_Tipos_De_Clientes.aspx", false);
+            Server.Transfer(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -61,11 +62,11 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
-                        Obj_TipoCliente_DAL.SPKDescripcion = row.Cells[1].Text;
+                        Obj_TipoCliente_DAL.sDescripcion = row.Cells[1].Text;
 
                         //Sesion estado lleva el objeto
                         Session["TipoCliente"] = Obj_TipoCliente_DAL;
-                        Server.Transfer("Mantenimiento_Tipos_De_Clientes.aspx");//llama la pantalla 
+                        Server.Transfer(pantallaMantenimiento);//llama la pantalla 
                     }
                 }
             }
@@ -85,9 +86,9 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
-                        Obj_TipoCliente_DAL.SPKDescripcion = row.Cells[1].Text;
+                        Obj_TipoCliente_DAL.sDescripcion = row.Cells[1].Text;
                         //llamado metodo eliminar
-                        Obj_TipoCliente_BLL.Eliminar(ref Obj_TipoCliente_DAL);
+                        Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Eliminar);
                     }
                 }
             }
@@ -105,18 +106,16 @@ namespace Club_Campestre
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-            Obj_TipoCliente_DAL.SPKDescripcion = txtFiltraTipocliente.Text;
-            Obj_TipoCliente_BLL.Filtrar(ref Obj_TipoCliente_DAL);
+            Obj_TipoCliente_DAL.sDescripcion = txtFiltraTipocliente.Text;
+            Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Filtrar);
             TipoClienteGridView.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
             TipoClienteGridView.DataBind();
         }
 
         protected void txtTipoCliente_TextChanged(object sender, EventArgs e)
         {
-
            
         }
 

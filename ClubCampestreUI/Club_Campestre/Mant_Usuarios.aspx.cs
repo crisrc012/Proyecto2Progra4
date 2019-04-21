@@ -37,7 +37,7 @@ namespace Club_Campestre
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-            Obj_Persona_BLL.Listar(ref Obj_Persona_DAL);
+            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Listar);
             this.DropDownTUsuarios.DataSource = Obj_Persona_DAL.DS.Tables[0];
             this.DropDownTUsuarios.DataValueField = "Identificacion";
             this.DropDownTUsuarios.DataTextField = "Identificacion";
@@ -50,23 +50,36 @@ namespace Club_Campestre
         {
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
             Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
-            Obj_Usuario_DAL.SIdUsuario = this.txtusuario.Value.ToString();
-            Obj_Usuario_DAL.SIdPersona = this.DropDownTUsuarios.SelectedValue.ToString();
-            Obj_Usuario_DAL.SContrasena = this.txtcontrasena.Value.ToString();
 
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
+            if (txtusuario.Value.Trim().Equals(string.Empty)|| txtcontrasena.Value.Trim().Equals(string.Empty))
             {
-                Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                Obj_Usuario_BLL.Actualizar(ref Obj_Usuario_DAL);
-                Server.Transfer("Usuarios.aspx");
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
             }
+
             else
             {
-                Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
-                Obj_Usuario_BLL.Insertar(ref Obj_Usuario_DAL);
-                Server.Transfer("Usuarios.aspx");
+                lblGuardar.Visible = false;
+                Obj_Usuario_DAL.SIdUsuario = this.txtusuario.Value.ToString();
+                Obj_Usuario_DAL.SIdPersona = this.DropDownTUsuarios.SelectedValue.ToString();
+                Obj_Usuario_DAL.SContrasena = this.txtcontrasena.Value.ToString();
+
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
+                    Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Actualizar);
+                    Server.Transfer("Usuarios.aspx");
+                }
+                else
+                {
+                    Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
+                    Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Insertar);
+                    Server.Transfer("Usuarios.aspx");
+                }
             }
+
         }
 
         protected void DropDownTUsuarios_SelectedIndexChanged(object sender, EventArgs e)

@@ -10,8 +10,6 @@ namespace Club_Campestre
 {
     public partial class Personas : System.Web.UI.Page
     {
-
-
         #region Cls Persona 
         Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
         Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
@@ -36,27 +34,23 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 CargarRoles(); // Carga combo con posibles valores
-
                 Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
                 string tipo = Session["tipo"].ToString();
                 tipoSession = tipo;
                 if (persona != null & tipo == "E")
                 {
                     //this.mantenimiento.InnerHtml = "Modificacion de Persona";
-
                     // Carga de datos persona
                     this.txtCedula.Disabled = true;
                     this.txtCedula.Value = persona.SIdPersona;
                     txtnombre.Value = persona.SNombre;
                     TextAreadireccion.Value = persona.SDireccion;
-
                     // Carga Rol
                     DropDownRol.SelectedValue = persona.BIdRol.ToString();
-
                     // carga grid teléfonos
                     Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
                     Obj_Telefonos_DAL.SIdPersona = persona.SIdPersona;
-                    Obj_Telefonos_BLL.Filtrar(ref Obj_Telefonos_DAL);
+                    Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Filtrar);
                     GridViewTelefono.DataSource = Obj_Telefonos_DAL.DS.Tables[0];
                     GridViewTelefono.DataBind();
                     // carga grid de correos
@@ -70,22 +64,14 @@ namespace Club_Campestre
                 {
                     //this.mantenimiento.InnerHtml = "Nuevos de Estados";
                     // establecer controles en empty
-
                 }
             }
         }
-
-
-       
-
-
 
         protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
-
 
         protected void CorreoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -94,22 +80,13 @@ namespace Club_Campestre
 
         protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
-
-
-
         private void CargarRoles()
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
             Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
-            Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
-
-            //DataRow row = Obj_Rol_DAL.DS.Tables[0].NewRow();
-            //row["IdRol"] = 0;
-            //row["Descripcion"] = "-- Seleccione --";
-            //Obj_Rol_DAL.DS.Tables[0].Rows.Add(row);
-
+            Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             DropDownRol.DataSource = Obj_Rol_DAL.DS.Tables[0];
             DropDownRol.DataTextField = "Descripcion";
             DropDownRol.DataValueField = "IdRol";
@@ -124,9 +101,7 @@ namespace Club_Campestre
             {
                 return;
             }
-
             DataTable tabla;
-
             if (GridViewTelefono.Rows.Count > 0)
             {
                 tabla = new DataTable();
@@ -138,8 +113,6 @@ namespace Club_Campestre
                     tabla.Rows.Add(row.Cells[0].Text);
                 }
             }
-
-
             if (ViewState["tablatelefono"] == null)
             {
                 tabla = new DataTable();
@@ -150,12 +123,9 @@ namespace Club_Campestre
             {
                 tabla = (DataTable)ViewState["tablatelefono"];
             }
-
             tabla.Rows.Add(this.txtTelefono.Value.ToString().Trim());
-
             GridViewTelefono.DataSource = tabla;
             GridViewTelefono.DataBind();
-
             ViewState["tablatelefono"] = tabla;
             txtTelefono.Value = string.Empty;
         }
@@ -164,7 +134,6 @@ namespace Club_Campestre
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("telefono");
-
             if (ViewState["tablatelefono"] == null)
             {
                 ViewState["tablatelefono"] = tabla;
@@ -173,7 +142,6 @@ namespace Club_Campestre
             {
                 tabla = (DataTable)ViewState["tablatelefono"];
             }
-
             List<int> quitar = new List<int>();
             foreach (GridViewRow row in GridViewTelefono.Rows)
             {
@@ -186,10 +154,8 @@ namespace Club_Campestre
                     {
                         quitar.Add(row.RowIndex);
                     }
-
                 }
             }
-
             for (int i = quitar.Count - 1; i >= 0; i--)
             {
                 tabla.Rows.RemoveAt(quitar[i]);
@@ -206,9 +172,7 @@ namespace Club_Campestre
             {
                 return;
             }
-
             DataTable tabla;
-
             if (CorreoPersonaGridView.Rows.Count > 0)
             {
                 tabla = new DataTable();
@@ -219,7 +183,6 @@ namespace Club_Campestre
                     tabla.Rows.Add(row.Cells[0].Text);
                 }
             }
-
             if (ViewState["tablaCorreo"] == null)
             {
                 tabla = new DataTable();
@@ -241,7 +204,6 @@ namespace Club_Campestre
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("correo");
-
             if (ViewState["tablaCorreo"] == null)
             {
                 ViewState["tablaCorreo"] = tabla;
@@ -250,7 +212,6 @@ namespace Club_Campestre
             {
                 tabla = (DataTable)ViewState["tablaCorreo"];
             }
-
             List<int> quitar = new List<int>();
             foreach (GridViewRow row in CorreoPersonaGridView.Rows)
             {
@@ -265,8 +226,7 @@ namespace Club_Campestre
                     }
                 }
             }
-
-            for (int i = quitar.Count-1; i >= 0; i--)
+            for (int i = quitar.Count - 1; i >= 0; i--)
             {
                 tabla.Rows.RemoveAt(quitar[i]);
             }
@@ -281,17 +241,13 @@ namespace Club_Campestre
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
             Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
-
             Obj_Persona_DAL.SIdPersona = this.txtCedula.Value;
             Obj_Persona_DAL.SNombre = this.txtnombre.Value;
             Obj_Persona_DAL.SDireccion = this.TextAreadireccion.Value;
             Obj_Persona_DAL.BIdRol = Convert.ToByte(DropDownRol.SelectedValue);
-            Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
-
-
+            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
             //Telefono ingresa 
             #region Telefono 
-
             if (Obj_Persona_DAL.SMsjError.Equals(string.Empty))
             {
                 foreach (GridViewRow row in GridViewTelefono.Rows)
@@ -302,12 +258,11 @@ namespace Club_Campestre
                         {
                             Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
                             Obj_Telefonos_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
-                            Obj_Telefonos_BLL.Insertar(ref Obj_Telefonos_DAL);//   insertar
+                            Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
                         }
                     }
                 }
                 #endregion 
-
                 //-Aqui agrego el de correo foreach 
                 #region Correo
                 foreach (GridViewRow row in CorreoPersonaGridView.Rows)
@@ -315,7 +270,6 @@ namespace Club_Campestre
                     //busca el la fila
                     if (row.RowType == DataControlRowType.DataRow)
                     {
-
                         {
                             Obj_Correo_DAL.SIdPersona = this.txtCedula.Value.ToString().Trim();
                             Obj_Correo_DAL.SCorreo = row.Cells[0].Text;
@@ -326,11 +280,11 @@ namespace Club_Campestre
                 #endregion
                 if (tipoSession == "E")
                 {
-                    Obj_Persona_BLL.Actualizar(ref Obj_Persona_DAL);
+                    Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Actualizar);
                 }
                 else
                 {
-                    Obj_Persona_BLL.Insertar(ref Obj_Persona_DAL);
+                    Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
                 }
                 Server.Transfer("Mant_Persona.aspx");
             }

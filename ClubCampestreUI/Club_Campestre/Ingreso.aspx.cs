@@ -63,7 +63,7 @@ namespace Club_Campestre
 
 
             //llamado metodo listar estados
-            Obj_TipoServicio_BLL.Listar(ref Obj_TipoServicio_DAL);
+            Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
             
             
             if (Obj_TipoServicio_DAL.sMsjError == string.Empty)

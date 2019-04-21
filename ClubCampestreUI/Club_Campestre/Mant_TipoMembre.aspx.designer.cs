@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Mantenimiento_Tipos_De_Clientes {
+    public partial class Mant_Tipo_Membre {
         
         /// <summary>
         /// mantenimiento control.
@@ -22,13 +22,13 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// txtIdTipoCliente control.
+        /// txtTipoMembre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtIdTipoCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTipoMembre;
         
         /// <summary>
         /// txtdescripcion control.
@@ -38,6 +38,24 @@ namespace Club_Campestre {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
+        
+        /// <summary>
+        /// txtcosto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtcosto;
+        
+        /// <summary>
+        /// lblGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGuardar;
         
         /// <summary>
         /// btnGuardar control.

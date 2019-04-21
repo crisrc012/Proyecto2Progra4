@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ClubCampestre_BLL.SVC_CatalogosMantenimientos;
+﻿using ClubCampestre_BLL.SVC_CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
+using System;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
-   public class Cls_Ingresos_BLL
+    public class Cls_Ingresos_BLL
     {
 
         public void Cargar(ref Cls_Ingreso_Dal Obj_Ingreso_DAL)

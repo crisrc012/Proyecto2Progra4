@@ -30,10 +30,11 @@
 
                         <div class="pure-control-group">
                             <label for="txtdescripcion">Contraseña: </label>
-                            <input runat="server" type="text" id="txtcontrasena" style="color: #0090ff; width: 250px;"/>
+                            <input runat="server" type="password" id="txtcontrasena" style="color: #0090ff; width: 250px;"/>
                         </div>
 
                         <div class="pure-controls">
+                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
                             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         </div>
                     </fieldset>

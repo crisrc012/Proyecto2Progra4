@@ -10,7 +10,7 @@
 namespace Club_Campestre {
     
     
-    public partial class Mant_Tipo_Membre {
+    public partial class Mantenimiento_Tipos_De_Clientes {
         
         /// <summary>
         /// Control mantenimiento.
@@ -22,13 +22,13 @@ namespace Club_Campestre {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mantenimiento;
         
         /// <summary>
-        /// Control txtTipoMembre.
+        /// Control txtIdTipoCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTipoMembre;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtIdTipoCliente;
         
         /// <summary>
         /// Control txtdescripcion.
@@ -38,15 +38,6 @@ namespace Club_Campestre {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtdescripcion;
-        
-        /// <summary>
-        /// Control txtcosto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtcosto;
         
         /// <summary>
         /// Control lblGuardar.

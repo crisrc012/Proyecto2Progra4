@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
 
 namespace Club_Campestre
 {
     public partial class Mant_Tipo_Servicio : System.Web.UI.Page
     {
+        private string pantallaMantenimiento = "TipoServicio.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +19,6 @@ namespace Club_Campestre
                     //this.txtIdServicio.Value = tiposervicio.BIdTipoServicio.ToString();
                     this.txtdescripcion.Value = tiposervicio.SPKDescripcion.ToString();
                     this.txtcosto.Value = tiposervicio.Fcosto.ToString();
-
                 }
                 else
                 {
@@ -26,49 +26,40 @@ namespace Club_Campestre
                     //this.txtIdServicio.Value = string.Empty;
                     this.txtdescripcion.Value = string.Empty;
                     this.txtcosto.Value = string.Empty;
-
                 }
             }
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
             Cls_TipoServicio_BLL Obj_tiposervicio_BLL = new Cls_TipoServicio_BLL();
             Cls_TipoServicio_DAL Obj_tiposervicio_DAL = new Cls_TipoServicio_DAL();
-
             //Le metimos un IF  y usamos un OR para validar losm dos campos de texto 
             if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
-
             {
-
                 //se agrega el label que indique lo que no hay datos 
                 lblGuardar.InnerText = "Debe ingresar datos";
                 lblGuardar.Visible = true;
-
             }
             else
             {
-                // se oculata el label 
+                // se oculta el label 
                 lblGuardar.Visible = false;
-                
                 Obj_tiposervicio_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
                 Obj_tiposervicio_DAL.Fcosto = Convert.ToInt32(this.txtcosto.Value);
 
                 string tipo = Session["tipo"].ToString();
                 if (tipo == "E")
                 {
-                    Obj_tiposervicio_BLL.Actualizar(ref Obj_tiposervicio_DAL);
-                    Server.Transfer("TipoServicio.aspx");
+                    Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Actualizar);
+                    Server.Transfer(pantallaMantenimiento);
                 }
                 else
                 {
-                    Obj_tiposervicio_BLL.Insertar(ref Obj_tiposervicio_DAL);
-                    Server.Transfer("TipoServicio.aspx");
+                    Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Insertar);
+                    Server.Transfer(pantallaMantenimiento);
                 }
             }
-
         }
     }
 }

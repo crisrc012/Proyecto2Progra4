@@ -31,11 +31,11 @@ namespace Club_Campestre
             }
             else
             {
-                Obj_Clientes_DAL.SIdPersona = this.txtFiltraClientes.Text.Trim();
+                Obj_Clientes_DAL.sIdPersona = this.txtFiltraClientes.Text.Trim();
                 //Llamado del metodo filtrar clientes
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.FiltrarVista);
             }
-            if (Obj_Clientes_DAL.SMsjError == string.Empty)
+            if (Obj_Clientes_DAL.sMsjError == string.Empty)
             {
                 //Se cargan los datos con DS con la instancia del DAL
                 this.ClientesGridView.DataSource = Obj_Clientes_DAL.DS.Tables[0];
@@ -70,9 +70,9 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(row.Cells[0].Text);
+                        Obj_Clientes_DAL.sIdCliente = Convert.ToInt16(row.Cells[0].Text);
                         string sTipoCliente = row.Cells[1].Text;
-                        Obj_Clientes_DAL.SIdPersona = row.Cells[2].Text;
+                        Obj_Clientes_DAL.sIdPersona = row.Cells[2].Text;
 
                         //Sesion estado lleva el objeto
                         Session["Clientes"] = Obj_Clientes_DAL;
@@ -97,14 +97,14 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Clientes_DAL.SIdCliente = Convert.ToInt16(row.Cells[0].Text);
+                        Obj_Clientes_DAL.sIdCliente = Convert.ToInt16(row.Cells[0].Text);
                         //llamado metodo eliminar cliente
                         Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Eliminar);// eliminar cliente
                     }
 
                 }
             }
-            if (Obj_Clientes_DAL.SMsjError == string.Empty)
+            if (Obj_Clientes_DAL.sMsjError == string.Empty)
             {
                 this.errorMensaje.InnerHtml = "Clientes Eliminado con exito.";
                 this.BindGrid();

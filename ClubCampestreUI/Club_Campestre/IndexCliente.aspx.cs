@@ -31,10 +31,7 @@ namespace Club_Campestre
             if (Obj_Persona_DAL.BIdRol == 1)
             {
                 Server.Transfer("Index.aspx", false);//llama pantalla
-
             }
-
-            
         }
     }
 }

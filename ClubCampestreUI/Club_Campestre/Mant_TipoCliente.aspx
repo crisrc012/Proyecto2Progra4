@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mantenimiento_Tipos_De_Clientes.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes"  enableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_TipoCliente.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes"  enableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -24,6 +24,7 @@
                             <input runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" value=""  style="color: #0090ff"/>
                         </div>
                         <div class="pure-controls">
+                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
                             <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                         </div>
                     </fieldset>
