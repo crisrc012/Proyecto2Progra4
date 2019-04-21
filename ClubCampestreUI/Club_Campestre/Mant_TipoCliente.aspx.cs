@@ -8,17 +8,18 @@ namespace Club_Campestre
     public partial class Mantenimiento_Tipos_De_Clientes : System.Web.UI.Page
     {
         private string pantallaMantenimiento = "TipoCliente.aspx";
+        private Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Cls_TipoCliente_DAL TipoCliente = (Cls_TipoCliente_DAL)Session["TipoCliente"];
                 txtIdTipoCliente.Disabled = true;
-                if (TipoCliente != null & (BD)Session["tipo"] == BD.Actualizar)
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Obj_TipoCliente_DAL = (Cls_TipoCliente_DAL)Session["TipoCliente"];
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
-                    this.txtIdTipoCliente.Value = TipoCliente.BIdTipoCliente.ToString();
-                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.sDescripcion.ToString());
+                    this.txtIdTipoCliente.Value = Obj_TipoCliente_DAL.BIdTipoCliente.ToString();
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(Obj_TipoCliente_DAL.sDescripcion.ToString());
                 }
                 else
                 {
