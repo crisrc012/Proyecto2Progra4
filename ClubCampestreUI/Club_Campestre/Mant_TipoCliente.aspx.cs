@@ -7,6 +7,7 @@ namespace Club_Campestre
 {
     public partial class Mantenimiento_Tipos_De_Clientes : System.Web.UI.Page
     {
+        private string pantallaMantenimiento = "TipoCliente.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +19,7 @@ namespace Club_Campestre
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
                     this.txtIdTipoCliente.Value = TipoCliente.BIdTipoCliente.ToString();
-                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.SPKDescripcion.ToString());
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.sDescripcion.ToString());
                 }
                 else
                 {
@@ -40,17 +41,17 @@ namespace Club_Campestre
             {
                 Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
             }
-            Obj_TipoCliente_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
+            Obj_TipoCliente_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
             string tipo = Session["tipo"].ToString();
             if (tipo == "E")
             {
-                Obj_TipoCliente_BLL.Actualizar(ref Obj_TipoCliente_DAL);
-                Server.Transfer("Tipo_Clientes.aspx");
+                Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Actualizar);
+                Server.Transfer(pantallaMantenimiento);
             }
             else
             {
-                Obj_TipoCliente_BLL.Insertar(ref Obj_TipoCliente_DAL);
-                Server.Transfer("Tipo_Clientes.aspx");
+                Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Insertar);
+                Server.Transfer(pantallaMantenimiento);
             }
         }
     }

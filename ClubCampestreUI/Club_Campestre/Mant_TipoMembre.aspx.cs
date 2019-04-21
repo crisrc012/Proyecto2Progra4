@@ -1,14 +1,14 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
-
+using System;
 
 namespace Club_Campestre
 {
     public partial class Mant_Tipo_Membre : System.Web.UI.Page
     {
         #region Variables Globales
-        CLS_TipoMembresia_BLL Obj_Estado_BLL = new CLS_TipoMembresia_BLL();
+        private CLS_TipoMembresia_BLL Obj_Estado_BLL = new CLS_TipoMembresia_BLL();
+        private string pantallaMantenimiento = "TipoMembresia.aspx";
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +38,7 @@ namespace Club_Campestre
         }
         protected void btnAtras_Click(object sender, EventArgs e)
         {
-            Server.Transfer("TipoMembresia.aspx");
+            Server.Transfer(pantallaMantenimiento);
         }
 
        protected void btnGuardar_Click(object sender, EventArgs e)
@@ -46,13 +46,10 @@ namespace Club_Campestre
             CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
             Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
             if (txtdescripcion.Value.Trim().Equals(string.Empty) || txtcosto.Value.Trim().Equals(string.Empty))
-
             {
-
                 //se agrega el label que indique lo que no hay datos 
                 lblGuardar.InnerText = "Debe ingresar datos";
                 lblGuardar.Visible = true;
-
             }
             else
             {
@@ -64,16 +61,14 @@ namespace Club_Campestre
                 {
                     Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(this.txtTipoMembre.Value);
                     Obj_TipoMembresia_BLL.Actualizar(ref Obj_TipoMembresia_DAL);
-                    Server.Transfer("TipoMembresia.aspx");
+                    Server.Transfer(pantallaMantenimiento);
                 }
                 else
                 {
                     Obj_TipoMembresia_BLL.Insertar(ref Obj_TipoMembresia_DAL);
-                    Server.Transfer("TipoMembresia.aspx");
+                    Server.Transfer(pantallaMantenimiento);
                 }
-
             }
-
         }
     }
 }

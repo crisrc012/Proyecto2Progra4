@@ -1,28 +1,23 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
 using System.Net;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
     public partial class TipoMembresia : System.Web.UI.Page
     {
-        Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-        CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
-
-
+        private Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
+        private CLS_TipoMembresia_BLL Obj_TipoMembresia_BLL = new CLS_TipoMembresia_BLL();
+        private string pantallaMantenimiento = "Mant_TipoMembre.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
-           
             ///Meter esto 
             if (!IsPostBack)
             {
                 this.BindGrid();
-
             }
-
-
         }
         private void BindGrid()
         {
@@ -40,8 +35,7 @@ namespace Club_Campestre
         {
             //aca tiene que programar el boton Nuevo 
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Tipo_Membre.aspx", false);//llama pantalla
-
+            Server.Transfer(pantallaMantenimiento, false);//llama pantalla
         }
 
 
@@ -54,7 +48,6 @@ namespace Club_Campestre
             Session["tipo"] = "E";
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoMembresiaGridView.Rows)
-
             {
                 //busca el la fila
                 if (row.RowType == DataControlRowType.DataRow)
@@ -66,12 +59,10 @@ namespace Club_Campestre
                         Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoMembresia_DAL.SPKDescripcion = WebUtility.HtmlDecode(row.Cells[1].Text);
                         Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);
-
                         //Sesion estado lleva el objeto
                         Session["TipoMembresia"] = Obj_TipoMembresia_DAL;
-                        Server.Transfer("Mant_Tipo_Membre.aspx");//llama la pantalla 
+                        Server.Transfer(pantallaMantenimiento);//llama la pantalla 
                     }
-
                 }
             }
         }
@@ -89,7 +80,6 @@ namespace Club_Campestre
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoMembresiaGridView.Rows)
             {
@@ -103,12 +93,9 @@ namespace Club_Campestre
                         Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoMembresia_DAL.SPKDescripcion = row.Cells[1].Text;
                         Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);
-
-
                         //llamado metodo eliminar estados
                         Obj_TipoMembresia_BLL.Eliminar(ref Obj_TipoMembresia_DAL);// eliminar estados
                     }
-
                 }
             }
             if (Obj_TipoMembresia_DAL.SMsjError == string.Empty)
@@ -121,7 +108,6 @@ namespace Club_Campestre
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
                 this.BindGrid();
             }
-
         }
 
         protected void txtFiltraTipoMembre_TextChanged(object sender, EventArgs e)

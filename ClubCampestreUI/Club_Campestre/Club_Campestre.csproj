@@ -73,15 +73,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Images\Users-icon.png" />
     <Content Include="IndexCliente.aspx" />
-    <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
+    <Content Include="Mant_TipoCliente.aspx" />
     <Content Include="Ingreso.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Cliente.aspx" />
-    <Content Include="Mant_Tipo_Membre.aspx" />
-    <Content Include="Mant_Tipo_Servicio.aspx" />
+    <Content Include="Mant_TipoMembre.aspx" />
+    <Content Include="Mant_TipoServicio.aspx" />
     <Content Include="Mant_Usuarios.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
@@ -158,7 +158,7 @@
     <Content Include="Shared\pure.css" />
     <Content Include="TipoMembresia.aspx" />
     <Content Include="TipoServicio.aspx" />
-    <Content Include="Tipo_Clientes.aspx" />
+    <Content Include="TipoCliente.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -200,12 +200,12 @@
     <Compile Include="IndexCliente.aspx.designer.cs">
       <DependentUpon>IndexCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.cs">
-      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
+    <Compile Include="Mant_TipoCliente.aspx.cs">
+      <DependentUpon>Mant_TipoCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.designer.cs">
-      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
+    <Compile Include="Mant_TipoCliente.aspx.designer.cs">
+      <DependentUpon>Mant_TipoCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ingreso.aspx.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
@@ -249,19 +249,19 @@
     <Compile Include="Mant_Cliente.aspx.designer.cs">
       <DependentUpon>Mant_Cliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_Tipo_Membre.aspx.cs">
-      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+    <Compile Include="Mant_TipoMembre.aspx.cs">
+      <DependentUpon>Mant_TipoMembre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_Tipo_Membre.aspx.designer.cs">
-      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
+    <Compile Include="Mant_TipoMembre.aspx.designer.cs">
+      <DependentUpon>Mant_TipoMembre.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_Tipo_Servicio.aspx.cs">
-      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+    <Compile Include="Mant_TipoServicio.aspx.cs">
+      <DependentUpon>Mant_TipoServicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
-      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
+    <Compile Include="Mant_TipoServicio.aspx.designer.cs">
+      <DependentUpon>Mant_TipoServicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Usuarios.aspx.cs">
       <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
@@ -327,12 +327,12 @@
     <Compile Include="TipoServicio.aspx.designer.cs">
       <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Tipo_Clientes.aspx.cs">
-      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
+    <Compile Include="TipoCliente.aspx.cs">
+      <DependentUpon>TipoCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Tipo_Clientes.aspx.designer.cs">
-      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
+    <Compile Include="TipoCliente.aspx.designer.cs">
+      <DependentUpon>TipoCliente.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

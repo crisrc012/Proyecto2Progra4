@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mantenimiento_Tipos_De_Clientes.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes"  enableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_TipoCliente.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes"  enableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
