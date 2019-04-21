@@ -24,3 +24,31 @@ GO
 
 
 
+
+-- Filtrar
+create procedure [dbo].[sp_search_Beneficiarios_Personas]
+(
+	@IdPersona varchar (20) 
+)
+as
+
+declare @count int
+
+select @count = count(IdPersona) from TB_Beneficiarios
+where IdPersona = @IdPersona
+
+if (@count != 0) 
+begin
+select a.IdPersona as IdPersona, b.Nombre as Nombre, 'Beneficiario' as Tipo, (d.costo/16) as costo from TB_Beneficiarios as a
+inner join TB_Persona as b on a.IdPersona = b.IdPersona
+inner join TB_Membresias as c on a.IdCliente = c.IdCliente
+inner join TB_TipoMembresia as d on c.IdTipoMembresia = d.IdTipoMembresia
+ where a.IdPersona = @IdPersona
+ end
+else
+begin
+select  a.IdPersona as IdPersona, a.Nombre as Nombre, 'Beneficiario' as Tipo, 5000 as costo from TB_Persona as a
+ where a.IdPersona = @IdPersona
+ end
+
+
