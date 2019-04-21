@@ -110,7 +110,7 @@ namespace Club_Campestre
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
             Obj_Persona_DAL.SIdPersona = cedula.Trim();
-            Obj_Persona_BLL.Filtrar(ref Obj_Persona_DAL);
+            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
             if(Obj_Persona_DAL.SMsjError == string.Empty)
             {
                 if (Obj_Persona_DAL.DS.Tables[0].Rows.Count > 0)

@@ -32,7 +32,6 @@ namespace Club_Campestre
                     this.txtdescripcion.Value = string.Empty;
                 }
             }
-
         }
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
@@ -58,16 +57,15 @@ namespace Club_Campestre
                 string tipo = Session["tipo"].ToString();
                 if (tipo == "E")
                 {
-                    Obj_Rol_BLL.Actualizar(ref Obj_Rol_DAL);
+                    Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Actualizar);
                     Server.Transfer("Roles.aspx");
                 }
                 else
                 {
-                    Obj_Rol_BLL.Insertar(ref Obj_Rol_DAL);
+                    Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Insertar);
                     Server.Transfer("Roles.aspx");
                 }
             }
-
             //Validar campos en Blanco 
         }
     }

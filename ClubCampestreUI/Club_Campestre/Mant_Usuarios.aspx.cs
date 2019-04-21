@@ -37,7 +37,7 @@ namespace Club_Campestre
         {
             Cls_Persona_BLL Obj_Persona_BLL = new Cls_Persona_BLL();
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
-            Obj_Persona_BLL.Listar(ref Obj_Persona_DAL);
+            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Listar);
             this.DropDownTUsuarios.DataSource = Obj_Persona_DAL.DS.Tables[0];
             this.DropDownTUsuarios.DataValueField = "Identificacion";
             this.DropDownTUsuarios.DataTextField = "Identificacion";
