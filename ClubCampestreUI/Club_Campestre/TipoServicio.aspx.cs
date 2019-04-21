@@ -11,6 +11,7 @@ namespace Club_Campestre
         #region Variables Globales
         Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        private string pantallaMantenimiento = "Mant_TipoServicio.aspx";
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -72,7 +73,7 @@ namespace Club_Campestre
 
                         //Sesion estado lleva el objeto
                         Session["TipoServicio"] = Obj_TipoServicio_DAL;
-                        Server.Transfer("Mant_Tipo_Servicio.aspx");//llama la pantalla 
+                        Server.Transfer(pantallaMantenimiento);//llama la pantalla 
                     }
                 }
             }
@@ -81,7 +82,7 @@ namespace Club_Campestre
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             Session["tipo"] = "N";
-            Server.Transfer("Mant_Tipo_Servicio.aspx", false);//llama pantalla
+            Server.Transfer(pantallaMantenimiento, false);//llama pantalla
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
