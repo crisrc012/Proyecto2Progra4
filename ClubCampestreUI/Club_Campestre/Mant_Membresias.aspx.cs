@@ -225,7 +225,6 @@ namespace Club_Campestre
             else
             {
                 this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
-
             }
         }
 
@@ -236,7 +235,7 @@ namespace Club_Campestre
             Obj_Cliente_DAL.SIdPersona = cedula;
             Obj_Cliente_DAL.SIdCliente = short.MinValue;
             Obj_Cliente_DAL.BIdTipoCliente = byte.MinValue;
-            Obj_Cliente_BLL.Filtrar(ref Obj_Cliente_DAL);
+            Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Filtrar);
             return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }
 
@@ -277,7 +276,6 @@ namespace Club_Campestre
                     {
                         dt.Rows[row.RowIndex].Delete();
                      }
-
                 }
             }
             BeneficiariosGridView.DataSource = dt;
@@ -342,8 +340,6 @@ namespace Club_Campestre
                 }
             }
         }
-
-      
 
         protected void BeneficiariosGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

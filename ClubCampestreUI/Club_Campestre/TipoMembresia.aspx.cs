@@ -2,6 +2,7 @@
 using System.Web.UI.WebControls;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
+using System.Net;
 
 namespace Club_Campestre
 {
@@ -63,7 +64,7 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_TipoMembresia_DAL.BIdTipoMembresia = Convert.ToByte(row.Cells[0].Text);
-                        Obj_TipoMembresia_DAL.SPKDescripcion = row.Cells[1].Text;
+                        Obj_TipoMembresia_DAL.SPKDescripcion = WebUtility.HtmlDecode(row.Cells[1].Text);
                         Obj_TipoMembresia_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);
 
                         //Sesion estado lleva el objeto

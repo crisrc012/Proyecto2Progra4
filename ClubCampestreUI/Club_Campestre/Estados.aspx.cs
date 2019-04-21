@@ -29,17 +29,16 @@ namespace Club_Campestre
             if (this.txtFiltraEstados.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Estado_BLL.Listar(ref Obj_Estado_DAL);
-               
+                Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Listar);
             }
             else
             {
                 Obj_Estado_DAL.SEstado = this.txtFiltraEstados.Text;
                 //llamado metodo listar estados
-                Obj_Estado_BLL.Filtrar(ref Obj_Estado_DAL);
+                Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Filtrar);
             }
 
-            if(Obj_Estado_DAL.sMsjError == string.Empty)
+            if(Obj_Estado_DAL.SMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.EstadoGridView.DataSource = Obj_Estado_DAL.DS.Tables[0];
@@ -109,11 +108,11 @@ namespace Club_Campestre
                         Obj_Estado_DAL.SEstado = row.Cells[1].Text;
 
                         //llamado metodo eliminar estados
-                        Obj_Estado_BLL.Eliminar(ref Obj_Estado_DAL);// eliminar estados
+                        Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Eliminar);// eliminar estados
                     }
                 }
             }
-            if (Obj_Estado_DAL.sMsjError == string.Empty)
+            if (Obj_Estado_DAL.SMsjError == string.Empty)
             {
                 this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
                 this.BindGrid();

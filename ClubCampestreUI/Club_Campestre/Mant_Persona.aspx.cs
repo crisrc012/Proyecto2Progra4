@@ -2,7 +2,7 @@
 using System.Web.UI.WebControls;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using ClubCampestre_BLL.CatalogosMantenimientos;
-
+using System.Net;
 
 namespace Club_Campestre
 {
@@ -85,8 +85,8 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
-                        Obj_Persona_DAL.SNombre = row.Cells[1].Text;
-                        Obj_Persona_DAL.SDireccion = row.Cells[2].Text;
+                        Obj_Persona_DAL.SNombre = WebUtility.HtmlDecode(row.Cells[1].Text);
+                        Obj_Persona_DAL.SDireccion = WebUtility.HtmlDecode(row.Cells[2].Text);
                         // INICIO: Obtener Rol
                         Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                         Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
@@ -125,15 +125,10 @@ namespace Club_Campestre
                             Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
                         Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
-
-
                         Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);
                         Obj_Telefonos_BLL.Eliminar(ref Obj_Telefonos_DAL);
-                        Obj_Correos_BLL.Eliminar(ref Obj_Correos_DAL);
-
-
+                        Obj_Correos_BLL.crudCorreos(ref Obj_Correos_DAL, BD.Eliminar);
                         }
-
                     }
                 }
                 if (Obj_Persona_DAL.SMsjError == string.Empty)
@@ -146,9 +141,6 @@ namespace Club_Campestre
                     this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar la(s) Persona(s).";
                     this.BindGrid();
                 }
-
-            
-
         }
 
         // evento para Buscar

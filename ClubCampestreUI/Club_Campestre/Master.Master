@@ -2,9 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="es">
 <head runat="server">
     <title>Club Campestre</title>
+    <meta charset="UTF-8">
     <link href="Shared/layout.css" rel="stylesheet" type="text/css" media="all">
     <link href="Shared/pure.css" rel="stylesheet" type="text/css" media="all">
 

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Net;
 
 namespace Club_Campestre
 {
@@ -21,7 +22,7 @@ namespace Club_Campestre
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Roles";
                     this.txtRoles.Value = rol.bIdRol.ToString();
-                    this.txtdescripcion.Value = rol.sDescripcion;
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(rol.sDescripcion);
                 }
                 else
                 {
@@ -41,15 +42,11 @@ namespace Club_Campestre
             //Validar Campos en Blanco 
 
             if (txtdescripcion.Value.Trim().Equals(string.Empty))
-
             {
-
                 //se agrega el label que indique lo que no hay datos 
                 lblGuardar.InnerText = "Debe ingresar datos";
                 lblGuardar.Visible = true;
-
             }
-
             else
             {
                 lblGuardar.Visible = false;
@@ -69,12 +66,9 @@ namespace Club_Campestre
                     Obj_Rol_BLL.Insertar(ref Obj_Rol_DAL);
                     Server.Transfer("Roles.aspx");
                 }
-
-
             }
 
             //Validar campos en Blanco 
-
         }
     }
 }

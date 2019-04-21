@@ -1,6 +1,7 @@
 ﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
 using System;
+using System.Net;
 
 namespace Club_Campestre
 {
@@ -17,7 +18,7 @@ namespace Club_Campestre
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
                     this.txtIdTipoCliente.Value = TipoCliente.BIdTipoCliente.ToString();
-                    this.txtdescripcion.Value = TipoCliente.SPKDescripcion.ToString();
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.SPKDescripcion.ToString());
                 }
                 else
                 {
