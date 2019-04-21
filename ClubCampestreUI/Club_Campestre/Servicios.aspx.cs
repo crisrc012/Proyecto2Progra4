@@ -18,14 +18,14 @@ namespace Club_Campestre
 
             if (this.txtFiltraServicio.Text == string.Empty)//listar
             {
-                //llamado metodo listar estados
-                Obj_Servicio_BLL.Listar(ref Obj_Servicio_DAL);
+                //llamado metodo listar servicio
+                Obj_Servicio_BLL.crudServicio(ref Obj_Servicio_DAL, BD.Listar);
             }
             else
             {
                 //Obj_Servicio_DAL.sDescripcion = this.FiltrarServicio.Text;
-                //llamado metodo listar estados
-                Obj_Servicio_BLL.Filtrar(ref Obj_Servicio_DAL);
+                //llamado metodo filtrar servicio
+                Obj_Servicio_BLL.crudServicio(ref Obj_Servicio_DAL, BD.Filtrar);
             }
 
             if (Obj_Servicio_DAL.SMsjError == string.Empty)
@@ -77,7 +77,6 @@ namespace Club_Campestre
         {
             ServicioGridView.PageIndex = e.NewPageIndex;
             this.BindGrid();
-
         }
     }
 }

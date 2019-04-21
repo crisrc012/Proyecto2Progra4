@@ -52,12 +52,12 @@ namespace Club_Campestre
 
             if (tipo == "E")
             {
-                Obj_Clientes_BLL.Actualizar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Actualizar);
                 Server.Transfer("Clientes.aspx");
             }
             else
             {
-                Obj_Clientes_BLL.Insertar(ref Obj_Clientes_DAL);
+                Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Insertar);
                 Server.Transfer("Clientes.aspx");
             }
         }
@@ -71,7 +71,7 @@ namespace Club_Campestre
         {
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-            Obj_TipoCliente_BLL.ListaClientes(ref Obj_TipoCliente_DAL);
+            Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Listar);
 
             DropDownTClientes.DataSource = Obj_TipoCliente_DAL.DS.Tables[0];
             DropDownTClientes.DataTextField = "Descripcion";

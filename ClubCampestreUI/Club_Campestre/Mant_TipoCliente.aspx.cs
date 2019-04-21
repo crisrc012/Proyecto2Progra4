@@ -7,6 +7,7 @@ namespace Club_Campestre
 {
     public partial class Mantenimiento_Tipos_De_Clientes : System.Web.UI.Page
     {
+        private string pantallaMantenimiento = "TipoCliente.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -18,7 +19,7 @@ namespace Club_Campestre
                 {
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
                     this.txtIdTipoCliente.Value = TipoCliente.BIdTipoCliente.ToString();
-                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.SPKDescripcion.ToString());
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(TipoCliente.sDescripcion.ToString());
                 }
                 else
                 {
@@ -35,35 +36,23 @@ namespace Club_Campestre
         {
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
             Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
-
-            if (txtdescripcion.Value.Trim().Equals(string.Empty))
+           
+            if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
             {
-                //se agrega el label que indique lo que no hay datos 
-                lblGuardar.InnerText = "Debe ingresar datos";
-                lblGuardar.Visible = true;
+                Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
+            }
+            Obj_TipoCliente_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
+            string tipo = Session["tipo"].ToString();
+            if (tipo == "E")
+            {
+                Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Actualizar);
+                Server.Transfer(pantallaMantenimiento);
             }
             else
             {
-                lblGuardar.Visible = false;
-                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
-                {
-                    Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(this.txtIdTipoCliente.Value);
-                }
-                Obj_TipoCliente_DAL.SPKDescripcion = this.txtdescripcion.Value.ToString();
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
-                {
-                    Obj_TipoCliente_BLL.Actualizar(ref Obj_TipoCliente_DAL);
-                    Server.Transfer("Tipo_Clientes.aspx");
-                }
-                else
-                {
-                    Obj_TipoCliente_BLL.Insertar(ref Obj_TipoCliente_DAL);
-                    Server.Transfer("Tipo_Clientes.aspx");
-                }
+                Obj_TipoCliente_BLL.crudTipoCliente(ref Obj_TipoCliente_DAL, BD.Insertar);
+                Server.Transfer(pantallaMantenimiento);
             }
-
-
         }
     }
 }

@@ -35,13 +35,13 @@ namespace Club_Campestre
             if (this.txtFiltraPersona.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Persona_BLL.Listar(ref Obj_Persona_DAL);
+                Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Listar);
             }
             else
             {
                 Obj_Persona_DAL.SIdPersona = this.txtFiltraPersona.Text;
                 //llamado metodo listar estados
-                Obj_Persona_BLL.Filtrar(ref Obj_Persona_DAL);
+                Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
             }
 
             if (Obj_Persona_DAL.SMsjError == string.Empty)
@@ -91,7 +91,7 @@ namespace Club_Campestre
                         Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                         Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
                         Obj_Rol_DAL.sDescripcion = row.Cells[3].Text;
-                        Obj_Rol_BLL.Filtrar(ref Obj_Rol_DAL);
+                        Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
                         Obj_Persona_DAL.BIdRol = Convert.ToByte(Obj_Rol_DAL.DS.Tables[0].Rows[0][0].ToString());
                         // FIN: Obtener Rol
                         //Sesion persona lleva el objeto
@@ -125,15 +125,10 @@ namespace Club_Campestre
                             Obj_Persona_DAL.SIdPersona = row.Cells[0].Text;
                         Obj_Correos_DAL.SCorreo = row.Cells[0].Text;
                         Obj_Telefonos_DAL.STelefono = row.Cells[0].Text;
-
-
-                        Obj_Persona_BLL.Eliminar(ref Obj_Persona_DAL);
-                        Obj_Telefonos_BLL.Eliminar(ref Obj_Telefonos_DAL);
-                        Obj_Correos_BLL.Eliminar(ref Obj_Correos_DAL);
-
-
+                        Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Eliminar);
+                        Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Eliminar);
+                        Obj_Correos_BLL.crudCorreos(ref Obj_Correos_DAL, BD.Eliminar);
                         }
-
                     }
                 }
                 if (Obj_Persona_DAL.SMsjError == string.Empty)
@@ -146,9 +141,6 @@ namespace Club_Campestre
                     this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar la(s) Persona(s).";
                     this.BindGrid();
                 }
-
-            
-
         }
 
         // evento para Buscar

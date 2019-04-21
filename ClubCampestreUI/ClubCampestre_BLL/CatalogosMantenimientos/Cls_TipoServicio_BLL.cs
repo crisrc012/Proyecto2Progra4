@@ -34,7 +34,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 CatalogosMantenimientosClient Obj_TipoServicio_Client = new CatalogosMantenimientosClient();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
-                //Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.filtrarEstado(Obj_TipoServicio_DAL.CIdEstado, Obj_TipoServicio_DAL.SEstado, ref sMsjError));
+                //Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.filtrarEstado(Obj_TipoServicio_DAL.CIdEstado, Obj_TipoServicio_DAL.SEstado, ref SMsjError));
                 Obj_TipoServicio_DAL.DS.Tables.Add(Obj_TipoServicio_Client.filtrarTipoServicio(Obj_TipoServicio_DAL.BIdTipoServicio, Obj_TipoServicio_DAL.SPKDescripcion, Obj_TipoServicio_DAL.Fcosto, ref sMsjError));
                 Obj_TipoServicio_Client.Close();
                 Obj_TipoServicio_DAL.sMsjError = sMsjError;

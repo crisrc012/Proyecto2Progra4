@@ -27,8 +27,6 @@ namespace Club_Campestre.Mantenimiento
                     this.txtdescripcion.Value = string.Empty;
                 }
             }
-
-
         }
 
         protected void btnAtras_Click(object sender, EventArgs e)
@@ -55,19 +53,15 @@ namespace Club_Campestre.Mantenimiento
                 string tipo = Session["tipo"].ToString();
                 if (tipo == "E")
                 {
-                    Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
+                    Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Actualizar);
                     Server.Transfer("Estados.aspx");
                 }
                 else
                 {
-                    Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
+                    Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Insertar);
                     Server.Transfer("Estados.aspx");
                 }
-
-
             }
-
-
         }
     }
 }

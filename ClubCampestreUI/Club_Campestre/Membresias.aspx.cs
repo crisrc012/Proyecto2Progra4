@@ -28,18 +28,18 @@ namespace Club_Campestre
 
             if (this.txtFiltrarMembresias.Text == string.Empty)//listar
             {
-                //llamado metodo listar estados
-                Obj_Membresias_BLL.Listar(ref Obj_Membresias_DAL);
+                //llamado metodo listar Membresias
+                Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Listar);
 
             }
             else
             {
                 Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(this.txtFiltrarMembresias.Text);
-                //llamado metodo listar estados
-                Obj_Membresias_BLL.Filtrar(ref Obj_Membresias_DAL);
+                //llamado metodo filtrar Membresias
+                Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Filtrar);
             }
 
-            if (Obj_Membresias_DAL.sMsjError == string.Empty)
+            if (Obj_Membresias_DAL.SMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.MembresiasGridView.DataSource = Obj_Membresias_DAL.DS.Tables[0];
@@ -68,12 +68,12 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_Membresias_DAL.iIdMembresia = Convert.ToInt32(row.Cells[0].Text);
-                        //llamado metodo eliminar estados
-                        Obj_Membresias_BLL.Eliminar(ref Obj_Membresias_DAL);// eliminar estados
+                        //llamado metodo eliminar Membresias
+                        Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Eliminar); // eliminar Membresias
                     }
                 }
             }
-            if (Obj_Membresias_DAL.sMsjError == string.Empty)
+            if (Obj_Membresias_DAL.SMsjError == string.Empty)
             {
                 this.errorMensaje.InnerHtml = "Membresia Eliminada con exito.";
                 this.BindGrid();
@@ -105,7 +105,6 @@ namespace Club_Campestre
                         Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
                         Obj_Persona_DAL.SIdPersona = row.Cells[1].Text;
                         Obj_Persona_DAL.SNombre = row.Cells[2].Text;
-
                         //Sesion estado lleva el objeto
                         Session["Membresia"] = Obj_Membresias_DAL;
                         Session["Persona"] = Obj_Persona_DAL;

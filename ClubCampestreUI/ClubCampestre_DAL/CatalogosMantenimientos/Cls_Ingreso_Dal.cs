@@ -9,7 +9,8 @@ namespace ClubCampestre_DAL.CatalogosMantenimientos
    public class Cls_Ingreso_Dal
     {
         public System.Data.DataSet DS = new System.Data.DataSet();
-        private string _IdPersona, _Nombre, _TipoCliente, _Membresia, _sMsj_error; private float _Costo;
+        public System.Data.DataSet DI = new System.Data.DataSet();
+        private string _IdPersona,  _Nombre, _TipoCliente, _Membresia, _sMsj_error; private float _Costo;
 
         public string IdPersona
         {

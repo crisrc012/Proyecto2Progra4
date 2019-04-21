@@ -29,17 +29,16 @@ namespace Club_Campestre
             if (this.FiltrarRol.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
-
+                Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             }
             else
             {
                 Obj_Rol_DAL.sDescripcion = this.FiltrarRol.Text;
                 //llamado metodo listar estados
-                Obj_Rol_BLL.Filtrar(ref Obj_Rol_DAL);
+                Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
             }
 
-            if (Obj_Rol_DAL.sMsjError == string.Empty)
+            if (Obj_Rol_DAL.SMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.RolesGridView.DataSource = Obj_Rol_DAL.DS.Tables[0];
@@ -81,7 +80,6 @@ namespace Club_Campestre
                         Session["Rol"] = Obj_Rol_DAL;
                         Server.Transfer("Mant_Rol.aspx");//llama la pantalla 
                     }
-
                 }
             }
         }
@@ -106,12 +104,11 @@ namespace Club_Campestre
                             Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
 
                             //llamado metodo eliminar estados
-                            Obj_Rol_BLL.Eliminar(ref Obj_Rol_DAL);// eliminar estados
+                            Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Eliminar);// eliminar estados
                         }
-
                     }
                 }
-                if (Obj_Rol_DAL.sMsjError == string.Empty)
+                if (Obj_Rol_DAL.SMsjError == string.Empty)
                 {
                     this.errorMensaje.InnerHtml = "Rol Eliminado con exito.";
                     this.BindGrid();
@@ -121,7 +118,6 @@ namespace Club_Campestre
                     this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Rol.";
                     this.BindGrid();
                 }
-
             }
         }
 

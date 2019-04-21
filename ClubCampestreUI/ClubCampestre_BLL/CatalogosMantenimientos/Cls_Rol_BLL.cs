@@ -6,104 +6,49 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
     public class Cls_Rol_BLL
     {
-        public void Listar(ref Cls_Rol_DAL Obj_Rol_DAL)
+        public void crudRol(ref Cls_Rol_DAL Obj_Rol_DAL, BD Accion)
         {
+            // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+            CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
             try
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                // Se abre la conexion al servicio
+                Obj_Rol_Client.Open();
+                // Se cargan trae el DataTable y se carga al Obj_Rol_DAL
                 string sMsjError = string.Empty;
-                //Obj_Rol_DAL.DS.Tables.Add(Obj_Estado_Client.listarRoles(ref sMsjError));
-                Obj_Rol_DAL.DS.Tables.Add(Obj_Rol_Client.listarRol(ref sMsjError));
-                Obj_Rol_Client.Close();
-                Obj_Rol_DAL.sMsjError = sMsjError;
-
+                switch (Accion)
+                {
+                    case BD.Actualizar:
+                        Obj_Rol_Client.actualizarRol(Obj_Rol_DAL.bIdRol, Obj_Rol_DAL.sDescripcion, ref sMsjError);
+                        break;
+                    case BD.Eliminar:
+                        Obj_Rol_Client.eliminarRol(Obj_Rol_DAL.bIdRol, ref sMsjError);
+                        break;
+                    case BD.Filtrar:
+                        Obj_Rol_DAL.DS.Tables.Add(Obj_Rol_Client.filtrarRol(Obj_Rol_DAL.bIdRol, Obj_Rol_DAL.sDescripcion, ref sMsjError));
+                        break;
+                    case BD.Insertar:
+                        Obj_Rol_Client.insertarRol(Obj_Rol_DAL.sDescripcion, ref sMsjError);
+                        break;
+                    case BD.Listar:
+                        Obj_Rol_DAL.DS.Tables.Add(Obj_Rol_Client.listarRol(ref sMsjError));
+                        break;
+                    default:
+                        break;
+                }
+                Obj_Rol_DAL.SMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Rol_DAL.sMsjError = ex.Message.ToString();
+                Obj_Rol_DAL.SMsjError = ex.Message.ToString();
             }
-
-        }
-
-        public void Filtrar(ref Cls_Rol_DAL Obj_Rol_DAL)
-        {
-            try
+            finally
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                string sMsjError = string.Empty;
-                Obj_Rol_DAL.DS.Tables.Add(Obj_Rol_Client.filtrarRol(Obj_Rol_DAL.bIdRol,Obj_Rol_DAL.sDescripcion, ref sMsjError));
-                Obj_Rol_Client.Close();
-                Obj_Rol_DAL.sMsjError = sMsjError;
+                if (Obj_Rol_Client.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    Obj_Rol_Client.Close();
+                }
             }
-            catch (Exception ex)
-            {
-                Obj_Rol_DAL.sMsjError = ex.Message.ToString();
-            }
-
-        }
-
-        public void Insertar(ref Cls_Rol_DAL Obj_Rol_DAL)
-        {
-
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
-                // Se mandan a insertar los datos
-                string sMsjError = string.Empty;
-                
-                Obj_Rol_Client.insertarRol(Obj_Rol_DAL.sDescripcion, ref sMsjError); // Aqui se devuelve un valor scalar, sino se va a usar, hay que mejor mandarlo a usar nonquery
-                Obj_Rol_Client.Close();
-                Obj_Rol_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Rol_DAL.sMsjError = ex.Message.ToString();
-            }
-
-        }
-
-        public void Actualizar(ref Cls_Rol_DAL Obj_Rol_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
-                // Se mandan a actualizar los datos
-                string sMsjError = string.Empty;
-                //Obj_Rol_Client.actualizarRol(Obj_Rol_DAL.CIdEstado, Obj_Estado_DAL.SEstado, ref sMsjError);
-                Obj_Rol_Client.actualizarRol(Obj_Rol_DAL.bIdRol, Obj_Rol_DAL.sDescripcion, ref sMsjError);
-                Obj_Rol_Client.Close();
-                Obj_Rol_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Rol_DAL.sMsjError = ex.Message.ToString();
-            }
-
-        }
-        public void Eliminar(ref Cls_Rol_DAL Obj_Rol_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Rol_Client = new CatalogosMantenimientosClient();
-                // Se manda a eliminar el dato
-                string sMsjError = string.Empty;
-                //Obj_Estado_Client.eliminarEstado(Obj_Estado_DAL.CIdEstado, ref sMsjError);
-                Obj_Rol_Client.eliminarRol(Obj_Rol_DAL.bIdRol, ref sMsjError);
-                Obj_Rol_Client.Close();
-                Obj_Rol_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Rol_DAL.sMsjError = ex.Message.ToString();
-            }
-
         }
     }
 }
