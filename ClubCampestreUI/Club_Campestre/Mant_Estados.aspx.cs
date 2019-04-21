@@ -40,19 +40,34 @@ namespace Club_Campestre.Mantenimiento
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
-            Obj_Estado_DAL.CIdEstado = Convert.ToChar(this.txtestado.Value);
-            Obj_Estado_DAL.SEstado = this.txtdescripcion.Value.ToString();
-            string tipo = Session["tipo"].ToString();
-            if (tipo == "E")
+
+            if (txtdescripcion.Value.Trim().Equals(string.Empty)|| txtestado.Value.Trim().Equals(string.Empty))
             {
-                Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
-                Server.Transfer("Estados.aspx");
+                //se agrega el label que indique lo que no hay datos 
+                lblGuardar.InnerText = "Debe ingresar datos";
+                lblGuardar.Visible = true;
             }
             else
             {
-                Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
-                Server.Transfer("Estados.aspx");
+                lblGuardar.Visible = false;
+                Obj_Estado_DAL.CIdEstado = Convert.ToChar(this.txtestado.Value);
+                Obj_Estado_DAL.SEstado = this.txtdescripcion.Value.ToString();
+                string tipo = Session["tipo"].ToString();
+                if (tipo == "E")
+                {
+                    Obj_Estado_BLL.Actualizar(ref Obj_Estado_DAL);
+                    Server.Transfer("Estados.aspx");
+                }
+                else
+                {
+                    Obj_Estado_BLL.Insertar(ref Obj_Estado_DAL);
+                    Server.Transfer("Estados.aspx");
+                }
+
+
             }
+
+
         }
     }
 }
