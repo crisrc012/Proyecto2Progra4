@@ -4,99 +4,51 @@ using System;
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
-    public class CLS_TipoMembresia_BLL
+    public class Cls_TipoMembresia_BLL
     {
-        public void ListaTipoMembresia(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_Dal)
+        public void crudTipoMembresia(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL, BD Accion)
         {
+            // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+            CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
             try
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                // Se abre la conexion al servicio
+                Obj_TipoMembresia_Client.Open();
+                // Se cargan trae el DataTable y se carga al Obj_TipoMembresia_DAL
                 string sMsjError = string.Empty;
-                Obj_TipoMembresia_Dal.DS.Tables.Add(Obj_TipoMembresia_Client.listarTipoMembresia(ref sMsjError));
-                Obj_TipoMembresia_Client.Close();
-                Obj_TipoMembresia_Dal.SMsjError = sMsjError;
-
+                switch (Accion)
+                {
+                    case BD.Actualizar:
+                        Obj_TipoMembresia_Client.actualizarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError);
+                        break;
+                    case BD.Eliminar:
+                        Obj_TipoMembresia_Client.eliminarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, ref sMsjError);
+                        break;
+                    case BD.Filtrar:
+                        Obj_TipoMembresia_DAL.DS.Tables.Add(Obj_TipoMembresia_Client.filtrarTipoMembresia(Obj_TipoMembresia_DAL.bIdTipoMembresia, Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError));
+                        break;
+                    case BD.Insertar:
+                        Obj_TipoMembresia_Client.insertarTipoMembresia(Obj_TipoMembresia_DAL.sDescripcion, Obj_TipoMembresia_DAL.fCosto, ref sMsjError);
+                        break;
+                    case BD.Listar:
+                        Obj_TipoMembresia_DAL.DS.Tables.Add(Obj_TipoMembresia_Client.listarTipoMembresia(ref sMsjError));
+                        break;
+                    default:
+                        break;
+                }
+                Obj_TipoMembresia_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_TipoMembresia_Dal.SMsjError = ex.Message.ToString();
+                Obj_TipoMembresia_DAL.sMsjError = ex.Message.ToString();
+            }
+            finally
+            {
+                if (Obj_TipoMembresia_Client.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    Obj_TipoMembresia_Client.Close();
+                }
             }
         }
-
-        public void Filtrar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_Dal)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                string sMsjError = string.Empty;
-                Obj_TipoMembresia_Dal.DS.Tables.Add(Obj_TipoMembresia_Client.filtrarTipoMembresia(Obj_TipoMembresia_Dal.BIdTipoMembresia, Obj_TipoMembresia_Dal.SPKDescripcion, Obj_TipoMembresia_Dal.Fcosto, ref sMsjError));
-                Obj_TipoMembresia_Client.Close();
-                Obj_TipoMembresia_Dal.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_TipoMembresia_Dal.SMsjError = ex.Message.ToString();
-            }
-        }
-
-        public void Actualizar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
-                // Se mandan a actualizar los datos
-                string sMsjError = string.Empty;
-                Obj_TipoMembresia_Client.actualizarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
-                Obj_TipoMembresia_Client.Close();
-                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-
-        public void Insertar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
-                // Se mandan a insertar los datos
-                string sMsjError = string.Empty;
-                Obj_TipoMembresia_Client.insertarTipoMembresia( Obj_TipoMembresia_DAL.SPKDescripcion, Obj_TipoMembresia_DAL.Fcosto, ref sMsjError);
-                Obj_TipoMembresia_Client.Close();
-                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-
-
-        public void Eliminar(ref Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_TipoMembresia_Client = new CatalogosMantenimientosClient();
-                // Se manda a eliminar el dato
-                string sMsjError = string.Empty;
-                Obj_TipoMembresia_Client.eliminarTipoMembresia(Obj_TipoMembresia_DAL.BIdTipoMembresia, ref sMsjError);
-                Obj_TipoMembresia_Client.Close();
-                Obj_TipoMembresia_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_TipoMembresia_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-
     }
 }

@@ -26,9 +26,10 @@
         <div class="pure-controls">
             <asp:GridView CssClass="pure-table" ID="UsuariosGridView" runat="server" class="pure-table" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnPageIndexChanging="UsuariosGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                 <Columns>
-                    <asp:BoundField DataField="IdUsuario" HeaderText="IdUsuario" />
-                    <asp:BoundField DataField="IdPersona" HeaderText="IdPersona" />
-                    <asp:BoundField DataField="Contrasena" HeaderText="Contrasena" />
+                    <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+                    <asp:BoundField DataField="Identificacion" HeaderText="Cédula" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                    <asp:BoundField DataField="Rol" HeaderText="Rol" />
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />

@@ -1,15 +1,17 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Net;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
     public partial class TipoServicio : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
-        Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
+        private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
+        private string pantallaMantenimiento = "Mant_TipoServicio.aspx";
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,9 +34,9 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_TipoServicio_DAL.BIdTipoServicio= Convert.ToByte(row.Cells[0].Text);
+                        Obj_TipoServicio_DAL.bIdTipoServicio= Convert.ToByte(row.Cells[0].Text);
                         //llamado metodo eliminar estados
-                        Obj_TipoServicio_BLL.Eliminar(ref Obj_TipoServicio_DAL);// eliminar estados
+                        Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Eliminar);// eliminar estados
                     }
                 }
             }
@@ -52,9 +54,6 @@ namespace Club_Campestre
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = "E";
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoServicioGridView.Rows)
             {
@@ -65,13 +64,15 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_TipoServicio_DAL.BIdTipoServicio = Convert.ToByte(row.Cells[0].Text);
-                        Obj_TipoServicio_DAL.SPKDescripcion = row.Cells[1].Text;
-                        Obj_TipoServicio_DAL.Fcosto = Convert.ToSingle(row.Cells[2].Text);
-
+                        Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
+                        Obj_TipoServicio_DAL.bIdTipoServicio = Convert.ToByte(row.Cells[0].Text);
+                        Obj_TipoServicio_DAL.sDescripcion = WebUtility.HtmlDecode(row.Cells[1].Text);
+                        Obj_TipoServicio_DAL.fCosto = Convert.ToSingle(row.Cells[2].Text);
                         //Sesion estado lleva el objeto
                         Session["TipoServicio"] = Obj_TipoServicio_DAL;
-                        Server.Transfer("Mant_Tipo_Servicio.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
                 }
             }
@@ -79,8 +80,8 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
-            Server.Transfer("Mant_Tipo_Servicio.aspx", false);//llama pantalla
+            Session["tipo"] = BD.Insertar;
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -101,13 +102,13 @@ namespace Club_Campestre
             if (this.txtFiltraTipoServicio.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_TipoServicio_BLL.Listar(ref Obj_TipoServicio_DAL);
+                Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
             }
             else
             {
-                Obj_TipoServicio_DAL.SPKDescripcion = this.txtFiltraTipoServicio.Text;
+                Obj_TipoServicio_DAL.sDescripcion = this.txtFiltraTipoServicio.Text;
                 //llamado metodo listar estados
-                Obj_TipoServicio_BLL.Filtrar(ref Obj_TipoServicio_DAL);
+                Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Filtrar);
             }
             if (Obj_TipoServicio_DAL.sMsjError == string.Empty)
             {

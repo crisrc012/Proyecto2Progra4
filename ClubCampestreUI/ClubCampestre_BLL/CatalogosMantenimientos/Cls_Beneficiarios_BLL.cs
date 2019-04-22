@@ -6,90 +6,48 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
     public class Cls_Beneficiarios_BLL
     {
-        public void Listar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
+        public void crudBeneficiarios(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL, BD Accion)
         {
+            // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+            CatalogosMantenimientosClient Obj_Beneficiarios_Client = new CatalogosMantenimientosClient();
             try
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
+                // Se abre la conexion al servicio
+                Obj_Beneficiarios_Client.Open();
                 // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
                 string sMsjError = string.Empty;
-                Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiario_Client.listarBeneficiarios(ref sMsjError));
-                Obj_Beneficiario_Client.Close();
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
-
+                switch (Accion)
+                {
+                    case BD.Actualizar:
+                        Obj_Beneficiarios_Client.actualizarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError);
+                        break;
+                    case BD.Eliminar:
+                        Obj_Beneficiarios_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.sIdCliente, ref sMsjError);
+                        break;
+                    case BD.Filtrar:
+                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, ref sMsjError));
+                        break;
+                    case BD.Insertar:
+                        Obj_Beneficiarios_Client.insertarBeneficiarios(Obj_Beneficiarios_DAL.sIdBeneficiario, Obj_Beneficiarios_DAL.sIdCliente, Obj_Beneficiarios_DAL.sIdPersona, Obj_Beneficiarios_DAL.cIdEstado, ref sMsjError);
+                        break;
+                    case BD.Listar:
+                        Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiarios_Client.listarBeneficiarios(ref sMsjError));
+                        break;
+                    default:
+                        break;
+                }
+                Obj_Beneficiarios_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
+                Obj_Beneficiarios_DAL.sMsjError = ex.Message.ToString();
             }
-        }
-        public void Filtrar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            try
+            finally
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                string sMsjError = string.Empty;
-                Obj_Beneficiarios_DAL.DS.Tables.Add(Obj_Beneficiario_Client.filtrarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError));
-                Obj_Beneficiario_Client.Close();
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-        public void Insertar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
-                // Se mandan a insertar los datos
-                string sMsjError = string.Empty;
-                Obj_Beneficiario_Client.insertarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError);
-                Obj_Beneficiario_Client.Close();
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-        public void Actualizar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
-                // Se mandan a actualizar los datos
-                string sMsjError = string.Empty;
-                Obj_Beneficiario_Client.actualizarBeneficiarios(Obj_Beneficiarios_DAL.SIdBeneficiario, Obj_Beneficiarios_DAL.SIdCliente, Obj_Beneficiarios_DAL.SIdPersona, Obj_Beneficiarios_DAL.CIdEstado, ref sMsjError);
-                Obj_Beneficiario_Client.Close();
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
-            }
-        }
-        public void Eliminar(ref Cls_Beneficiarios_DAL Obj_Beneficiarios_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Beneficiario_Client = new CatalogosMantenimientosClient();
-                // Se manda a eliminar el dato
-                string sMsjError = string.Empty;
-                Obj_Beneficiario_Client.eliminarBeneficiarios(Obj_Beneficiarios_DAL.SIdCliente, ref sMsjError);
-                Obj_Beneficiario_Client.Close();
-                Obj_Beneficiarios_DAL.SMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Beneficiarios_DAL.SMsjError = ex.Message.ToString();
+                if (Obj_Beneficiarios_Client.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    Obj_Beneficiarios_Client.Close();
+                }
             }
         }
     }

@@ -14,7 +14,6 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             DataTable dt = new DataTable("Beneficiarios");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            //dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
             if (sIdBeneficiario != short.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@IdBeneficiario", sIdBeneficiario);
@@ -27,7 +26,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             {
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
-            if (cIdEstado != ' ' || bFiltrar)
+            if (cIdEstado != char.MinValue)
             {
                 dt.Rows.Add("@IdEstado", cIdEstado);
             }
@@ -38,9 +37,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return Obj_BD_BLL.ExecuteDataAdapter(null, "[dbo].[sp_select_TB_Beneficiarios]", ref sMsj_error);
         }
 
-        public DataTable Filtrar(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error)
+        public DataTable Filtrar(short sIdBeneficiario, short sIdCliente, string sIdPersona, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, true), "[dbo].[sp_search_TB_Beneficiarios]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(sIdBeneficiario, sIdCliente, sIdPersona, char.MinValue, true), "[dbo].[sp_search_TB_Beneficiarios]", ref sMsj_error);
         }
 
         public short Insertar(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error)
@@ -55,7 +54,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public bool Eliminar(short sIdCliente,  ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(short.MinValue, sIdCliente , "", ' ', false), "[dbo].[sp_delete_TB_Beneficiarios]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(short.MinValue, sIdCliente , string.Empty, char.MinValue, false), "[dbo].[sp_delete_TB_Beneficiarios]", ref sMsj_error);
         }
     }
 }

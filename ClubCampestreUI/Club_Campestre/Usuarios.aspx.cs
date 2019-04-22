@@ -1,16 +1,17 @@
-﻿using System;
-using System.Web.UI.WebControls;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Web.UI.WebControls;
 
 namespace Club_Campestre
 {
     public partial class Usuarios : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
-        Cls_Usuario_DAL Obj_Usuario_DAL;
-        bool vFiltra = true;
+        private string pantallaMantenimiento = "Mant_Usuarios.aspx";
+        private Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
+        private Cls_Usuario_DAL Obj_Usuario_DAL;
+        private bool vFiltra = true;
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,14 +30,13 @@ namespace Club_Campestre
             if (this.FiltrarUsuarios.Text == string.Empty)//listar
             {
                 //llamado metodo listar estados
-                Obj_Usuario_BLL.Listar(ref Obj_Usuario_DAL);
-
+                Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Listar);
             }
             else
             {
                 Obj_Usuario_DAL.SIdUsuario = this.FiltrarUsuarios.Text;
                 //llamado metodo listar estados
-                Obj_Usuario_BLL.Filtrar(ref Obj_Usuario_DAL);
+                Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Filtrar);
             }
 
             if (Obj_Usuario_DAL.sMsjError == string.Empty)
@@ -54,16 +54,13 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
-            Server.Transfer("Mant_Usuarios.aspx", false);//llama pantalla
+            Session["tipo"] = BD.Insertar;
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            //Se instancia objeto
-            Obj_Usuario_DAL = new Cls_Usuario_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = "E";
+            
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in UsuariosGridView.Rows)
             {
@@ -71,18 +68,18 @@ namespace Club_Campestre
                 if (row.RowType == DataControlRowType.DataRow)
                 {
                     //si esta checkeado instancia las propiedades del objeto
-                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
-                    if (chkRow.Checked)
+                    if ((row.Cells[0].FindControl("chkRow") as CheckBox).Checked)
                     {
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
+                        //Se instancia objeto
+                        Obj_Usuario_DAL = new Cls_Usuario_DAL();
                         Obj_Usuario_DAL.SIdUsuario = row.Cells[0].Text.Trim();
                         Obj_Usuario_DAL.SIdPersona = row.Cells[1].Text.Trim();
-                        Obj_Usuario_DAL.SContrasena = row.Cells[2].Text.Trim();
-
                         //Sesion estado lleva el objeto
                         Session["Usuario"] = Obj_Usuario_DAL;
-                        Server.Transfer("Mant_Usuarios.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
-
                 }
             }
         }
@@ -104,10 +101,8 @@ namespace Club_Campestre
                         if (chkRow.Checked)
                         {
                             Obj_Usuario_DAL.SIdUsuario = row.Cells[0].Text;
-                            Obj_Usuario_DAL.SIdPersona = row.Cells[1].Text;
-                            Obj_Usuario_DAL.SContrasena = row.Cells[2].Text;
                             //llamado metodo eliminar estados
-                            Obj_Usuario_BLL.Eliminar(ref Obj_Usuario_DAL);// eliminar estados
+                            Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Eliminar);// eliminar estados
                         }
                     }
                 }
@@ -121,7 +116,6 @@ namespace Club_Campestre
                     this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Usuario.";
                     this.BindGrid();
                 }
-
             }
         }
 

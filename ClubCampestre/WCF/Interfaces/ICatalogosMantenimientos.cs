@@ -11,7 +11,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable listarBeneficiarios(ref string sMsj_error);
         [OperationContract]
-        DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error);
+        DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, ref string sMsj_error);
         [OperationContract]
         short insertarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsj_error);
         [OperationContract]
@@ -51,7 +51,7 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable filtrarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
-        char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
+        bool insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
         bool actualizarEstado(char cIdEstado, string sEstado, ref string sMsj_error);
         [OperationContract]
@@ -195,6 +195,10 @@ namespace WCF.Interfaces
         #region Ingresos
         [OperationContract]
         DataTable Cargar(string IdPersona, ref string sMsj_error);
+        #endregion
+        #region Ingresos
+        [OperationContract]
+        DataTable Invitado_Beneficiario(string IdPersona, ref string sMsj_error);
         #endregion
     }
 }

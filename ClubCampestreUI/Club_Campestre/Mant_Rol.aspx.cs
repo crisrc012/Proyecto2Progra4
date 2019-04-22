@@ -1,27 +1,27 @@
-﻿using System;
+﻿using ClubCampestre_BLL.CatalogosMantenimientos;
 using ClubCampestre_DAL.CatalogosMantenimientos;
-using ClubCampestre_BLL.CatalogosMantenimientos;
+using System;
+using System.Net;
 
 namespace Club_Campestre
 {
     public partial class Mant_Rol : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        private string pantallaMantenimiento = "Roles.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
-                string tipo = Session["tipo"].ToString();
                 this.txtRoles.Disabled = true;
-                if (rol != null & tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Cls_Rol_DAL rol = (Cls_Rol_DAL)Session["Rol"];
                     this.mantenimiento.InnerHtml = "Modificacion de Roles";
                     this.txtRoles.Value = rol.bIdRol.ToString();
-                    this.txtdescripcion.Value = rol.sDescripcion;
+                    this.txtdescripcion.Value = WebUtility.HtmlDecode(rol.sDescripcion);
                 }
                 else
                 {
@@ -31,50 +31,35 @@ namespace Club_Campestre
                     this.txtdescripcion.Value = string.Empty;
                 }
             }
-
         }
 
         protected void btnGuardar_Click1(object sender, EventArgs e)
         {
-            Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
-
             //Validar Campos en Blanco 
-
             if (txtdescripcion.Value.Trim().Equals(string.Empty))
-
             {
-
                 //se agrega el label que indique lo que no hay datos 
                 lblGuardar.InnerText = "Debe ingresar datos";
                 lblGuardar.Visible = true;
-
             }
-
             else
             {
                 lblGuardar.Visible = false;
-                if (Session["tipo"].ToString() == "E") // Si se edita se debe de obtener el ID
-                {
-                    Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value);
-                }
+                Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
+                Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
                 Obj_Rol_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
-                string tipo = Session["tipo"].ToString();
-                if (tipo == "E")
+                if ((BD)Session["tipo"] == BD.Actualizar)
                 {
-                    Obj_Rol_BLL.Actualizar(ref Obj_Rol_DAL);
-                    Server.Transfer("Roles.aspx");
+                    Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value); // Si se edita se debe de obtener el ID
+                    Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Actualizar);
                 }
                 else
                 {
-                    Obj_Rol_BLL.Insertar(ref Obj_Rol_DAL);
-                    Server.Transfer("Roles.aspx");
+                    Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Insertar);
                 }
-
-
+                Response.Redirect(pantallaMantenimiento, true);
             }
-
             //Validar campos en Blanco 
-
         }
     }
 }

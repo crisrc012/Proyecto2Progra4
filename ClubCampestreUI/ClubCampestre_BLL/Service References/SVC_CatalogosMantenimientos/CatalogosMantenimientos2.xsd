@@ -332,6 +332,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Invitado_Beneficiario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Invitado_BeneficiarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Invitado_BeneficiarioResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+              <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="listarBeneficiarios">
     <xs:complexType>
       <xs:sequence>
@@ -365,7 +393,6 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q6:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -396,7 +423,7 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q6:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -415,7 +442,7 @@
         <xs:element minOccurs="0" name="sIdBeneficiario" type="xs:short" />
         <xs:element minOccurs="0" name="sIdCliente" type="xs:short" />
         <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q7:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -723,7 +750,7 @@
   <xs:element name="filtrarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q9:char" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q8:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -752,7 +779,7 @@
   <xs:element name="insertarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q10:char" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q9:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -761,7 +788,7 @@
   <xs:element name="insertarEstadoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="insertarEstadoResult" type="q11:char" />
+        <xs:element minOccurs="0" name="insertarEstadoResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -769,7 +796,7 @@
   <xs:element name="actualizarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q12:char" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q10:char" />
         <xs:element minOccurs="0" name="sEstado" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -786,7 +813,7 @@
   <xs:element name="eliminarEstado">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q13:char" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="cIdEstado" type="q11:char" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

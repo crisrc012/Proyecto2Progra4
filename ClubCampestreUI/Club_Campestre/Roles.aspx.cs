@@ -8,9 +8,10 @@ namespace Club_Campestre
     public partial class Roles : System.Web.UI.Page
     {
         #region Variables Globales
-        Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
-        Cls_Rol_DAL Obj_Rol_DAL;
-        bool vFiltra = true;
+        private Cls_Rol_BLL Obj_Rol_BLL = new Cls_Rol_BLL();
+        private Cls_Rol_DAL Obj_Rol_DAL;
+        private bool vFiltra = true;
+        private string pantallaMantenimiento = "Mant_Rol.aspx";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,18 +29,17 @@ namespace Club_Campestre
 
             if (this.FiltrarRol.Text == string.Empty)//listar
             {
-                //llamado metodo listar estados
-                Obj_Rol_BLL.Listar(ref Obj_Rol_DAL);
-
+                //llamado metodo listar roles
+                Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             }
             else
             {
                 Obj_Rol_DAL.sDescripcion = this.FiltrarRol.Text;
-                //llamado metodo listar estados
-                Obj_Rol_BLL.Filtrar(ref Obj_Rol_DAL);
+                //llamado metodo listar roles
+                Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
             }
 
-            if (Obj_Rol_DAL.sMsjError == string.Empty)
+            if (Obj_Rol_DAL.SMsjError == string.Empty)
             {
                 //Carga de Grid con DataSet instanciado en DAL
                 this.RolesGridView.DataSource = Obj_Rol_DAL.DS.Tables[0];
@@ -54,16 +54,13 @@ namespace Club_Campestre
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            Session["tipo"] = "N";
-            Server.Transfer("Mant_Rol.aspx", false);//llama pantalla
+            Session["tipo"] = BD.Insertar;
+            Response.Redirect(pantallaMantenimiento, false);
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            //Se instancia objeto
-            Obj_Rol_DAL = new Cls_Rol_DAL();
-            //Secion tipo Editar
-            Session["tipo"] = "E";
+            
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in RolesGridView.Rows)
             {
@@ -74,14 +71,16 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        //Se instancia objeto
+                        Obj_Rol_DAL = new Cls_Rol_DAL();
                         Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text.Trim());
                         Obj_Rol_DAL.sDescripcion = row.Cells[1].Text.Trim();
-
+                        //Secion tipo Editar
+                        Session["tipo"] = BD.Actualizar;
                         //Sesion estado lleva el objeto
                         Session["Rol"] = Obj_Rol_DAL;
-                        Server.Transfer("Mant_Rol.aspx");//llama la pantalla 
+                        Response.Redirect(pantallaMantenimiento, false);
                     }
-
                 }
             }
         }
@@ -103,15 +102,12 @@ namespace Club_Campestre
                         if (chkRow.Checked)
                         {
                             Obj_Rol_DAL.bIdRol = Convert.ToByte(row.Cells[0].Text);
-                            Obj_Rol_DAL.sDescripcion = row.Cells[1].Text;
-
                             //llamado metodo eliminar estados
-                            Obj_Rol_BLL.Eliminar(ref Obj_Rol_DAL);// eliminar estados
+                            Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Eliminar);// eliminar estados
                         }
-
                     }
                 }
-                if (Obj_Rol_DAL.sMsjError == string.Empty)
+                if (Obj_Rol_DAL.SMsjError == string.Empty)
                 {
                     this.errorMensaje.InnerHtml = "Rol Eliminado con exito.";
                     this.BindGrid();
@@ -121,7 +117,6 @@ namespace Club_Campestre
                     this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Rol.";
                     this.BindGrid();
                 }
-
             }
         }
 

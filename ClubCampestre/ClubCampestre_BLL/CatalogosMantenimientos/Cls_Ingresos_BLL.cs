@@ -41,9 +41,28 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             return dt;
         }
 
+        private DataTable Datatable_Invitado_Beneficiario(string IdPersona)//datatable para devolver en ingresos
+        {
+            DataTable dt = new DataTable("Invitado_Beneficiario");
+            dt.Columns.Add("Parametros");
+            dt.Columns.Add("Valor");
+            if (IdPersona != string.Empty)
+            {
+                dt.Rows.Add("@IdPersona", IdPersona);
+            }
+           
+            return dt;
+        }
+
         public DataTable Cargar(string IdPersona, ref string sMsj_error)
         {
             return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Cargar(IdPersona, string.Empty, string.Empty, string.Empty, float.MinValue), "[dbo].[sp_search_cargar_membresia]", ref sMsj_error);
+
+        }
+
+        public DataTable Invitado_Beneciario(string IdPersona, ref string sMsj_error)
+        {
+            return Obj_BD_BLL.ExecuteDataAdapter(Datatable_Invitado_Beneficiario(IdPersona), "[dbo].[sp_search_Beneficiarios_Personas]", ref sMsj_error);
 
         }
     }

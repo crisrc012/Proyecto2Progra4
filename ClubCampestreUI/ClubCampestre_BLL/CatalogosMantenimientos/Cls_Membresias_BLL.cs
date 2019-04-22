@@ -6,93 +6,48 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
     public class Cls_Membresias_BLL
     {
-        public void Listar(ref Cls_Membresias_DAL Obj_Membresia_DAL)
+        public void crudMembresias(ref Cls_Membresias_DAL Obj_Membresias_DAL, BD Accion)
         {
+            // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+            CatalogosMantenimientosClient Obj_Membresias_Client = new CatalogosMantenimientosClient();
             try
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Membresia_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
+                // Se abre la conexion al servicio
+                Obj_Membresias_Client.Open();
+                // Se cargan trae el DataTable y se carga al Obj_Membresias_DAL
                 string sMsjError = string.Empty;
-                Obj_Membresia_DAL.DS.Tables.Add(Obj_Membresia_Client.listarMemebresias(ref sMsjError));
-                Obj_Membresia_Client.Close();
-                Obj_Membresia_DAL.sMsjError = sMsjError;
-
+                switch (Accion)
+                {
+                    case BD.Actualizar:
+                        Obj_Membresias_Client.actualizarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, Obj_Membresias_DAL.cIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
+                        break;
+                    case BD.Eliminar:
+                        Obj_Membresias_Client.eliminarMemebresias(Obj_Membresias_DAL.iIdMembresia, ref sMsjError);
+                        break;
+                    case BD.Filtrar:
+                        Obj_Membresias_DAL.DS.Tables.Add(Obj_Membresias_Client.filtrarMemebresias(Obj_Membresias_DAL.iIdMembresia, Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, ref sMsjError));
+                        break;
+                    case BD.Insertar:
+                        Obj_Membresias_Client.insertarMemebresias(Obj_Membresias_DAL.sIdCliente, Obj_Membresias_DAL.bIdTipoMembresia, Obj_Membresias_DAL.cIdEstado, Obj_Membresias_DAL.dFechaInicio, Obj_Membresias_DAL.dFechaVence, ref sMsjError);
+                        break;
+                    case BD.Listar:
+                        Obj_Membresias_DAL.DS.Tables.Add(Obj_Membresias_Client.listarMemebresias(ref sMsjError));
+                        break;
+                    default:
+                        break;
+                }
+                Obj_Membresias_DAL.sMsjError = sMsjError;
             }
             catch (Exception ex)
             {
-                Obj_Membresia_DAL.sMsjError = ex.Message.ToString();
+                Obj_Membresias_DAL.sMsjError = ex.Message.ToString();
             }
-        }
-        public void Filtrar(ref Cls_Membresias_DAL Obj_Membresia_DAL)
-        {
-            try
+            finally
             {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Membresia_Client = new CatalogosMantenimientosClient();
-                // Se cargan trae el DataTable y se carga al Obj_Estado_DAL
-                string sMsjError = string.Empty;
-                Obj_Membresia_DAL.DS.Tables.Add(Obj_Membresia_Client.filtrarMemebresias(Obj_Membresia_DAL.iIdMembresia, Obj_Membresia_DAL.SPKIdCliente, Obj_Membresia_DAL.BFKIdTipoMembresia, ref sMsjError));
-                Obj_Membresia_Client.Close();
-                Obj_Membresia_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Membresia_DAL.sMsjError = ex.Message.ToString();
-            }
-        }
-
-        public void Insertar(ref Cls_Membresias_DAL Obj_Membresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Membresia_Client = new CatalogosMantenimientosClient();
-                // Se mandan a insertar los datos
-                string sMsjError = string.Empty;
-                Obj_Membresia_Client.insertarMemebresias(Obj_Membresia_DAL.SPKIdCliente, Obj_Membresia_DAL.BFKIdTipoMembresia, Obj_Membresia_DAL.CFKIdEstado, Obj_Membresia_DAL.dFechaInicio, Obj_Membresia_DAL.dFechaVence, ref sMsjError);
-                Obj_Membresia_Client.Close();
-                Obj_Membresia_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Membresia_DAL.sMsjError = ex.Message.ToString();
-            }
-        }
-
-        public void Actualizar(ref Cls_Membresias_DAL Obj_Membresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Membresia_Client = new CatalogosMantenimientosClient();
-                // Se mandan a actualizar los datos
-                string sMsjError = string.Empty;
-                Obj_Membresia_Client.actualizarMemebresias(Obj_Membresia_DAL.iIdMembresia, Obj_Membresia_DAL.SPKIdCliente, Obj_Membresia_DAL.BFKIdTipoMembresia, Obj_Membresia_DAL.CFKIdEstado, Obj_Membresia_DAL.dFechaInicio, Obj_Membresia_DAL.dFechaVence, ref sMsjError);
-                Obj_Membresia_Client.Close();
-                Obj_Membresia_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Membresia_DAL.sMsjError = ex.Message.ToString();
-            }
-        }
-
-        public void Eliminar(ref Cls_Membresias_DAL Obj_Membresia_DAL)
-        {
-            try
-            {
-                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
-                CatalogosMantenimientosClient Obj_Membresia_Client = new CatalogosMantenimientosClient();
-                // Se manda a eliminar el dato
-                string sMsjError = string.Empty;
-                Obj_Membresia_Client.eliminarMemebresias(Obj_Membresia_DAL.iIdMembresia, ref sMsjError);
-                Obj_Membresia_Client.Close();
-                Obj_Membresia_DAL.sMsjError = sMsjError;
-            }
-            catch (Exception ex)
-            {
-                Obj_Membresia_DAL.sMsjError = ex.Message.ToString();
+                if (Obj_Membresias_Client.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    Obj_Membresias_Client.Close();
+                }
             }
         }
     }

@@ -118,3 +118,13 @@ SELECT [IdServicio]
       ,[Estado]
   FROM [ClubCampestre].[dbo].[V_Servicio]
   go
+
+--V_Usuario
+CREATE PROCEDURE [dbo].[sp_select_V_Usuarios]
+AS
+SELECT [Usuario]
+      ,[Identificacion]
+      ,[Nombre]
+      ,[Rol]
+  FROM [dbo].[V_Usuarios]
+GO

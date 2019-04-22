@@ -12,10 +12,10 @@ namespace WCF.Contracts
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
             return Obj_Beneficiarios_BLL.Listar(ref sMsjError);
         }
-        public DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsjError)
+        public DataTable filtrarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, ref string sMsjError)
         {
             Cls_Beneficiarios_BLL Obj_Beneficiarios_BLL = new Cls_Beneficiarios_BLL();
-            return Obj_Beneficiarios_BLL.Filtrar(sIdBeneficiario, sIdCliente, sIdPersona, cIdEstado, ref sMsjError);
+            return Obj_Beneficiarios_BLL.Filtrar(sIdBeneficiario, sIdCliente, sIdPersona, ref sMsjError);
         }
         public short insertarBeneficiarios(short sIdBeneficiario, short sIdCliente, string sIdPersona, char cIdEstado, ref string sMsjError)
         {
@@ -103,7 +103,7 @@ namespace WCF.Contracts
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             return Obj_Estado_BLL.Filtrar(cIdEstado, sEstado, ref sMsj_error);
         }
-        public char insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
+        public bool insertarEstado(char cIdEstado, string sEstado, ref string sMsj_error)
         {
             Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
             return Obj_Estado_BLL.Insertar(cIdEstado, sEstado, ref sMsj_error);
@@ -442,6 +442,14 @@ namespace WCF.Contracts
         {
             Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
             return Obj_Ingresos_BLL.Cargar(IdPersona, ref sMsj_error);
+        }
+        #endregion
+
+        #region Invitado_Beneficiario
+        public DataTable Invitado_Beneficiario(string IdPersona, ref string sMsj_error)
+        {
+            Cls_Ingresos_BLL Obj_Ingresos_BLL = new Cls_Ingresos_BLL();
+            return Obj_Ingresos_BLL.Invitado_Beneciario(IdPersona, ref sMsj_error);
         }
         #endregion
     }
