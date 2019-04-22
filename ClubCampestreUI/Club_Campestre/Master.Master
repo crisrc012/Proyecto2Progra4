@@ -59,7 +59,7 @@
                         <ul>
                             <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
                             <li><a href="TipoServicio.aspx">Tipo Servicio</a></li>
-                            <li><a href="TipoCliente.aspx">Tipo Clientes</a></li>
+                            <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
                             <li><a href="Roles.aspx">Roles</a></li>
                             <li><a href="Estados.aspx">Estados</a></li>
                         </ul>

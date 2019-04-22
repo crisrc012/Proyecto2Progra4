@@ -11,7 +11,7 @@ namespace Club_Campestre
         #region Variables Globales
         private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
-        private string pantallaMantenimiento = "Mant_TipoServicio.aspx";
+        private string pantallaMantenimiento = "Mant_Tipo_Servicio.aspx";
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {

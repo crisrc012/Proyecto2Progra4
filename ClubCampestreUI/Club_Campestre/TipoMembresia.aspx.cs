@@ -10,7 +10,7 @@ namespace Club_Campestre
     {
         private Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL;
         private Cls_TipoMembresia_BLL Obj_TipoMembresia_BLL = new Cls_TipoMembresia_BLL();
-        private string pantallaMantenimiento = "Mant_TipoMembre.aspx";
+        private string pantallaMantenimiento = "Mant_Tipo_Membre.aspx";
         protected void Page_Load(object sender, EventArgs e)
         {
             ///Meter esto 

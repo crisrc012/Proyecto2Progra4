@@ -29,7 +29,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <a href="TipoCliente.aspx">Regresar</a>
+                <a href="Tipo_Clientes.aspx">Regresar</a>
             </div>
         </div>
     </div>
