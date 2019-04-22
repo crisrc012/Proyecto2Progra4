@@ -141,6 +141,8 @@ namespace WCF.Interfaces
         bool actualizarUsuario(string IdUsuario, string IdPersona, string Contrasena, ref string sMsj_error);
         [OperationContract]
         bool eliminarUsuario(string IdUsuario, ref string sMsj_error);
+        [OperationContract]
+        DataTable Login(string IdPersona, string Contrasena, ref string sMsj_error);
         #endregion
         #region Telefonos
         [OperationContract]

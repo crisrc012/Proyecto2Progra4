@@ -343,6 +343,9 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\CatalogosMantenimientos.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

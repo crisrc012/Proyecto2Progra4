@@ -17,12 +17,12 @@
                     <fieldset>
 
                         <div class="pure-control-group">
-                            <label for="rol">Rol: </label>
+                            <label for="txtRoles" id="lbltxtroles" runat="server">Rol: </label>
                             <input runat="server" type="text" id="txtRoles" value="" style="color: #0090ff" />
                         </div>
 
                         <div class="pure-control-group">
-                            <label for="descripcion">Descripcion: </label>
+                            <label for="txtdescripcion">Descripcion: </label>
                             <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" onkeypress="return soloLetras(event)" />
                         </div>
 

@@ -23,8 +23,9 @@ namespace Club_Campestre
                     this.txtRoles.Value = rol.bIdRol.ToString();
                     this.txtdescripcion.Value = WebUtility.HtmlDecode(rol.sDescripcion);
                 }
-                else
+                else if ((BD)Session["tipo"] == BD.Insertar)
                 {
+                    lbltxtroles.Visible = false;
                     this.mantenimiento.InnerHtml = "Nuevos Roles";
                     this.txtRoles.Visible = false; // Este campo es Identity se debe de ocultar al ser nuevo
                     this.txtRoles.Value = string.Empty;
@@ -53,7 +54,7 @@ namespace Club_Campestre
                     Obj_Rol_DAL.bIdRol = Convert.ToByte(this.txtRoles.Value); // Si se edita se debe de obtener el ID
                     Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Actualizar);
                 }
-                else
+                else if ((BD)Session["tipo"] == BD.Insertar)
                 {
                     Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Insertar);
                 }

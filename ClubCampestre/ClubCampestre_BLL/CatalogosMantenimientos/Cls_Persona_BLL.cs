@@ -69,6 +69,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         }
         public bool Insertar(string sIdPersona, string sNombre, string sDireccion, short sIdRol, ref string sMsjError)
         {
+
             return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(sIdPersona, sNombre, sDireccion, sIdRol), "[dbo].[sp_insert_TB_Persona]", ref sMsjError);
         }
 

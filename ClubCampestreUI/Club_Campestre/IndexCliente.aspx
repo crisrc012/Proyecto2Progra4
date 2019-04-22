@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="IndexCliente.aspx.cs" Inherits="Club_Campestre.IndexCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="IndexCliente.aspx.cs" Inherits="Club_Campestre.IndexCliente" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <!-- One -->
-    <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <section class="banner style5 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
             <h1>Club La Libertad</h1>
             <p class="major">Club Campestre de montaña inspirado en los bosques humedos de Costa Rica, afiliado a <a href="https://www.ict.go.cr/es/">ICT</a> y es producto de <a href="https://www.visitcostarica.com/es">Escencial Costa Rica</a>.</p>
@@ -12,45 +12,46 @@
             </ul>
         </div>
         <div class="image">
-            <img src="images/fondo.JPG" alt="" />
+            <img src="images/banner2.JPG" alt="" />
         </div>
+        <%--Login--%>
         <div id="id01" class="modal">
 
-        <div class="modal-content animate" action="/action_page.php" runat="server">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                <img src="Images/Users-icon.png" alt="Avatar" class="avatar"/>
-            </div>
+            <div class="modal-content animate" action="/action_page.php" runat="server">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <img src="Images/Users-icon.png" alt="Avatar" class="avatar" />
+                </div>
 
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" id="uname" placeholder="Enter Username" name="uname" required="required" runat="server"/>
+                <div class="container">
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" id="uname" placeholder="Enter Username" name="uname" required="required" runat="server" />
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" id="psw" placeholder="Enter Password" name="psw" required="required" runat="server"/>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" id="psw" placeholder="Enter Password" name="psw" required="required" runat="server" />
 
-                <button type="submit" onserverclick="IniciarSesion" runat="server">Login</button>
+                    <button type="submit" onserverclick="IniciarSesion" runat="server">Login</button>
 
-            </div>
+                </div>
 
-            <div class="container" style="background-color: #f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <div class="container" style="background-color: #f1f1f1">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
 	<!-- Two -->
-    <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+    <section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
         <div class="content">
             <h2>Socios o Visitantes del Club</h2>
             <p>Nuestros socios gozan de membresias anuales que les permiten disfrutar de todas las atracciones y luegos que brinda nuestro Club de Montaña La Libertad. Puede Registrarse como un cliente nuestro y tener acceso de adquirir alguna de nuestras membresias o incluso reservar alguno de nuestros bastos servios de primera calidad.</p>
             <ul class="actions stacked">
-                <li><a href="#" class="button">Registrarse</a></li>
+                <li><a href="RegistroCliente.aspx" class="button">Registrarse</a></li>
             </ul>
         </div>
         <div class="image">
-            <img src="images/Registrarse.jpg" alt="" />
+            <img src="images/Entrada.jpeg" alt="" />
         </div>
     </section>
 
@@ -60,16 +61,17 @@
             <h2>Membresias</h2>
             <p>Para nuestros socios ofrecemos Membresias anuales que contienen distintos servicios incluidos ademas de ofrecer descuentos atractivos en los restaurantes del Club. Las tarifas son competitivas y se ajustan a todo tipo de cliente que valora la naturaleza y los lujos que ella ofrece...</p>
             <ul class="actions stacked">
-                <li><a href="#" class="button">Membresias</a></li>
+                <li><a href="MembresiaCliente.aspx" class="button">Membresias</a></li>
             </ul>
         </div>
         <div class="image">
-            <img src="images/Membresia.jpg" alt="" />
+            <img src="images/Ranchitos.jpeg" alt="" />
         </div>
+
     </section>
 
 	<!-- Four -->
-    <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+  <%--  <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
         <div class="content">
             <h2>Servicios</h2>
             <p>Nuestros Club ofrece gran catidad de servicios para el disfrute de todos nuestros clientes; pueden gozar de varias piscinas, amplio gimnacio con spa y sauna, canchas para distintos deportes, cabañas, ranchos para fiestas o BBQ. O bien puede realizar reservaciones de cualquiera de nuestros centros de eventos o Caterine Service.</p>
@@ -80,7 +82,7 @@
         <div class="image">
             <img src="images/Servicios.jpg" alt="" />
         </div>
-    </section>
+    </section>--%>
 
 	<!-- Five -->
     <section class="wrapper style1 align-center">
@@ -92,8 +94,8 @@
         <!-- Gallery -->
         <div class="gallery style2 medium lightbox onscroll-fade-in">
             <article>
-                <a href="images/gallery/fulls/01.jpg" class="image">
-                    <img src="images/gallery/thumbs/01.jpg" alt="" />
+                <a href="images/Cabania.jpeg" class="image">
+                    <img src="images/Cabania.jpeg" alt="" />
                 </a>
                 <div class="caption">
                     <h3>Ipsum Dolor</h3>
@@ -104,8 +106,8 @@
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/02.jpg" class="image">
-                    <img src="images/gallery/thumbs/02.jpg" alt="" />
+                <a href="images/velas.jpeg" class="image">
+                    <img src="images/velas.jpeg" alt="" />
                 </a>
                 <div class="caption">
                     <h3>Feugiat Lorem</h3>
@@ -116,8 +118,8 @@
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/03.jpg" class="image">
-                    <img src="images/gallery/thumbs/03.jpg" alt="" />
+                <a href="images/Parrilla.jpeg" class="image">
+                    <img src="images/Parrilla.jpeg" alt="" />
                 </a>
                 <div class="caption">
                     <h3>Magna Amet</h3>
@@ -128,8 +130,8 @@
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/04.jpg" class="image">
-                    <img src="images/gallery/thumbs/04.jpg" alt="" />
+                <a href="images/RanchoyLago.jpeg" class="image">
+                    <img src="images/RanchoyLago.jpeg" alt="" />
                 </a>
                 <div class="caption">
                     <h3>Sed Tempus</h3>
@@ -139,9 +141,9 @@
                     </ul>
                 </div>
             </article>
-            <article>
-                <a href="images/gallery/fulls/05.jpg" class="image">
-                    <img src="images/gallery/thumbs/05.jpg" alt="" />
+<%--            <article>
+                <a href="images/Membresia.jpg" class="image">
+                    <img src="images/Membresia.jpg" alt="" />
                 </a>
                 <div class="caption">
                     <h3>Ultrices Magna</h3>
@@ -234,7 +236,7 @@
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
-            </article>
+            </article>--%>
         </div>
 
     </section>

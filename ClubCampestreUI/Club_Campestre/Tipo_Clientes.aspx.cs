@@ -7,7 +7,7 @@ namespace Club_Campestre
 {
     public partial class Tipo_Clientes : System.Web.UI.Page
     {
-        private string pantallaMantenimiento = "Mant_TipoCliente.aspx";
+        private string pantallaMantenimiento = "Mantenimiento_Tipos_De_Clientes.aspx";
         private Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();
         private Cls_TipoCliente_BLL Obj_TipoCliente_BLL = new Cls_TipoCliente_BLL();
         protected void Page_Load(object sender, EventArgs e)

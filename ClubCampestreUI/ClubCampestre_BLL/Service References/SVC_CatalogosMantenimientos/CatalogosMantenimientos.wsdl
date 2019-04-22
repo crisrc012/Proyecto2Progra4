@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:20191/CatalogosMantenimientos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_InputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarRol" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_OutputMessage">
+    <wsdl:part name="parameters" element="tns:filtrarRolResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_insertarRol_InputMessage">
     <wsdl:part name="parameters" element="tns:insertarRol" />
   </wsdl:message>
@@ -445,6 +451,12 @@
   <wsdl:message name="ICatalogosMantenimientos_eliminarUsuario_OutputMessage">
     <wsdl:part name="parameters" element="tns:eliminarUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_listarTelefonos_InputMessage">
     <wsdl:part name="parameters" element="tns:listarTelefonos" />
   </wsdl:message>
@@ -481,13 +493,11 @@
   <wsdl:message name="ICatalogosMantenimientos_listarRol_OutputMessage">
     <wsdl:part name="parameters" element="tns:listarRolResponse" />
   </wsdl:message>
-  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_InputMessage">
-    <wsdl:part name="parameters" element="tns:filtrarRol" />
-  </wsdl:message>
-  <wsdl:message name="ICatalogosMantenimientos_filtrarRol_OutputMessage">
-    <wsdl:part name="parameters" element="tns:filtrarRolResponse" />
-  </wsdl:message>
   <wsdl:portType name="ICatalogosMantenimientos">
+    <wsdl:operation name="filtrarRol">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" message="tns:ICatalogosMantenimientos_filtrarRol_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRolResponse" message="tns:ICatalogosMantenimientos_filtrarRol_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="insertarRol">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarRol" message="tns:ICatalogosMantenimientos_insertarRol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/insertarRolResponse" message="tns:ICatalogosMantenimientos_insertarRol_OutputMessage" />
@@ -780,6 +790,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarUsuario" message="tns:ICatalogosMantenimientos_eliminarUsuario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/eliminarUsuarioResponse" message="tns:ICatalogosMantenimientos_eliminarUsuario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Login" message="tns:ICatalogosMantenimientos_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/LoginResponse" message="tns:ICatalogosMantenimientos_Login_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="listarTelefonos">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTelefonos" message="tns:ICatalogosMantenimientos_listarTelefonos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarTelefonosResponse" message="tns:ICatalogosMantenimientos_listarTelefonos_OutputMessage" />
@@ -804,13 +818,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarRol" message="tns:ICatalogosMantenimientos_listarRol_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarRolResponse" message="tns:ICatalogosMantenimientos_listarRol_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="filtrarRol">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" message="tns:ICatalogosMantenimientos_filtrarRol_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/filtrarRolResponse" message="tns:ICatalogosMantenimientos_filtrarRol_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICatalogosMantenimientos" type="tns:ICatalogosMantenimientos">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="filtrarRol">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertarRol">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/insertarRol" style="document" />
       <wsdl:input>
@@ -1468,6 +1487,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="listarTelefonos">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarTelefonos" style="document" />
       <wsdl:input>
@@ -1515,15 +1543,6 @@
     </wsdl:operation>
     <wsdl:operation name="listarRol">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/listarRol" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="filtrarRol">
-      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/filtrarRol" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
