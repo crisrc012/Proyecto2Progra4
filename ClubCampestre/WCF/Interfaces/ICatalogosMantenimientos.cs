@@ -198,5 +198,11 @@ namespace WCF.Interfaces
         [OperationContract]
         DataTable Invitado_Beneficiario(string IdPersona, ref string sMsj_error);
         #endregion
+        #region Ingreso_Factura
+        [OperationContract]
+        void Insertar_Ingreso_factura(string IdPersona, float Costo, ref string sMsj_error);
+        [OperationContract]
+        void Insertar_Detalle_Factura(string IdPersona, float Costo, byte IdTipoServicio, float Total, ref string sMsj_error);
+        #endregion
     }
 }

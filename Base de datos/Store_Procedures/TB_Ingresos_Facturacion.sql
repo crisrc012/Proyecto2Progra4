@@ -35,3 +35,37 @@ select  a.IdPersona as IdPersona, a.Nombre as Nombre, 'Beneficiario' as Tipo, 50
  where a.IdPersona = @IdPersona
  end
 go
+
+
+
+create procedure [dbo].[sp_insert_Ingreso_factura]
+(
+	@IdPersona varchar, @Costo float
+)
+as
+
+insert into TB_Ingresos select a.IdCliente, a.IdMembresia, getdate() from TB_Membresias as a
+inner join TB_Clientes as b on a.IdCliente = b.IdCliente
+inner join  TB_Persona as c on  b.IdPersona = c.IdPersona
+where c.IdPersona = @IdPersona
+
+insert into Tb_Facturacion select IdCliente, 'Factura', getdate(), @Costo from TB_Clientes 
+where IdPersona = @IdPersona
+
+go
+
+
+
+create procedure [dbo].[sp_insert_detalle_factura]
+(
+	@IdPersona varchar, @Costo float, @IdTipoServicio tinyint, @Total float
+)
+as
+
+insert into Tb_FacturaDetalle select max(idfactura), '', @Costo, @IdTipoServicio , b.IdTipoMembresia, 1, @Total  from Tb_Facturacion as a
+inner join TB_Membresias as b on a.IdCliente = b.IdCliente
+inner join TB_Clientes as c on b.IdCliente = c.IdCliente
+where c.IdPersona = @IdPersona
+group by b.IdTipoMembresia
+
+go

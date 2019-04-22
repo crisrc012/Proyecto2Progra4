@@ -331,6 +331,40 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Insertar_Ingreso_factura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Costo" type="xs:float" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_Ingreso_facturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_Detalle_Factura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Costo" type="xs:float" />
+        <xs:element minOccurs="0" name="IdTipoServicio" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="Total" type="xs:float" />
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Insertar_Detalle_FacturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="listarBeneficiarios">
     <xs:complexType>
       <xs:sequence>

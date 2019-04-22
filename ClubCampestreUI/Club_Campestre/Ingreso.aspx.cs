@@ -13,7 +13,8 @@ namespace Club_Campestre
         private Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
         private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
-        
+        private Cls_Ingreso_Dal Obj_Ingreso_DAL = new Cls_Ingreso_Dal();
+
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         { 
@@ -129,6 +130,44 @@ namespace Club_Campestre
             }
             Total = Total_Adicionales + Total_Servicios;
             TxtTotal.Value = Convert.ToString(Total);
+        }
+
+        protected void btnFacturar_Click(object sender, EventArgs e)
+        {
+            Obj_Ingreso_DAL.IdPersona = Convert.ToString(txtCedula.Value);
+            Obj_Ingreso_DAL.Costo = Convert.ToSingle(TxtTotal.Value.ToString());
+            Obj_Ingreso_BLL.Insertar_Ingreso_Factura(ref Obj_Ingreso_DAL);
+
+            foreach (GridViewRow row in GridViewInvitados.Rows)
+            {
+                Obj_Ingreso_DAL.IdPersona = txtCedula.Value;
+                Obj_Ingreso_DAL.Costo = Convert.ToSingle(row.Cells[3].Text);
+                Obj_Ingreso_DAL.Total = Convert.ToSingle(row.Cells[3].Text);
+                Obj_Ingreso_BLL.Insertar_Detalle_Factura(ref Obj_Ingreso_DAL);
+            }
+
+            foreach (GridViewRow row in ServiciosGridView.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
+                    if (chkRow.Checked)
+                    {
+                        Obj_Ingreso_DAL.IdPersona = txtCedula.Value;
+                        Obj_Ingreso_DAL.Costo = Convert.ToSingle(row.Cells[2].Text);
+                        Obj_Ingreso_DAL.IdTipoServicio = Convert.ToByte(row.Cells[0].Text);
+                        Obj_Ingreso_DAL.Total = Convert.ToSingle(row.Cells[2].Text);
+                        Obj_Ingreso_BLL.Insertar_Detalle_Factura(ref Obj_Ingreso_DAL);
+                    }
+
+                    else
+                    {
+                        //Total_Servicios = Total_Servicios;
+                    }
+                }
+            }
+
+
         }
     }
 }

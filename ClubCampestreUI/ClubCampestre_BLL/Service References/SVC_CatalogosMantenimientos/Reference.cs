@@ -120,6 +120,20 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Invitado_Beneficiario", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/Invitado_BeneficiarioResponse")]
         System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Invitado_BeneficiarioResponse> Invitado_BeneficiarioAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Invitado_BeneficiarioRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_factura", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_facturaResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse Insertar_Ingreso_factura(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_factura", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_facturaResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse> Insertar_Ingreso_facturaAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_Factura", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_FacturaResponse")]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse Insertar_Detalle_Factura(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_Factura", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_FacturaResponse")]
+        System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse> Insertar_Detalle_FacturaAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios", ReplyAction="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse")]
         ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosResponse listarBeneficiarios(ClubCampestre_BLL.SVC_CatalogosMantenimientos.listarBeneficiariosRequest request);
         
@@ -1230,6 +1244,94 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public Invitado_BeneficiarioResponse(System.Data.DataTable Invitado_BeneficiarioResult, string sMsj_error) {
             this.Invitado_BeneficiarioResult = Invitado_BeneficiarioResult;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Insertar_Ingreso_factura", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Insertar_Ingreso_facturaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public float Costo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string sMsj_error;
+        
+        public Insertar_Ingreso_facturaRequest() {
+        }
+        
+        public Insertar_Ingreso_facturaRequest(string IdPersona, float Costo, string sMsj_error) {
+            this.IdPersona = IdPersona;
+            this.Costo = Costo;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Insertar_Ingreso_facturaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Insertar_Ingreso_facturaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string sMsj_error;
+        
+        public Insertar_Ingreso_facturaResponse() {
+        }
+        
+        public Insertar_Ingreso_facturaResponse(string sMsj_error) {
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Insertar_Detalle_Factura", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Insertar_Detalle_FacturaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string IdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public float Costo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public byte IdTipoServicio;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
+        public float Total;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=4)]
+        public string sMsj_error;
+        
+        public Insertar_Detalle_FacturaRequest() {
+        }
+        
+        public Insertar_Detalle_FacturaRequest(string IdPersona, float Costo, byte IdTipoServicio, float Total, string sMsj_error) {
+            this.IdPersona = IdPersona;
+            this.Costo = Costo;
+            this.IdTipoServicio = IdTipoServicio;
+            this.Total = Total;
+            this.sMsj_error = sMsj_error;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="Insertar_Detalle_FacturaResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class Insertar_Detalle_FacturaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string sMsj_error;
+        
+        public Insertar_Detalle_FacturaResponse() {
+        }
+        
+        public Insertar_Detalle_FacturaResponse(string sMsj_error) {
             this.sMsj_error = sMsj_error;
         }
     }
@@ -4395,6 +4497,44 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         
         public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Invitado_BeneficiarioResponse> Invitado_BeneficiarioAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Invitado_BeneficiarioRequest request) {
             return base.Channel.Invitado_BeneficiarioAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.Insertar_Ingreso_factura(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest request) {
+            return base.Channel.Insertar_Ingreso_factura(request);
+        }
+        
+        public void Insertar_Ingreso_factura(string IdPersona, float Costo, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest();
+            inValue.IdPersona = IdPersona;
+            inValue.Costo = Costo;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).Insertar_Ingreso_factura(inValue);
+            sMsj_error = retVal.sMsj_error;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse> Insertar_Ingreso_facturaAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaRequest request) {
+            return base.Channel.Insertar_Ingreso_facturaAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos.Insertar_Detalle_Factura(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest request) {
+            return base.Channel.Insertar_Detalle_Factura(request);
+        }
+        
+        public void Insertar_Detalle_Factura(string IdPersona, float Costo, byte IdTipoServicio, float Total, ref string sMsj_error) {
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest();
+            inValue.IdPersona = IdPersona;
+            inValue.Costo = Costo;
+            inValue.IdTipoServicio = IdTipoServicio;
+            inValue.Total = Total;
+            inValue.sMsj_error = sMsj_error;
+            ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).Insertar_Detalle_Factura(inValue);
+            sMsj_error = retVal.sMsj_error;
+        }
+        
+        public System.Threading.Tasks.Task<ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse> Insertar_Detalle_FacturaAsync(ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaRequest request) {
+            return base.Channel.Insertar_Detalle_FacturaAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

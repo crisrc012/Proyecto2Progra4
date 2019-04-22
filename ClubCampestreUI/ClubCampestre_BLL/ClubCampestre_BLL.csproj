@@ -284,6 +284,12 @@
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.insertarUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Detalle_FacturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.Insertar_Ingreso_facturaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SVC_CatalogosMantenimientos\ClubCampestre_BLL.SVC_CatalogosMantenimientos.Invitado_BeneficiarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

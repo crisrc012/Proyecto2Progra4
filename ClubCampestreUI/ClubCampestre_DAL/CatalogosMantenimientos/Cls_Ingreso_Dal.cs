@@ -11,7 +11,8 @@ namespace ClubCampestre_DAL.CatalogosMantenimientos
         public System.Data.DataSet DS = new System.Data.DataSet();
         public System.Data.DataSet DI = new System.Data.DataSet();
         private string _IdPersona,  _Nombre, _TipoCliente, _Membresia, _sMsj_error; private float _Costo;
-        private double _Total;
+        private float _Total;
+        byte _IdTipoServicio;
 
         public string IdPersona
         {
@@ -91,7 +92,22 @@ namespace ClubCampestre_DAL.CatalogosMantenimientos
             }
         }
 
-        public double Total
+      
+
+        public byte IdTipoServicio
+        {
+            get
+            {
+                return _IdTipoServicio;
+            }
+
+            set
+            {
+                _IdTipoServicio = value;
+            }
+        }
+
+        public float Total
         {
             get
             {

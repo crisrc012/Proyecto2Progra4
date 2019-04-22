@@ -97,6 +97,18 @@
   <wsdl:message name="ICatalogosMantenimientos_Invitado_Beneficiario_OutputMessage">
     <wsdl:part name="parameters" element="tns:Invitado_BeneficiarioResponse" />
   </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Insertar_Ingreso_factura_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_Ingreso_factura" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Insertar_Ingreso_factura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_Ingreso_facturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Insertar_Detalle_Factura_InputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_Detalle_Factura" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogosMantenimientos_Insertar_Detalle_Factura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Insertar_Detalle_FacturaResponse" />
+  </wsdl:message>
   <wsdl:message name="ICatalogosMantenimientos_listarBeneficiarios_InputMessage">
     <wsdl:part name="parameters" element="tns:listarBeneficiarios" />
   </wsdl:message>
@@ -536,6 +548,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Invitado_Beneficiario" message="tns:ICatalogosMantenimientos_Invitado_Beneficiario_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Invitado_BeneficiarioResponse" message="tns:ICatalogosMantenimientos_Invitado_Beneficiario_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="Insertar_Ingreso_factura">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_factura" message="tns:ICatalogosMantenimientos_Insertar_Ingreso_factura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_facturaResponse" message="tns:ICatalogosMantenimientos_Insertar_Ingreso_factura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_Detalle_Factura">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_Factura" message="tns:ICatalogosMantenimientos_Insertar_Detalle_Factura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_FacturaResponse" message="tns:ICatalogosMantenimientos_Insertar_Detalle_Factura_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="listarBeneficiarios">
       <wsdl:input wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiarios" message="tns:ICatalogosMantenimientos_listarBeneficiarios_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICatalogosMantenimientos/listarBeneficiariosResponse" message="tns:ICatalogosMantenimientos_listarBeneficiarios_OutputMessage" />
@@ -919,6 +939,24 @@
     </wsdl:operation>
     <wsdl:operation name="Invitado_Beneficiario">
       <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/Invitado_Beneficiario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_Ingreso_factura">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Ingreso_factura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_Detalle_Factura">
+      <soap:operation soapAction="http://tempuri.org/ICatalogosMantenimientos/Insertar_Detalle_Factura" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -25,6 +25,20 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             }
         }
 
+        public void Insertar_Ingreso_Factura(ref Cls_Ingreso_Dal Obj_Ingreso_Dal)
+        {
+            CatalogosMantenimientosClient Obj_Ingresos_Client = new CatalogosMantenimientosClient();
+            string sMsjError = string.Empty;
+            Obj_Ingresos_Client.Insertar_Ingreso_factura(Obj_Ingreso_Dal.IdPersona, Obj_Ingreso_Dal.Costo, ref sMsjError);
+        }
+
+        public void Insertar_Detalle_Factura(ref Cls_Ingreso_Dal Obj_Ingreso_Dal)
+        {
+            CatalogosMantenimientosClient Obj_Ingresos_Client = new CatalogosMantenimientosClient();
+            string sMsjError = string.Empty;
+            Obj_Ingresos_Client.Insertar_Detalle_Factura(Obj_Ingreso_Dal.IdPersona, Obj_Ingreso_Dal.Costo, Obj_Ingreso_Dal.IdTipoServicio, Obj_Ingreso_Dal.Total, ref sMsjError);
+        }
+
         public void Invitado_Beneficiario(ref Cls_Ingreso_Dal Obj_Ingreso_DAL)
         {
             try
