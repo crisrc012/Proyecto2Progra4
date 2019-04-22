@@ -316,6 +316,12 @@ namespace WCF.Contracts
             Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
             return Obj_Usuario_BLL.Eliminar(IdUsuario, ref sMsj_error);
         }
+
+        public DataTable Login(string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            Cls_Usuarios_BLL Obj_Usuario_BLL = new Cls_Usuarios_BLL();
+            return Obj_Usuario_BLL.Login(IdPersona, Contrasena, ref sMsj_error);
+        }
         #endregion
         #region Telefonos
         public DataTable listarTelefonos(ref string sMsj_error)

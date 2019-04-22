@@ -109,5 +109,25 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                 }
             }
         }
+
+        public void Login(ref Cls_Usuario_DAL Obj_Usuario_DAL)
+        {
+            try
+            {
+                // Se instancia el Objeto de CatalogosMantenimientosClient (WCF)
+                CatalogosMantenimientosClient Obj_Usuario_Client = new CatalogosMantenimientosClient();
+                // Se cargan trae el DataTable
+                string sMsjError = string.Empty;
+                Obj_Usuario_DAL.DS.Tables.Add(Obj_Usuario_Client.Login(Obj_Usuario_DAL.SIdPersona, Obj_Usuario_DAL.SContrasena, ref sMsjError));
+                Obj_Usuario_Client.Close();
+                Obj_Usuario_DAL.sMsjError = sMsjError;
+            }
+            catch (Exception ex)
+            {
+                Obj_Usuario_DAL.sMsjError = ex.Message.ToString();
+            }
+        }
+
+
     }
 }

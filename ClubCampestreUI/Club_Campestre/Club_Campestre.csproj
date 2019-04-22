@@ -69,78 +69,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Clientes.aspx" />
-    <Content Include="Content\chosen-sprite%402x.png" />
-    <Content Include="Content\chosen-sprite.png" />
-    <Content Include="Content\chosen.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Estados.aspx" />
-    <Content Include="favicon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\banner2.JPG" />
+    <Content Include="Images\Cabania.jpeg" />
+    <Content Include="Images\Cafe.jpeg" />
+    <Content Include="Images\Comenzar.jpg" />
+    <Content Include="Images\Entrada.jpeg" />
+    <Content Include="Images\Inicio.JPG" />
+    <Content Include="Images\lugos.jpg" />
+    <Content Include="Images\Membresia.jpg" />
+    <Content Include="Images\Parrilla.jpeg" />
+    <Content Include="Images\Piscinas.jpg" />
+    <Content Include="Images\Pisciona.jpg" />
+    <Content Include="Images\Ranchitos.jpeg" />
+    <Content Include="Images\RanchoyLago.jpeg" />
+    <Content Include="Images\Registrarse.jpg" />
+    <Content Include="Images\Servicios.jpg" />
+    <Content Include="Images\Trillo.jpeg" />
     <Content Include="Images\Users-icon.png" />
+    <Content Include="Images\velas.jpeg" />
     <Content Include="IndexCliente.aspx" />
-    <Content Include="Mant_TipoCliente.aspx" />
+    <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
     <Content Include="Ingreso.aspx" />
     <Content Include="Mant_Estados.aspx" />
     <Content Include="Mant_Membresias.aspx" />
     <Content Include="Mant_Persona.aspx" />
     <Content Include="Mant_Rol.aspx" />
     <Content Include="Mant_Cliente.aspx" />
-    <Content Include="Mant_TipoMembre.aspx" />
-    <Content Include="Mant_TipoServicio.aspx" />
+    <Content Include="Mant_Tipo_Membre.aspx" />
+    <Content Include="Mant_Tipo_Servicio.aspx" />
     <Content Include="Mant_Usuarios.aspx" />
+    <Content Include="MembresiaCliente.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\chosen.jquery.js" />
-    <Content Include="Scripts\chosen.jquery.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="RegistroCliente.aspx" />
     <Content Include="Shared\css\gridviews.css" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Roles.aspx" />
@@ -185,8 +150,6 @@
     <Content Include="Shared\sass\main.scss" />
     <Content Include="Shared\sass\noscript.scss" />
     <Content Include="Home.Master" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -215,7 +178,7 @@
     <Content Include="Shared\pure.css" />
     <Content Include="TipoMembresia.aspx" />
     <Content Include="TipoServicio.aspx" />
-    <Content Include="TipoCliente.aspx" />
+    <Content Include="Tipo_Clientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -257,12 +220,12 @@
     <Compile Include="IndexCliente.aspx.designer.cs">
       <DependentUpon>IndexCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_TipoCliente.aspx.cs">
-      <DependentUpon>Mant_TipoCliente.aspx</DependentUpon>
+    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.cs">
+      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_TipoCliente.aspx.designer.cs">
-      <DependentUpon>Mant_TipoCliente.aspx</DependentUpon>
+    <Compile Include="Mantenimiento_Tipos_De_Clientes.aspx.designer.cs">
+      <DependentUpon>Mantenimiento_Tipos_De_Clientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ingreso.aspx.cs">
       <DependentUpon>Ingreso.aspx</DependentUpon>
@@ -306,19 +269,19 @@
     <Compile Include="Mant_Cliente.aspx.designer.cs">
       <DependentUpon>Mant_Cliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_TipoMembre.aspx.cs">
-      <DependentUpon>Mant_TipoMembre.aspx</DependentUpon>
+    <Compile Include="Mant_Tipo_Membre.aspx.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_TipoMembre.aspx.designer.cs">
-      <DependentUpon>Mant_TipoMembre.aspx</DependentUpon>
+    <Compile Include="Mant_Tipo_Membre.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Membre.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Mant_TipoServicio.aspx.cs">
-      <DependentUpon>Mant_TipoServicio.aspx</DependentUpon>
+    <Compile Include="Mant_Tipo_Servicio.aspx.cs">
+      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Mant_TipoServicio.aspx.designer.cs">
-      <DependentUpon>Mant_TipoServicio.aspx</DependentUpon>
+    <Compile Include="Mant_Tipo_Servicio.aspx.designer.cs">
+      <DependentUpon>Mant_Tipo_Servicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mant_Usuarios.aspx.cs">
       <DependentUpon>Mant_Usuarios.aspx</DependentUpon>
@@ -333,6 +296,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MembresiaCliente.aspx.cs">
+      <DependentUpon>MembresiaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembresiaCliente.aspx.designer.cs">
+      <DependentUpon>MembresiaCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Membresias.aspx.cs">
       <DependentUpon>Membresias.aspx</DependentUpon>
@@ -349,6 +319,13 @@
       <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroCliente.aspx.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroCliente.aspx.designer.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -384,17 +361,18 @@
     <Compile Include="TipoServicio.aspx.designer.cs">
       <DependentUpon>TipoServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TipoCliente.aspx.cs">
-      <DependentUpon>TipoCliente.aspx</DependentUpon>
+    <Compile Include="Tipo_Clientes.aspx.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TipoCliente.aspx.designer.cs">
-      <DependentUpon>TipoCliente.aspx</DependentUpon>
+    <Compile Include="Tipo_Clientes.aspx.designer.cs">
+      <DependentUpon>Tipo_Clientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Images\gallery\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
