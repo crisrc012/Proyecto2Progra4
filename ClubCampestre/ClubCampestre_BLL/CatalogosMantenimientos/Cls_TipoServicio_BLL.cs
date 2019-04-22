@@ -9,20 +9,20 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(byte IdTipoServicio, string Descripcion, float Costo)
+        private DataTable inicializarDT(byte IdTipoServicio, string Descripcion, float Costo, bool bFiltrar)
         {
             DataTable dt = new DataTable("TipoServicio");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            if (IdTipoServicio != byte.MinValue)
+            if (IdTipoServicio != byte.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@IdTipoServicio", IdTipoServicio);
             }
-            if (Descripcion != string.Empty)
+            if (Descripcion != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@Descripcion", Descripcion);
             }
-            if (Costo != float.MinValue)
+            if (Costo != float.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@Costo", Costo);
             }
@@ -35,22 +35,22 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoServicio, Descripcion, Costo), "[dbo].[sp_search_TB_TipoServicio]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoServicio, Descripcion, Costo, true), "[dbo].[sp_search_TB_TipoServicio]", ref sMsj_error).Copy();
         }
 
         public byte Insertar(string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Convert.ToByte(Obj_BD_BLL.ExecuteScalar(inicializarDT(byte.MinValue, Descripcion, Costo), "[dbo].[sp_insert_TB_TipoServicio]", ref sMsj_error));
+            return Convert.ToByte(Obj_BD_BLL.ExecuteScalar(inicializarDT(byte.MinValue, Descripcion, Costo, false), "[dbo].[sp_insert_TB_TipoServicio]", ref sMsj_error));
         }
 
         public bool Actualizar(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdTipoServicio, Descripcion, Costo), "[dbo].[sp_update_TB_TipoServicio]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdTipoServicio, Descripcion, Costo, false), "[dbo].[sp_update_TB_TipoServicio]", ref sMsj_error);
         }
 
         public bool Eliminar(byte IdTipoServicio, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdTipoServicio, string.Empty, float.MinValue), "[dbo].[sp_delete_TB_TipoServicio]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdTipoServicio, string.Empty, float.MinValue, false), "[dbo].[sp_delete_TB_TipoServicio]", ref sMsj_error);
         }
     }
 }

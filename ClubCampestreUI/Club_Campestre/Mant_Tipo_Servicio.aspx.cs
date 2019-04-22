@@ -7,13 +7,14 @@ namespace Club_Campestre
     public partial class Mant_Tipo_Servicio : System.Web.UI.Page
     {
         private string pantallaMantenimiento = "TipoServicio.aspx";
+        Cls_TipoServicio_DAL tiposervicio;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 if ((BD)Session["tipo"] == BD.Actualizar)
                 {
-                    Cls_TipoServicio_DAL tiposervicio = (Cls_TipoServicio_DAL)Session["TipoServicio"];
+                    tiposervicio = (Cls_TipoServicio_DAL)Session["TipoServicio"];
                     this.mantenimiento.InnerHtml = "Modificacion de Servicio";
                     //this.txtIdServicio.Value = tiposervicio.bIdTipoServicio.ToString();
                     this.txtdescripcion.Value = tiposervicio.sDescripcion.ToString();
@@ -44,10 +45,12 @@ namespace Club_Campestre
                 lblGuardar.Visible = false;
                 Cls_TipoServicio_BLL Obj_tiposervicio_BLL = new Cls_TipoServicio_BLL();
                 Cls_TipoServicio_DAL Obj_tiposervicio_DAL = new Cls_TipoServicio_DAL();
+                tiposervicio = (Cls_TipoServicio_DAL)Session["TipoServicio"];//Agrego asignacion de objeto para obtener el valor del idtiposervicio
                 Obj_tiposervicio_DAL.sDescripcion = this.txtdescripcion.Value.ToString();
                 Obj_tiposervicio_DAL.fCosto = Convert.ToInt32(this.txtcosto.Value);
                 if ((BD)Session["tipo"] == BD.Actualizar)
                 {
+                    Obj_tiposervicio_DAL.bIdTipoServicio = tiposervicio.bIdTipoServicio;//Se asigna el idtiposervicio del objeto obetenido anteriormente para que sea usado como parametro y funcione el actualizar
                     Obj_tiposervicio_BLL.crudTipoServicio(ref Obj_tiposervicio_DAL, BD.Actualizar);
                 }
                 else
