@@ -34,11 +34,11 @@ namespace Club_Campestre
 
             if (Obj_Usuarios_DAL.DS.Tables[0].Rows.Count > 0)
             {
-                Obj_Persona_DAL.BIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][2]);
-                Obj_Persona_DAL.SNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1].ToString();
+                Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][2]);
+                Obj_Persona_DAL.sNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1].ToString();
                 //this.mensajeError.InnerHtml = Obj_Persona_DAL.SNombre;
 
-                if (Obj_Persona_DAL.BIdRol == 1)
+                if (Obj_Persona_DAL.bIdRol == 1)
                 {
                     Server.Transfer("Index.aspx", false);//llama pantalla
                 }

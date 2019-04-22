@@ -29,8 +29,8 @@ namespace Club_Campestre
         private void CargarTipoMembresias()
         {
             Cls_TipoMembresia_DAL Obj_Tipo_DAL = new Cls_TipoMembresia_DAL();
-            CLS_TipoMembresia_BLL Obj_Tipo_BLL = new CLS_TipoMembresia_BLL();
-            Obj_Tipo_BLL.ListaTipoMembresia(ref Obj_Tipo_DAL);
+            Cls_TipoMembresia_BLL Obj_Tipo_BLL = new Cls_TipoMembresia_BLL();
+            Obj_Tipo_BLL.crudTipoMembresia(ref Obj_Tipo_DAL, BD.Listar);
             DropDownMembresias.DataSource = Obj_Tipo_DAL.DS.Tables[0];
             DropDownMembresias.DataTextField = "Descripcion";
             DropDownMembresias.DataValueField = "IdTipoMembresia";
