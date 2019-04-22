@@ -71,7 +71,25 @@
     <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\banner2.JPG" />
+    <Content Include="Images\Cabania.jpeg" />
+    <Content Include="Images\Cafe.jpeg" />
+    <Content Include="Images\Comenzar.jpg" />
+    <Content Include="Images\Entrada.jpeg" />
+    <Content Include="Images\Inicio.JPG" />
+    <Content Include="Images\lugos.jpg" />
+    <Content Include="Images\Membresia.jpg" />
+    <Content Include="Images\Parrilla.jpeg" />
+    <Content Include="Images\Piscinas.jpg" />
+    <Content Include="Images\Pisciona.jpg" />
+    <Content Include="Images\Ranchitos.jpeg" />
+    <Content Include="Images\RanchoyLago.jpeg" />
+    <Content Include="Images\Registrarse.jpg" />
+    <Content Include="Images\Servicios.jpg" />
+    <Content Include="Images\Trillo.jpeg" />
     <Content Include="Images\Users-icon.png" />
+    <Content Include="Images\velas.jpeg" />
     <Content Include="IndexCliente.aspx" />
     <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
     <Content Include="Ingreso.aspx" />
@@ -83,9 +101,11 @@
     <Content Include="Mant_Tipo_Membre.aspx" />
     <Content Include="Mant_Tipo_Servicio.aspx" />
     <Content Include="Mant_Usuarios.aspx" />
+    <Content Include="MembresiaCliente.aspx" />
     <Content Include="Membresias.aspx" />
     <Content Include="packages.config" />
     <Content Include="Personas.aspx" />
+    <Content Include="RegistroCliente.aspx" />
     <Content Include="Shared\css\gridviews.css" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Roles.aspx" />
@@ -277,6 +297,13 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="MembresiaCliente.aspx.cs">
+      <DependentUpon>MembresiaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembresiaCliente.aspx.designer.cs">
+      <DependentUpon>MembresiaCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Membresias.aspx.cs">
       <DependentUpon>Membresias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,6 +319,13 @@
       <DependentUpon>Personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroCliente.aspx.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroCliente.aspx.designer.cs">
+      <DependentUpon>RegistroCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +372,7 @@
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Images\gallery\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

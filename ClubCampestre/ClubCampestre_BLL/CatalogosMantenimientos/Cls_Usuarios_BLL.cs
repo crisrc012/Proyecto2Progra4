@@ -52,5 +52,10 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(IdUsuario, string.Empty, string.Empty), "[dbo].[sp_delete_TB_Usuarios]", ref sMsj_error);
         }
+
+        public DataTable Login(string IdPersona, string Contrasena, ref string sMsj_error)
+        {
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(string.Empty,IdPersona, Contrasena), "[dbo].[sp_login]", ref sMsj_error);
+        }
     }
 }
