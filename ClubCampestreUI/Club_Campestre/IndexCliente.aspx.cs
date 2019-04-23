@@ -34,9 +34,8 @@ namespace Club_Campestre
 
             if (Obj_Usuarios_DAL.DS.Tables[0].Rows.Count > 0)
             {
-                Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][2]);
-                Obj_Persona_DAL.sNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1].ToString();
-                //this.mensajeError.InnerHtml = Obj_Persona_DAL.SNombre;
+                Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1]);
+                Obj_Persona_DAL.sNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][0].ToString();
 
                 if (Obj_Persona_DAL.bIdRol == 1)
                 {
