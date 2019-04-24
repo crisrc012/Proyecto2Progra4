@@ -137,9 +137,23 @@ namespace Club_Campestre
 
         private void validaPassword()
         {
-            if(passwordRG.Value != string.Empty)
-            {
+            Cls_Usuario_DAL Obj_Usuarios_DAL = new Cls_Usuario_DAL();
+            Cls_Usuario_BLL Obj_Usuarios_BLL = new Cls_Usuario_BLL();
 
+            Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+
+
+            if (passwordRG.Value != string.Empty)
+            {
+                Obj_Usuarios_DAL.SIdPersona = this.cedulaRG.Value;
+                Obj_Usuarios_DAL.SContrasena = this.passwordRG.Value;
+                Obj_Usuarios_BLL.Encripta(ref Obj_Usuarios_DAL);
+                Obj_Usuarios_BLL.Login(ref Obj_Usuarios_DAL);
+
+                if (Obj_Usuarios_DAL.DS.Tables[0].Rows[0][0].ToString() == persona.sNombre)
+                {
+                    validacion = true;
+                }
             }
 
         }
