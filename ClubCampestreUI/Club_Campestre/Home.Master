@@ -51,5 +51,6 @@
     <script src="Shared/js/breakpoints.min.js"></script>
     <script src="Shared/js/util.js"></script>
     <script src="Shared/js/main.js"></script>
+      <script src ="Scripts/validaciones.js"></script>    
 </body>
 </html>

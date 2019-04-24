@@ -1,4 +1,13 @@
-﻿function NoEnterBuscar(e) {
+﻿function closeApp() {
+    var w = window.self;
+    w.opener = window.self;
+    w.close();
+    window.location = "IndexCliente.aspx";
+}
+
+
+
+function NoEnterBuscar(e) {
     if((e.keyCode == 13) || (e.which  == 13))
         return false
 }
