@@ -18,8 +18,8 @@
             <div class="fl_left">
                 <ul class="nospace">
                     <li class="active"><a onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-lg fa-users"></i></a></li>
-                    <li class="active"><a id="idUsuario">Usuario</a></li>
-                    <li class="active"><a href="IndexCliente.aspx" id="Sesion">Salir</a></li>
+                    <li class="active"><a id="idUsuario" runat ="server">Usuario</a></li>
+                    <li class="active"><a onclick="closeApp()" id="Salir" >Salir</a></li>
                 </ul>
             </div>   
         </div>
@@ -28,7 +28,7 @@
 
     <!-- Login --->
     <form id="form1" method="post" runat="server">
-        <div id="wrapper" class="divided">
+        <div id="wrapper" class="divided ">
             <asp:ContentPlaceHolder ID="mainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>

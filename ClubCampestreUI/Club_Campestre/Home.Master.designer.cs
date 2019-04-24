@@ -22,6 +22,15 @@ namespace Club_Campestre {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
+        /// idUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor idUsuario;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>

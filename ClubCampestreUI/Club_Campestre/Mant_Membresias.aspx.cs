@@ -214,8 +214,8 @@ namespace Club_Campestre
             Cls_Clientes_BLL Obj_Cliente_BLL = new Cls_Clientes_BLL();
             Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
             Obj_Cliente_DAL.sIdPersona = cedula;
-            //Obj_Cliente_DAL.sIdCliente = short.MinValue;
-            //Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
+            Obj_Cliente_DAL.sIdCliente = short.MinValue;
+            Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
             Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Filtrar);
             return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
         }

@@ -6,8 +6,11 @@ namespace Club_Campestre
 {
     public partial class MembresiaCliente : System.Web.UI.Page
     {
+        static bool validacion;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
             customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
             System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
@@ -15,15 +18,27 @@ namespace Club_Campestre
 
             if (!IsPostBack)
             {
-                CargarTipoMembresias();
-                this.cedulaRG.Value = string.Empty;
-                this.DropDownMembresias.SelectedValue = "0";
-                this.nombreRG.Value = string.Empty;
-                this.fechaInicioRG.Value = DateTime.Today.ToString("yyyy-MM-dd");
-                fechavence();
+
+                if (Session["Persona"] == null)
+                {
+                    this.guardar.Disabled = true;
+                    this.cedulaRG.Value = string.Empty;
+                    this.nombreRG.Value = string.Empty;
+                }
+                else
+                {
+                    Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+                    this.cedulaRG.Value = persona.sNombre;
+                    CargarTipoMembresias();
+                    this.DropDownMembresias.SelectedValue = "0";
+                    this.fechaInicioRG.Value = DateTime.Today.ToString("yyyy-MM-dd");
+                    validaDatos();
+                }           
+       
             }
             else
             {
+
                 validaDatos();
             }
 
@@ -52,6 +67,30 @@ namespace Club_Campestre
 
         protected void Membresias(object sender, EventArgs e)
         {
+            if(validacion)
+            {
+                Cls_Membresias_BLL Obj_Membresia_BLL = new Cls_Membresias_BLL();
+                Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
+
+                Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(returnaIdCliente());
+                Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownMembresias.SelectedValue);
+                Obj_Membresias_DAL.cIdEstado = 'P';
+                Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(this.fechaInicioRG.Value.ToString());
+                Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(this.fechaVenceRG.Value.ToString());
+
+                Obj_Membresia_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Insertar);
+
+                if (Obj_Membresias_DAL.sMsjError == string.Empty)
+                {
+                    Response.Write("<script>window.alert('Membresia Registrada con Exito!!!');</script>");
+                    Server.Transfer("IndexCliente.aspx");
+                }
+                else
+                {
+                    Response.Write("<script>window.alert('Error al Registrar Membresia intentelo mas tarde');</script>");
+                    Server.Transfer("IndexCliente.aspx");
+                }
+            }
 
         }
 
@@ -105,5 +144,20 @@ namespace Club_Campestre
 
         }
 
+        private string returnaIdCliente()
+        {
+            Cls_Clientes_BLL Obj_Cliente_BLL = new Cls_Clientes_BLL();
+            Cls_Clientes_DAL Obj_Cliente_DAL = new Cls_Clientes_DAL();
+            Obj_Cliente_DAL.sIdPersona = this.cedulaRG.Value.Trim();
+            Obj_Cliente_DAL.sIdCliente = short.MinValue;
+            Obj_Cliente_DAL.bIdTipoCliente = byte.MinValue;
+            Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Filtrar);
+            return Obj_Cliente_DAL.DS.Tables[0].Rows[0][0].ToString();
+        }
+
+        protected void valida_ServerClick(object sender, EventArgs e)
+        {
+            validacion = true;
+        }
     }
 }

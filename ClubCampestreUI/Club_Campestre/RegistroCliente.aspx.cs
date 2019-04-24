@@ -6,6 +6,17 @@ namespace Club_Campestre
 {
     public partial class RegistroCliente : System.Web.UI.Page
     {
+        public enum Rol: byte
+        {
+            Administrativo = 1,
+            Cliente = 2
+        }
+
+        public enum Cliente : byte
+        {
+            Socio = 1,
+            Beneficiario = 2
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +31,7 @@ namespace Club_Campestre
             Obj_Persona_DAL.sIdPersona = this.cedulaRG.Value.ToString().Trim();
             Obj_Persona_DAL.sNombre = this.nombreRG.Value.ToString().Trim();
             Obj_Persona_DAL.sDireccion = this.direccionRG.Value.ToString().Trim();
-            Obj_Persona_DAL.bIdRol = 2;
+            Obj_Persona_DAL.bIdRol = (byte)Rol.Cliente;
 
             Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
 
@@ -43,14 +54,14 @@ namespace Club_Campestre
             Cls_Clientes_BLL Obj_Cliente_BLL = new Cls_Clientes_BLL();
 
             Obj_Cliente_DAL.sIdPersona = this.cedulaRG.Value.ToString().Trim();
-            Obj_Cliente_DAL.bIdTipoCliente = 2;
+            Obj_Cliente_DAL.bIdTipoCliente = (byte)Cliente.Socio;
             Obj_Cliente_BLL.crudCliente(ref Obj_Cliente_DAL, BD.Insertar);
 
 
             Cls_Usuario_DAL Obj_Usuario_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuario_BLL = new Cls_Usuario_BLL();
 
-            Obj_Usuario_DAL.SIdUsuario = "Cliente";
+            Obj_Usuario_DAL.SIdUsuario = this.cedulaRG.Value.ToString().Trim();
             Obj_Usuario_DAL.SIdPersona = this.cedulaRG.Value.ToString().Trim();
             Obj_Usuario_DAL.SContrasena = this.passwordRG.Value.ToString().Trim();
             Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
