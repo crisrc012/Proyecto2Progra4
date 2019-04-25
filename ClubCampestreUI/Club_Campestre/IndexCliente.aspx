@@ -6,7 +6,7 @@
     <section class="banner style5 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
         <div class="content">
             <h1>Club La Libertad</h1>
-            <p class="major">Club Campestre de montaña inspirado en los bosques humedos de Costa Rica, afiliado a <a href="https://www.ict.go.cr/es/">ICT</a> y es producto de <a href="https://www.visitcostarica.com/es">Escencial Costa Rica</a>.</p>
+            <p class="major">Club Campestre de montaña inspirado en los bosques humedos de Costa Rica, afiliado a <a href="https://www.ict.go.cr/es/">ICT</a> y es producto de <a href="https://www.visitcostarica.com/es">Esencial Costa Rica</a>.</p>
             <ul class="actions stacked">
                 <li><a href="#first" class="button big wide smooth-scroll-middle">Comenzar</a></li>
             </ul>
