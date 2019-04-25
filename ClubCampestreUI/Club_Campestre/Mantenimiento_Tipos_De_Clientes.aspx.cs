@@ -16,7 +16,7 @@ namespace Club_Campestre
                 txtIdTipoCliente.Disabled = true;
                 if ((BD)Session["tipo"] == BD.Actualizar)
                 {
-                    Obj_TipoCliente_DAL = (Cls_TipoCliente_DAL)Session["TipoCliente"];
+                    Obj_TipoCliente_DAL = (Cls_TipoCliente_DAL)Session["sTipoCliente"];
                     this.mantenimiento.InnerHtml = "Modificacion de Tipo Cliente";
                     this.txtIdTipoCliente.Value = Obj_TipoCliente_DAL.BIdTipoCliente.ToString();
                     this.txtdescripcion.Value = WebUtility.HtmlDecode(Obj_TipoCliente_DAL.sDescripcion.ToString());

@@ -1,7 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Club_Campestre.Master" %>
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head runat="server">
     <title>Club Campestre</title>
@@ -30,16 +28,16 @@
 </head>
 <body id="top">
     <div class="wrapper row0">
-        <div id="topbar" class="hoc clear">  
+        <div id="topbar" class="hoc clear">
             <div class="fl_left">
                 <ul class="nospace">
                     <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
                     <li class="active"><a id="idUsuario" runat="server">Usuario</a></li>
                     <li class="active"><a onclick="closeApp()" id="CerrarSesion">Salir</a></li>
                 </ul>
-            </div>   
+            </div>
         </div>
-    </div>  
+    </div>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
     <div class=" wrapper row1">
@@ -74,9 +72,9 @@
                     </li>
                     <li><a class="drop" href="#">Seguridad</a>
                         <ul>
-                            <li><a href="Usuarios.aspx">Usuarios</a></li>                            
+                            <li><a href="Usuarios.aspx">Usuarios</a></li>
                         </ul>
-                    </li>                   
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -86,15 +84,13 @@
             <asp:ContentPlaceHolder ID="mainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
     </form>
-
-     <div >
-         <footer style="width: 80px">
-         </footer>        
+    <div>
+        <footer style="width: 80px">
+        </footer>
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src ="Scripts/validaciones.js"></script>    
+    <script src="Scripts/validaciones.js"></script>
 </body>
 </html>

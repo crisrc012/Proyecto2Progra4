@@ -36,8 +36,6 @@ select  a.IdPersona as IdPersona, a.Nombre as Nombre, 'Beneficiario' as Tipo, 50
  end
 go
 
-
-
 create procedure [dbo].[sp_insert_Ingreso_factura]
 (
 	@IdPersona varchar, @Costo float
@@ -53,8 +51,6 @@ insert into Tb_Facturacion select IdCliente, 'Factura', getdate(), @Costo from T
 where IdPersona = @IdPersona
 
 go
-
-
 
 create procedure [dbo].[sp_insert_detalle_factura]
 (

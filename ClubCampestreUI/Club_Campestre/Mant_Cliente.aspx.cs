@@ -20,7 +20,7 @@ namespace Club_Campestre
                 {
                     Obj_Clientes_DAL = (Cls_Clientes_DAL)Session["Clientes"];
                     this.mantenimiento.InnerHtml = "Modificacion de Clientes";
-                    this.DropDownTClientes.Value = Session["TipoCliente"].ToString();
+                    this.DropDownTClientes.Value = Session["sTipoCliente"].ToString();
                     this.txtidcliente.Value = Obj_Clientes_DAL.sIdCliente.ToString();
                     this.txtidpersona.Value = Obj_Clientes_DAL.sIdPersona.ToString();
                     this.txtidpersona.Disabled = true;
@@ -71,7 +71,7 @@ namespace Club_Campestre
             DropDownPersona.DataValueField = "Identificacion";
             DropDownPersona.DataBind();
         }
-        
+
         private void CargaTipoCliente()
         {
             Cls_TipoCliente_DAL Obj_TipoCliente_DAL = new Cls_TipoCliente_DAL();

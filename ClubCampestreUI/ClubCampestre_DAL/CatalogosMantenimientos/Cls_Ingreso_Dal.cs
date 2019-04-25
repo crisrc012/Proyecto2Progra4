@@ -1,72 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClubCampestre_DAL.CatalogosMantenimientos
+﻿namespace ClubCampestre_DAL.CatalogosMantenimientos
 {
-   public class Cls_Ingreso_Dal
+    public class Cls_Ingreso_DAL
     {
         public System.Data.DataSet DS = new System.Data.DataSet();
         public System.Data.DataSet DI = new System.Data.DataSet();
-        private string _IdPersona,  _Nombre, _TipoCliente, _Membresia, _sMsj_error; private float _Costo;
-        private float _Total;
-        byte _IdTipoServicio;
+        private string _sIdPersona,  _sNombre, _sTipoCliente, _sMembresia, _sMsj_error;
+        private float _fTotal, _fCosto;
+        byte _bIdTipoServicio;
 
-        public string IdPersona
+        public string sIdPersona
         {
             get
             {
-                return _IdPersona;
+                return _sIdPersona;
             }
 
             set
             {
-                _IdPersona = value;
+                _sIdPersona = value;
             }
         }
 
-        public string Nombre
+        public string sNombre
         {
             get
             {
-                return _Nombre;
+                return _sNombre;
             }
 
             set
             {
-                _Nombre = value;
+                _sNombre = value;
             }
         }
 
-        public string TipoCliente
+        public string sTipoCliente
         {
             get
             {
-                return _TipoCliente;
+                return _sTipoCliente;
             }
 
             set
             {
-                _TipoCliente = value;
+                _sTipoCliente = value;
             }
         }
 
-        public string Membresia
+        public string sMembresia
         {
             get
             {
-                return _Membresia;
+                return _sMembresia;
             }
 
             set
             {
-                _Membresia = value;
+                _sMembresia = value;
             }
         }
 
-        public string SMsj_error
+        public string sMsj_error
         {
             get
             {
@@ -79,44 +73,44 @@ namespace ClubCampestre_DAL.CatalogosMantenimientos
             }
         }
 
-        public float Costo
+        public float fCosto
         {
             get
             {
-                return _Costo;
+                return _fCosto;
             }
 
             set
             {
-                _Costo = value;
+                _fCosto = value;
             }
         }
 
       
 
-        public byte IdTipoServicio
+        public byte bIdTipoServicio
         {
             get
             {
-                return _IdTipoServicio;
+                return _bIdTipoServicio;
             }
 
             set
             {
-                _IdTipoServicio = value;
+                _bIdTipoServicio = value;
             }
         }
 
-        public float Total
+        public float fTotal
         {
             get
             {
-                return _Total;
+                return _fTotal;
             }
 
             set
             {
-                _Total = value;
+                _fTotal = value;
             }
         }
     }

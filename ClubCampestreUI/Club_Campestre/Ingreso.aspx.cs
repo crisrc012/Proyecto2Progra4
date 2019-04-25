@@ -13,8 +13,7 @@ namespace Club_Campestre
         private Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
         private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
-        private Cls_Ingreso_Dal Obj_Ingreso_DAL = new Cls_Ingreso_Dal();
-
+        private Cls_Ingreso_DAL Obj_Ingreso_DAL;
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         { 
@@ -26,17 +25,16 @@ namespace Club_Campestre
 
         protected void TxtConsultar_Click(object sender, EventArgs e)
         {
-            Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
-            Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
-            Obj_Ingreso_Dal.IdPersona = txtCedula.Value;
+            Cls_Ingreso_DAL Obj_Ingreso_Dal = new Cls_Ingreso_DAL();
+            Obj_Ingreso_Dal.sIdPersona = txtCedula.Value;
             Obj_Ingreso_BLL.Cargar(ref Obj_Ingreso_Dal);
-            DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
-            if (dt.Rows.Count == 0)
+            if (Obj_Ingreso_Dal.DS.Tables.Count == 0)
             {
-                Response.Write("<script>window.alert('La cedula ingresada no corresponde a ningun cliente. Por favro ingrese un cliente valido');</script>");
+                Response.Write("<script>window.alert('La cédula ingresada no corresponde a ningún cliente. Por favor ingrese un cliente válido.');</script>");
             }
             else
             {
+                DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
                 foreach (DataRow row in dt.Rows)
                 {
                     txtnombre.Value = Convert.ToString(row[1]);
@@ -53,17 +51,23 @@ namespace Club_Campestre
             Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
             //llamado metodo listar estados
             Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
-            
-            
             if (Obj_TipoServicio_DAL.sMsjError == string.Empty)
             {
-                //Carga de Grid con DataSet instanciado en DAL
-                this.ServiciosGridView.DataSource = Obj_TipoServicio_DAL.DS.Tables[0];
-                this.ServiciosGridView.DataBind();
+                if (Obj_TipoServicio_DAL.DS.Tables.Count > 0)
+                {
+                    //Carga de Grid con DataSet instanciado en DAL
+                    this.ServiciosGridView.DataSource = Obj_TipoServicio_DAL.DS.Tables[0];
+                    this.ServiciosGridView.DataBind();
+                }
+                else
+                {
+                    this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar los servicios o no existen servicios agregados.";
+                    this.BindGrid();
+                }
             }
             else
             {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar los servicios.";
                 this.BindGrid();
             }
         }
@@ -82,20 +86,18 @@ namespace Club_Campestre
 
         protected void btnagregarInvitado_Click(object sender, EventArgs e)
         {
-            Cls_Ingreso_Dal Obj_Ingreso_Dal = new Cls_Ingreso_Dal();
-            Cls_Ingresos_BLL Obj_Ingreso_BLL = new Cls_Ingresos_BLL();
-            Obj_Ingreso_Dal.IdPersona = txtInvitado.Value;
-            Obj_Ingreso_BLL.Invitado_Beneficiario(ref Obj_Ingreso_Dal);
-            DataTable dI = Obj_Ingreso_Dal.DI.Tables[0];
-            if (dI.Rows.Count == 0)
+            Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
+            Obj_Ingreso_DAL.sIdPersona = txtInvitado.Value;
+            Obj_Ingreso_BLL.Invitado_Beneficiario(ref Obj_Ingreso_DAL);
+            if (Obj_Ingreso_DAL.DI.Tables.Count == 0)
             {
                 Response.Write("<script>window.alert('La cedula ingresada no existe, por favor corroboré el dato o registrelo primero en el mantenimiento de personas');</script>");
             }
             else
             {
+                DataTable dI = Obj_Ingreso_DAL.DI.Tables[0];
                 foreach (DataRow row in dI.Rows)
                 {
-                   
                     GridViewInvitados.DataSource = dI;
                     GridViewInvitados.DataBind();
                     this.txtInvitado.Value = string.Empty;
@@ -121,7 +123,6 @@ namespace Club_Campestre
                     {
                         Total_Servicios += Convert.ToDouble(row.Cells[2].Text);
                     }
-
                     else
                     {
                         //Total_Servicios = Total_Servicios;
@@ -134,15 +135,15 @@ namespace Club_Campestre
 
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
-            Obj_Ingreso_DAL.IdPersona = Convert.ToString(txtCedula.Value);
-            Obj_Ingreso_DAL.Costo = Convert.ToSingle(TxtTotal.Value.ToString());
+            Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
+            Obj_Ingreso_DAL.sIdPersona = Convert.ToString(txtCedula.Value);
+            Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.ToString());
             Obj_Ingreso_BLL.Insertar_Ingreso_Factura(ref Obj_Ingreso_DAL);
-
             foreach (GridViewRow row in GridViewInvitados.Rows)
             {
-                Obj_Ingreso_DAL.IdPersona = txtCedula.Value;
-                Obj_Ingreso_DAL.Costo = Convert.ToSingle(row.Cells[3].Text);
-                Obj_Ingreso_DAL.Total = Convert.ToSingle(row.Cells[3].Text);
+                Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
+                Obj_Ingreso_DAL.fCosto = Convert.ToSingle(row.Cells[3].Text);
+                Obj_Ingreso_DAL.fTotal = Convert.ToSingle(row.Cells[3].Text);
                 Obj_Ingreso_BLL.Insertar_Detalle_Factura(ref Obj_Ingreso_DAL);
             }
 
@@ -153,21 +154,18 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_Ingreso_DAL.IdPersona = txtCedula.Value;
-                        Obj_Ingreso_DAL.Costo = Convert.ToSingle(row.Cells[2].Text);
-                        Obj_Ingreso_DAL.IdTipoServicio = Convert.ToByte(row.Cells[0].Text);
-                        Obj_Ingreso_DAL.Total = Convert.ToSingle(row.Cells[2].Text);
+                        Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
+                        Obj_Ingreso_DAL.fCosto = Convert.ToSingle(row.Cells[2].Text);
+                        Obj_Ingreso_DAL.bIdTipoServicio = Convert.ToByte(row.Cells[0].Text);
+                        Obj_Ingreso_DAL.fTotal = Convert.ToSingle(row.Cells[2].Text);
                         Obj_Ingreso_BLL.Insertar_Detalle_Factura(ref Obj_Ingreso_DAL);
                     }
-
                     else
                     {
                         //Total_Servicios = Total_Servicios;
                     }
                 }
             }
-
-
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using ClubCampestre_BLL.BD;
-using System;
 using System.Data;
-
 
 namespace ClubCampestre_BLL.CatalogosMantenimientos
 {
-   
+
     public class Cls_Ingresos_BLL
     {
         #region Variables Globales

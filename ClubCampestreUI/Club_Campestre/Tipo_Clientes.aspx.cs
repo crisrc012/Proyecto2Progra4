@@ -63,7 +63,7 @@ namespace Club_Campestre
                         Obj_TipoCliente_DAL.BIdTipoCliente = Convert.ToByte(row.Cells[0].Text);
                         Obj_TipoCliente_DAL.sDescripcion = row.Cells[1].Text;
                         //Sesion estado lleva el objeto
-                        Session["TipoCliente"] = Obj_TipoCliente_DAL;
+                        Session["sTipoCliente"] = Obj_TipoCliente_DAL;
                         Response.Redirect(pantallaMantenimiento, false);
                     }
                 }

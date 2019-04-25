@@ -82,12 +82,12 @@ namespace Club_Campestre
 
                 if (Obj_Membresias_DAL.sMsjError == string.Empty)
                 {
-                    Response.Write("<script>window.alert('Membresia Registrada con Exito!!!');</script>");
+                    Response.Write("<script>window.alert('sMembresia Registrada con Exito!!!');</script>");
                     Server.Transfer("IndexCliente.aspx");
                 }
                 else
                 {
-                    Response.Write("<script>window.alert('Error al Registrar Membresia intentelo mas tarde');</script>");
+                    Response.Write("<script>window.alert('Error al Registrar sMembresia intentelo mas tarde');</script>");
                     Server.Transfer("IndexCliente.aspx");
                 }
             }

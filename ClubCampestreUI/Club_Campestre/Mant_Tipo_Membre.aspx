@@ -31,7 +31,7 @@
 
           <div class="pure-controls">
               <label for="btnguardar" id="lblGuardar" runat="server"> </label>
-              <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" onclick="btnGuardar_Click"  />
+              <input type="button" class="pure-button pure-button-primary" id="btnGuardar" runat="server" value="Guardar" onserverclick="btnGuardar_Click" />
           </div>
           </fieldset>
         </form>

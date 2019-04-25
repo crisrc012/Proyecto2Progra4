@@ -24,7 +24,7 @@ namespace Club_Campestre
                 IDCliente.Disabled = true;
                 if ((BD)Session["tipo"] == BD.Actualizar)
                 {
-                    Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["Membresia"];
+                    Cls_Membresias_DAL Obj_Membresias_DAL = (Cls_Membresias_DAL)Session["sMembresia"];
                     Cls_Persona_DAL Obj_Persona_DAL = (Cls_Persona_DAL)Session["Persona"];
                     IdMembresia = Obj_Membresias_DAL.iIdMembresia;
                     Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Filtrar);
@@ -32,7 +32,7 @@ namespace Club_Campestre
                     this.txtCedula.Disabled = true;
                     this.txtCedula.Value = Obj_Persona_DAL.sIdPersona;
                     this.txtNombre.Value = WebUtility.HtmlDecode(Obj_Persona_DAL.sNombre);
-                    this.DropDownTipoCliente.Text = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
+                    this.DropDownTipoCliente.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
                     //
                     //System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
                     //customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
@@ -47,7 +47,7 @@ namespace Club_Campestre
                 {
                     this.mantenimiento.InnerHtml = "Ingreso de Membresias";
                     this.txtCedula.Value = string.Empty;
-                    this.DropDownTipoCliente.SelectedValue = "0";
+                    this.DropDownTipoCliente.SelectedIndex = 0;
                     this.IDCliente.Value = string.Empty;
                     this.FechaInicio.Value = DateTime.Today.ToString("yyyy-MM-dd");
                     fechavence();
@@ -192,7 +192,7 @@ namespace Club_Campestre
         private void InsertarMembresia()
         {
             Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
-            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
+            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.Value);
             Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value); 
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
@@ -282,7 +282,7 @@ namespace Club_Campestre
             Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
             Cls_Membresias_BLL Obj_Membresias_BLL = new Cls_Membresias_BLL();
             Obj_Membresias_DAL.iIdMembresia = IdMembresia;
-            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.SelectedValue);
+            Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownTipoCliente.Value);
             Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Cliente.aspx.cs" Inherits="Club_Campestre.Mant_Tipo_Cliente" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -32,13 +33,13 @@
                         <select id="DropDownPersona" runat="server" name="DropDownPersonas" class="chosen"></select>
                     </div>
                     <div class="pure-controls">
-                        <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                        <input class="pure-button pure-button-primary" id="btnGuardar" type="button" onserverclick="btnGuardar_Click" runat="server" value="Guardar" />
                     </div>
                 </fieldset>
             </div>
             <a href="Clientes.aspx">Regresar</a>
         </div>
-    </div> 
+    </div>
     <script type="text/javascript">
         $('.chosen').chosen();
     </script>

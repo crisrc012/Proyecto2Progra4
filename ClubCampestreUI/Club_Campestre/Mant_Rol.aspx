@@ -13,25 +13,20 @@
                 </header>
             </div>
             <div>
-                <form class="pure-form pure-form-aligned" method="post">
-                    <fieldset>
-
-                        <div class="pure-control-group">
-                            <label for="txtRoles" id="lbltxtroles" runat="server">Rol: </label>
-                            <input runat="server" type="text" id="txtRoles" value="" style="color: #0090ff" />
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Descripcion: </label>
-                            <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" onkeypress="return soloLetras(event)" />
-                        </div>
-
-                        <div class="pure-controls">
-                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
-                            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar"  OnClick="btnGuardar_Click1"  />
-                        </div>
-                    </fieldset>
-                </form>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="txtRoles" id="lbltxtroles" runat="server">Rol: </label>
+                        <input runat="server" type="text" id="txtRoles" value="" style="color: #0090ff" />
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="txtdescripcion">Descripcion: </label>
+                        <input runat="server" type="text" id="txtdescripcion" style="color: #0090ff" onkeypress="return soloLetras(event)" />
+                    </div>
+                    <div class="pure-controls">
+                        <label for="btnguardar" id="lblGuardar" runat="server"></label>
+                        <input type="button" id="btnGuardar" runat="server" value="Guardar" class="pure-button pure-button-primary" onserverclick="btnGuardar_Click1" />
+                    </div>
+                </fieldset>
                 <a href="Roles.aspx">Regresar</a>
             </div>
         </div>

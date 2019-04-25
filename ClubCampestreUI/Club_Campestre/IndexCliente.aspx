@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="IndexCliente.aspx.cs" Inherits="Club_Campestre.IndexCliente" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
@@ -16,24 +17,18 @@
         </div>
         <%--Login--%>
         <div id="id01" class="modal">
-
             <div class="modal-content animate" action="/action_page.php" runat="server">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <img src="Images/Users-icon.png" alt="Avatar" class="avatar" />
                 </div>
-
                 <div class="container">
                     <label for="uname"><b>Username</b></label>
                     <input type="text" id="uname" placeholder="Enter Username" name="uname" required="required" runat="server" />
-
                     <label for="psw"><b>Password</b></label>
                     <input type="password" id="psw" placeholder="Enter Password" name="psw" required="required" runat="server" />
-
                     <button type="submit" onserverclick="IniciarSesion" runat="server">Login</button>
-
                 </div>
-
                 <div class="container" style="background-color: #f1f1f1">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                 </div>
@@ -41,7 +36,7 @@
         </div>
     </section>
 
-	<!-- Two -->
+    <!-- Two -->
     <section class="spotlight style2 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
         <div class="content">
             <h2>Socios o Visitantes del Club</h2>
@@ -55,7 +50,7 @@
         </div>
     </section>
 
-	<!-- Three -->
+    <!-- Three -->
     <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
         <div class="content">
             <h2>Membresias</h2>
@@ -70,8 +65,8 @@
 
     </section>
 
-	<!-- Four -->
-  <%--  <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+    <!-- Four -->
+    <%--  <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
         <div class="content">
             <h2>Servicios</h2>
             <p>Nuestros Club ofrece gran catidad de servicios para el disfrute de todos nuestros clientes; pueden gozar de varias piscinas, amplio gimnacio con spa y sauna, canchas para distintos deportes, cabañas, ranchos para fiestas o BBQ. O bien puede realizar reservaciones de cualquiera de nuestros centros de eventos o Caterine Service.</p>
@@ -84,7 +79,7 @@
         </div>
     </section>--%>
 
-	<!-- Five -->
+    <!-- Five -->
     <section class="wrapper style1 align-center">
         <div class="inner">
             <h2>Amplias Instalaciones.</h2>
@@ -141,7 +136,7 @@
                     </ul>
                 </div>
             </article>
-<%--            <article>
+            <%--            <article>
                 <a href="images/Membresia.jpg" class="image">
                     <img src="images/Membresia.jpg" alt="" />
                 </a>
@@ -241,7 +236,7 @@
 
     </section>
 
-	<!-- Six -->
+    <!-- Six -->
     <section class="wrapper style1 align-center">
         <div class="inner">
             <h2>Ipsum sed consequat</h2>
@@ -311,7 +306,7 @@
         </div>
     </section>
 
-	<!-- Seven -->
+    <!-- Seven -->
     <section class="wrapper style1 align-center">
         <div class="inner medium">
             <h2>Get in touch</h2>
@@ -338,7 +333,7 @@
         </div>
     </section>
 
-	<!-- Footer -->
+    <!-- Footer -->
     <footer class="wrapper style1 align-center">
         <div class="inner">
             <ul class="icons">

@@ -72,7 +72,7 @@ namespace Club_Campestre
             }
             if (Obj_Membresias_DAL.sMsjError == string.Empty)
             {
-                this.errorMensaje.InnerHtml = "Membresia Eliminada con exito.";
+                this.errorMensaje.InnerHtml = "sMembresia Eliminada con exito.";
                 this.BindGrid();
             }
             else
@@ -103,7 +103,7 @@ namespace Club_Campestre
                         Obj_Persona_DAL.sIdPersona = row.Cells[1].Text;
                         Obj_Persona_DAL.sNombre = row.Cells[2].Text;
                         //Sesion estado lleva el objeto
-                        Session["Membresia"] = Obj_Membresias_DAL;
+                        Session["sMembresia"] = Obj_Membresias_DAL;
                         Session["Persona"] = Obj_Persona_DAL;
                         Response.Redirect(pantallaMantenimiento, false); //llama la pantalla 
                     }

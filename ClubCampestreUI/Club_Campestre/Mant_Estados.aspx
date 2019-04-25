@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_Estados.aspx.cs" Inherits="Club_Campestre.Mantenimiento.Mant_Estados" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,17 +18,15 @@
 
                         <div class="pure-control-group">
                             <label for="txtestado">Estado: </label>
-                            <input title="Identificador de estados"  runat="server" type="text" id="txtestado" onkeypress="return soloLetras(event)" value="" maxlength="1" style="color: #0090ff"/>
+                            <input title="Identificador de estados" runat="server" type="text" id="txtestado" onkeypress="return soloLetras(event)" value="" maxlength="1" style="color: #0090ff" />
                         </div>
-
                         <div class="pure-control-group">
                             <label for="txtdescripcion">Descripcion: </label>
-                            <input title="Descripción de estado"  runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)"  style="color: #0090ff" />
+                            <input title="Descripción de estado" runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" style="color: #0090ff" />
                         </div>
-
                         <div class="pure-controls">
                             <label for="btnguardar" id="lblGuardar" runat="server"></label>
-                            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                            <input type="button" id="btnGuardar" class="pure-button pure-button-primary" runat="server" onserverclick="btnGuardar_Click" value="Guardar" />
                         </div>
                     </fieldset>
                 </form>
@@ -36,5 +35,5 @@
         </div>
     </div>
 
-    
+
 </asp:Content>

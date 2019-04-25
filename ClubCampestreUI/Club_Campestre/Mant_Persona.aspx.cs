@@ -33,14 +33,14 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Persona_DAL = new Cls_Persona_DAL();
 
-            if (this.txtFiltraPersona.Text == string.Empty)//listar
+            if (this.txtFiltraPersona.Value == string.Empty)//listar
             {
                 //llamado metodo listar estados
                 Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Listar);
             }
             else
             {
-                Obj_Persona_DAL.sIdPersona = this.txtFiltraPersona.Text;
+                Obj_Persona_DAL.sIdPersona = this.txtFiltraPersona.Value;
                 //llamado metodo listar estados
                 Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
             }
@@ -138,11 +138,6 @@ namespace Club_Campestre
 
         // evento para Buscar
         protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            this.BindGrid();
-        }
-
-        protected void txtFiltraPersona_TextChanged(object sender, EventArgs e)
         {
             this.BindGrid();
         }

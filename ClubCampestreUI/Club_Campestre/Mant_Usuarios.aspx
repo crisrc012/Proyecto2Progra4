@@ -18,31 +18,26 @@
                 </header>
             </div>
             <div>
-                <form class="pure-form pure-form-aligned" method="post">
-                    <fieldset>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="txtestado">Usuario: </label>
+                        <input runat="server" type="text" id="txtusuario" onkeypress="return soloLetras(event)" style="color: #0090ff; width: 250px;" />
+                    </div>
 
-                        <div class="pure-control-group">
-                            <label for="txtestado">Usuario: </label>
-                            <input runat="server" type="text" id="txtusuario" onkeypress="return soloLetras(event)" style="color: #0090ff ; width: 250px;" />
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Persona: </label>
-                            <select id="DropDownTUsuarios" runat="server" name="DropDownTUsuarios" class="chosen"></select>
-                            &nbsp;
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Contraseña: </label>
-                            <input runat="server" type="password" id="txtcontrasena" style="color: #0090ff; width: 250px;"/>
-                        </div>
-
-                        <div class="pure-controls">
-                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
-                            <asp:Button class="pure-button pure-button-primary" ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
-                        </div>
-                    </fieldset>
-                </form>
+                    <div class="pure-control-group">
+                        <label for="txtdescripcion">Persona: </label>
+                        <select id="DropDownTUsuarios" runat="server" name="DropDownTUsuarios" class="chosen"></select>
+                        &nbsp;
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="txtdescripcion">Contraseña: </label>
+                        <input runat="server" type="password" id="txtcontrasena" style="color: #0090ff; width: 250px;" />
+                    </div>
+                    <div class="pure-controls">
+                        <label for="btnguardar" id="lblGuardar" runat="server"></label>
+                        <input type="button" class="pure-button pure-button-primary" id="btnGuardar" runat="server" value="Guardar" onserverclick="btnGuardar_Click" />
+                    </div>
+                </fieldset>
                 <a href="Usuarios.aspx">Regresar</a>
             </div>
         </div>

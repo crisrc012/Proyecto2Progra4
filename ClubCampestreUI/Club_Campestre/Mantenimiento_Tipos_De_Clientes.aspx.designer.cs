@@ -64,6 +64,6 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnGuardar;
     }
 }

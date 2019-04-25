@@ -77,7 +77,7 @@ namespace Club_Campestre
                         Obj_Clientes_DAL.sIdPersona = row.Cells[2].Text;
                         //Sesion estado lleva el objeto
                         Session["Clientes"] = Obj_Clientes_DAL;
-                        Session["TipoCliente"] = sTipoCliente;
+                        Session["sTipoCliente"] = sTipoCliente;
                         Response.Redirect(pantallaMantenimiento, false);
                     }
                 }
