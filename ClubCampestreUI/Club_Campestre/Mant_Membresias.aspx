@@ -12,7 +12,7 @@
                 <h1 runat="server" id="mantenimiento">Membresias</h1>
             </div>
             <div class="pure-form pure-form-aligned">
-                <input class="pure-button pure-button-primary" id="btnPersonas" type="button" value="Personas" onclick="location.href = 'Personas.aspx' " />
+                <input class="pure-button pure-button-primary" id="btnPersonas" type="button"  value="Personas" onclick="location.href = 'Personas.aspx' " />
                 <span style="color: red" id="mensajeError" runat="server"></span>
             </div>
             <div class="pure-form pure-form-aligned">
@@ -26,7 +26,7 @@
 
                     <div class="pure-control-group">
                         <label for="DropDownTipoCliente">Tipo Membresia:</label>
-                        <select id="DropDownTipoCliente" runat="server" name="DropDownTipoCliente" class="chosen"></select>
+                        <select id="DropDownTipoCliente" runat="server" name="DropDownTipoCliente" style="color: blue" class="chosen"></select>
                         <%--<asp:DropDownList ID="DropDownTipoCliente" runat="server" Width="178px" ForeColor="Blue"></asp:DropDownList>--%>
                         <label for="IDCliente">ID Cliente:</label>
                         <input runat="server" type="text" id="IDCliente" value="Socio" style="color: blue" />

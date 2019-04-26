@@ -26,7 +26,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
             {
                 dt.Rows.Add("@IdPersona", sIdPersona);
             }
-            if (cIdEstado != char.MinValue)
+            if (cIdEstado != ' ')
             {
                 dt.Rows.Add("@IdEstado", cIdEstado);
             }
@@ -54,7 +54,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public bool Eliminar(short sIdCliente,  ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(short.MinValue, sIdCliente , string.Empty, char.MinValue, false), "[dbo].[sp_delete_TB_Beneficiarios]", ref sMsj_error);
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(short.MinValue, sIdCliente , string.Empty, ' ', false), "[dbo].[sp_delete_TB_Beneficiarios]", ref sMsj_error);
         }
     }
 }

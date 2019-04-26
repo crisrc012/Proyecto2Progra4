@@ -265,9 +265,9 @@ namespace Club_Campestre
             Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
             Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
             Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(this.IDCliente.Value);
-            //Obj_Beneficiario_DAL.sIdPersona = string.Empty;
-            //Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
-            //Obj_Beneficiario_DAL.cIdEstado = ' ';
+            Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+            Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+            Obj_Beneficiario_DAL.cIdEstado = ' ';
             Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Filtrar);
             // Si no hay beneficiaros
             if (Obj_Beneficiario_DAL.DS.Tables.Count > 0)
@@ -297,9 +297,9 @@ namespace Club_Campestre
                 Cls_Beneficiarios_DAL Obj_Beneficiario_DAL = new Cls_Beneficiarios_DAL();
                 Cls_Beneficiarios_BLL Obj_Beneficiario_BLL = new Cls_Beneficiarios_BLL();
                 Obj_Beneficiario_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
-                //Obj_Beneficiario_DAL.sIdPersona = string.Empty;
-                //Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
-                //Obj_Beneficiario_DAL.cIdEstado = ' ';
+                Obj_Beneficiario_DAL.sIdPersona = string.Empty;
+                Obj_Beneficiario_DAL.sIdBeneficiario = short.MinValue;
+                Obj_Beneficiario_DAL.cIdEstado = ' ';
                 Obj_Beneficiario_BLL.crudBeneficiarios(ref Obj_Beneficiario_DAL, BD.Eliminar);
                 foreach (GridViewRow row in BeneficiariosGridView.Rows)
                 {
