@@ -67,7 +67,11 @@ namespace Club_Campestre
             Obj_Usuario_BLL.Encripta(ref Obj_Usuario_DAL);
             Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Insertar);
 
-            Session["Login"] = Obj_Usuario_DAL;
+
+            Obj_Persona_DAL.sIdPersona = this.cedulaRG.Value.ToString().Trim();
+            Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Filtrar);
+
+            Session["Login"] = Obj_Persona_DAL;
             Server.Transfer("IndexCliente.aspx");
 
         }
