@@ -17,6 +17,22 @@ create procedure [dbo].[sp_search_V_Persona]
 	@IdPersona varchar (20) ,@Nombre varchar (50) ,@Direccion varchar (150) ,@Rol varchar (15)
 )
 as
+if @IdPersona = ''
+begin
+	set @IdPersona = null
+end
+if @Nombre = ''
+begin
+	set @Nombre = null
+end
+if @Direccion = ''
+begin
+	set @Direccion = null
+end
+if @Rol = ''
+begin
+	set @Rol = null
+end
 SELECT [IdPersona] AS Identificacion
       ,[Nombre]
       ,[Direccion]

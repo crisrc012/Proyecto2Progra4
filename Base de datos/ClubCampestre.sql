@@ -1,7 +1,4 @@
-use master
-go
-
-DROP DATABASE IF EXISTS [ClubCampestre]
+USE [master]
 GO
 
 create database [ClubCampestre]
