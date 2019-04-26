@@ -136,11 +136,12 @@ namespace Club_Campestre
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
             Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
-            Obj_Ingreso_DAL.sIdPersona = Convert.ToString(txtCedula.Value);
-            Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.ToString());
+            Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
+            Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.Trim());
             Obj_Ingreso_BLL.Insertar_Ingreso_Factura(ref Obj_Ingreso_DAL);
             foreach (GridViewRow row in GridViewInvitados.Rows)
             {
+                Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
                 Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
                 Obj_Ingreso_DAL.fCosto = Convert.ToSingle(row.Cells[3].Text);
                 Obj_Ingreso_DAL.fTotal = Convert.ToSingle(row.Cells[3].Text);
@@ -154,15 +155,12 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
+                        Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
                         Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
                         Obj_Ingreso_DAL.fCosto = Convert.ToSingle(row.Cells[2].Text);
                         Obj_Ingreso_DAL.bIdTipoServicio = Convert.ToByte(row.Cells[0].Text);
                         Obj_Ingreso_DAL.fTotal = Convert.ToSingle(row.Cells[2].Text);
                         Obj_Ingreso_BLL.Insertar_Detalle_Factura(ref Obj_Ingreso_DAL);
-                    }
-                    else
-                    {
-                        //Total_Servicios = Total_Servicios;
                     }
                 }
             }
