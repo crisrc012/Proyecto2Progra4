@@ -33,7 +33,7 @@
                 <ul class="nospace">
                     <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
                     <li class="active"><a id="idUsuario" runat="server">Usuario</a></li>
-                    <li class="active"><a onclick="closeApp()" id="CerrarSesion">Salir</a></li>
+                    <%--<li class="active"><a onclick="closeApp()" id="CerrarSesion">Salir</a></li>--%>
                 </ul>
             </div>
         </div>
@@ -74,6 +74,9 @@
                         <ul>
                             <li><a href="Usuarios.aspx">Usuarios</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a runat="server" onserverclick="Unnamed_ServerClick">Salir</a>
                     </li>
                 </ul>
             </nav>
