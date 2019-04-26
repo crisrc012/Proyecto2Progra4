@@ -20,6 +20,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
                 CargarTipoMembresias();
+                CargarEstados();
                 txtNombre.Disabled = true;
                 IDCliente.Disabled = true;
                 if ((BD)Session["tipo"] == BD.Actualizar)
@@ -33,6 +34,7 @@ namespace Club_Campestre
                     this.txtCedula.Value = Obj_Persona_DAL.sIdPersona;
                     this.txtNombre.Value = WebUtility.HtmlDecode(Obj_Persona_DAL.sNombre);
                     this.DropDownTipoCliente.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][2].ToString(); // idTipoMemebresia
+                    this.DropDownEstado.Value = Obj_Membresias_DAL.DS.Tables[0].Rows[0][3].ToString();
                     //
                     //System.Globalization.CultureInfo customCulture = new System.Globalization.CultureInfo("en-US", true);
                     //customCulture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
@@ -162,6 +164,17 @@ namespace Club_Campestre
             DropDownTipoCliente.DataBind();
         }
 
+        private void CargarEstados()
+        {
+            Cls_Estado_DAL Obj_Estado_DAL = new Cls_Estado_DAL();
+            Cls_Estado_BLL Obj_Estado_BLL = new Cls_Estado_BLL();
+            Obj_Estado_BLL.crudEstado(ref Obj_Estado_DAL, BD.Listar);
+            DropDownEstado.DataSource = Obj_Estado_DAL.DS.Tables[0];
+            DropDownEstado.DataTextField = "Estado";
+            DropDownEstado.DataValueField = "IdEstado";
+            DropDownEstado.DataBind();
+        }
+
         private void fechavence()
         {
             DateTime fechainicio;
@@ -286,7 +299,7 @@ namespace Club_Campestre
             Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(IDCliente.Value);
             Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(FechaInicio.Value);
             Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(FechaVence.Value);
-            Obj_Membresias_DAL.cIdEstado = 'A';
+            Obj_Membresias_DAL.cIdEstado = Convert.ToChar(DropDownEstado.Value);
             Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL, BD.Actualizar);
         }
 

@@ -35,6 +35,8 @@
                     <div class="pure-control-group">
                         <label for="FechaInicio">Fecha Inicio:</label>
                         <input id="FechaInicio" type="date" style="color: blue" runat="server">
+                        <label for="DropDownEstado">Estado:</label>
+                        <select id="DropDownEstado" runat="server" name="DropDownEstado" style="color: blue" class="chosen"></select>
                     </div>
                     <div class="pure-control-group">
                         <label for="FechaVence">Fecha Vencimiento:</label>
