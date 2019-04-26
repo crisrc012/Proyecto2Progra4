@@ -30,7 +30,7 @@ namespace Club_Campestre
                     Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
                     this.cedulaRG.Value = persona.sNombre;
                     CargarTipoMembresias();
-                    this.DropDownMembresias.SelectedValue = "0";
+                    this.DropDownMembresias.SelectedIndex = 0;
                     this.fechaInicioRG.Value = DateTime.Today.ToString("yyyy-MM-dd");
                     validaDatos();
                 }           
@@ -73,7 +73,7 @@ namespace Club_Campestre
                 Cls_Membresias_DAL Obj_Membresias_DAL = new Cls_Membresias_DAL();
 
                 Obj_Membresias_DAL.sIdCliente = Convert.ToInt16(returnaIdCliente());
-                Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownMembresias.SelectedValue);
+                Obj_Membresias_DAL.bIdTipoMembresia = Convert.ToByte(DropDownMembresias.Value);
                 Obj_Membresias_DAL.cIdEstado = 'P';
                 Obj_Membresias_DAL.dFechaInicio = Convert.ToDateTime(this.fechaInicioRG.Value.ToString());
                 Obj_Membresias_DAL.dFechaVence = Convert.ToDateTime(this.fechaVenceRG.Value.ToString());

@@ -16,7 +16,7 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Servicio_DAL = new Cls_Servicio_DAL();
 
-            if (this.txtFiltraServicio.Text == string.Empty)//listar
+            if (this.txtFiltrar.Value == string.Empty)//listar
             {
                 //llamado metodo listar servicio
                 Obj_Servicio_BLL.crudServicio(ref Obj_Servicio_DAL, BD.Listar);

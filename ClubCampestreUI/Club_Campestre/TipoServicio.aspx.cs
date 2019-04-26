@@ -99,14 +99,14 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
 
-            if (this.txtFiltraTipoServicio.Text == string.Empty)//listar
+            if (this.txtFiltrar.Value == string.Empty)//listar
             {
                 //llamado metodo listar estados
                 Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Listar);
             }
             else
             {
-                Obj_TipoServicio_DAL.sDescripcion = this.txtFiltraTipoServicio.Text;
+                Obj_TipoServicio_DAL.sDescripcion = this.txtFiltrar.Value;
                 //llamado metodo listar estados
                 Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Filtrar);
             }

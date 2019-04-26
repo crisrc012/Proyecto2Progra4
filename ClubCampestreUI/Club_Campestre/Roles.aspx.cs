@@ -27,14 +27,14 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Rol_DAL = new Cls_Rol_DAL();
 
-            if (this.FiltrarRol.Text == string.Empty)//listar
+            if (this.txtFiltrar.Value == string.Empty)//listar
             {
                 //llamado metodo listar roles
                 Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Listar);
             }
             else
             {
-                Obj_Rol_DAL.sDescripcion = this.FiltrarRol.Text;
+                Obj_Rol_DAL.sDescripcion = this.txtFiltrar.Value;
                 //llamado metodo listar roles
                 Obj_Rol_BLL.crudRol(ref Obj_Rol_DAL, BD.Filtrar);
             }

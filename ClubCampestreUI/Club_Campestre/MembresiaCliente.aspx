@@ -35,7 +35,7 @@
                 <input type="text" id="nombreRG" runat="server" required/>
 
                 <label for="DropDownMembresias"><b>Tipo Membresia:</b></label>
-                <asp:dropdownlist id="DropDownMembresias" runat="server"></asp:dropdownlist>
+                <select id="DropDownMembresias" name="DropDownMembresias" runat="server"></select>
 
                 <label for="fechaInicioRG"><b>Fecha Inicio:</b></label>
                 <input type="date" id="fechaInicioRG" runat="server" />

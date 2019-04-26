@@ -28,7 +28,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button TxtConsultar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton TxtConsultar;
         
         /// <summary>
         /// TxtTipoCliente control.
@@ -82,7 +82,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnagregarInvitado;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnagregarInvitado;
         
         /// <summary>
         /// btnremoverInvitado control.
@@ -91,7 +91,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnremoverInvitado;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnremoverInvitado;
         
         /// <summary>
         /// GridViewInvitados control.
@@ -136,7 +136,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btntotalizar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton Btntotalizar;
         
         /// <summary>
         /// btnFacturar control.
@@ -145,6 +145,6 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFacturar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnFacturar;
     }
 }

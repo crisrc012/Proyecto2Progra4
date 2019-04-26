@@ -61,7 +61,7 @@ namespace Club_Campestre
         }
         protected void CargaBeneficiarios(object sender, EventArgs e)
         {
-            if (txtbenefiario.Text != string.Empty)
+            if (txtbenefiario.Value != string.Empty)
             {
                 DataTable dt = new DataTable();
                 DataRow dr = null;
@@ -82,23 +82,23 @@ namespace Club_Campestre
                         dt.Rows.Add(dr);
                     }
                 }
-                nombre = returnaNombre(txtbenefiario.Text);
+                nombre = returnaNombre(txtbenefiario.Value);
                 if (nombre == string.Empty)
                 {
                     this.mensajeError.InnerHtml = "Beneficiario no se encuentra registrado en Personas";
-                    this.txtbenefiario.Text = string.Empty;
+                    this.txtbenefiario.Value = string.Empty;
                 }
                 else
                 {
                     if (BeneficiariosGridView.Rows.Count != 4)
                     {
                         dr = dt.NewRow();
-                        dr["IdPersona"] = txtbenefiario.Text;
+                        dr["IdPersona"] = txtbenefiario.Value;
                         dr["Nombre"] = nombre;
                         dt.Rows.Add(dr);
                         BeneficiariosGridView.DataSource = dt;
                         BeneficiariosGridView.DataBind();
-                        this.txtbenefiario.Text = string.Empty;
+                        this.txtbenefiario.Value = string.Empty;
                     }
                 }
             }

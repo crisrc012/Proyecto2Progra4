@@ -13,23 +13,20 @@
                 </header>
             </div>
             <div>
-                <form class="pure-form pure-form-aligned" method="post">
-                    <fieldset>
-
-                        <div class="pure-control-group">
-                            <label for="txtestado">Estado: </label>
-                            <input title="Identificador de estados" runat="server" type="text" id="txtestado" onkeypress="return soloLetras(event)" value="" maxlength="1" style="color: #0090ff" />
-                        </div>
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Descripcion: </label>
-                            <input title="Descripción de estado" runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" style="color: #0090ff" />
-                        </div>
-                        <div class="pure-controls">
-                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
-                            <input type="button" id="btnGuardar" class="pure-button pure-button-primary" runat="server" onserverclick="btnGuardar_Click" value="Guardar" />
-                        </div>
-                    </fieldset>
-                </form>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="txtestado">Estado: </label>
+                        <input title="Identificador de estados" runat="server" type="text" id="txtestado" onkeypress="return soloLetras(event)" value="" maxlength="1" style="color: #0090ff" />
+                    </div>
+                    <div class="pure-control-group">
+                        <label for="txtdescripcion">Descripcion: </label>
+                        <input title="Descripción de estado" runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" style="color: #0090ff" />
+                    </div>
+                    <div class="pure-controls">
+                        <label for="btnguardar" id="lblGuardar" runat="server"></label>
+                        <input type="button" id="btnGuardar" class="pure-button pure-button-primary" runat="server" onserverclick="btnGuardar_Click" value="Guardar" />
+                    </div>
+                </fieldset>
                 <a href="Estados.aspx">Regresar</a>
             </div>
         </div>

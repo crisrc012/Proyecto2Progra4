@@ -17,7 +17,7 @@
                 <input type="button" class="pure-button pure-button-primary" id="btnEliminar" runat="server" value="Eliminar" onserverclick="btnEliminar_Click" />&nbsp;
             <input type="button" class="pure-button pure-button-primary" id="btnEditar" runat="server" value="Editar" onserverclick="btnEditar_Click" />&nbsp;
             <input type="button" class="pure-button pure-button-primary" id="btnNuevo" runat="server" value="Nuevo" onserverclick="btnNuevo_Click" />&nbsp;
-            <input type="text" id="txtFiltraPersona" runat="server" onkeypress="return NoEnterBuscar(event)" style="color: darkgreen;"  />&nbsp;
+            <input type="text" id="txtFiltraPersona" runat="server" onkeypress="return NoEnterBuscar(event)" style="color: darkgreen;" />&nbsp;
             <input type="button" class="pure-button pure-button-primary" id="btnBuscar" runat="server" value="Buscar" onserverclick="btnBuscar_Click" />
                 <label id="errorMensaje" runat="server"></label>
             </div>

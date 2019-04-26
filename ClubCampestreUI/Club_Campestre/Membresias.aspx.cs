@@ -26,14 +26,14 @@ namespace Club_Campestre
         {
             //Se instancia objeto
             Obj_Membresias_DAL = new Cls_Membresias_DAL();
-            if (this.txtFiltrarMembresias.Text == string.Empty)//listar
+            if (this.txtFiltrar.Value == string.Empty)//listar
             {
                 //llamado metodo listar Membresias
                 Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Listar);
             }
             else
             {
-                Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(this.txtFiltrarMembresias.Text);
+                Obj_Membresias_DAL.iIdMembresia = Convert.ToInt16(this.txtFiltrar.Value);
                 //llamado metodo filtrar Membresias
                 Obj_Membresias_BLL.crudMembresias(ref Obj_Membresias_DAL,BD.Filtrar);
             }

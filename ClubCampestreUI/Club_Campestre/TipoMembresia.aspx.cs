@@ -67,7 +67,7 @@ namespace Club_Campestre
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            Obj_TipoMembresia_DAL.sDescripcion = txtFiltraTipoMembre.Text;
+            Obj_TipoMembresia_DAL.sDescripcion = txtFiltrar.Value;
             Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Filtrar);
             TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
             TipoMembresiaGridView.DataBind();

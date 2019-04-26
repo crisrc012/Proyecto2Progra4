@@ -165,5 +165,10 @@ namespace Club_Campestre
                 }
             }
         }
+
+        protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
+        {
+            // Quitar invitado del grid view
+        }
     }
 }

@@ -27,14 +27,14 @@ namespace Club_Campestre
             //Se instancia objeto
             Obj_Usuario_DAL = new Cls_Usuario_DAL();
 
-            if (this.FiltrarUsuarios.Text == string.Empty)//listar
+            if (this.txtFiltrar.Value == string.Empty)//listar
             {
                 //llamado metodo listar estados
                 Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Listar);
             }
             else
             {
-                Obj_Usuario_DAL.SIdUsuario = this.FiltrarUsuarios.Text;
+                Obj_Usuario_DAL.SIdUsuario = this.txtFiltrar.Value;
                 //llamado metodo listar estados
                 Obj_Usuario_BLL.crudUsuario(ref Obj_Usuario_DAL, BD.Filtrar);
             }

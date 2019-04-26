@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Ingreso.aspx.cs" Inherits="Club_Campestre.Ingreso" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Shared/css/gridviews.css" rel="stylesheet" />
 </asp:Content>
@@ -17,7 +18,7 @@
                     <div class="pure-control-group">
                         <label for="cedula">Cedula: </label>
                         <input runat="server" type="text" id="txtCedula" value="" required style="color: #0090ff" />
-                        <asp:Button ID="TxtConsultar" class="pure-button pure-button-primary" runat="server" Text="Consultar" OnClick="TxtConsultar_Click" />
+                        <input type="button" id="TxtConsultar" class="pure-button pure-button-primary" runat="server" value="Consultar" onserverclick="TxtConsultar_Click" />
                         <label for="Rol">TipoCliente: </label>
                         <input runat="server" type="text" id="TxtTipoCliente" forecolor="Blue" width="191px" style="color: #0090ff" />
                     </div>
@@ -34,9 +35,9 @@
                     </div>
                     <div class="pure-control-group">
                         <label for="btnagregarInvitado">Invitado</label><input runat="server" type="text" id="txtInvitado" style="color: #0090ff; width: 284px;" />
-                        <asp:Button class="pure-button pure-button-primary" ID="btnagregarInvitado" runat="server" Text="+" OnClick="btnagregarInvitado_Click" />
+                        <input type="button" class="pure-button pure-button-primary" id="btnagregarInvitado" runat="server" value="+" onserverclick="btnagregarInvitado_Click" />
                         &nbsp;
-              <asp:Button class="pure-button pure-button-primary" ID="btnremoverInvitado" runat="server" Text="-" />
+                        <input type="button" class="pure-button pure-button-primary" id="btnremoverInvitado" runat="server" value="-" onserverclick="btnremoverInvitado_ServerClick" />
                     </div>
                     <div class="pure-controls">
                         <asp:GridView class="pure-table" ID="GridViewInvitados" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="400px" AllowPaging="True" PageSize="5"
@@ -72,9 +73,9 @@
                         <input runat="server" type="text" id="TxtTotal" value="" style="color: #0090ff" />
                     </div>
                     <div class="pure-controls" style="width: 330px; margin: 0 auto;">
-                        <asp:Button ID="Btntotalizar" runat="server" class="pure-button pure-button-primary" Text="Totalizar" OnClick="Btntotalizar_Click" />
+                        <input type="button" id="Btntotalizar" runat="server" class="pure-button pure-button-primary" value="Totalizar" onserverclick="Btntotalizar_Click" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button class="pure-button pure-button-primary" ID="btnFacturar" runat="server" Text="Facturar" OnClick="btnFacturar_Click" />
+                        <input type="button" class="pure-button pure-button-primary" id="btnFacturar" runat="server" value="Facturar" onserverclick="btnFacturar_Click" />
                     </div>
                 </fieldset>
             </div>

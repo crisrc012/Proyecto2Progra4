@@ -64,7 +64,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnagregarTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnagregarTelefono;
         
         /// <summary>
         /// btnquitarTelefono control.
@@ -73,7 +73,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnquitarTelefono;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnquitarTelefono;
         
         /// <summary>
         /// GridViewTelefono control.
@@ -100,7 +100,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnagregarCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnagregarCorreo;
         
         /// <summary>
         /// btnquitarCorreo control.
@@ -109,7 +109,7 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnquitarCorreo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnquitarCorreo;
         
         /// <summary>
         /// CorreoPersonaGridView control.
@@ -127,6 +127,6 @@ namespace Club_Campestre {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputButton btnGuardar;
     }
 }

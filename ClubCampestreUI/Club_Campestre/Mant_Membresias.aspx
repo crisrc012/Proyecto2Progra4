@@ -43,12 +43,10 @@
                     <section>
                         <div class="pure-control-group">
                             <label for="BeneficiariosGridView">Beneficiarios:</label>
-                            <asp:TextBox ID="txtbenefiario" runat="server" Style="color: blue" onkeypress="return SoloNumeros(event)"></asp:TextBox>
+                            <input id="txtbenefiario" runat="server" style="color: blue" onkeypress="return SoloNumeros(event)" />
                             <input type="button" id="btnAgregar" class="pure-button pure-button-primary" value="Agregar" runat="server" onserverclick="CargaBeneficiarios" />
                             <input type="button" class="pure-button pure-button-primary" runat="server" onserverclick="QuitarBeneficiarios" value="Quitar" />
-
                             <span id="RegistroBeneficiarios"></span>
-
                             <asp:GridView class="pure-table pure-controls" ID="BeneficiariosGridView" runat="server" AutoGenerateColumns="False" ForeColor="Blue" Width="410px" AllowPaging="True" PageSize="5" PagerStyle-CssClass="pagingDiv" OnPageIndexChanging="BeneficiariosGridView_PageIndexChanging">
                                 <Columns>
                                     <asp:BoundField DataField="IdPersona" HeaderText="ID Beneficiario" ItemStyle-Width="100" />
@@ -70,7 +68,6 @@
                             <input type="checkbox" id="checkok" runat="server" />checkear para poder guardar<br />
                         </div>
                     </section>
-
                 </fieldset>
             </div>
         </div>

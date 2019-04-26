@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_TipoCliente.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes"  enableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Mant_TipoCliente.aspx.cs" Inherits="Club_Campestre.Mantenimiento_Tipos_De_Clientes" EnableEventValidation="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,23 +13,21 @@
                 </header>
             </div>
             <div>
-                <form class="pure-form pure-form-aligned" method="post">
-                    <fieldset>
-                     <div class="pure-control-group">
-                            <label for="txtIdTipodeCliente" id="lblIdTipoCliente" runat="server">ID Tipo de Cliente: </label>
-                            <input runat="server" type="text" id="txtIdTipoCliente" onkeypress="return soloLetras(event)" value=""  style="color: #0090ff"/>
-                        </div>
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="txtIdTipodeCliente" id="lblIdTipoCliente" runat="server">ID Tipo de Cliente: </label>
+                        <input runat="server" type="text" id="txtIdTipoCliente" onkeypress="return soloLetras(event)" value="" style="color: #0090ff" />
+                    </div>
 
-                        <div class="pure-control-group">
-                            <label for="txtdescripcion">Tipo de Cliente: </label>
-                            <input runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" value=""  style="color: #0090ff"/>
-                        </div>
-                        <div class="pure-controls">
-                            <label for="btnguardar" id="lblGuardar" runat="server"></label>
-                            <input type="button" class="pure-button pure-button-primary" id="btnGuardar" runat="server" value="Guardar" onserverclick="btnGuardar_Click"/>
-                        </div>
-                    </fieldset>
-                </form>
+                    <div class="pure-control-group">
+                        <label for="txtdescripcion">Tipo de Cliente: </label>
+                        <input runat="server" type="text" id="txtdescripcion" onkeypress="return soloLetras(event)" value="" style="color: #0090ff" />
+                    </div>
+                    <div class="pure-controls">
+                        <label for="btnguardar" id="lblGuardar" runat="server"></label>
+                        <input type="button" class="pure-button pure-button-primary" id="btnGuardar" runat="server" value="Guardar" onserverclick="btnGuardar_Click" />
+                    </div>
+                </fieldset>
                 <a href="Tipo_Clientes.aspx">Regresar</a>
             </div>
         </div>

@@ -26,13 +26,13 @@ namespace Club_Campestre
             //Instancia del Objeto
             Obj_Clientes_DAL = new Cls_Clientes_DAL();
 
-            if (this.txtFiltraClientes.Text.Trim() == string.Empty)
+            if (this.txtFiltrar.Value.Trim() == string.Empty)
             {
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.Listar);
             }
             else
             {
-                Obj_Clientes_DAL.sIdPersona = this.txtFiltraClientes.Text.Trim();
+                Obj_Clientes_DAL.sIdPersona = this.txtFiltrar.Value.Trim();
                 //Llamado del metodo filtrar clientes
                 Obj_Clientes_BLL.crudCliente(ref Obj_Clientes_DAL, BD.FiltrarVista);
             }
