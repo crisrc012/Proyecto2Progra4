@@ -19,7 +19,7 @@ namespace Club_Campestre
             if (!IsPostBack)
             {
 
-                if (Session["Persona"] == null)
+                if (Session["Login"] == null)
                 {
                     this.guardar.Disabled = true;
                     this.cedulaRG.Value = string.Empty;
@@ -27,7 +27,7 @@ namespace Club_Campestre
                 }
                 else
                 {
-                    Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+                    Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Login"];
                     this.cedulaRG.Value = persona.sNombre;
                     CargarTipoMembresias();
                     this.DropDownMembresias.SelectedIndex = 0;
@@ -140,7 +140,7 @@ namespace Club_Campestre
             Cls_Usuario_DAL Obj_Usuarios_DAL = new Cls_Usuario_DAL();
             Cls_Usuario_BLL Obj_Usuarios_BLL = new Cls_Usuario_BLL();
 
-            Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+            Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Login"];
 
 
             if (passwordRG.Value != string.Empty)

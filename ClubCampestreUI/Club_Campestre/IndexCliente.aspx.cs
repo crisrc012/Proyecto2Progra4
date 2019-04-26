@@ -34,7 +34,7 @@ namespace Club_Campestre
             {
                 Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1]);
                 Obj_Persona_DAL.sNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][0].ToString();
-                Session["Persona"] = Obj_Persona_DAL;
+                Session["Login"] = Obj_Persona_DAL;
 
                 if (Obj_Persona_DAL.bIdRol == 1)
                 {

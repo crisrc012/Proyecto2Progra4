@@ -74,7 +74,8 @@ namespace Club_Campestre
                 {
                     if (BeneficiariosGridView.Rows.Count >= 4)
                     {
-                        this.mensajeError.InnerHtml = "No puede exceder el maximo de 4 beneficiarios";
+                        Response.Write("<script>window.alert('No puede exceder el maximo de 4 beneficiarios');</script>");
+                        //this.mensajeError.InnerHtml = "No puede exceder el maximo de 4 beneficiarios";
                     }
                     foreach (GridViewRow row in BeneficiariosGridView.Rows)
                     {
@@ -87,7 +88,8 @@ namespace Club_Campestre
                 nombre = returnaNombre(txtbenefiario.Value);
                 if (nombre == string.Empty)
                 {
-                    this.mensajeError.InnerHtml = "Beneficiario no se encuentra registrado en Personas";
+                    Response.Write("<script>window.alert('Beneficiario no se encuentra registrado en Personas');</script>");
+                    //this.mensajeError.InnerHtml = "Beneficiario no se encuentra registrado en Personas";
                     this.txtbenefiario.Value = string.Empty;
                 }
                 else
@@ -106,7 +108,8 @@ namespace Club_Campestre
             }
             else
             {
-                this.mensajeError.InnerHtml = "Debe Ingresar el numero de cedula del Beneficiario";
+                Response.Write("<script>window.alert('Debe Ingresar el numero de cedula del Beneficiario');</script>");
+                //this.mensajeError.InnerHtml = "Debe Ingresar el numero de cedula del Beneficiario";
             }
         }
 
@@ -124,12 +127,14 @@ namespace Club_Campestre
                 }
                 else
                 {
-                    this.mensajeError.InnerHtml = "PERSONA NO REGISTRADA INGRESE AL BOTON DE PERSONAS";
+                    Response.Write("<script>window.alert('PERSONA NO REGISTRADA INGRESE AL BOTON DE PERSONAS');</script>");
+                    ////this.mensajeError.InnerHtml = "PERSONA NO REGISTRADA INGRESE AL BOTON DE PERSONAS";
                     return string.Empty;
                 }
             }
             else
             {
+                Response.Write("<script>window.alert('Error al consultar persona, Contactar TI');</script>");
                 this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
                 return string.Empty;
             }
@@ -214,11 +219,13 @@ namespace Club_Campestre
 
             if (Obj_Membresias_DAL.sMsjError == string.Empty)
             {
-                this.mensajeError.InnerHtml = " Membresia Registrada Correctamente";
+                Response.Write("<script>window.alert('Membresia Registrada Correctamente');</script>");
+                //this.mensajeError.InnerHtml = " Membresia Registrada Correctamente";
             }
             else
             {
-                this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
+                Response.Write("<script>window.alert('Error al consultar persona, Contactar TI');</script>");
+                //this.mensajeError.InnerHtml = "Error al consultar persona, Contactar TI";
             }
         }
 

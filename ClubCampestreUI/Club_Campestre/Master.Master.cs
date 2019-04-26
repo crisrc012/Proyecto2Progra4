@@ -9,9 +9,9 @@ namespace Club_Campestre
         {
             Cls_Persona_DAL Obj_Persona_DAL = new Cls_Persona_DAL();
 
-            if (Session["Persona"] != null)
+            if (Session["Login"] != null)
             {
-                Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Persona"];
+                Cls_Persona_DAL persona = (Cls_Persona_DAL)Session["Login"];
                 this.idUsuario.InnerText = persona.sNombre;
             }
         }
