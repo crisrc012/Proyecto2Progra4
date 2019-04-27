@@ -23,14 +23,14 @@
                     <img src="Images/Users-icon.png" alt="Avatar" class="avatar" />
                 </div>
                 <div class="container">
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" id="uname" placeholder="Enter Username" name="uname" required="required" runat="server" />
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" id="psw" placeholder="Enter Password" name="psw" required="required" runat="server" />
-                    <button type="submit" onserverclick="IniciarSesion" runat="server">Login</button>
+                    <label for="uname"><b>Identificación</b></label>
+                    <input type="text" id="uname" placeholder="Digite su identificación" name="uname" required="required" runat="server" />
+                    <label for="psw"><b>Contraseña</b></label>
+                    <input type="password" id="psw" placeholder="Digite su contraseña" name="psw" required="required" runat="server" />
+                    <button type="submit" onserverclick="IniciarSesion" runat="server">Iniciar Sesión</button>
                 </div>
                 <div class="container" style="background-color: #f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
                 </div>
             </div>
         </div>
