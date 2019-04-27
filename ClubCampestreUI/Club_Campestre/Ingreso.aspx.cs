@@ -36,6 +36,10 @@ namespace Club_Campestre
             else
             {
                 DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
+                if(dt.Rows.Count == 0)
+                {
+                    Response.Write("<script>window.alert('La cédula ingresada no corresponde a ningún cliente. Por favor ingrese un cliente válido.');</script>");
+                }
                 foreach (DataRow row in dt.Rows)
                 {
                     txtnombre.Value = Convert.ToString(row[1]);
@@ -43,6 +47,7 @@ namespace Club_Campestre
                     TxtMembresia.Value = Convert.ToString(row[3]);
                     TxtCosto.Value = Convert.ToString(row[4]);
                 }
+
             }
         }
 
@@ -153,6 +158,14 @@ namespace Club_Campestre
 
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
+            float Total;
+            Total = Convert.ToSingle(TxtTotal.Value);
+            if (Total ==0)
+            {
+                Response.Write("<script>window.alert('No tiene pendientes por facturar');</script>");
+            }
+            else
+            {
             Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
             Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
             Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.Trim());
@@ -182,11 +195,13 @@ namespace Club_Campestre
                     }
                 }
             }
+
             Response.Write("<script>window.alert('Factura ingresada de forma correcta');</script>");
 
         }
+    }
 
-        protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
+    protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
         {
             // Quitar invitado del grid view
         }
