@@ -17,24 +17,24 @@
                 <fieldset>
                     <div class="pure-control-group">
                         <label for="cedula">Cedula: </label>
-                        <input runat="server" type="text" id="txtCedula" value="" required style="color: #0090ff" />
+                        <input runat="server" type="text" id="txtCedula" value="" onkeypress="return SoloNumeros(event)" required style="color: #0090ff" />
                         <input type="button" id="TxtConsultar" class="pure-button pure-button-primary" runat="server" value="Consultar" onserverclick="TxtConsultar_Click" />
                         <label for="Rol">TipoCliente: </label>
-                        <input runat="server" type="text" id="TxtTipoCliente" forecolor="Blue" width="191px" style="color: #0090ff" />
+                        <input runat="server" type="text" id="TxtTipoCliente" readonly="readonly" forecolor="Blue" width="191px" style="color: #0090ff" />
                     </div>
                     <div class="pure-control-group">
                         <label for="nombre">Nombre: </label>
-                        <input runat="server" type="text" id="txtnombre" onkeypress="javascript:return soloLetras(event)" style="color: #0090ff" />
+                        <input runat="server" type="text" id="txtnombre" readonly="readonly" onkeypress="javascript:return soloLetras(event)" style="color: #0090ff" />
                     </div>
                     <div></div>
                     <div class="pure-control-group">
                         <label for="cedula">Membresia: </label>
-                        <input runat="server" type="text" id="TxtMembresia" value="" style="color: #0090ff" />
+                        <input runat="server" type="text" id="TxtMembresia" readonly="readonly" value="" style="color: #0090ff" />
                         <label for="Rol">Costo: </label>
-                        <input runat="server" type="text" id="TxtCosto" forecolor="Blue" width="191px" style="color: #0090ff" />
+                        <input runat="server" type="text" id="TxtCosto" readonly="readonly" forecolor="Blue" width="191px" style="color: #0090ff" />
                     </div>
                     <div class="pure-control-group">
-                        <label for="btnagregarInvitado">Invitado</label><input runat="server" type="text" id="txtInvitado" style="color: #0090ff; width: 284px;" />
+                        <label for="btnagregarInvitado">Invitado</label><input runat="server" type="text" id="txtInvitado" onkeypress="return SoloNumeros(event)" style="color: #0090ff; width: 284px;" />
                         <input type="button" class="pure-button pure-button-primary" id="btnagregarInvitado" runat="server" value="+" onserverclick="btnagregarInvitado_Click" />
                         &nbsp;
                         <input type="button" class="pure-button pure-button-primary" id="btnremoverInvitado" runat="server" value="-" onserverclick="btnremoverInvitado_ServerClick" />
@@ -70,7 +70,7 @@
                     </div>
                     <div class="pure-control-group">
                         <label for="TxtTotal">Total: </label>
-                        <input runat="server" type="text" id="TxtTotal" value="" style="color: #0090ff" />
+                        <input runat="server" type="text" id="TxtTotal" readonly="readonly" value="" style="color: #0090ff" />
                     </div>
                     <div class="pure-controls" style="width: 330px; margin: 0 auto;">
                         <input type="button" id="Btntotalizar" runat="server" class="pure-button pure-button-primary" value="Totalizar" onserverclick="Btntotalizar_Click" />

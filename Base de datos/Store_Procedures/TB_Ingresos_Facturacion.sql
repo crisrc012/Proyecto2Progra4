@@ -38,7 +38,7 @@ go
 
 create procedure [dbo].[sp_insert_Ingreso_factura]
 (
-	@IdPersona varchar, @Costo float
+	@IdPersona varchar (20), @Costo float
 )
 as
 insert into TB_Ingresos select a.IdCliente, a.IdMembresia, getdate() from TB_Membresias as a
@@ -49,15 +49,17 @@ insert into Tb_Facturacion select IdCliente, 'Factura', getdate(), @Costo from T
 where IdPersona = @IdPersona
 go
 
+
 create procedure [dbo].[sp_insert_detalle_factura]
 (
-	@IdPersona varchar, @Costo float, @IdTipoServicio tinyint, @Total float
+	@IdPersona varchar (20), @Costo float, @IdTipoServicio tinyint, @Total float
 )
 as
 
-insert into Tb_FacturaDetalle select max(idfactura), '', @Costo, @IdTipoServicio , b.IdTipoMembresia, 1, @Total  from Tb_Facturacion as a
+insert into Tb_FacturaDetalle select max(idfactura), '', @Costo,isnull(@IdTipoServicio,1) , b.IdTipoMembresia, 1, @Total  from Tb_Facturacion as a
 inner join TB_Membresias as b on a.IdCliente = b.IdCliente
 inner join TB_Clientes as c on b.IdCliente = c.IdCliente
 where c.IdPersona = @IdPersona
 group by b.IdTipoMembresia
-go
+GO
+
