@@ -23,7 +23,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                         Obj_Telefonos_Client.actualizarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Telefonos_Client.eliminarTelefonos(Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
+                        Obj_Telefonos_Client.eliminarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError);
                         break;
                     case BD.Filtrar:
                         Obj_Telefonos_DAL.DS.Tables.Add(Obj_Telefonos_Client.filtrarTelefonos(Obj_Telefonos_DAL.sTelefono, Obj_Telefonos_DAL.sIdPersona, ref sMsjError));

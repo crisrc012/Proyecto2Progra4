@@ -116,11 +116,11 @@ namespace Club_Campestre
                     if (chkRow.Checked)
                     {
                         Obj_Persona_DAL.sIdPersona = row.Cells[0].Text;
-                        Obj_Correos_DAL.sCorreo = row.Cells[0].Text;
-                        Obj_Telefonos_DAL.sTelefono = row.Cells[0].Text;
-                        Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Eliminar);
+                        Obj_Correos_DAL.sIdPersona = row.Cells[0].Text;
+                        Obj_Telefonos_DAL.sIdPersona = row.Cells[0].Text;
                         Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Eliminar);
                         Obj_Correos_BLL.crudCorreos(ref Obj_Correos_DAL, BD.Eliminar);
+                        Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Eliminar);
                     }
                 }
             }
@@ -132,7 +132,6 @@ namespace Club_Campestre
             else
             {
                 this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar la(s) Persona(s).";
-                this.BindGrid();
             }
         }
 

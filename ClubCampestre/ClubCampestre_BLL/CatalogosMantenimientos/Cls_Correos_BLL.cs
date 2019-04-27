@@ -51,5 +51,9 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         {
             return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(sIdCorreo, string.Empty, string.Empty), "[dbo].[sp_delete_TB_Correos]", ref sMsjError);
         }
+        public bool Eliminar(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
+        {
+            return Obj_BD_BLL.ExecuteNonQuery(inicializarDT(sIdCorreo, sIdPersona, sCorreo, true), "[dbo].[sp_delete_TB_Correos]", ref sMsjError);
+        }
     }
 }

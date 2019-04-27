@@ -25,11 +25,11 @@
             <div class="pure-controls">
                 <asp:GridView class="pure-table" ID="PersonaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" AllowPaging="True" OnPageIndexChanging="PersonaGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                     <Columns>
-                        <asp:BoundField DataField="Identificacion" HeaderText="Id Persona" />
+                        <asp:BoundField DataField="Identificacion" HeaderText="Cédula" />
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                         <asp:BoundField DataField="Direccion" HeaderText="Dirección" />
                         <asp:BoundField DataField="Rol" HeaderText="Rol" />
-                        <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                        <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
                         <asp:BoundField DataField="Correo" HeaderText="Correo" />
                         <asp:TemplateField>
                             <ItemTemplate>

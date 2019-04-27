@@ -21,7 +21,7 @@
             <div>
                 <fieldset>
                     <div class="pure-control-group">
-                        <label for="cedula">Cedula: </label>
+                        <label for="cedula">Cédula: </label>
                         <input runat="server" onkeypress="javascript:return SoloNumeros(event)" type="text" id="txtCedula" value="" style="color: #0090ff" />
                         <label for="Rol">Rol: </label>
                         <select id="DropDownRol" runat="server" name="DropDownRol" class="chosen"></select>
@@ -44,7 +44,7 @@
                     <div class="pure-controls">
                         <asp:GridView class="pure-table" ID="GridViewTelefono" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="400px" OnSelectedIndexChanged="TelefonoPersonaGridView_SelectedIndexChanged" AllowPaging="True" OnPageIndexChanging="GridViewTelefono_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                             <Columns>
-                                <asp:BoundField DataField="Telefono" HeaderText="Telefono" />
+                                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />

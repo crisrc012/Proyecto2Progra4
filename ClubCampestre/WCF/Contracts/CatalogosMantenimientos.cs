@@ -86,10 +86,10 @@ namespace WCF.Contracts
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
             return Obj_Correos_BLL.Actualizar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
-        public bool eliminarCorreos(short sIdCorreo, ref string sMsjError)
+        public bool eliminarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError)
         {
             Cls_Correos_BLL Obj_Correos_BLL = new Cls_Correos_BLL();
-            return Obj_Correos_BLL.Eliminar(sIdCorreo, ref sMsjError);
+            return Obj_Correos_BLL.Eliminar(sIdCorreo, sIdPersona, sCorreo, ref sMsjError);
         }
         #endregion
         #region Estado
@@ -344,10 +344,10 @@ namespace WCF.Contracts
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
             return Obj_Telefonos_BLL.Actualizar(Telefono, IdPersona, ref sMsj_error);
         }
-        public bool eliminarTelefonos(string Telefono, ref string sMsj_error)
+        public bool eliminarTelefonos(string Telefono, string IdPersona, ref string sMsj_error)
         {
             Cls_Telefonos_BLL Obj_Telefonos_BLL = new Cls_Telefonos_BLL();
-            return Obj_Telefonos_BLL.Eliminar(Telefono, ref sMsj_error);
+            return Obj_Telefonos_BLL.Eliminar(Telefono, IdPersona, ref sMsj_error);
         }
         #endregion
         #region Membresias

@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Shared/css/gridviews.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -30,7 +31,7 @@
                         <asp:BoundField DataField="costo" HeaderText="Costo" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
+                                <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" CssClass="ckBox" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
