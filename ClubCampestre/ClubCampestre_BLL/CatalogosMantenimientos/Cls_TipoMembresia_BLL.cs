@@ -9,21 +9,20 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
         #region Variables Globales
         private Cls_BD_BLL Obj_BD_BLL = new Cls_BD_BLL();
         #endregion
-        private DataTable inicializarDT(byte IdTipoMembresia, string Descripcion, float Costo)
+        private DataTable inicializarDT(byte IdTipoMembresia, string Descripcion, float Costo, bool bFiltrar = false)
         {
             DataTable dt = new DataTable("TipoMembresia");
             dt.Columns.Add("Parametros");
             dt.Columns.Add("Valor");
-            if (IdTipoMembresia != byte.MinValue)
+            if (IdTipoMembresia != byte.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@IdTipoMembresia", IdTipoMembresia);
             }
-            if (Descripcion != string.Empty)
+            if (Descripcion != string.Empty || bFiltrar)
             {
                 dt.Rows.Add("@Descripcion", Descripcion);
             }
-
-            if (Costo != float.MinValue)
+            if (Costo != float.MinValue || bFiltrar)
             {
                 dt.Rows.Add("@Costo", Costo);
             }
@@ -36,7 +35,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(byte IdTipoMembresia, string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoMembresia, Descripcion, Costo), "[dbo].[sp_search_TB_TipoMembresia]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoMembresia, Descripcion, Costo, true), "[dbo].[sp_search_TB_TipoMembresia]", ref sMsj_error);
         }
 
         public byte Insertar(string Descripcion, float Costo, ref string sMsj_error)
