@@ -33,7 +33,6 @@
                 <ul class="nospace">
                     <li><a href="#"><i class="fa fa-lg fa-users"></i></a></li>
                     <li class="active"><a id="idUsuario" runat="server">Usuario</a></li>
-                    <%--<li class="active"><a onclick="closeApp()" id="CerrarSesion">Salir</a></li>--%>
                 </ul>
             </div>
         </div>
@@ -44,7 +43,7 @@
         <header id="header" class="hoc clear">
             <div id="logo" class="fl_left">
                 <h1><a id="Titulo" href="index.aspx">CLUB CAMPESTRE</a></h1>
-                <p>Descanso y Relajacion a su Alcance</p>
+                <p>Descanso y Relajación a su Alcance</p>
             </div>
             <nav id="mainav" class="fl_right">
                 <ul class="clear">
@@ -55,7 +54,7 @@
                     </li>
                     <li><a class="drop" href="#">Catálogos</a>
                         <ul>
-                            <li><a href="TipoMembresia.aspx">Tipo Membresia</a></li>
+                            <li><a href="TipoMembresia.aspx">Tipo Membresía</a></li>
                             <li><a href="TipoServicio.aspx">Tipo Servicio</a></li>
                             <li><a href="Tipo_Clientes.aspx">Tipo Clientes</a></li>
                             <li><a href="Roles.aspx">Roles</a></li>

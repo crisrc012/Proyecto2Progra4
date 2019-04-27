@@ -16,17 +16,20 @@ namespace Club_Campestre
             ///Meter esto 
             if (!IsPostBack)
             {
-                this.BindGrid();
+                BindGrid(new Cls_TipoMembresia_DAL());
             }
         }
-        private void BindGrid()
+        private void BindGrid(Cls_TipoMembresia_DAL Obj_TipoMembresia_DAL, BD Accion = BD.Listar)
         {
-            Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
-            Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Listar);
+            Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, Accion);
             if (Obj_TipoMembresia_DAL.DS.Tables.Count > 0)
             {
                 TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
                 TipoMembresiaGridView.DataBind();
+            }
+            else
+            {
+                // Mostrar error, no hay datos para mostrar
             }
         }
 
@@ -68,9 +71,7 @@ namespace Club_Campestre
         {
             Obj_TipoMembresia_DAL = new Cls_TipoMembresia_DAL();
             Obj_TipoMembresia_DAL.sDescripcion = txtFiltrar.Value;
-            Obj_TipoMembresia_BLL.crudTipoMembresia(ref Obj_TipoMembresia_DAL, BD.Filtrar);
-            TipoMembresiaGridView.DataSource = Obj_TipoMembresia_DAL.DS.Tables[0];
-            TipoMembresiaGridView.DataBind();
+            BindGrid(Obj_TipoMembresia_DAL, BD.Filtrar);
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -96,25 +97,20 @@ namespace Club_Campestre
             }
             if (Obj_TipoMembresia_DAL.sMsjError == string.Empty)
             {
-                this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
-                this.BindGrid();
+                errorMensaje.InnerHtml = "Estado Eliminado con exito.";
+                BindGrid(new Cls_TipoMembresia_DAL());
             }
             else
             {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
-                this.BindGrid();
+                errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
+                BindGrid(new Cls_TipoMembresia_DAL());
             }
-        }
-
-        protected void txtFiltraTipoMembre_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         protected void TipoMembresiaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
            TipoMembresiaGridView.PageIndex = e.NewPageIndex;
-            this.BindGrid();
+            BindGrid(new Cls_TipoMembresia_DAL());
         }
     }
 }
