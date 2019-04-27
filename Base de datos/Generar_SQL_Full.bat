@@ -1,4 +1,5 @@
 @echo off
+CHCP 65001
 SET file="DB_Vistas_SP_Inserts.sql"
 type ClubCampestre.sql > %file%
 type Otros\Login.sql >> %file%
