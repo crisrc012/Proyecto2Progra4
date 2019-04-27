@@ -9,6 +9,7 @@ namespace Club_Campestre
         private string sistemaMantenimiento = "Index.aspx";
         private string sistemaCliente = "IndexCliente.aspx";
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -35,7 +36,7 @@ namespace Club_Campestre
                 Obj_Persona_DAL.bIdRol = Convert.ToByte(Obj_Usuarios_DAL.DS.Tables[0].Rows[0][1]);
                 Obj_Persona_DAL.sNombre = Obj_Usuarios_DAL.DS.Tables[0].Rows[0][0].ToString();
                 Session["Login"] = Obj_Persona_DAL;
-
+              
                 if (Obj_Persona_DAL.bIdRol == 1)
                 {
                     Response.Redirect(sistemaMantenimiento, false);                    
@@ -48,7 +49,7 @@ namespace Club_Campestre
             else
             {
                 Response.Write("<script>window.alert('Usuario No se puede Registrar o ya se encuentra registrado');</script>");
-
+             
             }
         }
 

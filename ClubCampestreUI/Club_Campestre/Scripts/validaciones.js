@@ -3,6 +3,7 @@
     w.opener = window.self;
     w.close();
     window.location = "IndexCliente.aspx";
+    document.getElementById("idUsuario").innerText = "USUARIO";
 }
 
 

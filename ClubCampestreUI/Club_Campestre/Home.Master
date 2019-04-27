@@ -20,6 +20,7 @@
                     <li class="active"><a onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-lg fa-users"></i></a></li>
                     <li class="active"><a id="idUsuario" runat="server">Usuario</a></li>
                     <li class="active"><a onclick="closeApp()" id="Salir">Salir</a></li>
+                    <li class="active"><a href="Images/ReglasdeUso .jpg" id="AcercaDe">Reglas de Uso</a></li>
                 </ul>
             </div>
         </div>
