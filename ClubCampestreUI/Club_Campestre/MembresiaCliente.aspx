@@ -25,6 +25,7 @@
             <div class="imgcontainer" style="margin: 1% auto 15% auto">
                 <span  onclick="closeApp()" class="close" title="Close Modal" >&times;</span>
                 <%--   <img src="Images/Users-icon.png" alt="Avatar" class="avatar"/>--%>
+                   <h1>Registro de Clientes</h1>
             </div>
 
             <div class="container">
@@ -59,7 +60,7 @@
             <div>
                 <label>validaciones de datos correcta?  <a onserverclick="valida_ServerClick" id="valida" runat="server"> Si... </a> <br /></label>
                 
-                <a>Los datos de beneficiarios y otros se tomaran en el momento de la visia al Club</a>
+                <a href="Images/ReglasdeUso .jpg">Los datos de beneficiarios y otros se tomaran en el momento de la visia al Club</a>
             </div>
         </div>
         <div>

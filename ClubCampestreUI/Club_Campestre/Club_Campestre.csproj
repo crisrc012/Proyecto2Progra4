@@ -71,26 +71,29 @@
     <Content Include="Clientes.aspx" />
     <Content Include="Estados.aspx" />
     <Content Include="favicon.ico" />
-    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\1-434x434.jpg" />
     <Content Include="Images\banner2.JPG" />
-    <Content Include="Images\Cabania.jpeg" />
-    <Content Include="Images\Cafe.jpeg" />
-    <Content Include="Images\Comenzar.jpg" />
     <Content Include="Images\Entrada.jpeg" />
-    <Content Include="Images\Inicio.JPG" />
-    <Content Include="Images\lugos.jpg" />
-    <Content Include="Images\Membresia.jpg" />
-    <Content Include="Images\Parrilla.jpeg" />
-    <Content Include="Images\Piscinas.jpg" />
-    <Content Include="Images\Pisciona.jpg" />
+    <Content Include="Images\gallery\Comenzar-500.jpg" />
+    <Content Include="Images\gallery\customers-500.jpg" />
+    <Content Include="Images\gallery\Peques\10.jpg" />
+    <Content Include="Images\gallery\Peques\11.jpg" />
+    <Content Include="Images\gallery\Peques\12.jpg" />
+    <Content Include="Images\gallery\Peques\13.jpg" />
+    <Content Include="Images\gallery\Peques\14.jpg" />
+    <Content Include="Images\gallery\Peques\15.jpg" />
+    <Content Include="Images\gallery\Peques\5.jpg" />
+    <Content Include="Images\gallery\Peques\6.jpg" />
+    <Content Include="Images\gallery\Peques\7.jpg" />
+    <Content Include="Images\gallery\Peques\8.jpg" />
+    <Content Include="Images\gallery\Peques\9.jpg" />
+    <Content Include="Images\gallery\Peques\images.png" />
+    <Content Include="Images\gallery\Peques\Piscina 720.jpg" />
+    <Content Include="Images\gallery\Peques\Piscina2- 720.jpg" />
+    <Content Include="Images\gallery\Peques\Vereda-720.jpg" />
     <Content Include="Images\Ranchitos.jpeg" />
-    <Content Include="Images\RanchoyLago.jpeg" />
-    <Content Include="Images\Registrarse.jpg" />
     <Content Include="Images\ReglasdeUso .jpg" />
-    <Content Include="Images\Servicios.jpg" />
-    <Content Include="Images\Trillo.jpeg" />
     <Content Include="Images\Users-icon.png" />
-    <Content Include="Images\velas.jpeg" />
     <Content Include="IndexCliente.aspx" />
     <Content Include="Mantenimiento_Tipos_De_Clientes.aspx" />
     <Content Include="Ingreso.aspx" />
@@ -373,7 +376,6 @@
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Images\gallery\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -51,7 +51,7 @@
     </section>
 
     <!-- Three -->
-    <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+    <section class="spotlight style2 orient-left content-align-left image-position-center onscroll-image-fade-in">
         <div class="content">
             <h2>Membresias</h2>
             <p>Para nuestros socios ofrecemos Membresias anuales que contienen distintos servicios incluidos ademas de ofrecer descuentos atractivos en los restaurantes del Club. Las tarifas son competitivas y se ajustan a todo tipo de cliente que valora la naturaleza y los lujos que ella ofrece...</p>
@@ -60,7 +60,7 @@
             </ul>
         </div>
         <div class="image">
-            <img src="images/Ranchitos.jpeg" alt="" />
+            <img src="Images/1-434x434.jpg" alt="" />
         </div>
 
     </section>
@@ -89,138 +89,138 @@
         <!-- Gallery -->
         <div class="gallery style2 medium lightbox onscroll-fade-in">
             <article>
-                <a href="images/Cabania.jpeg" class="image">
-                    <img src="images/Cabania.jpeg" alt="" />
+                <a href="Images/gallery/Peques/5.jpg" class="image">
+                    <img src="Images/gallery/Peques/5.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Ipsum Dolor</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Naturalez</h3>
+                    <p>Grandes espacios de terreno con las mejores escenas naturales y comodidades necesarias para el disfrute familiar.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/velas.jpeg" class="image">
-                    <img src="images/velas.jpeg" alt="" />
+                <a href="Images/gallery/Peques/6.jpg" class="image">
+                    <img src="Images/gallery/Peques/6.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Feugiat Lorem</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Naturaleza</h3>
+                    <p>Grandes espacios de terreno con las mejores escenas naturales y comodidades necesarias para el disfrute familiar.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/Parrilla.jpeg" class="image">
-                    <img src="images/Parrilla.jpeg" alt="" />
+                <a href="Images/gallery/Peques/7.jpg" class="image">
+                    <img src="Images/gallery/Peques/7.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Magna Amet</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Naturaleza</h3>
+                    <p>Grandes espacios de terreno con las mejores escenas naturales y comodidades necesarias para el disfrute familiar.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/RanchoyLago.jpeg" class="image">
-                    <img src="images/RanchoyLago.jpeg" alt="" />
+                <a href="Images/gallery/Peques/8.jpg" class="image">
+                    <img src="Images/gallery/Peques/8.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Sed Tempus</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                    <ul class="actions fixed">
-                        <li><span class="button small">Details</span></li>
-                    </ul>
-                </div>
-            </article>
-            <%--            <article>
-                <a href="images/Membresia.jpg" class="image">
-                    <img src="images/Membresia.jpg" alt="" />
-                </a>
-                <div class="caption">
-                    <h3>Ultrices Magna</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Piscinas</h3>
+                    <p>Amplias piscinas al aire libre y bajo techo, temperadas.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/06.jpg" class="image">
-                    <img src="images/gallery/thumbs/06.jpg" alt="" />
+                <a href="Images/gallery/Peques/9.jpg" class="image">
+                    <img src="Images/gallery/Peques/9.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Sed Tempus</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Piscinas</h3>
+                    <p>Amplias piscinas al aire libre y bajo techo, temperadas.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/07.jpg" class="image">
-                    <img src="images/gallery/thumbs/07.jpg" alt="" />
+                <a href="Images/gallery/Peques/10.jpg" class="image">
+                    <img src="Images/gallery/Peques/10.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Ipsum Lorem</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Cabañas</h3>
+                    <p>Cabañas con todas las comodidades necesarias para el disfrute de la naturaleza.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/08.jpg" class="image">
-                    <img src="images/gallery/thumbs/08.jpg" alt="" />
+                <a href="Images/gallery/Peques/11.jpg" class="image">
+                    <img src="Images/gallery/Peques/11.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Magna Risus</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Cabañas</h3>
+                    <p>Cabañas con todas las comodidades necesarias para el disfrute de la naturaleza.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/09.jpg" class="image">
-                    <img src="images/gallery/thumbs/09.jpg" alt="" />
+                <a href="Images/gallery/Peques/12.jpg" class="image">
+                    <img src="Images/gallery/Peques/12.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Tempus Dolor</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Restaurante</h3>
+                    <p>Amplio Menu a la carta o buffet.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/10.jpg" class="image">
-                    <img src="images/gallery/thumbs/10.jpg" alt="" />
+                <a href="Images/gallery/Peques/13.jpg" class="image">
+                    <img src="Images/gallery/Peques/13.jpg" alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Sed Etiam</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Restaurante</h3>
+                    <p>Restaurante con lo mejor de las comidas mexinas.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
-                <a href="images/gallery/fulls/11.jpg" class="image">
-                    <img src="images/gallery/thumbs/11.jpg" alt="" />
+                <a href="Images/gallery/Peques/14.jpg" class="image">
+                    <img src="Images/gallery/Peques/14.jpg"  alt="" />
                 </a>
                 <div class="caption">
-                    <h3>Magna Lorem</h3>
-                    <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                    <h3>Sauna</h3>
+                    <p>Contamos con distintos tipos de saunas con diferentes ambientes.</p>
                     <ul class="actions fixed">
                         <li><span class="button small">Details</span></li>
                     </ul>
                 </div>
             </article>
             <article>
+                <a href="Images/gallery/Peques/15.jpg" class="image">
+                    <img src="Images/gallery/Peques/15.jpg" alt="" />
+                </a>
+                <div class="caption">
+                    <h3>Saunas</h3>
+                    <p>Contamos con distintos tipos de saunas con diferentes ambientes.</p>
+                    <ul class="actions fixed">
+                        <li><span class="button small">Details</span></li>
+                    </ul>
+                </div>
+            </article>
+<%--            <article>
                 <a href="images/gallery/fulls/12.jpg" class="image">
                     <img src="images/gallery/thumbs/12.jpg" alt="" />
                 </a>
@@ -309,11 +309,11 @@
     <!-- Seven -->
     <section class="wrapper style1 align-center">
         <div class="inner medium">
-            <h2>Get in touch</h2>
+            <h2>Sugerencia Escribanos</h2>
             <div method="post" action="#" runat="server">
                 <div class="fields">
                     <div class="field half">
-                        <label for="name">Name</label>
+                        <label for="name">Nombre</label>
                         <input type="text" name="name" id="name" value="" />
                     </div>
                     <div class="field half">
@@ -321,13 +321,13 @@
                         <input type="email" name="email" id="email" value="" />
                     </div>
                     <div class="field">
-                        <label for="message">Message</label>
+                        <label for="message">Mensaje</label>
                         <textarea name="message" id="message" rows="6"></textarea>
                     </div>
                 </div>
                 <ul class="actions special">
                     <li>
-                        <input type="submit" name="submit" id="submit" value="Send Message" /></li>
+                        <input type="submit" name="submit" id="submit" value="Enviar Mensaje" /></li>
                 </ul>
             </div>
         </div>
@@ -343,7 +343,7 @@
                 <li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
                 <li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
             </ul>
-            <p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            <p>&copy; Untitled. Design: <a href="#">HTML5 UP</a>.</p>
         </div>
     </footer>
 </asp:Content>

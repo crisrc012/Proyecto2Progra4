@@ -1,11 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="RegistroCliente.aspx.cs" Inherits="Club_Campestre.RegistroCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+            <style type="text/css">
+        .background {
+            box-sizing: border-box;
+            width: 100%;
+            height: 1200px;
+            padding: 3px;
+            background-image: url(Images/fondo.jpg);
+            border: 1px solid black;
+            background-size: 100% 100%;
+            margin: auto;
+        }
+
+        .main {
+            margin: auto;
+            width: 85%;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainContent" runat="server">
     <%--Registro--%>
-            <div class="modal-content animate" action="/action_page.php" runat="server" style="margin: 1% auto 35% auto; width:50%"> 
+    <div class="background">
+        <div class="modal-content animate" action="/action_page.php" runat="server" style="margin: 1% auto 35% auto; width:50%"> 
                 <div class="imgcontainer" style="margin: 1% auto 15% auto" >
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <span   onclick="closeApp()" class="close" title="Close Modal">&times;</span>
+                    <h1>Registro de Clientes</h1>
                  <%--   <img src="Images/Users-icon.png" alt="Avatar" class="avatar"/>--%>
                 </div>
 
@@ -35,10 +54,13 @@
 
                 </div>
 
-                <div class="container" style="background-color: #f1f1f1">
-                    
-                    <button type="button" runat="server" onserverclick="Cerrar" class="cancelbtn">Cancel </button>
-                   
+                <div class="container" style="background-color: #f1f1f1">                    
+                    <button type="button" runat="server" onserverclick="Cerrar" class="cancelbtn">Cancel </button>                   
                 </div>
+            <div>
+                <a href="Images/ReglasdeUso .jpg">Los datos pendientes o extras se registraran en el ingreso al club</a>
             </div>
+            </div>
+    </div>
+            
 </asp:Content>

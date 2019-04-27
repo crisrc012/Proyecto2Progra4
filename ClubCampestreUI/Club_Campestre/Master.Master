@@ -67,7 +67,7 @@
                             <li><a href="Clientes.aspx">Clientes</a></li>
                             <li><a href="Mant_Persona.aspx">Personas</a></li>
                             <li><a href="Membresias.aspx">Membresías</a></li>
-                            <li><a href="Servicios.aspx">Servicios</a></li>
+                            <%--<li><a href="Servicios.aspx">Servicios</a></li>--%>
                         </ul>
                     </li>
                     <li><a class="drop" href="#">Seguridad</a>
