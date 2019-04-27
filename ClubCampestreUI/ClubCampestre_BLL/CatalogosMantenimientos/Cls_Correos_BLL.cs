@@ -22,7 +22,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
                         Obj_Correos_Client.actualizarCorreos(Obj_Correos_DAL.sIdCorreo, Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError);
                         break;
                     case BD.Eliminar:
-                        Obj_Correos_Client.eliminarCorreos(Obj_Correos_DAL.sIdCorreo, ref sMsjError);
+                        Obj_Correos_Client.eliminarCorreos(Obj_Correos_DAL.sIdCorreo, Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError);
                         break;
                     case BD.Filtrar:
                         Obj_Correos_DAL.DS.Tables.Add(Obj_Correos_Client.filtrarCorreos(Obj_Correos_DAL.sIdCorreo, Obj_Correos_DAL.sIdPersona, Obj_Correos_DAL.sCorreo, ref sMsjError));

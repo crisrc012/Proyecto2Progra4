@@ -2076,13 +2076,21 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public short sIdCorreo;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string sIdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public string sCorreo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=3)]
         public string sMsjError;
         
         public eliminarCorreosRequest() {
         }
         
-        public eliminarCorreosRequest(short sIdCorreo, string sMsjError) {
+        public eliminarCorreosRequest(short sIdCorreo, string sIdPersona, string sCorreo, string sMsjError) {
             this.sIdCorreo = sIdCorreo;
+            this.sIdPersona = sIdPersona;
+            this.sCorreo = sCorreo;
             this.sMsjError = sMsjError;
         }
     }
@@ -4168,13 +4176,17 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
         public string Telefono;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string IdPersona;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
         public string sMsj_error;
         
         public eliminarTelefonosRequest() {
         }
         
-        public eliminarTelefonosRequest(string Telefono, string sMsj_error) {
+        public eliminarTelefonosRequest(string Telefono, string IdPersona, string sMsj_error) {
             this.Telefono = Telefono;
+            this.IdPersona = IdPersona;
             this.sMsj_error = sMsj_error;
         }
     }
@@ -4902,9 +4914,11 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.eliminarCorreos(request);
         }
         
-        public bool eliminarCorreos(short sIdCorreo, ref string sMsjError) {
+        public bool eliminarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarCorreosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarCorreosRequest();
             inValue.sIdCorreo = sIdCorreo;
+            inValue.sIdPersona = sIdPersona;
+            inValue.sCorreo = sCorreo;
             inValue.sMsjError = sMsjError;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarCorreosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).eliminarCorreos(inValue);
             sMsjError = retVal.sMsjError;
@@ -5793,9 +5807,10 @@ namespace ClubCampestre_BLL.SVC_CatalogosMantenimientos {
             return base.Channel.eliminarTelefonos(request);
         }
         
-        public bool eliminarTelefonos(string Telefono, ref string sMsj_error) {
+        public bool eliminarTelefonos(string Telefono, string IdPersona, ref string sMsj_error) {
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosRequest inValue = new ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosRequest();
             inValue.Telefono = Telefono;
+            inValue.IdPersona = IdPersona;
             inValue.sMsj_error = sMsj_error;
             ClubCampestre_BLL.SVC_CatalogosMantenimientos.eliminarTelefonosResponse retVal = ((ClubCampestre_BLL.SVC_CatalogosMantenimientos.ICatalogosMantenimientos)(this)).eliminarTelefonos(inValue);
             sMsj_error = retVal.sMsj_error;

@@ -23,7 +23,6 @@ namespace Club_Campestre
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
             //Recorre Grid buscando chk 
             foreach (GridViewRow row in TipoServicioGridView.Rows)
             {
@@ -34,22 +33,27 @@ namespace Club_Campestre
                     CheckBox chkRow = (row.Cells[0].FindControl("chkRow") as CheckBox);
                     if (chkRow.Checked)
                     {
-                        Obj_TipoServicio_DAL.bIdTipoServicio= Convert.ToByte(row.Cells[0].Text);
-                        //llamado metodo eliminar estados
-                        Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Eliminar);// eliminar estados
+                        Obj_TipoServicio_DAL = new Cls_TipoServicio_DAL();
+                        Obj_TipoServicio_DAL.sDescripcion = WebUtility.HtmlDecode(row.Cells[0].Text);
+                        Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Filtrar); // eliminar
+                        if (Obj_TipoServicio_DAL.DS.Tables.Count > 0)
+                        {
+                            Obj_TipoServicio_DAL.bIdTipoServicio = Convert.ToByte(Obj_TipoServicio_DAL.DS.Tables[0].Rows[0][0]);
+                            //llamado metodo eliminar estados
+                            Obj_TipoServicio_BLL.crudTipoServicio(ref Obj_TipoServicio_DAL, BD.Eliminar);
+                        }
                     }
                 }
             }
             if (Obj_TipoServicio_DAL.sMsjError == string.Empty)
             {
-                this.errorMensaje.InnerHtml = "Estado Eliminado con exito.";
-                this.BindGrid();
+                this.errorMensaje.InnerHtml = "Tipo de servicio eliminado con éxito.";
             }
             else
             {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Estados.";
-                this.BindGrid();
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de Eliminar Tipo de Servicios.";
             }
+            this.BindGrid();
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
@@ -118,8 +122,7 @@ namespace Club_Campestre
             }
             else
             {
-                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar Estados.";
-                this.BindGrid();
+                this.errorMensaje.InnerHtml = "Se presento un error a la hora de listar tipos de servicio.";
             }
         }
 

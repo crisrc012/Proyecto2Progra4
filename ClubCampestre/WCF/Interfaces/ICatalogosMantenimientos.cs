@@ -43,7 +43,7 @@ namespace WCF.Interfaces
         [OperationContract]
         bool actualizarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         [OperationContract]
-        bool eliminarCorreos(short sIdCorreo, ref string sMsjError);
+        bool eliminarCorreos(short sIdCorreo, string sIdPersona, string sCorreo, ref string sMsjError);
         #endregion
         #region Estado
         [OperationContract]
@@ -154,7 +154,7 @@ namespace WCF.Interfaces
         [OperationContract]
         bool actualizarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         [OperationContract]
-        bool eliminarTelefonos(string Telefono, ref string sMsj_error);
+        bool eliminarTelefonos(string Telefono, string IdPersona, ref string sMsj_error);
         #endregion
         #region Roles
         [OperationContract]

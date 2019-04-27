@@ -14,6 +14,7 @@ namespace Club_Campestre
         private Cls_TipoServicio_BLL Obj_TipoServicio_BLL = new Cls_TipoServicio_BLL();
         private Cls_TipoServicio_DAL Obj_TipoServicio_DAL;
         private Cls_Ingreso_DAL Obj_Ingreso_DAL;
+        
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         { 
@@ -35,6 +36,10 @@ namespace Club_Campestre
             else
             {
                 DataTable dt = Obj_Ingreso_Dal.DS.Tables[0];
+                if(dt.Rows.Count == 0)
+                {
+                    Response.Write("<script>window.alert('La cédula ingresada no corresponde a ningún cliente. Por favor ingrese un cliente válido.');</script>");
+                }
                 foreach (DataRow row in dt.Rows)
                 {
                     txtnombre.Value = Convert.ToString(row[1]);
@@ -42,6 +47,7 @@ namespace Club_Campestre
                     TxtMembresia.Value = Convert.ToString(row[3]);
                     TxtCosto.Value = Convert.ToString(row[4]);
                 }
+
             }
         }
 
@@ -95,15 +101,45 @@ namespace Club_Campestre
             }
             else
             {
-                DataTable dI = Obj_Ingreso_DAL.DI.Tables[0];
-                foreach (DataRow row in dI.Rows)
+                DataTable dI= new DataTable();
+                DataColumn dcCedula = new DataColumn(@"IdPersona", typeof(string));
+                DataColumn dcNombre = new DataColumn(@"Nombre", typeof(string));
+                DataColumn dcTipo = new DataColumn(@"Tipo", typeof(string));
+                DataColumn dcCosto = new DataColumn(@"Costo", typeof(string));
+
+                dI.Columns.Add(dcCedula);
+                dI.Columns.Add(dcNombre);
+                dI.Columns.Add(dcTipo);
+                dI.Columns.Add(dcCosto);
+
+
+                foreach (GridViewRow row in GridViewInvitados.Rows)
                 {
+                    dI.Rows.Add(row.Cells[0].Text.ToString(), row.Cells[1].Text.ToString(),
+                    row.Cells[2].Text.ToString(), row.Cells[3].Text.ToString());
+              
+                }
+
+                DataTable dt = Obj_Ingreso_DAL.DI.Tables[0];
+
+                if(dt.Rows.Count == 0)
+                {
+                    Response.Write("<script>window.alert('La cedula ingresada no existe, por favor corroboré el dato o registrelo primero en el mantenimiento de personas');</script>");
+                }
+
+                else
+                {
+                    dI.Rows.Add(Obj_Ingreso_DAL.DI.Tables[0].Rows[0][0].ToString(), Obj_Ingreso_DAL.DI.Tables[0].Rows[0][1].ToString(), 
+                    Obj_Ingreso_DAL.DI.Tables[0].Rows[0][2].ToString(), Obj_Ingreso_DAL.DI.Tables[0].Rows[0][3].ToString());
+                foreach (DataRow row in dI.Rows)
+                {   
                     GridViewInvitados.DataSource = dI;
                     GridViewInvitados.DataBind();
                     this.txtInvitado.Value = string.Empty;
                 }
             }
         }
+    }
 
         protected void Btntotalizar_Click(object sender, EventArgs e)
         {
@@ -135,7 +171,18 @@ namespace Club_Campestre
 
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
-            Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
+            float Total;
+            if (TxtTotal.Value == string.Empty)
+            {
+                Response.Write("<script>window.alert('Primero debe totalizar para poder facturar');</script>");
+            }
+            
+           
+
+            else
+            {
+                Total = Convert.ToSingle(TxtTotal.Value);
+                Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
             Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
             Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.Trim());
             Obj_Ingreso_BLL.Insertar_Ingreso_Factura(ref Obj_Ingreso_DAL);
@@ -164,11 +211,33 @@ namespace Club_Campestre
                     }
                 }
             }
-        }
 
-        protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
+            
+            if (Total == 0)
+            {
+                Response.Write("<script>window.alert('Ingreso realizado de forma correcto');</script>");
+            }
+            else
+            {
+                Response.Write("<script>window.alert('Factura ingresada de forma correcta');</script>");
+            }
+
+            
+
+        }
+    }
+
+    protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
         {
             // Quitar invitado del grid view
+        }
+
+        private void CrearTableBeneficiarios()
+        {
+  
+            
+
+
         }
     }
 }

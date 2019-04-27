@@ -35,7 +35,7 @@ namespace ClubCampestre_BLL.CatalogosMantenimientos
 
         public DataTable Filtrar(byte IdTipoServicio, string Descripcion, float Costo, ref string sMsj_error)
         {
-            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoServicio, Descripcion, Costo, true), "[dbo].[sp_search_TB_TipoServicio]", ref sMsj_error).Copy();
+            return Obj_BD_BLL.ExecuteDataAdapter(inicializarDT(IdTipoServicio, Descripcion, Costo, true), "[dbo].[sp_search_TB_TipoServicio]", ref sMsj_error);
         }
 
         public byte Insertar(string Descripcion, float Costo, ref string sMsj_error)

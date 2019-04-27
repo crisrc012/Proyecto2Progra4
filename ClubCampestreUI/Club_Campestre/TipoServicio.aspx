@@ -14,7 +14,7 @@
                 </header>
             </div>
             <div class="pure-controls">
-                <input type="button" class="pure-button pure-button-primary" id="btnEliminar" runat="server" value="Eliminar" onserverclick="btnEliminar_Click" />
+                <input type="button" class="pure-button pure-button-primary" id="btnEliminar" runat="server" value="Eliminar" onserverclick="btnEliminar_Click" Tol />
                 <input type="button" class="pure-button pure-button-primary" id="btnEditar" runat="server" value="Editar" onserverclick="btnEditar_Click" />
                 <input type="button" class="pure-button pure-button-primary" id="btnNuevo" runat="server" value="Nuevo" onserverclick="btnNuevo_Click" />
                 <input type="text" id="txtFiltrar" runat="server" onkeypress="return NoEnterBuscar(event)" style="color: blue" />
@@ -26,8 +26,7 @@
                 <asp:GridView class="pure-table" ID="TipoServicioGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="304px" AllowPaging="True" OnPageIndexChanging="TipoServicioGridView_PageIndexChanging" PageSize="5"
                     PagerStyle-CssClass="pagingDiv">
                     <Columns>
-                        <asp:BoundField DataField="IdTipoServicio" HeaderText="Tipo de Servicio" />
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                         <asp:BoundField DataField="Costo" HeaderText="Costo" />
                         <asp:TemplateField>
                             <ItemTemplate>

@@ -23,7 +23,7 @@ select @count = count(IdPersona) from TB_Beneficiarios
 where IdPersona = @IdPersona
 if (@count != 0) 
 begin
-select a.IdPersona as IdPersona, b.Nombre as Nombre, 'Beneficiario' as Tipo, (d.costo/16) as costo from TB_Beneficiarios as a
+select a.IdPersona as IdPersona, b.Nombre as Nombre, 'Beneficiario' as Tipo, 5 as costo from TB_Beneficiarios as a
 inner join TB_Persona as b on a.IdPersona = b.IdPersona
 inner join TB_Membresias as c on a.IdCliente = c.IdCliente
 inner join TB_TipoMembresia as d on c.IdTipoMembresia = d.IdTipoMembresia
@@ -31,33 +31,48 @@ inner join TB_TipoMembresia as d on c.IdTipoMembresia = d.IdTipoMembresia
  end
 else
 begin
-select  a.IdPersona as IdPersona, a.Nombre as Nombre, 'Beneficiario' as Tipo, 5000 as costo from TB_Persona as a
+select  a.IdPersona as IdPersona, a.Nombre as Nombre, 'Beneficiario' as Tipo, 10 as costo from TB_Persona as a
  where a.IdPersona = @IdPersona
  end
 go
 
 create procedure [dbo].[sp_insert_Ingreso_factura]
 (
-	@IdPersona varchar, @Costo float
+	@IdPersona varchar (20), @Costo float
 )
 as
+
+if(@Costo > 0)
+begin
 insert into TB_Ingresos select a.IdCliente, a.IdMembresia, getdate() from TB_Membresias as a
 inner join TB_Clientes as b on a.IdCliente = b.IdCliente
 inner join  TB_Persona as c on  b.IdPersona = c.IdPersona
 where c.IdPersona = @IdPersona
 insert into Tb_Facturacion select IdCliente, 'Factura', getdate(), @Costo from TB_Clientes 
 where IdPersona = @IdPersona
+end
+
+else
+begin
+insert into TB_Ingresos select a.IdCliente, a.IdMembresia, getdate() from TB_Membresias as a
+inner join TB_Clientes as b on a.IdCliente = b.IdCliente
+inner join  TB_Persona as c on  b.IdPersona = c.IdPersona
+where c.IdPersona = @IdPersona
+end
 go
+
+
 
 create procedure [dbo].[sp_insert_detalle_factura]
 (
-	@IdPersona varchar, @Costo float, @IdTipoServicio tinyint, @Total float
+	@IdPersona varchar (20), @Costo float, @IdTipoServicio tinyint, @Total float
 )
 as
 
-insert into Tb_FacturaDetalle select max(idfactura), '', @Costo, @IdTipoServicio , b.IdTipoMembresia, 1, @Total  from Tb_Facturacion as a
+insert into Tb_FacturaDetalle select max(idfactura), '', @Costo,isnull(@IdTipoServicio,1) , b.IdTipoMembresia, 1, @Total  from Tb_Facturacion as a
 inner join TB_Membresias as b on a.IdCliente = b.IdCliente
 inner join TB_Clientes as c on b.IdCliente = c.IdCliente
 where c.IdPersona = @IdPersona
 group by b.IdTipoMembresia
-go
+GO
+

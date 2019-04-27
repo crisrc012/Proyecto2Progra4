@@ -742,6 +742,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="sIdCorreo" type="xs:short" />
+        <xs:element minOccurs="0" name="sIdPersona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sCorreo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsjError" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1769,6 +1771,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IdPersona" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sMsj_error" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

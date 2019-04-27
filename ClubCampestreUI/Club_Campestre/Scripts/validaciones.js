@@ -110,3 +110,13 @@ function VALIDA_INPUT_TEXT() {
 
 }
 
+$(function () {
+    $('.ckBox').bind('change', function () {
+        if ($(this).is(":checked")) {
+            $('.ckBox').attr('disabled', 'disabled');
+            $(this).removeAttr('disabled'); //show checkbox has been checked
+        } else {
+            $('.ckBox').removeAttr('disabled'); //Disable all checkboxes
+        } return false;
+    });
+});

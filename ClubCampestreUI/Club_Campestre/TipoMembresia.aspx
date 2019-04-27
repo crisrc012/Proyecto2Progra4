@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Shared/css/gridviews.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
@@ -25,12 +26,12 @@
             <div class="pure-controls">
                 <asp:GridView class="pure-table" ID="TipoMembresiaGridView" runat="server" AutoGenerateColumns="false" ForeColor="Blue" Height="156px" Width="304px" AllowPaging="True" OnPageIndexChanging="TipoMembresiaGridView_PageIndexChanging" PageSize="5" PagerStyle-CssClass="pagingDiv">
                     <Columns>
-                        <asp:BoundField DataField="IdTipoMembresia" HeaderText="Tipo de Mebresia" />
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                        <asp:BoundField DataField="IdTipoMembresia" HeaderText="Tipo de Membresía" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                         <asp:BoundField DataField="costo" HeaderText="Costo" />
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" />
+                                <asp:CheckBox ID="chkRow" runat="server" ItemStyle-Width="5" CssClass="ckBox" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
