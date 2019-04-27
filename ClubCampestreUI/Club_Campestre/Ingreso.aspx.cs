@@ -172,9 +172,17 @@ namespace Club_Campestre
         protected void btnFacturar_Click(object sender, EventArgs e)
         {
             float Total;
-            Total = Convert.ToSingle(TxtTotal.Value);
-          
-            Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
+            if (TxtTotal.Value == string.Empty)
+            {
+                Response.Write("<script>window.alert('Primero debe totalizar para poder facturar');</script>");
+            }
+            
+           
+
+            else
+            {
+                Total = Convert.ToSingle(TxtTotal.Value);
+                Obj_Ingreso_DAL = new Cls_Ingreso_DAL();
             Obj_Ingreso_DAL.sIdPersona = txtCedula.Value;
             Obj_Ingreso_DAL.fCosto = Convert.ToSingle(TxtTotal.Value.Trim());
             Obj_Ingreso_BLL.Insertar_Ingreso_Factura(ref Obj_Ingreso_DAL);
@@ -204,6 +212,7 @@ namespace Club_Campestre
                 }
             }
 
+            
             if (Total == 0)
             {
                 Response.Write("<script>window.alert('Ingreso realizado de forma correcto');</script>");
@@ -213,7 +222,10 @@ namespace Club_Campestre
                 Response.Write("<script>window.alert('Factura ingresada de forma correcta');</script>");
             }
 
+            
+
         }
+    }
 
     protected void btnremoverInvitado_ServerClick(object sender, EventArgs e)
         {
