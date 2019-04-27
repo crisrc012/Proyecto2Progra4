@@ -239,55 +239,55 @@
     <!-- Six -->
     <section class="wrapper style1 align-center">
         <div class="inner">
-            <h2>Ipsum sed consequat</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
+            <h2>Servicios que puede disfrutar...</h2>
+            <p>Disfurte de nuestras zonas recreativas en compañia de su familia y amigos. Contamos con Cancha sintetica, agradables piscinas, canchas de voleibol, zona barbecue, gimnacion y todo lo necesario para un ambiente de relajacion y diversion.</p>
             <div class="items style1 medium onscroll-fade-in">
                 <section>
                     <span class="icon style2 major fa-diamond"></span>
-                    <h3>Lorem</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Membresia GOLD</h3>
+                    <p>Membresia Anual para todos los dias de la semana; con acceso ilimitado a todos nuestros servicios incluyendo servicio buffet en nuestro Restaurante MataBurros Mexican Food y Spa.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-save"></span>
-                    <h3>Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Membresia SILVER</h3>
+                    <p>Membresia Anual para cuatro los dias de la semana incluyendo fines de semana; con acceso ilimitado a todos nuestros servicios incluyendo servicio buffet en nuestro Restaurante MataBurros Mexican Food.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-bar-chart"></span>
-                    <h3>Dolor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Membresia BRONZE</h3>
+                    <p>Membresia Anual para cuatro los dias de la semana; con acceso ilimitado a todas las zonas recreativas y descuentos en el restaurante.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-wifi"></span>
-                    <h3>Amet</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Piscina</h3>
+                    <p>Dentro de nuestras instalaciones se encuentras refrescantes piscinas, incluyento una olimpica con servicio de salvavidas e instrutor de natacion.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-cog"></span>
-                    <h3>Magna</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Cabañas</h3>
+                    <p> Todas nuestras Cabañas se encuentran equipadas con minicocina, television po cable, agua caliente y una pequeña terraza para su descanso y comodidad en su estadia.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-paper-plane"></span>
-                    <h3>Tempus</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Ranchos para fiestas BBQ</h3>
+                    <p>Tenemos disponibles veinte ranchos de distintos tamaños con su propia parrilla y refrigeradora al aire libre rodeado de naturales.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-desktop"></span>
-                    <h3>Aliquam</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Gimnasio</h3>
+                    <p>Maquinaria con lo utlimo en tecnologia para su entrenamiento, contamos con equipo de mediciones e instructores que le ayudaran a cumplir sus metas.</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-refresh"></span>
-                    <h3>Elit</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Canchas</h3>
+                    <p>Tenemos tres canchas para actividades deportivas variadas como voleibol, tenis, futbol y basquetball</p>
                 </section>
                 <section>
                     <span class="icon style2 major fa-hashtag"></span>
-                    <h3>Morbi</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
+                    <h3>Restarurante Mataburros</h3>
+                    <p>Le ofrecemos un amplio menu con especialidades al estilo mexicano, nuestro chef se encargara de darle a su paladar una experiencia unica.</p>
                 </section>
-                <section>
+                <%--<section>
                     <span class="icon style2 major fa-bolt"></span>
                     <h3>Turpis</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
@@ -301,7 +301,7 @@
                     <span class="icon style2 major fa-leaf"></span>
                     <h3>Risus</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dui turpis, cursus eget orci amet aliquam congue semper. Etiam eget ultrices risus nec tempor elit.</p>
-                </section>
+                </section>--%>
             </div>
         </div>
     </section>
