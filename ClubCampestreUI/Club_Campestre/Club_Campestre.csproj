@@ -88,9 +88,6 @@
     <Content Include="Images\gallery\Peques\8.jpg" />
     <Content Include="Images\gallery\Peques\9.jpg" />
     <Content Include="Images\gallery\Peques\images.png" />
-    <Content Include="Images\gallery\Peques\Piscina 720.jpg" />
-    <Content Include="Images\gallery\Peques\Piscina2- 720.jpg" />
-    <Content Include="Images\gallery\Peques\Vereda-720.jpg" />
     <Content Include="Images\Ranchitos.jpeg" />
     <Content Include="Images\ReglasdeUso .jpg" />
     <Content Include="Images\Users-icon.png" />
@@ -154,6 +151,7 @@
     <Content Include="Shared\sass\main.scss" />
     <Content Include="Shared\sass\noscript.scss" />
     <Content Include="Home.Master" />
+    <None Include="Properties\PublishProfiles\ClubCampestreUI.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
