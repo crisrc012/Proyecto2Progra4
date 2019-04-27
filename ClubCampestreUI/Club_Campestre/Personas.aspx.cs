@@ -67,20 +67,6 @@ namespace Club_Campestre
             }
         }
 
-        protected void DropDownListRol_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void CorreoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TelefonoPersonaGridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void CargarRoles()
         {
             Cls_Rol_DAL Obj_Rol_DAL = new Cls_Rol_DAL();
@@ -91,10 +77,10 @@ namespace Club_Campestre
             DropDownRol.DataBind();
         }
 
-        //Boton de Telefono 
+        //Botón de Teléfono 
         protected void btnAgregar2_Click1(object sender, EventArgs e)
         {
-            // Agregra Telefono
+            // Agregrar Teléfono
             if (txtTelefono.Value.Trim() == string.Empty)
             {
                 return;
@@ -130,6 +116,7 @@ namespace Club_Campestre
 
         protected void btnRemover2_Click1(object sender, EventArgs e)
         {
+            // Quitar teléfono
             DataTable tabla = new DataTable();
             tabla.Columns.Add("telefono");
             if (ViewState["tablatelefono"] == null)
@@ -247,40 +234,47 @@ namespace Club_Campestre
             {
                 Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Actualizar);
             }
-            else
+            if ((BD)Session["tipo"] == BD.Insertar)
             {
                 Obj_Persona_BLL.crudPersona(ref Obj_Persona_DAL, BD.Insertar);
             }
             #region Telefono 
-            foreach (GridViewRow row in GridViewTelefono.Rows)
+            if (BD.Insertar.Equals((BD)Session["tipo"]))
             {
-                //busca el la fila
-                if (row.RowType == DataControlRowType.DataRow)
+                foreach (GridViewRow row in GridViewTelefono.Rows)
                 {
+                    //busca el la fila
+                    if (row.RowType == DataControlRowType.DataRow)
                     {
-                        Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
-                        Obj_Telefonos_DAL.sTelefono = row.Cells[0].Text;
-                        Obj_Telefonos_DAL.sIdPersona = txtCedula.Value.ToString().Trim();
-                        Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
+                        {
+                            Obj_Telefonos_DAL = new Cls_Telefonos_DAL();
+                            Obj_Telefonos_DAL.sTelefono = row.Cells[0].Text;
+                            Obj_Telefonos_DAL.sIdPersona = txtCedula.Value.ToString().Trim();
+                            Obj_Telefonos_BLL.crudTelefono(ref Obj_Telefonos_DAL, BD.Insertar);//   insertar
+                        }
                     }
                 }
             }
             #endregion 
             //-Aqui agrego el de correo foreach 
             #region Correo
-            foreach (GridViewRow row in CorreoPersonaGridView.Rows)
+            if (BD.Insertar.Equals((BD)Session["tipo"]))
             {
-                //busca el la fila
-                if (row.RowType == DataControlRowType.DataRow)
+                foreach (GridViewRow row in CorreoPersonaGridView.Rows)
                 {
+                    //busca el la fila
+                    if (row.RowType == DataControlRowType.DataRow)
                     {
-                        Obj_Correo_DAL = new Cls_Correos_DAL();
-                        Obj_Correo_DAL.sIdPersona = this.txtCedula.Value.ToString().Trim();
-                        Obj_Correo_DAL.sCorreo = row.Cells[0].Text;
-                        Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Insertar);//  insertar
+                        {
+                            Obj_Correo_DAL = new Cls_Correos_DAL();
+                            Obj_Correo_DAL.sIdPersona = this.txtCedula.Value.ToString().Trim();
+                            Obj_Correo_DAL.sCorreo = row.Cells[0].Text;
+                            Obj_Correo_BLL.crudCorreos(ref Obj_Correo_DAL, BD.Insertar);//  insertar
+                        }
                     }
                 }
             }
+            
             #endregion
             Response.Redirect(pantallaMantenimiento, true);
         }
